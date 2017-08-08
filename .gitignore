@@ -1,0 +1,10 @@
+.DS_Store
+.idea
+*.map
+node_modules
+bundle.min.js
+resources
+temp
+.vscode
+*.log
+*.log.*
