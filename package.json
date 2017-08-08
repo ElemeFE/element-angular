@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp && gulp build:watch",
-    "ex": "webpack-dev-server --config build/webpack.dev.js --inline --progress --port 8080"
+    "ex": "webpack-dev-server --config build/webpack.dev.js --inline --progress --port 1338"
   },
   "author": "WittBulter",
   "license": "ISC",
