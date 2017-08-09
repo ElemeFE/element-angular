@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core'
 })
 export class RadioComponent implements OnInit {
   
-  private test: string = 'xixi'
+  private test: string = 'test2'
   
   ngOnInit(): void {
   }
