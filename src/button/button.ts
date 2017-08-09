@@ -7,7 +7,7 @@ import { ElButtonConfig } from './button-config'
   template: `
   <button (click)="clickHandle($event)"
     [disabled]="disabled"
-    [ngClass]="classes"
+    [ngClass]="classes()"
     [type]="nativeType"
     [class]="'el-button' + (themeType && ' el-button--' + themeType) + (size && ' el-button--' + size)"
     [autofocus]="autofocus">
