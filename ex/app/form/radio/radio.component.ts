@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit,  } from '@angular/core'
 
 @Component({
   selector: 'my-radio',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core'
 export class RadioComponent implements OnInit {
   
   private test: string = 'test2'
+  private btn: string = 'btn2'
   
   ngOnInit(): void {
   }

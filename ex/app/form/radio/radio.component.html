@@ -1,8 +1,16 @@
 <h2>radio</h2>
 
+<p>single</p>
 <el-radio label="选项1"></el-radio>
 
-<el-radio-group>
-  <el-radio [label]="'test1'" [(model)]="test"></el-radio>
-  <el-radio [label]="'test2'" [(model)]="test"></el-radio>
+<p>group</p>
+<el-radio-group [(model)]="test">
+  <el-radio [label]="'test1'"></el-radio>
+  <el-radio [label]="'test2'"></el-radio>
+</el-radio-group>
+
+<p>button group</p>
+<el-radio-group [(model)]="btn">
+  <el-radio-button [label]="'btn1'"></el-radio-button>
+  <el-radio-button [label]="'btn2'"></el-radio-button>
 </el-radio-group>
