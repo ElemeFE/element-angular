@@ -7,6 +7,11 @@ export const appRoutes: Routes = [
     loadChildren: './basic/basic.module#BasicModule',
     data: { preload: true },
   },
+  {
+    path: 'form',
+    loadChildren: './form/form.module#FormModule',
+    data: { preload: true },
+  },
   {path: '', redirectTo: '/basic', pathMatch: 'full' },
 ]
 

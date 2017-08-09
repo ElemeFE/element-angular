@@ -1,27 +1,25 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
-import { BasicRoutingModule } from './basic.routing'
+import { FormRoutingModule } from './form.routing'
 import { ElModule } from '../../../src/index'
 
 import { MainComponent } from './main/main.component'
-import { ButtonComponent } from './button/button.component'
-import { IconComponent } from './icon/icon.component'
+import { RadioComponent } from './radio/radio.component'
 
 @NgModule({
   declarations: [
     MainComponent,
-    ButtonComponent,
-    IconComponent,
+    RadioComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    BasicRoutingModule,
+    FormRoutingModule,
     ElModule,
   ],
   exports: [MainComponent],
   providers: [],
 })
-export class BasicModule {
+export class FormModule {
 }
