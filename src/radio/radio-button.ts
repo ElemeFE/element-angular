@@ -3,24 +3,21 @@ import { ElRadioConfig } from './radio-config'
 import { RadioGroupConfig, Label, ClassesType } from './radio.interface'
 
 @Component({
-  selector: 'el-radio',
+  selector: 'el-radio-button',
   template: `
-    <label class="el-radio">
-      <span class="el-radio__input" [ngClass]="classes()">
-        <span class="el-radio__inner"></span>
-        <input class="el-radio__original" type="radio"
-          [value]="label" [name]="nativeName" [disabled]="disabled"
-          (focus)="isFocus = true" (blur)="isFocus = false"
-          [ngModel]="model" (ngModelChange)="changeHandle()">
-      </span>
-      <span class="el-radio__label" #content>
+    <label [class]="'el-radio-button' + (size ? ' el-radio-button--' + size : '')"
+      [ngClass]="classes()">
+      <input class="el-radio-button__orig-radio" type="radio"
+        [value]="label" [name]="nativeName" [disabled]="disabled"
+        [ngModel]="model" (ngModelChange)="changeHandle()">
+      <span class="el-radio-button__inner" [ngStyle]="model === label && activeStyle()" #content>
         <ng-content></ng-content>
         <span *ngIf="showLabel">{{label}}</span>
       </span>
     </label>
   `,
 })
-export class ElRadio implements AfterContentInit {
+export class ElRadioButton implements AfterContentInit {
   
   @ViewChild('content') content: any
   
@@ -36,16 +33,26 @@ export class ElRadio implements AfterContentInit {
     this.nativeName = config.nativeName
   }
   
-  private isFocus: boolean = false
+  private size: string
   private showLabel: boolean = false
   private isGroup: boolean = false
+  private fillColor: string
+  private textColor: string
   private modelChangeFromGroup: Function
   
   classes(): ClassesType {
     return {
       'is-disabled': this.disabled,
-      'is-checked': this.model === this.label,
-      'is-focus': this.isFocus,
+      'is-active': this.model === this.label,
+    }
+  }
+  
+  activeStyle() {
+    return {
+      backgroundColor: this.fillColor || '',
+      borderColor: this.fillColor || '',
+      boxShadow: this.fillColor ? `-1px 0 0 0 ${this.fillColor}` : '',
+      color: this.textColor || '',
     }
   }
   
@@ -58,6 +65,9 @@ export class ElRadio implements AfterContentInit {
   
   _fromParentSet(configFromGroup: RadioGroupConfig): void {
     this.isGroup = true
+    this.size = configFromGroup.buttonSize
+    this.fillColor = configFromGroup.fillColor
+    this.textColor = configFromGroup.textColor
     this.disabled = configFromGroup.disabled
     this.modelChangeFromGroup = configFromGroup.modelChange
   }

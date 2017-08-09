@@ -1,15 +1,17 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { ElRadio } from './radio'
+import { FormsModule } from '@angular/forms'
 import { ElRadioGroup } from './radio-group'
+import { ElRadioButton } from './radio-button'
 import { ElRadioConfig } from './radio-config'
+import { ElRadio } from './radio'
 
 
 @NgModule({
-  declarations: [ElRadio, ElRadioGroup],
-  exports: [ElRadio, ElRadioGroup],
-  imports: [CommonModule],
-  entryComponents: [ElRadio, ElRadioGroup],
+  declarations: [ElRadio, ElRadioGroup, ElRadioButton],
+  exports: [ElRadio, ElRadioGroup, ElRadioButton],
+  imports: [CommonModule, FormsModule],
+  entryComponents: [ElRadio, ElRadioGroup, ElRadioButton],
 })
 export class ElRadiosModule {
   static forRoot(): ModuleWithProviders {
