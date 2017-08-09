@@ -11,10 +11,10 @@ import { ElRadio } from './radio'
 })
 export class ElRadioGroup implements AfterContentInit {
   
-  
   @Input('size') buttonSize: string
   @Input('fill') fillColor: string = '#20a0ff'
   @Input() textColor: string
+  @Input() disabled: boolean = false
   
   @ContentChild(ElRadio) radioTmp: ElRadio
   
@@ -27,6 +27,7 @@ export class ElRadioGroup implements AfterContentInit {
       buttonSize: this.buttonSize,
       fillColor: this.fillColor,
       textColor: this.textColor,
+      disabled: this.disabled,
     })
   }
   

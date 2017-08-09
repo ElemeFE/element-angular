@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, AfterContentInit } from '@angular/core'
+import { Component, Input, ViewChild, AfterContentInit, Output, EventEmitter } from '@angular/core'
 import { ElRadioConfig } from './radio-config'
 
 export type Label = string | boolean | number
@@ -7,21 +7,18 @@ export type GroupConfigType = {
   buttonSize?: string,
   fillColor?: string,
   textColor?: string,
+  disabled: boolean,
 }
 
 @Component({
   selector: 'el-radio',
   template: `
     <label class="el-radio">
-      <span class="el-radio__input" [ngClass]="classes">
+      <span class="el-radio__input" [ngClass]="classes()">
         <span class="el-radio__inner"></span>
         <input class="el-radio__original" type="radio"
-          [value]="label"
-          ngModel="model"
-          (focus)="isFocus = true"
-          (blur)="isFocus = false"
-          [name]="nativeName"
-          [disabled]="isDisabled">
+          [value]="label" [name]="nativeName" [disabled]="disabled"
+          (focus)="isFocus = true" (blur)="isFocus = false" (change)="changeHandle($event)">
       </span>
       <span class="el-radio__label" #content>
         <ng-content></ng-content>
@@ -37,7 +34,9 @@ export class ElRadio implements AfterContentInit {
   @Input() disabled: boolean
   @Input() label: Label
   @Input('name') nativeName: string
-  @Input('model') ComponentModel: any
+  @Input('model') model: any
+  
+  @Output('model') change = new EventEmitter<any>()
   
   constructor(private config: ElRadioConfig) {
     this.disabled = config.disabled
@@ -45,34 +44,31 @@ export class ElRadio implements AfterContentInit {
     this.nativeName = config.nativeName
   }
   
-  private model: any
+  private radioModel: any
   private isFocus: boolean = false
   private showLabel: boolean = false
-  private useParentConfig: boolean = false
+  
+  private isGroup: boolean = false
   
   classes(): ClassesType {
     return {
-      'is-disabled': this.isDisabled,
+      'is-disabled': this.disabled,
       'is-checked': this.model === this.label,
       'is-focus': this.isFocus,
     }
   }
   
-  isGroup(): boolean {
-    
-    return false
-  }
-  
-  isDisabled(): boolean {
-    return false
+  changeHandle($event: Event): void {
+    this.model = this.label
+    this.change.emit(this.label)
   }
   
   _fromParentSet(configFromGroup: GroupConfigType): void {
-    this.useParentConfig = true
+    this.isGroup = true
+    this.disabled = configFromGroup.disabled
   }
   
   ngAfterContentInit() {
-    console.log(this.ComponentModel)
     this.showLabel = this.content.nativeElement.children.length <= 0
   }
   
