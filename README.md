@@ -27,6 +27,7 @@
 todo(priority):  
 
 - [x] example compiler and lift
+- [x] github pages
 - [ ] karma gulp task
 - [ ] improve tslint
 - [ ] add developer.md
