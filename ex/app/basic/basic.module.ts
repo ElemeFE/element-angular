@@ -6,11 +6,13 @@ import { ElModule } from '../../../src/index'
 
 import { MainComponent } from './main/main.component'
 import { ButtonComponent } from './button/button.component'
+import { IconComponent } from './icon/icon.component'
 
 @NgModule({
   declarations: [
     MainComponent,
     ButtonComponent,
+    IconComponent,
   ],
   imports: [
     CommonModule,

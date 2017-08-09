@@ -1,3 +1,8 @@
 <h2>button</h2>
 
 <el-button [type]="'success'" [loading]="false" (onClick)="clickHandler()">test</el-button>
+
+<el-button-group>
+  <el-button [type]="'info'" [loading]="false" (onClick)="clickHandler()">next</el-button>
+  <el-button [type]="'info'" [loading]="false" (onClick)="clickHandler()">pre</el-button>
+</el-button-group>
