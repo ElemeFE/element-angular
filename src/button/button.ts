@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, ContentChild, ChangeDetectionStrategy} from '@angular/core'
+import { ElButtonConfig } from './button-config'
 
 @Component({
   selector: 'el-button',
@@ -22,15 +23,17 @@ export class ElButton {
   @Input('native-type') nativeType: string = ''
   @Input() size: string = ''
   @Input() icon: string = ''
-  @Input() disabled: boolean = false
-  @Input() loading: boolean = false
-  @Input() plain: boolean = false
-  @Input() autofocus: boolean = false
-  
+  @Input() disabled: boolean
+  @Input() loading: boolean
+  @Input() plain: boolean
+  @Input() autofocus: boolean
   @Output() click = new EventEmitter<any>()
   
-  constructor(
-  ) {
+  constructor(private config: ElButtonConfig) {
+    this.disabled = config.disabled
+    this.loading = config.loading
+    this.plain = config.plain
+    this.autofocus = config.autofocus
   }
   
   classes() {
