@@ -17,9 +17,10 @@ const PATHS = {
   src: ['src/**/*.ts', '!src/**/*.spec.ts', '!ex/**/*.ts'],
   templates: ['src/**/*.html'],
   exampleDist: 'ex/dist',
-  dist: '/release/',    // tsc compiler
-  bundle: '/bundle/',   // umd file
-  temp: 'temp/',        // ngc compiler
+  release: '/release/',    // tsc compiler
+  bundle: '/bundle/',      // umd file
+  temp: 'temp/',           // ngc compiler
+  publish: '/dist/',       // publish
   spec: ['src/**/*.ts', 'test/{util,mock}/*.ts'],
   typings: 'typings/index.d.ts',
   tsInline: 'temp/inline/',
@@ -54,7 +55,7 @@ gulp.task('bundle', done => {
   webpack({
     devtool: 'source-map',
     resolve: { extensions: ['.js'] },
-    entry: path.join(__dirname, PATHS.dist, 'index.js'),
+    entry: path.join(__dirname, PATHS.release, 'index.js'),
     output: {
       path: path.join(__dirname, PATHS.bundle),
       filename: 'element-angular.js',
@@ -67,7 +68,7 @@ gulp.task('bundle', done => {
   })
 })
 
-gulp.task('clean', () => del([PATHS.dist, PATHS.temp, PATHS.bundle]))
+gulp.task('clean', () => del([PATHS.release, PATHS.temp, PATHS.bundle, PATHS.publish]))
 gulp.task('clean:ex', () => del([PATHS.exampleDist]))
 
 gulp.task('build', gulp.series('clean', 'compile', 'bundle'))

@@ -11,7 +11,7 @@ module.exports = webpackMerge(baseConfig, {
   
   output: {
     path: helpers.root('dist'),
-    publicPath: '/ex/',
+    publicPath: '/element-angular/',
     filename: '[name].[hash].js',
     chunkFilename: '[id].[hash].chunk.js',
   },

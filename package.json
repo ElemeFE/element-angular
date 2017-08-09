@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp && gulp build:watch",
-    "ex": "webpack-dev-server --config build/webpack.dev.js --inline --progress --port 1338"
+    "ex": "webpack-dev-server --config build/webpack.dev.js --inline --progress --port 1338",
+    "publish": "webpack --config build/webpack.prod.js && node build/publish.js"
   },
   "author": "WittBulter",
   "license": "ISC",
@@ -23,12 +24,14 @@
     "@types/node": "^6.0.56",
     "angular-router-loader": "^0.6.0",
     "angular2-template-loader": "^0.6.2",
+    "app-root-path": "^2.0.1",
     "awesome-typescript-loader": "^3.2.2",
     "core-js": "^2.5.0",
     "css-loader": "^0.28.4",
     "del": "^3.0.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
+    "gh-pages": "^1.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-cached": "^1.1.1",
     "gulp-tslint": "^8.1.1",
