@@ -1,14 +1,15 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { ElButtonsModule } from './button/module'
 import { ElIconsModule } from './icon/module'
+import { ElRadiosModule } from './radio/module'
 
 const ElMODULES = [
-  ElButtonsModule, ElIconsModule,
+  ElButtonsModule, ElIconsModule, ElRadiosModule,
 ]
 
 @NgModule({
   imports: [
-    ElButtonsModule.forRoot(), ElIconsModule.forRoot()
+    ElButtonsModule.forRoot(), ElIconsModule.forRoot(), ElRadiosModule.forRoot(),
   ],
   exports: ElMODULES
 })
