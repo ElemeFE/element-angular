@@ -4,6 +4,8 @@
  *
  */
 
+import { log } from 'util'
+
 type Shape = { width: number, height: number }
 type ClientRect = {
   width: number,
@@ -105,7 +107,7 @@ const getHiddenShape = (el: HTMLElement) => {
   el.style.top = '-5000px'
   el.style.display = 'block'
   
-  const shape: Shape = { width: el.offsetWidth + 10, height: el.offsetHeight }
+  const shape: Shape = { width: el.offsetWidth, height: el.offsetHeight }
   el.style.position = _old.position
   el.style.left = _old.left
   el.style.top = _old.top
@@ -123,37 +125,36 @@ const getPositionForDir = (
   const topMap: any = {
     top: hostRect.top - selfRect.height - 10,
     bottom: hostRect.top + hostRect.height,
-    left: arrowDir === 'top'
-      ? hostRect.top - hostRect.height
-      : arrowDir === 'right'
-        ? hostRect.top - selfRect.height
-        : hostRect.top - (hostRect.height / 2 - selfRect.height / 2),
-    right: arrowDir === 'top'
-      ? hostRect.top - hostRect.height
-      : arrowDir === 'right'
-        ? hostRect.top - selfRect.height
-        : hostRect.top - (hostRect.height / 2 - selfRect.height / 2),
+    left: arrowDir === 'start' ? hostRect.top
+      : arrowDir === 'end' ? hostRect.top - (selfRect.height - hostRect.height)
+        : hostRect.top - Math.abs((hostRect.height / 2 - selfRect.height / 2)),
+    right: arrowDir === 'start' ? hostRect.top
+      : arrowDir === 'end' ? hostRect.top - (selfRect.height - hostRect.height)
+        : hostRect.top - Math.abs((hostRect.height / 2 - selfRect.height / 2)),
   }
   const leftMap: any = {
-    left: hostRect.left - selfRect.width,
+    left: hostRect.left - selfRect.width - 10,
     right: hostRect.left + hostRect.width,
-    top: arrowDir === 'left'
+    top: arrowDir === 'start'
       ? hostRect.left
-      : arrowDir === 'right'
-        ? hostRect.left - (hostRect.width / 2 + selfRect.width / 2)
-        : hostRect.left + (hostRect.width / 2 - selfRect.width / 2),
-    bottom: arrowDir === 'left'
+      : arrowDir === 'end'
+        ? hostRect.left + (hostRect.width - selfRect.width)
+        : hostRect.left + (hostRect.width - selfRect.width) / 2,
+    bottom: arrowDir === 'start'
       ? hostRect.left
-      : arrowDir === 'right'
-        ? hostRect.left - (hostRect.width / 2 + selfRect.width / 2)
-        : hostRect.left + (hostRect.width / 2 - selfRect.width / 2),
+      : arrowDir === 'end'
+        ? hostRect.left + (hostRect.width - selfRect.width)
+        : hostRect.left + (hostRect.width  - selfRect.width) / 2,
   }
   const isHorizontal: boolean = dir === 'left' || dir === 'right'
+  const arrowLen = isHorizontal
+    ? arrowDir === 'center' ? selfRect.height  : Math.min(hostRect.height, selfRect.height)
+    : arrowDir === 'center' ? selfRect.width  : Math.min(hostRect.height, selfRect.height)
   
   const position = {
     arrowFace: dir,
-    arrowDir: arrowDir === 'center' ? (isHorizontal ? 'left' : 'top') : arrowDir,
-    arrowPosition: isHorizontal ? hostRect.width / 2 : hostRect.height / 2,
+    arrowDir: isHorizontal ? (arrowDir === 'end' ? 'bottom' : 'top') : (arrowDir === 'start' ? 'left' : 'right'),
+    arrowPosition: arrowLen / 2 -5,
     top: topMap[dir],
     left: leftMap[dir],
   }

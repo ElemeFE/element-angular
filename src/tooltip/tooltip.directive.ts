@@ -47,6 +47,7 @@ export class ElTooltipDirective {
   }
   
   private tooltipNativeElement: HTMLElement
+  private tooltipArrowNativeElement: HTMLElement
   private tooltipConfigChecked: ElTooltipConfig
   private shape: any
   private uuid: string = `_el-tooltip-template-${Math.random()}`
@@ -59,7 +60,7 @@ export class ElTooltipDirective {
         id="${uuid}"
       >
       <div x-arrow class="popper__arrow"></div>
-      9990
+      ${context.content}
       </div>
     `
   }
@@ -70,10 +71,12 @@ export class ElTooltipDirective {
     this.tooltipNativeElement.style.display = showElement ? 'block' : 'none'
   }
   
-  setPopperElementPosition(top: number, left: number, face: string) {
-    this.tooltipNativeElement.style.left = `${left}px`
-    this.tooltipNativeElement.style.top = `${top}px`
-    this.tooltipNativeElement.setAttribute('x-placement', face)
+  setPopperElementPosition(position: any) {
+    this.tooltipNativeElement.style.left = `${position.left}px`
+    this.tooltipNativeElement.style.top = `${position.top}px`
+    this.tooltipNativeElement.setAttribute('x-placement', position.arrowFace)
+    const arrowElement: Element = this.tooltipNativeElement.querySelector('.popper__arrow')
+    arrowElement.setAttribute('style', `${position.arrowDir}: ${position.arrowPosition}px`)
   }
   
   placementToOrigin(placement: string) {
@@ -83,8 +86,7 @@ export class ElTooltipDirective {
     const arrowDir = doubleConventions ? placement.split('-')[1] : 'center'
     const dir = doubleConventions ? placement.split('-')[0] : placement
     const position = Utils.getPositionForDir(hostRect, this.shape, dir, arrowDir)
-    this.setPopperElementPosition(position.top, position.left, position.arrowFace)
+    this.setPopperElementPosition(position)
   }
-  
   
 }
