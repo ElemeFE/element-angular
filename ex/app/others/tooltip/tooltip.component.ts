@@ -3,12 +3,17 @@ import { Component, OnInit,  } from '@angular/core'
 @Component({
   selector: 'my-tooltip',
   templateUrl: './tooltip.component.html',
-  styles: ['tooltip.component.css'],
+  styleUrls: ['./tooltip.component.scss'],
 })
 export class TooltipComponent implements OnInit {
   
-  private test: string = 'test2'
-  private btn: string = 'btn2'
+  makeTooltipSetting(placement: string): any {
+    return {
+      effect: 'dark',
+      content: `placement is ${placement}`,
+      placement: placement,
+    }
+  }
   
   ngOnInit(): void {
   }
