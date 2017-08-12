@@ -2,7 +2,7 @@
 interface TooltipConfigType {
   hostElement?: any
   effect?: string
-  content: string | number
+  content: any
   placement?: string
   value?: boolean
   disabled?: boolean
@@ -15,6 +15,14 @@ interface TooltipConfigType {
   enterable?: boolean
 }
 
+interface PositionType {
+  top: number,
+  left: number,
+  arrowPosition: number,
+  arrowDir: string,
+  arrowFace: string,
+}
 export {
   TooltipConfigType,
+  PositionType,
 }

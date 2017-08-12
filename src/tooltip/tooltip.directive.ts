@@ -43,6 +43,7 @@ export class ElTooltipDirective {
   constructor(
     private el: ElementRef,
     private config: ElTooltipConfig,
+    // private resolver: ComponentResolver,
   ) {
   }
   
@@ -52,6 +53,7 @@ export class ElTooltipDirective {
   private uuid: string = `_el-tooltip-template-${Math.random()}`
   
   makeTooltipTmp(context: TooltipConfigType, uuid: string): string {
+    const html: string = context.content.outerHTML ? context.content.outerHTML : String(context.content)
     return `
       <div class="el-tooltip__popper is-${context.effect} popperClass"
         style="position: absolute; display: none;"
@@ -59,7 +61,7 @@ export class ElTooltipDirective {
         id="${uuid}"
       >
       <div x-arrow class="popper__arrow" style="display: ${context['visible-arrow'] ? 'block' : 'none'}"></div>
-      ${context.content}
+      ${html}
       </div>
     `
   }

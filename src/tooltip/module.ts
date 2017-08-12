@@ -1,15 +1,15 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
-import { NgxPopperModule } from 'ngx-popper'
 import { ElTooltip } from './tooltip'
 import { ElTooltipDirective } from './tooltip.directive'
+import { ElTooltipHostDirective } from './tooltip-host.directive'
 
 
 @NgModule({
-  declarations: [ElTooltip, ElTooltipDirective],
-  exports: [ElTooltip, ElTooltipDirective],
-  imports: [CommonModule, NgxPopperModule],
+  declarations: [ElTooltip, ElTooltipDirective, ElTooltipHostDirective],
+  exports: [ElTooltip, ElTooltipDirective, ElTooltipHostDirective],
+  imports: [CommonModule],
   entryComponents: [ElTooltip],
 })
 export class ElTooltipModule {
