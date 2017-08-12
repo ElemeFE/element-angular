@@ -5,12 +5,14 @@ export const appRoutes: Routes = [
   {
     path: 'basic',
     loadChildren: './basic/basic.module#BasicModule',
-    data: { preload: true },
   },
   {
     path: 'form',
     loadChildren: './form/form.module#FormModule',
-    data: { preload: true },
+  },
+  {
+    path: 'others',
+    loadChildren: './others/others.module#OthersModule',
   },
   {path: '', redirectTo: '/basic', pathMatch: 'full' },
 ]

@@ -19,12 +19,12 @@ module.exports = {
       {
         test: /\.ts$/,
         loaders: [
+          'ng-router-loader',
           {
             loader: 'awesome-typescript-loader',
             options: { configFileName: helpers.root('ex', 'tsconfig.json') },
           },
           'angular2-template-loader',
-          'angular-router-loader',
         ],
       },
       {
@@ -48,15 +48,16 @@ module.exports = {
         loader: 'raw-loader',
       },
     ],
+    // clear critical dependency warning
+    exprContextCritical: false,
   },
   
   plugins: [
-    // Workaround for angular/angular#11580
+    // angular issues#11580
     new webpack.ContextReplacementPlugin(
-      // The (\\|\/) piece accounts for path separators in *nix and Windows
       /angular(\\|\/)core(\\|\/)@angular/,
-      helpers.root('./ex'), // location of your src
-      {} // a map of your routes
+      helpers.root('./ex'),
+      {}
     ),
     
     new webpack.optimize.CommonsChunkPlugin({
