@@ -25,6 +25,7 @@ module.exports = {
             options: { configFileName: helpers.root('ex', 'tsconfig.json') },
           },
           'angular2-template-loader',
+          'angular-router-loader',
         ],
       },
       {
@@ -46,6 +47,13 @@ module.exports = {
         test: /\.css$/,
         include: helpers.root('src', 'app'),
         loader: 'raw-loader',
+      },
+      {
+        test: /\.(sass|scss)$/,
+        use: [
+          'raw-loader',
+          'sass-loader',
+        ],
       },
     ],
     // clear critical dependency warning

@@ -1,28 +1,48 @@
 <h2>tooltip</h2>
 
-
-
-
-<el-button class="el-tooltip" [el-tooltip]="{ effect: 'dark', content: '123', placement: 'top' }">
-  Dark
-</el-button>
-
-<el-button class="el-tooltip" [el-tooltip]="{ effect: 'dark', content: '123', placement: 'left' }">
-  Dark
-</el-button>
-
-<el-button class="el-tooltip" [el-tooltip]="{ effect: 'dark', content: '123', placement: 'right' }">
-  Dark
-</el-button>
-
-<el-button class="el-tooltip" [el-tooltip]="{ effect: 'dark', content: '123', placement: 'bottom' }">
-  Dark
-</el-button>
-
-<!--<el-tooltip content="Top center" placement="top">-->
-
-<!--</el-tooltip>-->
-
-<!--<el-tooltip content="Bottom center" placement="bottom" effect="light">-->
-  <!--<el-button>Light</el-button>-->
-<!--</el-tooltip>-->
+<div class="box">
+  <div class="top">
+    <el-button class="el-tooltip" [el-tooltip]="makeTooltipSetting('top-start')">
+      上左
+    </el-button>
+    <el-button class="el-tooltip" [el-tooltip]="makeTooltipSetting('top')">
+      上边
+    </el-button>
+    <el-button class="el-tooltip" [el-tooltip]="makeTooltipSetting('top-end')">
+      上右
+    </el-button>
+  </div>
+  <div class="left">
+    <el-button class="el-tooltip" [el-tooltip]="makeTooltipSetting('left-start')">
+      左上
+    </el-button>
+    <el-button class="el-tooltip" [el-tooltip]="makeTooltipSetting('left')">
+      左边
+    </el-button>
+    <el-button class="el-tooltip" [el-tooltip]="makeTooltipSetting('left-end')">
+      左下
+    </el-button>
+  </div>
+  <div class="right">
+    <el-button class="el-tooltip" [el-tooltip]="makeTooltipSetting('right-start')">
+      右上
+    </el-button>
+    <el-button class="el-tooltip" [el-tooltip]="makeTooltipSetting('right')">
+      右边
+    </el-button>
+    <el-button class="el-tooltip" [el-tooltip]="makeTooltipSetting('right-end')">
+      右下
+    </el-button>
+  </div>
+  <div class="bottom">
+    <el-button class="el-tooltip" [el-tooltip]="makeTooltipSetting('bottom-start')">
+      下左
+    </el-button>
+    <el-button class="el-tooltip" [el-tooltip]="makeTooltipSetting('bottom')">
+      下边
+    </el-button>
+    <el-button class="el-tooltip" [el-tooltip]="makeTooltipSetting('bottom-end')">
+      下右
+    </el-button>
+  </div>
+</div>
