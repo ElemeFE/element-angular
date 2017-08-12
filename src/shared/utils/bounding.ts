@@ -4,7 +4,6 @@
  *
  */
 
-import { log } from 'util'
 
 type Shape = { width: number, height: number }
 type ClientRect = {
@@ -106,7 +105,6 @@ const getHiddenShape = (el: HTMLElement) => {
   el.style.left = '-5000px'
   el.style.top = '-5000px'
   el.style.display = 'block'
-  
   const shape: Shape = { width: el.offsetWidth, height: el.offsetHeight }
   el.style.position = _old.position
   el.style.left = _old.left
@@ -118,7 +116,7 @@ const getHiddenShape = (el: HTMLElement) => {
 
 const getPositionForDir = (
   hostRect: ClientRect,
-  selfRect: ClientRect,
+  selfRect: any,
   dir: string,
   arrowDir: string
 ): Position => {
@@ -166,5 +164,6 @@ export {
   getBoundingClientRect,
   getPositionForDir,
   getHiddenShape,
+  ClientRect,
 }
 
