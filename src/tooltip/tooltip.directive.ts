@@ -47,7 +47,6 @@ export class ElTooltipDirective {
   }
   
   private tooltipNativeElement: HTMLElement
-  private tooltipArrowNativeElement: HTMLElement
   private tooltipConfigChecked: ElTooltipConfig
   private shape: any
   private uuid: string = `_el-tooltip-template-${Math.random()}`
@@ -59,7 +58,7 @@ export class ElTooltipDirective {
         x-placement="top"
         id="${uuid}"
       >
-      <div x-arrow class="popper__arrow"></div>
+      <div x-arrow class="popper__arrow" style="display: ${context['visible-arrow'] ? 'block' : 'none'}"></div>
       ${context.content}
       </div>
     `
@@ -75,8 +74,11 @@ export class ElTooltipDirective {
     this.tooltipNativeElement.style.left = `${position.left}px`
     this.tooltipNativeElement.style.top = `${position.top}px`
     this.tooltipNativeElement.setAttribute('x-placement', position.arrowFace)
-    const arrowElement: Element = this.tooltipNativeElement.querySelector('.popper__arrow')
-    arrowElement.setAttribute('style', `${position.arrowDir}: ${position.arrowPosition}px`)
+    // arrow is show
+    if (this.tooltipConfigChecked['visible-arrow']) {
+      const arrowElement: Element = this.tooltipNativeElement.querySelector('.popper__arrow')
+      arrowElement.setAttribute('style', `${position.arrowDir}: ${position.arrowPosition}px`)
+    }
   }
   
   placementToOrigin(placement: string) {
