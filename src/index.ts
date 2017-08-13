@@ -4,6 +4,7 @@ import { ElIconsModule } from './icon/module'
 import { ElRadiosModule } from './radio/module'
 import { ElMenusModule } from './menu/module'
 import { ElTooltipModule } from './tooltip/module'
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations'
 
 const ElMODULES = [
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule,
@@ -13,6 +14,7 @@ const ElMODULES = [
   imports: [
     ElButtonsModule.forRoot(), ElIconsModule.forRoot(), ElRadiosModule.forRoot(), ElMenusModule.forRoot(),
     ElTooltipModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   exports: ElMODULES
 })

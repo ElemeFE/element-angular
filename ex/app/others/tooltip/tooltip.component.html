@@ -1,51 +1,75 @@
 <!--<h2>tooltip</h2>-->
 
-<!--<div class="box">-->
-  <!--<div class="top">-->
-    <!--<el-button  [el-tooltip]="makeTooltipSetting('top-start')">-->
-      <!--上左-->
-    <!--</el-button>-->
-    <!--<el-button  [el-tooltip]="makeTooltipSetting('top')">-->
-      <!--上边-->
-    <!--</el-button>-->
-    <!--<el-button  [el-tooltip]="makeTooltipSetting('top-end')">-->
-      <!--上右-->
-    <!--</el-button>-->
-  <!--</div>-->
-  <!--<div class="left">-->
-    <!--<el-button  [el-tooltip]="makeTooltipSetting('left-start')">-->
-      <!--左上-->
-    <!--</el-button>-->
-    <!--<el-button  [el-tooltip]="makeTooltipSetting('left')">-->
-      <!--左边-->
-    <!--</el-button>-->
-    <!--<el-button  [el-tooltip]="makeTooltipSetting('left-end')">-->
-      <!--左下-->
-    <!--</el-button>-->
-  <!--</div>-->
-  <!--<div class="right">-->
-    <!--<el-button [el-tooltip]="makeTooltipSetting('right-start')">-->
-      <!--右上-->
-    <!--</el-button>-->
-    <!--<el-button  [el-tooltip]="makeTooltipSetting('right')">-->
-      <!--右边-->
-    <!--</el-button>-->
-    <!--<el-button  [el-tooltip]="makeTooltipSetting('right-end')">-->
-      <!--右下-->
-    <!--</el-button>-->
-  <!--</div>-->
-  <!--<div class="bottom">-->
-    <!--<el-button  [el-tooltip]="makeTooltipSetting('bottom-start')">-->
-      <!--下左-->
-    <!--</el-button>-->
-    <!--<el-button  [el-tooltip]="makeTooltipSetting('bottom')">-->
-      <!--下边-->
-    <!--</el-button>-->
-    <!--<el-button  [el-tooltip]="makeTooltipSetting('bottom-end')">-->
-      <!--下右-->
-    <!--</el-button>-->
-  <!--</div>-->
-<!--</div>-->
+<div class="box">
+  <div class="top">
+    <el-tooltip [context]="makeTooltipSetting('top-start')">
+      <el-button>
+        上左
+      </el-button>
+    </el-tooltip>
+    <el-tooltip [context]="makeTooltipSetting('top')">
+      <el-button>
+        上边
+      </el-button>
+    </el-tooltip>
+    <el-tooltip [context]="makeTooltipSetting('top-end')">
+      <el-button>
+        上右
+      </el-button>
+    </el-tooltip>
+  </div>
+  <div class="left">
+    <el-tooltip [context]="makeTooltipSetting('left-start')">
+      <el-button>
+        左上
+      </el-button>
+    </el-tooltip>
+    <el-tooltip [context]="makeTooltipSetting('left')">
+      <el-button>
+        左边
+      </el-button>
+    </el-tooltip>
+    <el-tooltip [context]="makeTooltipSetting('left-end')">
+      <el-button>
+        左下
+      </el-button>
+    </el-tooltip>
+  </div>
+  <div class="right">
+    <el-tooltip [context]="makeTooltipSetting('right-start')">
+      <el-button>
+        右上
+      </el-button>
+    </el-tooltip>
+    <el-tooltip [context]="makeTooltipSetting('right')">
+      <el-button>
+        右边
+      </el-button>
+    </el-tooltip>
+    <el-tooltip [context]="makeTooltipSetting('right-end')">
+      <el-button>
+        右下
+      </el-button>
+    </el-tooltip>
+  </div>
+  <div class="bottom">
+    <el-tooltip [context]="makeTooltipSetting('bottom-start')">
+      <el-button>
+        下左
+      </el-button>
+    </el-tooltip>
+    <el-tooltip [context]="makeTooltipSetting('bottom')">
+      <el-button>
+        下边
+      </el-button>
+    </el-tooltip>
+    <el-tooltip [context]="makeTooltipSetting('bottom-end')">
+      <el-button>
+        下右
+      </el-button>
+    </el-tooltip>
+  </div>
+</div>
 
 
 <!--<el-button  [el-tooltip]="{ content: makeStringContent() }">-->
@@ -59,13 +83,13 @@
   <!--test-->
 <!--</el-button>-->
 
-<el-tooltip [context]="{ content: 'test1' }">
+<el-tooltip [context]="{ content: makeElementContent() }">
   <el-button>
-    test1
+    test2
   </el-button>
 </el-tooltip>
 
-<el-tooltip [context]="{ content: 'test2' }">
+<el-tooltip [context]="{ content: '22' }">
   <el-button>
     test2
   </el-button>

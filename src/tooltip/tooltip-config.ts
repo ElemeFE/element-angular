@@ -5,12 +5,12 @@ import { TooltipConfigType } from './tooltip.interface'
 export class ElTooltipConfig implements TooltipConfigType {
   hostElement: any
   effect: string = 'dark'
-  content: string
+  content: any
   placement: string = 'bottom'
   value: boolean = false
   disabled: boolean = false
   offset: number = 0
-  transition: string = 'el-fade-in-linear'
+  transition: string = 'ease-in-out'
   'visible-arrow': boolean = true
   'open-delay': number = 0
   manual: boolean = false
