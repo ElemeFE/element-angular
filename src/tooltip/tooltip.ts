@@ -1,10 +1,19 @@
 import {
   AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, NgZone, OnInit,
+  TemplateRef,
   ViewChild,
 } from '@angular/core'
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations'
 import { ElTooltipConfig } from './tooltip-config'
 import { TooltipConfigType, PositionType} from './tooltip.interface'
 import { Utils } from '../shared'
+import { DomSanitizer } from '@angular/platform-browser'
 
 @Component({
   selector: 'el-tooltip',
@@ -12,19 +21,34 @@ import { Utils } from '../shared'
   template: `
     <div [class]="'el-tooltip__popper is-' + checkedCtx.effect + ' ' + checkedCtx.popperClass"
       style="left: -1000px; top: -1000px;"
-      [hidden]="!showPopper"
+      [@state]="!showPopper"
       [attr.x-placement]="xPlacement"
       #popperContent
     >
       <div x-arrow class="popper__arrow" [hidden]="!checkedCtx['visible-arrow']"></div>
-      {{ checkedCtx.content }}
+      <ng-template>
+        {{checkedCtx.content}}
+      </ng-template>
     </div>
-    <div #popperHost>
+    <a #popperHost>
       <ng-content>
       </ng-content>
-    </div>
+    </a>
   `,
   providers: [ElTooltipConfig],
+  animations: [
+    trigger('state', [
+      state('true', style({
+        opacity: 0,
+        display: 'none'
+      })),
+      state('false', style({
+        opacity: 1,
+        display: 'block'
+      })),
+      transition('* => *', animate(`250ms ease-in-out`)),
+    ])
+  ],
 })
 export class ElTooltip implements AfterContentInit, OnInit {
   
@@ -35,6 +59,7 @@ export class ElTooltip implements AfterContentInit, OnInit {
   constructor(
     private el: ElementRef,
     private config: ElTooltipConfig,
+    private sanitizer: DomSanitizer,
     private changeDetectorRef: ChangeDetectorRef,
     ) {
   }
@@ -42,16 +67,20 @@ export class ElTooltip implements AfterContentInit, OnInit {
   private checkedCtx: ElTooltipConfig
   private xPlacement: string = this.config.placement
   private showPopper: boolean = true
+  private cache: any = {}
   
   getPosition(host: HTMLElement, self: HTMLElement): void {
     // ensure accuracy
     this.changeDetectorRef.detectChanges()
     const hostRect = Utils.getBoundingClientRect(host)
     const selfRect = { width: self.offsetWidth, height: self.offsetHeight }
+    
     // reset element
-    this.changeDetectorRef.reattach()
     this.showPopper = false
+    this.changeDetectorRef.reattach()
+    this.changeDetectorRef.markForCheck()
   
+    // get rect
     const placement: string = this.checkedCtx.placement
     const doubleConventions: boolean = placement.includes('-')
     const arrowDir: string = doubleConventions ? placement.split('-')[1] : 'center'
@@ -59,10 +88,11 @@ export class ElTooltip implements AfterContentInit, OnInit {
     const position: PositionType = Utils.getPositionForDir(hostRect, selfRect, dir, arrowDir)
     
     this.bindEvent(host)
-    this.setPopperPosition(self, position)
+    this.cache = { self, position }
   }
   
-  setPopperPosition(self: HTMLElement, position: PositionType): void {
+  setPopoerPositionAndShow(): void {
+    const { self, position } = this.cache
     const arrowElement: Element = self.querySelector('.popper__arrow')
     this.xPlacement = position.arrowFace
     self.style.left = `${position.left}px`
@@ -72,6 +102,7 @@ export class ElTooltip implements AfterContentInit, OnInit {
   
   bindEvent(host: HTMLElement): void {
     host.addEventListener('mouseenter', () => {
+      this.setPopoerPositionAndShow()
       this.showPopper = true
       this.changeDetectorRef.markForCheck()
     })
@@ -96,7 +127,8 @@ export class ElTooltip implements AfterContentInit, OnInit {
   }
   
   ngOnInit(): void {
-    this.checkedCtx = Object.assign(this.context, this.config)
+    this.checkedCtx = Object.assign(this.config, this.context)
+    // this.checkedCtx.content = this.sanitizer.bypassSecurityTrustHtml(this.checkedCtx.content)
   }
   
 }

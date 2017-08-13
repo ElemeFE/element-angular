@@ -10,7 +10,7 @@ export class TooltipComponent implements OnInit {
   makeTooltipSetting(placement: string): any {
     return {
       effect: 'dark',
-      content: placement,
+      content: `placement is ${placement}`,
       placement: placement,
     }
   }
@@ -23,19 +23,12 @@ export class TooltipComponent implements OnInit {
     `
   }
   
-  makeElementContent(): HTMLElement {
-    const el = document.createElement('div')
-    el.innerHTML = `
-      <ul>
-        <li>
-        <p>第一项</p>
-        </li>
-        <li>
-        <p>第二项</p>
-        </li>
-    </ul>
+  makeElementContent(): string {
+    return `
+      <div>
+        <el-button>123</el-button>
+      </div>
     `
-    return el
   }
   
   ngOnInit(): void {
