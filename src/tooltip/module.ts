@@ -5,7 +5,6 @@ import { ElTooltip } from './tooltip'
 import { ElTooltipDirective } from './tooltip.directive'
 import { ElTooltipHostDirective } from './tooltip-host.directive'
 
-
 @NgModule({
   declarations: [ElTooltip, ElTooltipDirective, ElTooltipHostDirective],
   exports: [ElTooltip, ElTooltipDirective, ElTooltipHostDirective],
