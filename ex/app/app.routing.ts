@@ -14,6 +14,10 @@ export const appRoutes: Routes = [
     path: 'others',
     loadChildren: './others/others.module#OthersModule',
   },
+  {
+    path: 'nav',
+    loadChildren: './navigation/navigation.module#NavigationModule',
+  },
   {path: '', redirectTo: '/basic', pathMatch: 'full' },
 ]
 
