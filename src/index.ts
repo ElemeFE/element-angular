@@ -12,8 +12,8 @@ const ElMODULES = [
 
 @NgModule({
   imports: [
-    ElButtonsModule.forRoot(), ElIconsModule.forRoot(), ElRadiosModule.forRoot(), ElMenusModule.forRoot(),
-    ElTooltipModule.forRoot(),
+    ElButtonsModule.forRoot(), ElIconsModule.forRoot(), ElRadiosModule.forRoot(),
+    ElTooltipModule.forRoot(), ElMenusModule.forRoot(),
     BrowserAnimationsModule,
   ],
   exports: ElMODULES

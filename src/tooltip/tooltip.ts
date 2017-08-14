@@ -26,9 +26,7 @@ import { DomSanitizer } from '@angular/platform-browser'
       #popperContent
     >
       <div x-arrow class="popper__arrow" [hidden]="!checkedCtx['visible-arrow']"></div>
-      <ng-template>
-        {{checkedCtx.content}}
-      </ng-template>
+      <span [innerHTML]="checkedCtx.content"></span>
     </div>
     <a #popperHost>
       <ng-content>
@@ -128,7 +126,7 @@ export class ElTooltip implements AfterContentInit, OnInit {
   
   ngOnInit(): void {
     this.checkedCtx = Object.assign(this.config, this.context)
-    // this.checkedCtx.content = this.sanitizer.bypassSecurityTrustHtml(this.checkedCtx.content)
+    this.checkedCtx.content = this.sanitizer.bypassSecurityTrustHtml(this.checkedCtx.content)
   }
   
 }
