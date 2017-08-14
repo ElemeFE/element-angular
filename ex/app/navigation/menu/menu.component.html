@@ -1,3 +1,15 @@
 <h2>menu</h2>
 
-test
+menuItem
+<el-menu-item [title]="'导航一'">
+  <i class="el-icon-message"></i>
+  <span>导航一</span>
+</el-menu-item>
+
+menuItemGroup
+<el-menu-item-group [title]="'分组一'">
+  <el-menu-item [title]="'导航一'">
+    <i class="el-icon-message"></i>
+    <span>导航一</span>
+  </el-menu-item>
+</el-menu-item-group>
