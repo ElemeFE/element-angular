@@ -23,19 +23,20 @@ export class ElSubmenu implements OnChanges, OnInit {
   @Input() index: string
   @Input() title: string
   
-  constructor(@Host() menu: ElMenu,
-              private sanitizer: DomSanitizer,) {
-    this.rootMenu = menu
+  constructor(
+    @Host() private rootMenu: ElMenu,
+    private sanitizer: DomSanitizer,
+    ) {
   }
   
-  private rootMenu: ElMenu
   private timer: number
-  public opened: boolean = false
+  private opened: boolean = false
+  private active: boolean = false
   
   classes(): any {
     return {
       'el-submenu': true,
-      'is-active': true,
+      'is-active': this.active,
       'is-opened': this.opened,
     }
   }
@@ -50,6 +51,8 @@ export class ElSubmenu implements OnChanges, OnInit {
   }
   
   mouseenterHandle(): void {
+    this.active = this.index === this.rootMenu.toggleActive(this.index)
+    
     clearTimeout(this.timer)
     this.timer = setTimeout(() => {
       this.rootMenu.openMenu(this.index)
@@ -59,6 +62,8 @@ export class ElSubmenu implements OnChanges, OnInit {
   }
   
   mouseleaveHandle(): void {
+    this.active = this.index === this.rootMenu.toggleActive()
+    
     clearTimeout(this.timer)
     setTimeout(() => {
       this.rootMenu.closeMenu(this.index)
@@ -84,6 +89,7 @@ export class ElSubmenu implements OnChanges, OnInit {
   
   ngOnInit(): void {
     this.updateOpened()
+    this.active = this.index === this.rootMenu.defaultActive
   }
   
 }

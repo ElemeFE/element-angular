@@ -24,7 +24,6 @@ export class ElMenu implements AfterViewInit {
   
   public openedMenus: string[] = this.defaultOpeneds ? this.defaultOpeneds.slice(0) : []
   
-  
   classes(): any {
     return {
       'el-menu--horizontal': this.mode === 'horizontal',
@@ -41,6 +40,11 @@ export class ElMenu implements AfterViewInit {
   
   closeMenu(index: string): void {
     this.openedMenus.splice(this.openedMenus.indexOf(index), 1)
+  }
+  
+  toggleActive(index: string = '') :string {
+    this.defaultActive = index
+    return this.defaultActive
   }
   
   ngAfterViewInit(): void {
