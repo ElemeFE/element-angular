@@ -5,7 +5,7 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser'
   selector: 'el-menu-item-group',
   template: `
     <li class="el-menu-item-group">
-      <div class="el-menu-item-group__title" [style]="{paddingLeft: levelPadding}">
+      <div class="el-menu-item-group__title" [style]="paddingStyle()">
         {{title}}
       </div>
       <ul>
@@ -23,10 +23,12 @@ export class ElMenuItemGroup implements OnInit {
   ) {
   }
   
-  private levelPadding: SafeStyle = this.sanitizer.bypassSecurityTrustStyle('10px')
-  
   setPadding() {
   
+  }
+  
+  paddingStyle(): any {
+    return this.sanitizer.bypassSecurityTrustStyle('padding-left: 20px')
   }
 
   ngOnInit(): void {
