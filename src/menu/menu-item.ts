@@ -1,6 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy, Host, OnInit, ElementRef } from '@angular/core'
 import { DomSanitizer } from '@angular/platform-browser'
 import { ElMenu } from './menu'
+import { Utils } from '../shared'
 
 @Component({
   selector: 'el-menu-item',
@@ -35,7 +36,6 @@ export class ElMenuItem implements OnInit {
   
   }
   
-  private isGroup: boolean = false
   private active: boolean = false
   private parentIsMenu: boolean = false
   
@@ -48,18 +48,9 @@ export class ElMenuItem implements OnInit {
   }
   
   ngOnInit(): void {
-    let el = this.el.nativeElement.parentElement
-    let findLen = 3, lowerName = ''
-    while (findLen) {
-      lowerName = el.localName.toLowerCase()
-      if (lowerName.indexOf('el') > -1) {
-        this.parentIsMenu = lowerName === 'el-menu'
-        findLen = 0
-      } else {
-        el = el.parentElement
-        findLen --
-      }
-    }
+    const nativeElement = this.el.nativeElement
+    this.parentIsMenu = Utils.isParent(nativeElement, 'el-menu')
+    Utils.removeNgTag(nativeElement)
     this.active = this.parentIsMenu && this.rootMenu.defaultActive === this.index
   }
 }
