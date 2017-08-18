@@ -1,6 +1,5 @@
 import {
-  AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, NgZone, OnInit,
-  TemplateRef,
+  AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnInit,
   ViewChild,
 } from '@angular/core'
 import {
