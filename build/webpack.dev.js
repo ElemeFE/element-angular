@@ -14,11 +14,11 @@ module.exports = webpackMerge(baseConfig, {
   },
   
   plugins: [
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('style.css')
   ],
   
   devServer: {
     historyApiFallback: true,
     stats: 'minimal'
   }
-});
+})

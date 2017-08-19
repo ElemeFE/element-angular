@@ -27,5 +27,8 @@
     "bundle",
     "build",
     "test.ts"
+  ],
+  "typeRoots": [
+    "../node_modules/@types"
   ]
 }
