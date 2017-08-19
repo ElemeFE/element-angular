@@ -49,7 +49,7 @@ export class ElMenuItem implements OnInit {
   
   ngOnInit(): void {
     const nativeElement = this.el.nativeElement
-    this.parentIsMenu = Utils.isParent(nativeElement, 'el-menu')
+    this.parentIsMenu = Utils.isParentTag(nativeElement, 'el-menu')
     Utils.removeNgTag(nativeElement)
     this.active = this.parentIsMenu && this.rootMenu.defaultActive === this.index
   }
