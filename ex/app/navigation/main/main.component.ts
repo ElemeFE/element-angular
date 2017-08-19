@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'app-navigation-main',
+  selector: 'ex-navigation-main',
   templateUrl: './main.component.html',
   styles: ['main.component.css'],
 })
