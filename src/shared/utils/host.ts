@@ -1,5 +1,5 @@
 
-const removeNgTag = (nativeElement: HTMLElement) => {
+const removeNgTag = (nativeElement: HTMLElement): void => {
   const parentElement = nativeElement.parentElement
   while (nativeElement.firstChild) {
     parentElement.insertBefore(nativeElement.firstChild, nativeElement)
@@ -7,7 +7,7 @@ const removeNgTag = (nativeElement: HTMLElement) => {
   parentElement.removeChild(nativeElement)
 }
 
-const isParent = (nativeElement: HTMLElement, parentTag: string): boolean => {
+const isParentTag = (nativeElement: HTMLElement, parentTag: string): boolean => {
   let parentIsTag = false
   let parent = nativeElement.parentElement
   let findLen = 3, lowerName = ''
@@ -24,7 +24,25 @@ const isParent = (nativeElement: HTMLElement, parentTag: string): boolean => {
   return parentIsTag
 }
 
+const isParentAttr = (nativeElement: HTMLElement, parentAttr: string): (boolean | HTMLElement) => {
+  let parentIsAttr: any = false
+  let parent = nativeElement.parentElement
+  let findLen = 5
+  while (findLen) {
+    parentIsAttr = parent.hasAttribute(parentAttr)
+    if (parentIsAttr) {
+      parentIsAttr = parent
+      findLen = 0
+    } else {
+      parent = parent.parentElement
+      findLen --
+    }
+  }
+  return parentIsAttr
+}
+
 export {
   removeNgTag,
-  isParent,
+  isParentTag,
+  isParentAttr,
 }

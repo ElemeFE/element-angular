@@ -1,19 +1,23 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ElButtonsModule } from './button/module'
 import { ElIconsModule } from './icon/module'
 import { ElRadiosModule } from './radio/module'
 import { ElMenusModule } from './menu/module'
 import { ElTooltipModule } from './tooltip/module'
-import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations'
+import { ElRowModule } from './row/module'
+import { ElColModule } from './col/module'
 
 const ElMODULES = [
-  ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule,
+  ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
+  ElColModule,
 ]
 
 @NgModule({
   imports: [
     ElButtonsModule.forRoot(), ElIconsModule.forRoot(), ElRadiosModule.forRoot(),
-    ElTooltipModule.forRoot(), ElMenusModule.forRoot(),
+    ElTooltipModule.forRoot(), ElMenusModule.forRoot(), ElRowModule.forRoot(),
+    ElColModule.forRoot(),
     BrowserAnimationsModule,
   ],
   exports: ElMODULES

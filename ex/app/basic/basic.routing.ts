@@ -4,6 +4,7 @@ import { MainComponent } from './main/main.component'
 
 import { ButtonComponent } from './button/button.component'
 import { IconComponent } from './icon/icon.component'
+import { LayoutComponent } from './layout/layout.component'
 
 
 export const basicRoutes: Routes = [{
@@ -12,6 +13,8 @@ export const basicRoutes: Routes = [{
     path: 'button', component: ButtonComponent,
   },{
     path: 'icon', component: IconComponent,
+  },{
+    path: 'layout', component: LayoutComponent,
   }],
 }]
 
