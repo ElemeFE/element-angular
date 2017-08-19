@@ -1,23 +1,30 @@
 <ex-header></ex-header>
-<div>
-  <!--<h2>{{ title }}</h2>-->
-  <ul>
-    <li>
-      <a routerLinkActive="active" [routerLink]="['/basic']">Basic</a>
-    </li>
-    <li>
-      <a routerLinkActive="active" [routerLink]="['/form']">Form</a>
-    </li>
-    <li>
-      <a routerLinkActive="active" [routerLink]="['/others']">Others</a>
-    </li>
-    <li>
-      <a routerLinkActive="active" [routerLink]="['/nav']">Navigation</a>
-    </li>
-  </ul>
+<div class="page-container page-component">
+  <div el-row>
+    <div el-col xs="24" sm="6">
+      <ex-side></ex-side>
+    </div>
+    <div el-col :xs="24" :sm="18">
+      <router-outlet></router-outlet>
+      <!--<footer-nav></footer-nav>-->
+    </div>
+  </div>
 </div>
 
 
-<div>
-  <router-outlet></router-outlet>
-</div>
+<!--<div>-->
+  <!--<ul>-->
+    <!--<li>-->
+      <!--<a routerLinkActive="active" [routerLink]="['/basic']">Basic</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a routerLinkActive="active" [routerLink]="['/form']">Form</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a routerLinkActive="active" [routerLink]="['/others']">Others</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a routerLinkActive="active" [routerLink]="['/nav']">Navigation</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</div>-->
