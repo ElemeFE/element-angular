@@ -11,7 +11,7 @@ import { Utils } from '../shared'
 })
 export class ElColDirective implements OnInit {
   
-  @Input() span: number
+  @Input() span: number = 24
   @Input() offset: number = 0
   @Input() push: number = 0
   @Input() pull: number = 0
