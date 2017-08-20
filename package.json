@@ -1,16 +1,34 @@
 {
   "name": "element-angular",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "element ui for angular",
+  "main": "release/index.d.ts",
+  "unpkg": "bundle/element-angular.js",
+  "files": [
+    "release",
+    "bundle"
+  ],
   "scripts": {
     "dev": "gulp && gulp build:watch",
     "ex": "webpack-dev-server --config build/webpack.dev.js --inline --progress --port 1338",
     "ex:build": "gulp clean:ex && webpack --config build/webpack.prod.js",
     "ex:publish": "node build/publish.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:eleme/element-angular.git"
+  },
+  "keywords": [
+    "eleme",
+    "element",
+    "angular",
+    "components"
+  ],
+  "bugs": {
+    "url": "https://github.com/eleme/element-angular/issues"
+  },
   "author": "WittBulter",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@angular/animations": "^4.3.4",
     "@angular/common": "^4.3.4",
@@ -57,6 +75,9 @@
     "webpack-merge": "^4.1.0",
     "yargs": "^8.0.2",
     "zone.js": "^0.8.16"
+  },
+  "peerDependencies": {
+    "@angular/core": "^4.3.4"
   },
   "dependencies": {
   }

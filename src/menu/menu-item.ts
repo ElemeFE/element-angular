@@ -28,16 +28,15 @@ export class ElMenuItem implements OnInit {
   @Input() disabled: boolean = false
   @Input() title: string = ''
   
+  private active: boolean = false
+  private parentIsMenu: boolean = false
+  
   constructor(
     private sanitizer: DomSanitizer,
     @Host() private rootMenu: ElMenu,
     private el: ElementRef,
   ) {
-  
   }
-  
-  private active: boolean = false
-  private parentIsMenu: boolean = false
   
   paddingStyle(): any {
     return this.sanitizer.bypassSecurityTrustStyle('padding-left: 20px')

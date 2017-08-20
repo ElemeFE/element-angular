@@ -16,7 +16,6 @@ const compilePath = /^win/.test(process.platform)
 const PATHS = {
   src: ['src/**/*.ts', '!src/**/*.spec.ts', '!ex/**/*.ts'],
   templates: ['src/**/*.html'],
-  exampleDist: 'ex/dist',
   release: '/release/',    // tsc compiler
   bundle: '/bundle/',      // umd file
   temp: 'temp/',           // ngc compiler
@@ -43,14 +42,6 @@ gulp.task('compile', gulp.series('lint', done => {
     .on('data', data => console.log(data))
 }))
 
-gulp.task('compile:ex', done => exec(
-  'webpack-dev-server --config build/webpack.dev.js --inline --progress --port 8080',
-  err => {
-    err && console.log(err)
-    done()
-  })
-)
-
 gulp.task('bundle', done => {
   webpack({
     devtool: 'source-map',
@@ -72,7 +63,6 @@ gulp.task('clean', () => del([PATHS.release, PATHS.temp, PATHS.bundle, PATHS.pub
 gulp.task('clean:ex', () => del([PATHS.publish]))
 
 gulp.task('build', gulp.series('clean', 'compile', 'bundle'))
-gulp.task('build:ex', gulp.series('clean:ex', 'compile:ex'))
 gulp.task('build:watch', () => gulp.watch([PATHS.src],
   gulp.series('compile', 'bundle')))
 

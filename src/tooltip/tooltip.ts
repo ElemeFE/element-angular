@@ -53,17 +53,17 @@ export class ElTooltip implements AfterContentInit, OnInit {
   @ViewChild('popperHost') popperHost: ElementRef
   @ViewChild('popperContent') popperContent: ElementRef
   
+  private checkedCtx: ElTooltipConfig
+  private xPlacement: string = this.config.placement
+  private showPopper: boolean = true
+  private cache: any = {}
+  
   constructor(
     private config: ElTooltipConfig,
     private sanitizer: DomSanitizer,
     private changeDetectorRef: ChangeDetectorRef,
     ) {
   }
-  
-  private checkedCtx: ElTooltipConfig
-  private xPlacement: string = this.config.placement
-  private showPopper: boolean = true
-  private cache: any = {}
   
   getPosition(host: HTMLElement, self: HTMLElement): void {
     // ensure accuracy
@@ -116,7 +116,7 @@ export class ElTooltip implements AfterContentInit, OnInit {
     }
     
     const self: HTMLElement = this.popperContent.nativeElement
-    const timer: number = setTimeout(() => {
+    const timer = setTimeout(() => {
       this.getPosition(children[0], self)
       clearTimeout(timer)
     }, 0)
@@ -126,5 +126,4 @@ export class ElTooltip implements AfterContentInit, OnInit {
     this.checkedCtx = Object.assign(this.config, this.context)
     this.checkedCtx.content = this.sanitizer.bypassSecurityTrustHtml(this.checkedCtx.content)
   }
-  
 }

@@ -6,8 +6,9 @@ import { AppRoutingModule } from './app.routing'
 import { ExComponentModule } from './components/module'
 
 import { ElModule } from '../../src/index'
-import { ExAppComponent } from './app.component'
+// import { ElModule } from '../../release/index'
 
+import { ExAppComponent } from './app.component'
 import { DocsService } from './shared/services/docs/docs.service'
 
 @NgModule({
