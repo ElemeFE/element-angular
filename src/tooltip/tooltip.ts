@@ -19,7 +19,7 @@ import { DomSanitizer } from '@angular/platform-browser'
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div [class]="'el-tooltip__popper is-' + checkedCtx.effect + ' ' + checkedCtx.popperClass"
-      style="left: -1000px; top: -1000px;"
+      style="left: -1000px; top: -1000px; position: fixed"
       [@state]="!showPopper"
       [attr.x-placement]="xPlacement"
       #popperContent
@@ -54,7 +54,6 @@ export class ElTooltip implements AfterContentInit, OnInit {
   @ViewChild('popperContent') popperContent: ElementRef
   
   constructor(
-    private el: ElementRef,
     private config: ElTooltipConfig,
     private sanitizer: DomSanitizer,
     private changeDetectorRef: ChangeDetectorRef,
@@ -83,7 +82,7 @@ export class ElTooltip implements AfterContentInit, OnInit {
     const arrowDir: string = doubleConventions ? placement.split('-')[1] : 'center'
     const dir: string = doubleConventions ? placement.split('-')[0] : placement
     const position: PositionType = Utils.getPositionForDir(hostRect, selfRect, dir, arrowDir)
-    
+   
     this.bindEvent(host)
     this.cache = { self, position }
   }

@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common'
 
 import { ElTooltip } from './tooltip'
 import { ElTooltipDirective } from './tooltip.directive'
-import { ElTooltipHostDirective } from './tooltip-host.directive'
 
 @NgModule({
-  declarations: [ElTooltip, ElTooltipDirective, ElTooltipHostDirective],
-  exports: [ElTooltip, ElTooltipDirective, ElTooltipHostDirective],
+  declarations: [ElTooltip, ElTooltipDirective],
+  exports: [ElTooltip, ElTooltipDirective],
   imports: [CommonModule],
   entryComponents: [ElTooltip],
 })
