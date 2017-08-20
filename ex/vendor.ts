@@ -5,3 +5,6 @@ import '@angular/common'
 import '@angular/http'
 import '@angular/router'
 import 'rxjs'
+
+import './assets/styles/example.css'
+import 'element-ui/lib/theme-default/index.css'
