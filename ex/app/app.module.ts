@@ -6,13 +6,13 @@ import { AppRoutingModule } from './app.routing'
 import { ExComponentModule } from './components/module'
 
 import { ElModule } from '../../src/index'
-import { AppComponent } from './app.component'
+import { ExAppComponent } from './app.component'
 
 import { DocsService } from './shared/services/docs/docs.service'
 
 @NgModule({
   declarations: [
-    AppComponent,
+    ExAppComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +23,7 @@ import { DocsService } from './shared/services/docs/docs.service'
     ExComponentModule,
   ],
   providers: [DocsService],
-  bootstrap: [AppComponent],
+  bootstrap: [ExAppComponent],
 })
 export class AppModule {
 }

@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms'
 import { FormRoutingModule } from './form.routing'
 import { ElModule } from '../../../src/index'
 
-import { MainComponent } from './main/main.component'
-import { RadioComponent } from './radio/radio.component'
+import { ExFormMainComponent } from './main/main.component'
+import { ExRadioComponent } from './radio/radio.component'
+import { ExCheckboxComponent } from './checkbox/checkbox.component'
 
 @NgModule({
   declarations: [
-    MainComponent,
-    RadioComponent,
+    ExFormMainComponent,
+    ExRadioComponent,
+    ExCheckboxComponent,
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,7 @@ import { RadioComponent } from './radio/radio.component'
     FormRoutingModule,
     ElModule,
   ],
-  exports: [MainComponent],
+  exports: [ExFormMainComponent],
   providers: [],
 })
 export class FormModule {

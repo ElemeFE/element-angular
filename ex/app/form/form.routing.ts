@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core'
-import { Routes, RouterModule } from '@angular/router'
-import { MainComponent } from './main/main.component'
-
-import { RadioComponent } from './radio/radio.component'
+import { RouterModule, Routes } from '@angular/router'
+import { ExFormMainComponent } from './main/main.component'
+import { ExCheckboxComponent } from './checkbox/checkbox.component'
+import { ExRadioComponent } from './radio/radio.component'
 
 
 export const formRoutes: Routes = [{
-  path: '', component: MainComponent,
+  path: '', component: ExFormMainComponent,
   children: [{
-    path: 'radio', component: RadioComponent,
+    path: 'radio', component: ExRadioComponent,
+  }, {
+    path: 'checkbox', component: ExCheckboxComponent,
   }],
 }]
 

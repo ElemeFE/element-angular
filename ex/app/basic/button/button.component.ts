@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'my-button',
+  selector: 'ex-button',
   templateUrl: './button.component.html',
-  styles: ['button.component.css'],
+  styleUrls: ['./button.component.scss'],
 })
-export class ButtonComponent implements OnInit {
+export class ExButtonComponent implements OnInit {
   
   clickHandler(params: any) {
     console.log('click', params)

@@ -49,6 +49,9 @@ const CATALOG: any = [{
       'children': [{
         'name': 'radio 单选框',
         'link': '/form/radio',
+      }, {
+        'name': 'checkbox 多选框',
+        'link': '/form/checkbox',
       }],
     }, {
       'name': 'Navigation',

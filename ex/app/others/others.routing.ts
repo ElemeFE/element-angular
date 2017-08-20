@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core'
-import { Routes, RouterModule } from '@angular/router'
-import { MainComponent } from './main/main.component'
+import { RouterModule, Routes } from '@angular/router'
+import { ExUserMainComponent } from './main/main.component'
 
-import { TooltipComponent } from './tooltip/tooltip.component'
+import { ExTooltipComponent } from './tooltip/tooltip.component'
 
 
 export const othersRoutes: Routes = [{
-  path: '', component: MainComponent,
+  path: '', component: ExUserMainComponent,
   children: [{
-    path: 'tooltip', component: TooltipComponent,
+    path: 'tooltip', component: ExTooltipComponent,
   }],
 }]
 

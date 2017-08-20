@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'my-layout',
+  selector: 'ex-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
 })
-export class LayoutComponent implements OnInit {
+export class ExLayoutComponent implements OnInit {
   
   ngOnInit(): void {
   }

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'my-icon',
+  selector: 'ex-icon',
   templateUrl: './icon.component.html',
-  styles: ['icon.component.css'],
+  styleUrls: ['./icon.component.scss'],
 })
-export class IconComponent implements OnInit {
+export class ExIconComponent implements OnInit {
   
   ngOnInit(): void {
   }

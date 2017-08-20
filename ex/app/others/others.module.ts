@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms'
 import { OthersRoutingModule } from './others.routing'
 import { ElModule } from '../../../src/index'
 
-import { MainComponent } from './main/main.component'
-import { TooltipComponent } from './tooltip/tooltip.component'
+import { ExUserMainComponent } from './main/main.component'
+import { ExTooltipComponent } from './tooltip/tooltip.component'
 
 @NgModule({
   declarations: [
-    MainComponent,
-    TooltipComponent,
+    ExUserMainComponent,
+    ExTooltipComponent,
   ],
   imports: [
     CommonModule,
@@ -18,7 +18,7 @@ import { TooltipComponent } from './tooltip/tooltip.component'
     OthersRoutingModule,
     ElModule,
   ],
-  exports: [MainComponent],
+  exports: [ExUserMainComponent],
   providers: [],
 })
 export class OthersModule {

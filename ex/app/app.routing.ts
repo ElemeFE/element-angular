@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core'
-import { Routes, RouterModule } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router'
 
 export const appRoutes: Routes = [
   {
@@ -18,7 +18,7 @@ export const appRoutes: Routes = [
     path: 'nav',
     loadChildren: './navigation/navigation.module#NavigationModule',
   },
-  {path: '', redirectTo: '/basic', pathMatch: 'full' },
+  { path: '', redirectTo: '/basic', pathMatch: 'full' },
 ]
 
 @NgModule({
