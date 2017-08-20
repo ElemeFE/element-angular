@@ -7,24 +7,18 @@
 <h2 align="center">Element for Angular</h2>
 
 
-### Catalog
-----------
+## Catalog
 
 -  [Progress](#progress)
+-  [Documentation](#documentation)
 -  [Getting Started](#getting-started)
+-  [Contribution](#contribution)
 -  [Support](#support)
 -  [LICENSE](#license)
 
 
 
-
-
-
-### Progress
-
-
-----------  
-todo(priority):  
+## Progress
 
 - [x] example compiler and lift
 - [x] github pages
@@ -33,25 +27,42 @@ todo(priority):
 - [ ] add developer.md
 
 
+## Documentation
 
-### Getting Started
+[element-angular](https://eleme.github.io/element-angular/)
+
+other frameworks:
+
+[element-vue](http://element.eleme.io/#/zh-CN/component/installation)
+
+[element-react](https://eleme.github.io/element-react/#/zh-CN/quick-start)
 
 
-----------
+## Getting Started
+
 ...
 
 
 
+## Contribution
 
-### Support
+```bash
+# fork && git clone
+...
+# dev
+npm i && npm dev
+
+# add example
+npm run ex
+
+```
 
 
-----------
-Modern browsers and Internet Explorer 9+. 
+## Support
+
+Modern browsers and Internet Explorer 9+.
 
 
-### LICENSE
+## LICENSE
 
-
-----------
 **MIT**
