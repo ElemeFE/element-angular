@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Http } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
+import { CATALOG } from './config'
 
 @Injectable()
 export class DocsService {
@@ -11,7 +12,6 @@ export class DocsService {
   }
   
   getCatalog(): Observable<any> {
-    return this.http.request('/ex/docs/catalog.json')
-      .map(res => res.json())
+    return Observable.of(CATALOG)
   }
 }
