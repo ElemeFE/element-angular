@@ -1,11 +1,11 @@
 import { Component, OnInit,  } from '@angular/core'
 
 @Component({
-  selector: 'my-tooltip',
+  selector: 'ex-tooltip',
   templateUrl: './tooltip.component.html',
   styleUrls: ['./tooltip.component.scss'],
 })
-export class TooltipComponent implements OnInit {
+export class ExTooltipComponent implements OnInit {
   
   makeTooltipSetting(placement: string): any {
     return {

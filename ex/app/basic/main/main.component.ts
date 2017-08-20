@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'ex-user-main',
+  selector: 'ex-basic-main',
   templateUrl: './main.component.html',
-  styles: ['./main.component.css'],
+  styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements OnInit {
+export class ExBasicMainComponent implements OnInit {
   
   constructor() {
   }

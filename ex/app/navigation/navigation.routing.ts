@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core'
-import { Routes, RouterModule } from '@angular/router'
-import { MainComponent } from './main/main.component'
+import { RouterModule, Routes } from '@angular/router'
+import { ExNavigationMainComponent } from './main/main.component'
 
-import { MenuComponent } from './menu/menu.component'
+import { ExMenuComponent } from './menu/menu.component'
 
 
 export const navigationRoutes: Routes = [{
-  path: '', component: MainComponent,
+  path: '', component: ExNavigationMainComponent,
   children: [{
-    path: 'menu', component: MenuComponent,
+    path: 'menu', component: ExMenuComponent,
   }],
 }]
 

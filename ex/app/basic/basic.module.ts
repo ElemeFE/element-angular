@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms'
 import { BasicRoutingModule } from './basic.routing'
 import { ElModule } from '../../../src/index'
 
-import { MainComponent } from './main/main.component'
-import { ButtonComponent } from './button/button.component'
-import { IconComponent } from './icon/icon.component'
-import { LayoutComponent } from './layout/layout.component'
+import { ExBasicMainComponent } from './main/main.component'
+import { ExButtonComponent } from './button/button.component'
+import { ExIconComponent } from './icon/icon.component'
+import { ExLayoutComponent } from './layout/layout.component'
 
 @NgModule({
   declarations: [
-    MainComponent,
-    ButtonComponent,
-    IconComponent,
-    LayoutComponent,
+    ExBasicMainComponent,
+    ExButtonComponent,
+    ExIconComponent,
+    ExLayoutComponent,
   ],
   imports: [
     CommonModule,
@@ -22,7 +22,7 @@ import { LayoutComponent } from './layout/layout.component'
     BasicRoutingModule,
     ElModule,
   ],
-  exports: [MainComponent],
+  exports: [ExBasicMainComponent],
   providers: [],
 })
 export class BasicModule {

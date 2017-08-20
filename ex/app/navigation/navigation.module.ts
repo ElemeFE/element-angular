@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms'
 import { NavRoutingModule } from './navigation.routing'
 import { ElModule } from '../../../src/index'
 
-import { MainComponent } from './main/main.component'
-import { MenuComponent } from './menu/menu.component'
+import { ExNavigationMainComponent } from './main/main.component'
+import { ExMenuComponent } from './menu/menu.component'
 
 @NgModule({
   declarations: [
-    MainComponent,
-    MenuComponent,
+    ExNavigationMainComponent,
+    ExMenuComponent,
   ],
   imports: [
     CommonModule,
@@ -18,7 +18,7 @@ import { MenuComponent } from './menu/menu.component'
     NavRoutingModule,
     ElModule,
   ],
-  exports: [MainComponent],
+  exports: [ExNavigationMainComponent],
   providers: [],
 })
 export class NavigationModule {
