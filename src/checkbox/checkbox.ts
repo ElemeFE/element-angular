@@ -30,9 +30,6 @@ export class ElCheckbox implements OnInit {
   @Input('true-label') trueLabel: string | number
   @Output() modelChange = new EventEmitter<any>()
   
-  constructor() {
-  }
-  
   private labels: string
   private focus: boolean = false
   private classes: any = {
@@ -40,6 +37,9 @@ export class ElCheckbox implements OnInit {
     'is-checked': this.isChecked(),
     'is-indeterminate': this.indeterminate,
     'is-focus': this.focus,
+  }
+  
+  constructor() {
   }
   
   toggleFocus(t: boolean):void {

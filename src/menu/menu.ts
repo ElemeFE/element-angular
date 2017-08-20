@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, Input, } from '@angular/core'
+import { AfterViewInit, ChangeDetectionStrategy, Component, Input } from '@angular/core'
 
 @Component({
   selector: 'el-menu',
@@ -19,10 +19,10 @@ export class ElMenu implements AfterViewInit {
   @Input('unique-opened') uniqueOpened: boolean = false
   @Input('menu-trigger') menuTrigger: string = 'hover'
   
+  public openedMenus: string[] = this.defaultOpeneds ? this.defaultOpeneds.slice(0) : []
+  
   constructor() {
   }
-  
-  public openedMenus: string[] = this.defaultOpeneds ? this.defaultOpeneds.slice(0) : []
   
   classes(): any {
     return {

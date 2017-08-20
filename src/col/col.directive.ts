@@ -20,16 +20,16 @@ export class ElColDirective implements OnInit {
   @Input() md: any
   @Input() lg: any
   
+  private parentIsRow: any = null
+  private gutterFromParent: number = 0
+  private nativeClass: string = ' '
+  
   constructor(
     private sanitizer: DomSanitizer,
     private el: ElementRef,
   ) {
     this.nativeClass += this.el.nativeElement.classList.value
   }
-  
-  private parentIsRow: any = null
-  private gutterFromParent: number = 0
-  private nativeClass: string = ' '
   
   classList(): string {
     const makeClass = (key: string): string => key !== 'span'

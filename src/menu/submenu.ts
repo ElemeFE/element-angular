@@ -23,15 +23,15 @@ export class ElSubmenu implements OnChanges, OnInit {
   @Input() index: string
   @Input() title: string
   
+  private timer: any
+  private opened: boolean = false
+  private active: boolean = false
+  
   constructor(
     @Host() private rootMenu: ElMenu,
     private sanitizer: DomSanitizer,
     ) {
   }
-  
-  private timer: number
-  private opened: boolean = false
-  private active: boolean = false
   
   classes(): any {
     return {

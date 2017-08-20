@@ -27,18 +27,18 @@ export class ElRadioButton implements AfterContentInit {
   @Input() model: any
   @Output() modelChange = new EventEmitter<any>()
   
-  constructor(private config: ElRadioConfig) {
-    this.disabled = config.disabled
-    this.label = config.label
-    this.nativeName = config.nativeName
-  }
-  
   private size: string
   private showLabel: boolean = false
   private isGroup: boolean = false
   private fillColor: string
   private textColor: string
   private modelChangeFromGroup: Function
+  
+  constructor(private config: ElRadioConfig) {
+    this.disabled = config.disabled
+    this.label = config.label
+    this.nativeName = config.nativeName
+  }
   
   classes(): ClassesType {
     return {

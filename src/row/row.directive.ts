@@ -1,4 +1,4 @@
-import { Input, Directive, ElementRef, } from '@angular/core'
+import { Input, Directive, ElementRef } from '@angular/core'
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser'
 
 @Directive({
@@ -16,14 +16,14 @@ export class ElRowDirective {
   @Input() justify: string = 'start'
   @Input() align: string = 'top'
   
+  private nativeClass: string = ' '
+  
   constructor(
     private sanitizer: DomSanitizer,
     private el: ElementRef,
   ) {
     this.nativeClass += this.el.nativeElement.classList.value
   }
-  
-  private nativeClass: string = ' '
   
   justifyClass(): string {
     return this.justify !== 'start' ? ` is-justify-${this.justify}` : ''

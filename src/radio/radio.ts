@@ -30,16 +30,16 @@ export class ElRadio implements AfterContentInit {
   @Input() model: any
   @Output() modelChange = new EventEmitter<any>()
   
+  private isFocus: boolean = false
+  private showLabel: boolean = false
+  private isGroup: boolean = false
+  private modelChangeFromGroup: Function
+  
   constructor(private config: ElRadioConfig) {
     this.disabled = config.disabled
     this.label = config.label
     this.nativeName = config.nativeName
   }
-  
-  private isFocus: boolean = false
-  private showLabel: boolean = false
-  private isGroup: boolean = false
-  private modelChangeFromGroup: Function
   
   classes(): ClassesType {
     return {
