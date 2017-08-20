@@ -1,6 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ElButtonsModule } from './button/module'
+import { ElCheckboxsModule } from './checkbox/module'
 import { ElIconsModule } from './icon/module'
 import { ElRadiosModule } from './radio/module'
 import { ElMenusModule } from './menu/module'
@@ -10,14 +11,14 @@ import { ElColModule } from './col/module'
 
 const ElMODULES = [
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
-  ElColModule,
+  ElColModule, ElCheckboxsModule,
 ]
 
 @NgModule({
   imports: [
     ElButtonsModule.forRoot(), ElIconsModule.forRoot(), ElRadiosModule.forRoot(),
     ElTooltipModule.forRoot(), ElMenusModule.forRoot(), ElRowModule.forRoot(),
-    ElColModule.forRoot(),
+    ElColModule.forRoot(), ElCheckboxsModule.forRoot(),
     BrowserAnimationsModule,
   ],
   exports: ElMODULES
