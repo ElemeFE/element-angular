@@ -1,0 +1,33 @@
+<div class="side-nav" *ngIf="catalog">
+  <div>版本: 0.0.1</div>
+  <ul *ngFor="let item of catalog">
+    <li class="nav-item">
+      <!--<span *ngIf="!item.link">{{ item.name }}</span>-->
+      <a [href]="item.link" [style]="cursorSylte(item.link)">{{ item.name }}</a>
+
+      <ng-container *ngIf="item.children && item.children.length > 0">
+        <ul class="pure-menu-list sub-nav">
+          <li class="nav-item" *ngFor="let children of item.children">
+            <a [href]="children.link" [style]="cursorSylte(item.link)">
+              {{ children.name }}
+            </a>
+          </li>
+        </ul>
+      </ng-container>
+
+    </li>
+
+    <ng-container *ngIf="item.components && item.components.length > 0">
+      <li class="nav-item" *ngFor="let component of item.components">
+        <div class="nav-group" >
+          <div class="nav-group__title">{{ component.name }}</div>
+          <ul class="pure-menu-list" *ngFor="let children of component.children">
+            <li class="nav-item">
+              <a routerLinkActive="active" [routerLink]="[children.link]">{{ children.name }}</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ng-container>
+  </ul>
+</div>
