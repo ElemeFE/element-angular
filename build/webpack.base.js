@@ -11,7 +11,7 @@ module.exports = {
   },
   
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js', '.json'],
   },
   
   module: {
@@ -27,6 +27,10 @@ module.exports = {
           'angular2-template-loader',
           'angular-router-loader',
         ],
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
       },
       {
         test: /\.html$/,
