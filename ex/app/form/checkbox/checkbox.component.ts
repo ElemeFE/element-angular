@@ -7,8 +7,7 @@ import { Component, OnInit,  } from '@angular/core'
 })
 export class ExCheckboxComponent implements OnInit {
   
-  private test: string = 'test2'
-  private btn: string = 'btn2'
+  private checked: boolean = true
   
   ngOnInit(): void {
   }
