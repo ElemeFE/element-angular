@@ -2,7 +2,7 @@
 single
 <el-checkbox [(model)]="checked">备选项</el-checkbox>
 
-group
+<p>group</p>
 <el-checkbox-group [(model)]="checkList" [fill]="'#fff'">
   <el-checkbox label="复选框A"></el-checkbox>
   <el-checkbox label="复选框B"></el-checkbox>
@@ -11,11 +11,20 @@ group
   <el-checkbox label="选中且禁用" [disabled]="true"></el-checkbox>
 </el-checkbox-group>
 
-group limit 2
+<p>group limit 2</p>
 <el-checkbox-group [(model)]="checkList" [max]="2">
   <el-checkbox label="复选框A"></el-checkbox>
   <el-checkbox label="复选框B"></el-checkbox>
   <el-checkbox label="复选框C"></el-checkbox>
   <el-checkbox label="禁用" [disabled]="true"></el-checkbox>
   <el-checkbox label="选中且禁用" [disabled]="true"></el-checkbox>
+</el-checkbox-group>
+
+<p>checkbox button</p>
+<el-checkbox-group [(model)]="buttonList">
+  <el-checkbox-button label="背景"></el-checkbox-button>
+  <el-checkbox-button label="上海"></el-checkbox-button>
+  <el-checkbox-button label="广州"></el-checkbox-button>
+  <el-checkbox-button label="福建"></el-checkbox-button>
+  <el-checkbox-button label="杭州"></el-checkbox-button>
 </el-checkbox-group>
