@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 
 @Component({
   selector: 'ex-log',
   templateUrl: './log.component.html',
   styleUrls: ['./log.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ExLogComponent implements OnInit {
   
