@@ -6,9 +6,18 @@ import { SafeHtmlPipe } from './pipe'
 
 
 @NgModule({
-  declarations: [ExFooterNavComponent, SafeHtmlPipe],
-  exports: [ExFooterNavComponent, SafeHtmlPipe],
-  imports: [CommonModule, FormsModule],
+  declarations: [
+    ExFooterNavComponent,
+    SafeHtmlPipe
+  ],
+  exports: [
+    ExFooterNavComponent,
+    SafeHtmlPipe
+  ],
+  imports: [
+    CommonModule,
+    FormsModule,
+  ],
   entryComponents: [ExFooterNavComponent],
 })
 export class ExSharedModule {

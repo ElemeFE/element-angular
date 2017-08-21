@@ -6,7 +6,7 @@ const CATALOG: any = [{
       'link': '/guide/install',
     }, {
       'name': '快速上手',
-      'link': '',
+      'link': '/guide/start',
     }, {
       'name': '国际化',
       'link': '',
