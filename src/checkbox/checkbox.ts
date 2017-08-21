@@ -1,11 +1,17 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit } from '@angular/core'
+import {
+  Component, Input, Output, EventEmitter, OnInit,
+  ElementRef, Optional
+} from '@angular/core'
+import { ElCheckboxGroup } from './checkbox-group'
+import { Utils } from '../shared'
 
 @Component({
   selector: 'el-checkbox',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <label class="el-checkbox">
-    <span class="el-checkbox__input" [ngClass]="classes">
+    <span class="el-checkbox__input"
+      [class.is-disabled]="disabled" [class.is-focus]="focus"
+      [class.is-indeterminate]="indeterminate" [class.is-checked]="checked">
       <span class="el-checkbox__inner"></span>
       <input class="el-checkbox__original" type="checkbox"
         [disabled]="disabled" [value]="label" [name]="name"
@@ -30,36 +36,43 @@ export class ElCheckbox implements OnInit {
   @Input('true-label') trueLabel: string | number
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
-  private labels: string
+  private labels: any[]
+  private parentIsGroup: boolean = false
   private focus: boolean = false
-  private classes: any = {
-    'is-disabled': this.disabled,
-    'is-checked': this.isChecked(),
-    'is-indeterminate': this.indeterminate,
-    'is-focus': this.focus,
+  
+  constructor(
+    @Optional() private hostGroup: ElCheckboxGroup,
+    private el: ElementRef,
+  ) {
   }
   
-  constructor() {
-  }
-  
-  toggleFocus(t: boolean):void {
+  toggleFocus(t: boolean): void {
     this.focus = t
   }
   
-  isChecked():boolean {
-    if (this.labels) {
-      return this.labels.indexOf(this.label) > -1
+  isChecked(): boolean {
+    if (this.parentIsGroup) {
+      return this.hostGroup.model.indexOf(this.label) > -1
     }
     return this.model
   }
   
   changeHandle(t: boolean): void {
+    this.parentIsGroup && this.hostGroup.updateModelFromChildren(t, this.label)
     this.model = t
-    this.classes['is-checked'] = this.isChecked()
-    this.modelChange.emit(this.model)
+    this.checked = this.isChecked()
   }
   
   ngOnInit(): void {
-    this.classes['is-checked'] = this.isChecked()
+    const nativeElement = this.el.nativeElement
+    this.parentIsGroup = Utils.isParentTag(nativeElement, 'el-checkbox-group')
+    // update model from group
+    if (this.parentIsGroup) {
+      this.labels = this.hostGroup.model
+      this.model = this.isChecked()
+      // update handle
+      this.hostGroup.subscriber.push(() => this.model = this.isChecked())
+    }
+    this.checked = this.isChecked()
   }
 }
