@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core'
 export class ExCheckboxComponent implements OnInit {
   
   private checked: boolean = true
+  private checkList: string[] = [
+    '复选框A',
+    '选中且禁用',
+  ]
   
   ngOnInit(): void {
   }
