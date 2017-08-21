@@ -12,6 +12,10 @@ export class ExCheckboxComponent implements OnInit {
     '复选框A',
     '选中且禁用',
   ]
+  private buttonList: string[] = [
+    '上海',
+    '广州',
+  ]
   
   ngOnInit(): void {
   }

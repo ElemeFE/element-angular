@@ -4,28 +4,26 @@ import {
 } from '@angular/core'
 import { ElCheckboxGroup } from './checkbox-group'
 import { Utils } from '../shared'
+import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 
 @Component({
-  selector: 'el-checkbox',
+  selector: 'el-checkbox-button',
   template: `
-    <label class="el-checkbox">
-    <span class="el-checkbox__input"
+    <label [class]="'el-checkbox-button' + (size ? ' el-checkbox-button--' + size : '') "
       [class.is-disabled]="disabled" [class.is-focus]="focus"
       [class.is-indeterminate]="indeterminate" [class.is-checked]="checked">
-      <span class="el-checkbox__inner"></span>
-      <input class="el-checkbox__original" type="checkbox"
+      <input class="el-checkbox-button__original" type="checkbox"
         [disabled]="disabled" [value]="label" [name]="name"
         [ngModel]="model" (ngModelChange)="changeHandle($event)"
         (focus)="toggleFocus(true)" (blur)="toggleFocus(false)">
-    </span>
-      <span class="el-checkbox__label">
+      <span class="el-checkbox-button__inner" [style]="checked ? activeStyle() : ''">
         <ng-container *ngIf="label">{{label}}</ng-container>
         <ng-content *ngIf="!label"></ng-content>
       </span>
     </label>
   `,
 })
-export class ElCheckbox implements OnInit {
+export class ElCheckboxButton implements OnInit {
   
   @Input() label: string
   @Input() model: any
@@ -39,11 +37,22 @@ export class ElCheckbox implements OnInit {
   private labels: any[]
   private parentIsGroup: boolean = false
   private focus: boolean = false
+  // special key
+  private size: string
   
   constructor(
     @Optional() private hostGroup: ElCheckboxGroup,
     private el: ElementRef,
+    private domSanitizer: DomSanitizer,
   ) {
+  }
+  
+  activeStyle(): SafeStyle {
+    if (!this.hostGroup) return this.domSanitizer.bypassSecurityTrustStyle('')
+    const styles: string = `backgroundColor: ${this.hostGroup.fill};` +
+      `borderColor: ${this.hostGroup.fill};color: ${this.hostGroup.textColor};` +
+      `box-shadow: -1px 0 0 0 ${this.hostGroup.fill};`
+    return this.domSanitizer.bypassSecurityTrustStyle(styles)
   }
   
   toggleFocus(t: boolean): void {
@@ -69,6 +78,7 @@ export class ElCheckbox implements OnInit {
     // update model from group
     if (this.parentIsGroup) {
       this.labels = this.hostGroup.model
+      this.size = this.hostGroup.size
       this.model = this.isChecked()
       // update handle
       this.hostGroup.subscriber.push(() => this.model = this.isChecked())
