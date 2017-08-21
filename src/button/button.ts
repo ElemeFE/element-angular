@@ -1,16 +1,20 @@
-import { Component, Input, Output, EventEmitter, ContentChild, ChangeDetectionStrategy} from '@angular/core'
-import { ElButtonConfig } from './button-config'
-import { ClassesType } from '../radio/radio.interface'
+import {
+  Component, Input, Output, EventEmitter, OnInit, ChangeDetectionStrategy,
+  ElementRef,
+} from '@angular/core'
+import { Utils } from '../shared'
 
 @Component({
   selector: 'el-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
   <button (click)="clickHandle($event)"
+    [class]="'el-button' + (themeType && ' el-button--' + themeType) + (size && ' el-button--' + size) + nativeClass"
+    [class.is-disabled]="disabled"
+    [class.is-loading]="loading"
+    [class.is-plain]="plain"
     [disabled]="disabled"
-    [ngClass]="classes()"
     [type]="nativeType"
-    [class]="'el-button' + (themeType && ' el-button--' + themeType) + (size && ' el-button--' + size)"
     [autofocus]="autofocus">
     <i class="el-icon-loading" *ngIf="loading"></i>
     <i [class]="'el-icon-' + icon" *ngIf="icon && !loading"></i>
@@ -18,35 +22,32 @@ import { ClassesType } from '../radio/radio.interface'
   </button>
   `,
 })
-export class ElButton {
+export class ElButton implements OnInit {
   
   @Input('type') themeType: string = ''
   @Input('native-type') nativeType: string = ''
   @Input() size: string = ''
   @Input() icon: string = ''
-  @Input() disabled: boolean
-  @Input() loading: boolean
-  @Input() plain: boolean
-  @Input() autofocus: boolean
+  @Input() disabled: boolean = false
+  @Input() loading: boolean = false
+  @Input() plain: boolean = false
+  @Input() autofocus: boolean = false
   @Output() click: EventEmitter<any> = new EventEmitter<any>()
   
-  constructor(private config: ElButtonConfig) {
-    this.disabled = config.disabled
-    this.loading = config.loading
-    this.plain = config.plain
-    this.autofocus = config.autofocus
-  }
+  private nativeClass: string = ' '
   
-  classes(): ClassesType {
-    return {
-      'is-disabled': this.disabled,
-      'is-loading': this.loading,
-      'is-plain': this.plain,
-    }
+  constructor(
+    private el: ElementRef,
+  ) {
+    this.nativeClass += this.el.nativeElement.classList.value
   }
   
   clickHandle($event: Event): void {
     this.click.emit($event)
+  }
+  
+  ngOnInit(): void {
+    Utils.removeNgTag(this.el.nativeElement)
   }
   
 }
