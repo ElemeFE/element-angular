@@ -21,8 +21,6 @@ a {
 }
 
 code {
-  background-color: #f9fafc;
-  padding: 0 4px;
   border: 1px solid #eaeefb;
   border-radius: 4px;
 }
@@ -38,10 +36,10 @@ button, input, select, textarea {
   line-height: 1.8;
   font-family: Menlo, Monaco, Consolas, Courier, monospace;
   font-size: 12px;
-  padding: 18px 24px;
-  background-color: #f9fafc;
+  padding: 12px 18px;
+  background: #f9fafc;
   border: solid 1px #eaeefb;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   border-radius: 4px;
   -webkit-font-smoothing: auto;
 }
