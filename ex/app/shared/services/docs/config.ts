@@ -3,7 +3,7 @@ const CATALOG: any = [{
     'components': [],
     'children': [{
       'name': '安装',
-      'link': '',
+      'link': '/guide/install',
     }, {
       'name': '快速上手',
       'link': '',

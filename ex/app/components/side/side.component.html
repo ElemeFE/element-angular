@@ -8,7 +8,7 @@
       <ng-container *ngIf="item.children && item.children.length > 0">
         <ul class="pure-menu-list sub-nav">
           <li class="nav-item" *ngFor="let children of item.children">
-            <a [href]="children.link" [style]="cursorSylte(item.link)">
+            <a routerLinkActive="active" [routerLink]="children.link">
               {{ children.name }}
             </a>
           </li>
