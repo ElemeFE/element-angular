@@ -63,7 +63,7 @@ const getWindowSizes: Function = (): Shape => {
 }
 
 const getBoundingClientRect: Function = (element: HTMLElement): ClientRect => {
-  let rect: any = element.getBoundingClientRect()
+  const rect: any = element.getBoundingClientRect()
   
   const result = {
     left: rect.left,

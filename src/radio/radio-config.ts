@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 
 @Injectable()
 export class ElRadioConfig {
-  disabled = false
-  label = ''
-  nativeName = ''
+  disabled: boolean = false
+  label: string = ''
+  nativeName: string = ''
 }

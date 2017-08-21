@@ -23,7 +23,7 @@ export class ElMenuItemGroup implements OnInit {
   ) {
   }
   
-  setPadding() {
+  setPadding(): void {
   
   }
   

@@ -10,7 +10,7 @@ export class ExBasicMainComponent implements OnInit {
   constructor() {
   }
   
-  ngOnInit() {
+  ngOnInit(): void {
   }
   
 }

@@ -19,7 +19,7 @@ export class ElMenu implements AfterViewInit {
   @Input('unique-opened') uniqueOpened: boolean = false
   @Input('menu-trigger') menuTrigger: string = 'hover'
   
-  public openedMenus: string[] = this.defaultOpeneds ? this.defaultOpeneds.slice(0) : []
+  openedMenus: string[] = this.defaultOpeneds ? this.defaultOpeneds.slice(0) : []
   
   constructor() {
   }
@@ -33,7 +33,7 @@ export class ElMenu implements AfterViewInit {
   }
   
   openMenu(index: string): void {
-    let openedMenus = this.openedMenus
+    const openedMenus = this.openedMenus
     if (openedMenus.indexOf(index) !== -1) return
     this.openedMenus.push(index)
   }

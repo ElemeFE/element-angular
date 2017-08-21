@@ -22,8 +22,8 @@
 
 - [x] example compiler and lift
 - [x] github pages
+- [x] improve tslint
 - [ ] karma gulp task
-- [ ] improve tslint
 - [ ] add developer.md
 
 

@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, ContentChild, ChangeDetectionStrategy} from '@angular/core'
 import { ElButtonConfig } from './button-config'
+import { ClassesType } from '../radio/radio.interface'
 
 @Component({
   selector: 'el-button',
@@ -27,7 +28,7 @@ export class ElButton {
   @Input() loading: boolean
   @Input() plain: boolean
   @Input() autofocus: boolean
-  @Output() click = new EventEmitter<any>()
+  @Output() click: EventEmitter<any> = new EventEmitter<any>()
   
   constructor(private config: ElButtonConfig) {
     this.disabled = config.disabled
@@ -36,7 +37,7 @@ export class ElButton {
     this.autofocus = config.autofocus
   }
   
-  classes() {
+  classes(): ClassesType {
     return {
       'is-disabled': this.disabled,
       'is-loading': this.loading,

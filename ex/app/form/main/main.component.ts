@@ -10,7 +10,7 @@ export class ExFormMainComponent implements OnInit {
   constructor() {
   }
   
-  ngOnInit() {
+  ngOnInit(): void {
   }
   
 }

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core'
 })
 export class ExButtonComponent implements OnInit {
   
-  clickHandler(params: any) {
+  clickHandler(params: any): void {
     console.log('click', params)
   }
   

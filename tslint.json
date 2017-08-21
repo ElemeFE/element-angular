@@ -1,6 +1,38 @@
 {
   "rules": {
     "class-name": true,
+    "member-access": [true, "no-public"],
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "public-static-field",
+          "private-static-field",
+          "protected-static-field",
+          "public-instance-field",
+          "private-instance-field",
+          "protected-instance-field",
+          "public-static-method",
+          "private-static-method",
+          "protected-static-method",
+          "public-constructor",
+          "private-constructor",
+          "protected-constructor",
+          "public-instance-method",
+          "private-instance-method",
+          "protected-instance-method"
+        ]
+      }
+    ],
+    "no-any": false,
+    "no-non-null-assertion": true,
+    "no-var-requires": true,
+    "only-arrow-functions": [
+      true,
+      "allow-declarations"
+    ],
+    "prefer-for-of": true,
+    "typedef": [true, "call-signature", "parameter", "member-variable-declaration"],
     "eofline": true,
     "indent": "spaces",
     "member-ordering": [
@@ -10,6 +42,10 @@
       "variables-before-functions"
     ],
     "no-eval": true,
+    "no-sparse-arrays": true,
+    "switch-default": true,
+    "prefer-const": true,
+    "arrow-return-shorthand": true,
     "trailing-comma": [
       true,
       {

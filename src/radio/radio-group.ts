@@ -18,7 +18,7 @@ export class ElRadioGroup implements AfterContentInit, OnChanges {
   @Input() disabled: boolean = false
   
   @Input() model: any
-  @Output() modelChange = new EventEmitter<any>()
+  @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   @ContentChildren(ElRadio) radioTmp: any
   @ContentChildren(ElRadioButton) radioBtnTmp: any
   

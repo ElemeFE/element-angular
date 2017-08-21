@@ -8,3 +8,5 @@ temp
 .vscode
 *.log
 *.log.*
+bundle
+release

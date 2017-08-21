@@ -28,7 +28,7 @@ export class ElCheckbox implements OnInit {
   @Input() checked: boolean = false
   @Input() name: string
   @Input('true-label') trueLabel: string | number
-  @Output() modelChange = new EventEmitter<any>()
+  @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
   private labels: string
   private focus: boolean = false

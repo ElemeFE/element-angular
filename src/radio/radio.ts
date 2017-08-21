@@ -28,7 +28,7 @@ export class ElRadio implements AfterContentInit {
   @Input() label: Label
   @Input('name') nativeName: string
   @Input() model: any
-  @Output() modelChange = new EventEmitter<any>()
+  @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
   private isFocus: boolean = false
   private showLabel: boolean = false

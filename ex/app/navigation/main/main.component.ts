@@ -10,7 +10,7 @@ export class ExNavigationMainComponent implements OnInit {
   constructor() {
   }
   
-  ngOnInit() {
+  ngOnInit(): void {
   }
   
 }
