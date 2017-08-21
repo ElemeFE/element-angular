@@ -9,13 +9,13 @@ const CATALOG: any = [{
       'link': '/guide/start',
     }, {
       'name': '国际化',
-      'link': '',
+      'link': '/guide/i18n',
     }, {
       'name': '自定义主题',
-      'link': '',
+      'link': '/guide/theme',
     }, {
       'name': 'Angular 动画',
-      'link': '',
+      'link': '/guide/transition',
     }],
     'name': '开发指南',
     'link': null,
@@ -24,7 +24,7 @@ const CATALOG: any = [{
     'components': [],
     'children': [],
     'name': '更新日志',
-    'link': '',
+    'link': '#/guide/log',
   }, {
     'type': 'h1',
     'children': [],

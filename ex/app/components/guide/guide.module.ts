@@ -8,12 +8,20 @@ import { ExSharedModule } from '../../shared/module'
 import { ExGuideMainComponent } from './main/main.component'
 import { ExInstallComponent } from './install/install.component'
 import { ExStartComponent } from './start/start.component'
+import { ExLanguageComponent } from './language/language.component'
+import { ExThemeComponent } from './theme/theme.component'
+import { ExTransitionComponent } from './transition/transition.component'
+import { ExLogComponent } from './log/log.component'
 
 @NgModule({
   declarations: [
     ExGuideMainComponent,
     ExInstallComponent,
     ExStartComponent,
+    ExLanguageComponent,
+    ExThemeComponent,
+    ExTransitionComponent,
+    ExLogComponent,
   ],
   imports: [
     CommonModule,
