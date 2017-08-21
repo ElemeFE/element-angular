@@ -20,9 +20,7 @@ module.exports = webpackMerge(baseConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/angular/angular/issues/10618
     new webpack.optimize.UglifyJsPlugin({
-      mangle: {
-        keep_fnames: true,
-      },
+      mangle: { keep_fnames: true },
     }),
     new ExtractTextPlugin('[name].[hash].css'),
     new webpack.DefinePlugin({
@@ -31,7 +29,7 @@ module.exports = webpackMerge(baseConfig, {
       },
     }),
     new webpack.LoaderOptionsPlugin({
-      htmlLoader: { minimize: false },
+      htmlLoader: { minimize: true },
     }),
   ],
 })

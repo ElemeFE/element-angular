@@ -1,3 +1,21 @@
 <h2>checkbox</h2>
-
+single
 <el-checkbox [(model)]="checked">备选项</el-checkbox>
+
+group
+<el-checkbox-group [(model)]="checkList" [fill]="'#fff'">
+  <el-checkbox label="复选框A"></el-checkbox>
+  <el-checkbox label="复选框B"></el-checkbox>
+  <el-checkbox label="复选框C"></el-checkbox>
+  <el-checkbox label="禁用" [disabled]="true"></el-checkbox>
+  <el-checkbox label="选中且禁用" [disabled]="true"></el-checkbox>
+</el-checkbox-group>
+
+group limit 2
+<el-checkbox-group [(model)]="checkList" [max]="2">
+  <el-checkbox label="复选框A"></el-checkbox>
+  <el-checkbox label="复选框B"></el-checkbox>
+  <el-checkbox label="复选框C"></el-checkbox>
+  <el-checkbox label="禁用" [disabled]="true"></el-checkbox>
+  <el-checkbox label="选中且禁用" [disabled]="true"></el-checkbox>
+</el-checkbox-group>
