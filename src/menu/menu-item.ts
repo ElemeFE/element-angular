@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, Host, OnInit, ElementRef } from '@angular/core'
+import { Component, Input, ChangeDetectionStrategy, OnInit, ElementRef, Optional } from '@angular/core'
 import { DomSanitizer } from '@angular/platform-browser'
 import { ElMenu } from './menu'
 import { Utils } from '../shared'
@@ -20,7 +20,6 @@ import { Utils } from '../shared'
       </ng-container>
     </li>
   `,
-  providers: [ElMenu],
 })
 export class ElMenuItem implements OnInit {
   
@@ -32,8 +31,8 @@ export class ElMenuItem implements OnInit {
   private parentIsMenu: boolean = false
   
   constructor(
+    @Optional() private rootMenu: ElMenu,
     private sanitizer: DomSanitizer,
-    @Host() private rootMenu: ElMenu,
     private el: ElementRef,
   ) {
   }
