@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'ex-install',
-  templateUrl: './install.component.html',
-  styleUrls: ['./install.component.scss'],
+  selector: 'ex-start',
+  templateUrl: './start.component.html',
+  styleUrls: ['./start.component.scss'],
 })
-export class ExInstallComponent implements OnInit {
+export class ExStartComponent implements OnInit {
   
   private exampleCode1: string = '# npm i --save element-angular'
   private exampleCode2: string =
@@ -25,14 +25,15 @@ import { ElModule } from 'element-angular'
 template: '<el-button>Hello World</el-button>'
 `
   private page: any = {
-    previous: { name: '' },
-    next: { name: '快速开始', link: '/guide/start' },
+    previous: { name: '安装', link: '/guide/install' },
+    next: { name: '国际化', link: '/guide/install' },
   }
-  
   constructor(
   ) {
   }
   
   ngOnInit(): void {
+    
+    // (<any>window).hljs.highlightBlock(this.el.nativeElement.querySelector('#typescript').nodeValue)
   }
 }
