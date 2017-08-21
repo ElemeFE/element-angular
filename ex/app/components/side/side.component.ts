@@ -9,13 +9,13 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 })
 export class ExSideComponent implements OnInit {
   
+  private catalog: JSON
+  
   constructor(
     private docsService: DocsService,
     private sanitizer: DomSanitizer,
   ) {
   }
-  
-  private catalog: JSON
   
   cursorSylte(link: string | null): SafeStyle {
     const value = link ? 'pointer' : 'default'

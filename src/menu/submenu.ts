@@ -71,7 +71,7 @@ export class ElSubmenu implements OnChanges, OnInit {
     }, 300)
   }
   
-  updateOpened() {
+  updateOpened(): void {
     this.opened = this.rootMenu.openedMenus.indexOf(this.index) > -1
   }
   

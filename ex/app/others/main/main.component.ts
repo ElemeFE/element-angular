@@ -10,7 +10,7 @@ export class ExUserMainComponent implements OnInit {
   constructor() {
   }
   
-  ngOnInit() {
+  ngOnInit(): void {
   }
   
 }

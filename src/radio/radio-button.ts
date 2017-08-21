@@ -25,7 +25,7 @@ export class ElRadioButton implements AfterContentInit {
   @Input() label: Label
   @Input('name') nativeName: string
   @Input() model: any
-  @Output() modelChange = new EventEmitter<any>()
+  @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
   private size: string
   private showLabel: boolean = false
@@ -47,7 +47,7 @@ export class ElRadioButton implements AfterContentInit {
     }
   }
   
-  activeStyle() {
+  activeStyle(): ClassesType {
     return {
       backgroundColor: this.fillColor || '',
       borderColor: this.fillColor || '',

@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const helpers = require('./helpers')
+const tslintConfig = require('../tslint.json')
 
 module.exports = {
   entry: {
@@ -16,6 +17,15 @@ module.exports = {
   
   module: {
     rules: [
+      {
+        test: /\.ts/,
+        enforce: 'pre',
+        exclude: /node_modules/,
+        loader: 'tslint-loader',
+        options: {
+          configuration: tslintConfig,
+        },
+      },
       {
         test: /\.ts$/,
         loaders: [
