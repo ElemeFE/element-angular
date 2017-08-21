@@ -18,7 +18,11 @@ export const appRoutes: Routes = [
     path: 'nav',
     loadChildren: './navigation/navigation.module#NavigationModule',
   },
-  { path: '', redirectTo: '/basic', pathMatch: 'full' },
+  {
+    path: 'guide',
+    loadChildren: './components/guide/guide.module#GuideModule',
+  },
+  { path: '', redirectTo: '/guide/install', pathMatch: 'full' },
 ]
 
 @NgModule({

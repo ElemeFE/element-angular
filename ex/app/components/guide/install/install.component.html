@@ -1,0 +1,37 @@
+<section class="content">
+  <h2>安装</h2>
+  <h3>npm 安装</h3>
+  <p>推荐使用 npm 的方式安装，它能更好地和 <a href="https://webpack.js.org/" target="_blank">webpack</a> 打包工具配合使用。</p>
+  <pre>
+  <code class="hljs language-shell">
+    npm i --save element-angular
+  </code>
+</pre>
+
+  <h3>Hello world</h3>
+  <p>引入 element-angular 后，我们能轻易地构建一个 hello-world 页面</p>
+  <p>注: 假设你已经通过 <a href="https://github.com/angular/angular-cli" target="_blank">angular-cli</a> 创建了基础的 Angular 项目</p>
+  <pre>
+  <code class="hljs language-shell">
+    <!--// app.module.ts-->
+    <!--import \{ ElModule \} from 'element-angular'-->
+
+    <!--\@NgModule\(\{-->
+    <!--imports: \[-->
+    <!--ElModule.forRoot\(\),-->
+    <!--...,-->
+    <!--\],-->
+    <!--...-->
+    <!--bootstrap: \[ExAppComponent\],-->
+    <!--\}\)-->
+
+    <!--// components-->
+    <!--template: '<el-button>Hello World</el-button>'-->
+  </code>
+</pre>
+  <p>如果你希望能够通过模块、异步模块、子模块来引入 element-angular，请参阅下一章</p>
+</section>
+<ex-footer-nav name="快速上手"></ex-footer-nav>
+
+
+
