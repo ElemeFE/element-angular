@@ -12,7 +12,10 @@ import { DocsService } from '../../services'
 })
 export class ExDocumentComponent implements OnInit {
   
-  @Input() doc: string
+  @Input() doc: string = ''
+  
+  private apis: any
+  private errorMsg: string
   
   constructor(
     private docsService: DocsService
@@ -21,5 +24,11 @@ export class ExDocumentComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.docsService.getAttributes(this.doc)
+      .subscribe(res => {
+        this.apis = res
+        this.doc = this.doc.replace(/^[a-z]/, s =>
+          String.fromCharCode(s.charCodeAt(0) & ~32))
+      }, err => err.status === 404 && (this.errorMsg = '文档开发中..'))
   }
 }
