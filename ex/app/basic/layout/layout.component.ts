@@ -13,15 +13,15 @@ export class ExLayoutComponent implements OnInit {
     next: { name: 'Button 按钮', link: '/basic/button' },
   }
   private code: string = `
-    <div el-row justify="center" align="middle" type="flex">
-      <span el-col span="12" class="grid-content bg-purple" xs="4">
-        test1
-      </span>
-        <span el-col span="12" class="grid-content bg-purple-light">
-        test1
-      </span>
-    </div>
-  `
+<div el-row justify="center" align="middle" type="flex">
+  <span el-col span="12" class="grid-content bg-purple" xs="4">
+    test1
+  </span>
+    <span el-col span="12" class="grid-content bg-purple-light">
+    test1
+  </span>
+</div>
+`
   
   ngOnInit(): void {
   }

@@ -57,6 +57,13 @@ export class ExDemoComponent implements OnInit {
     this.link && window.open(this.link)
   }
   
+  showCode(): void {
+    this.isExpanded = !this.isExpanded
+    if (this.isExpanded) {
+      this.hovering = false
+    }
+  }
+  
   ngOnInit(): void {
     this.classes += ` demo-${this.route.routeConfig.path}`
   }
