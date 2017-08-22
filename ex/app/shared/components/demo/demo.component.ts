@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core'
-import { ActivatedRoute, Router } from '@angular/router'
+import { Component, Input, OnInit, ViewEncapsulation, ElementRef } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
 import { SafeHtmlPipe } from '../../pipe'
 import {
   trigger,
@@ -36,20 +36,21 @@ import {
       transition('* => *', animate(`250ms ease-in-out`)),
     ]),
   ],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ExDemoComponent implements OnInit {
   
-  @Input() code: string
   @Input() link: string
   @Input() notes: string
   
+  private code: string
   private classes: string = 'demo-block demo-box demo-zh-CN'
   private hovering: boolean = false
   private isExpanded: boolean = false
   
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
+    private el: ElementRef,
   ) {
   }
   
@@ -65,6 +66,8 @@ export class ExDemoComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.code = this.el.nativeElement.querySelector('.source').innerHTML
+    this.code = this.code.replace(/=""/g, '')
     this.classes += ` demo-${this.route.routeConfig.path}`
   }
 }
