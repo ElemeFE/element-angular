@@ -5,8 +5,8 @@ import { Utils } from '../shared'
 @Directive({
   selector: '[el-col]',
   host: {
-    '[class]': 'classList() + sizeClassList()',
     '[style]': 'gutterStyle()',
+    '[class]': 'classList() + sizeClassList()',
   },
 })
 export class ElColDirective implements OnInit {
@@ -35,10 +35,9 @@ export class ElColDirective implements OnInit {
     const makeClass = (key: string): string => key !== 'span'
       ? ` el-col-${key}-${this[key]}`
       : ` el-col-${this[key]}`
-    const classStr = ['span', 'offset', 'pull', 'push'].reduce((pre, next) => !next
-      ? ''
+    const classStr = ['span', 'offset', 'pull', 'push'].reduce((pre, next) => !this[next]
+      ? pre
       : pre + makeClass(next), 'el-col')
-    
     return classStr + this.nativeClass
   }
   
@@ -60,8 +59,8 @@ export class ElColDirective implements OnInit {
   gutterStyle(): SafeStyle {
     let styleStr = ''
     if (this.gutterFromParent) {
-      styleStr += `margin-left: -${this.gutterFromParent / 2}px;`
-      styleStr += `margin-right: -${this.gutterFromParent / 2}px;`
+      styleStr += `padding-left: ${this.gutterFromParent / 2}px;`
+      styleStr += `padding-right: ${this.gutterFromParent / 2}px;`
     }
     return this.sanitizer.bypassSecurityTrustStyle(styleStr)
   }
