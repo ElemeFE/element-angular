@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { SafeHtmlPipe } from '../../pipe'
 import {
@@ -36,6 +36,7 @@ import {
       transition('* => *', animate(`250ms ease-in-out`)),
     ]),
   ],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ExDemoComponent implements OnInit {
   

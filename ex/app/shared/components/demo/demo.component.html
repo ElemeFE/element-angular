@@ -7,7 +7,7 @@
   <div class="meta" [@expand]="isExpanded" style="height: 0;">
     <div class="description">
       <ng-container *ngIf="notes">
-        <span [innerHTML]="notes"></span>
+        <div [innerHTML]="notes"></div>
       </ng-container>
       <ng-container *ngIf="link">
         <button type="button" class="el-button el-tooltip el-button--primary el-button--small"
