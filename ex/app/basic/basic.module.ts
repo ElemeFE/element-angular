@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { BasicRoutingModule } from './basic.routing'
 import { ElModule } from '../../../src/index'
+import { ExSharedModule } from '../shared/module'
 
 import { ExBasicMainComponent } from './main/main.component'
 import { ExButtonComponent } from './button/button.component'
@@ -21,6 +22,7 @@ import { ExLayoutComponent } from './layout/layout.component'
     FormsModule,
     BasicRoutingModule,
     ElModule,
+    ExSharedModule,
   ],
   exports: [ExBasicMainComponent],
   providers: [],
