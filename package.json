@@ -48,6 +48,7 @@
     "angular2-template-loader": "^0.6.2",
     "app-root-path": "^2.0.1",
     "awesome-typescript-loader": "^3.2.2",
+    "copy-webpack-plugin": "^4.0.1",
     "core-js": "^2.5.0",
     "css-loader": "^0.28.4",
     "css-to-string-loader": "^0.1.3",

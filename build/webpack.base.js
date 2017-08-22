@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const helpers = require('./helpers')
 const tslintConfig = require('../tslint.json')
 
@@ -85,5 +86,15 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'ex/index.html',
     }),
+  
+    new CopyWebpackPlugin([
+      {
+        from: helpers.root('ex/docs'),
+        to: helpers.root('dist/ex/docs'),
+        force: true,
+        toType: 'dir',
+        ignore: ['.*']
+      }
+    ]),
   ],
 }
