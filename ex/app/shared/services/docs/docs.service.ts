@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Http } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
-import { CATALOG } from './config'
 
 @Injectable()
 export class DocsService {
@@ -12,6 +11,12 @@ export class DocsService {
   }
   
   getCatalog(): Observable<any> {
-    return Observable.of(CATALOG)
+    return this.http.get('ex/docs/catalog.json')
+      .map(res => res.json())
+  }
+  
+  getAttributes(documentType: string): Observable<any> {
+    return this.http.get(`ex/docs/${documentType}.json`)
+      .map(res => res.json())
   }
 }
