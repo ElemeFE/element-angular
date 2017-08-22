@@ -67,6 +67,7 @@ export class ExDemoComponent implements OnInit {
   
   ngOnInit(): void {
     this.code = this.el.nativeElement.querySelector('.source').innerHTML
+    this.code = this.code.replace(/=""/g, '')
     this.classes += ` demo-${this.route.routeConfig.path}`
   }
 }
