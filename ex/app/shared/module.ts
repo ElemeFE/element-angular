@@ -1,18 +1,20 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
-import { ExFooterNavComponent } from './components'
+import { ExFooterNavComponent, ExDemoComponent } from './components'
 import { SafeHtmlPipe } from './pipe'
 
 
 @NgModule({
   declarations: [
     ExFooterNavComponent,
-    SafeHtmlPipe
+    ExDemoComponent,
+    SafeHtmlPipe,
   ],
   exports: [
     ExFooterNavComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    ExDemoComponent,
   ],
   imports: [
     CommonModule,

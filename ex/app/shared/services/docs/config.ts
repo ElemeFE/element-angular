@@ -34,11 +34,11 @@ const CATALOG: any = [{
       'name': 'Basic',
       'link': null,
       'children': [{
-        'name': 'Button 按钮',
-        'link': '/basic/button',
-      }, {
         'name': 'Layout 布局',
         'link': '/basic/layout',
+      }, {
+        'name': 'Button 按钮',
+        'link': '/basic/button',
       }, {
         'name': 'Icon 图标',
         'link': '/basic/icon',

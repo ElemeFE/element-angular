@@ -10,7 +10,7 @@ export class ExLogComponent implements OnInit {
   
   private page: any = {
     previous: { name: 'Angular 动画', link: '/guide/transition' },
-    next: { name: 'Button 按钮', link: '/basic/button' },
+    next: { name: 'Layout 布局', link: '/basic/layout' },
   }
   constructor(
   ) {
