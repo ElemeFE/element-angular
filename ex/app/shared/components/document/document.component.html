@@ -1,4 +1,7 @@
-<table class="table">
+
+<h3 >{{doc}} Attributes</h3>
+<p *ngIf="errorMsg">{{errorMsg}}</p>
+<table class="table" *ngIf="apis && apis.attrs">
   <thead>
   <tr>
     <th>参数</th>
@@ -9,12 +12,12 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>gutter</td>
-    <td>栅格间隔</td>
-    <td>number</td>
-    <td>—</td>
-    <td>0</td>
+  <tr *ngFor="let attr of apis.attrs">
+    <td>{{attr.name}}</td>
+    <td>{{attr.notes}}</td>
+    <td>{{attr.type}}</td>
+    <td>{{attr.enum !== null ? attr.enum : '—'}}</td>
+    <td>{{attr.default !== null ? attr.default : '-'}}</td>
   </tr>
   </tbody>
 </table>
