@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "gulp && gulp build:watch",
     "build": "gulp build",
-    "ex": "webpack-dev-server --config build/webpack.dev.js --inline --progress --port 1338",
+    "ex": "env DEBUG=true webpack-dev-server --config build/webpack.dev.js --inline --progress --port 1338",
     "ex:build": "gulp clean:ex && webpack --config build/webpack.prod.js",
     "ex:publish": "node build/publish.js"
   },
