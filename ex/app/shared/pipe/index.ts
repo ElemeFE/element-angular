@@ -1,5 +1,5 @@
-import { SafeHtmlPipe } from './safeHtml/safeHtml'
+import { HighLightPipe } from './highlight/highlight'
 
 export {
-  SafeHtmlPipe,
+  HighLightPipe,
 }

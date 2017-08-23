@@ -15,8 +15,9 @@ export class DocsService {
       .map(res => res.json())
   }
   
-  getAttributes(documentType: string): Observable<any> {
+  getDocuments(documentType: string): Observable<any> {
     return this.http.get(`ex/docs/${documentType}.json`)
       .map(res => res.json())
   }
+  
 }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core'
-import { SafeHtmlPipe } from '../../pipe'
+import { HighLightPipe } from '../../pipe'
 import { DocsService } from '../../services'
 
 
@@ -7,7 +7,7 @@ import { DocsService } from '../../services'
   selector: 'ex-document',
   templateUrl: './document.component.html',
   styleUrls: ['./document.component.scss'],
-  providers: [SafeHtmlPipe, DocsService],
+  providers: [HighLightPipe, DocsService],
   encapsulation: ViewEncapsulation.None,
 })
 export class ExDocumentComponent implements OnInit {
@@ -24,7 +24,7 @@ export class ExDocumentComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.docsService.getAttributes(this.doc)
+    this.docsService.getDocuments(this.doc)
       .subscribe(res => {
         this.apis = res
         this.doc = this.doc.replace(/^[a-z]/, s =>
