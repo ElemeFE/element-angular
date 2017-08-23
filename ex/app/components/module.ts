@@ -5,11 +5,14 @@ import { RouterModule } from '@angular/router'
 
 import { ExHeaderComponent } from './header/header.component'
 import { ExSideComponent } from './side/side.component'
+import { ExFooterComponent } from './footer/footer.component'
+
 
 @NgModule({
   declarations: [
     ExHeaderComponent,
     ExSideComponent,
+    ExFooterComponent,
   ],
   imports: [
     RouterModule,
@@ -19,6 +22,7 @@ import { ExSideComponent } from './side/side.component'
   exports: [
     ExHeaderComponent,
     ExSideComponent,
+    ExFooterComponent,
   ],
   providers: [],
 })
