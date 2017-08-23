@@ -5,6 +5,7 @@ import { ExBasicMainComponent } from './main/main.component'
 import { ExButtonComponent } from './button/button.component'
 import { ExIconComponent } from './icon/icon.component'
 import { ExLayoutComponent } from './layout/layout.component'
+import { ExColorComponent } from './color/color.component'
 
 
 export const basicRoutes: Routes = [{
@@ -15,6 +16,8 @@ export const basicRoutes: Routes = [{
     path: 'icon', component: ExIconComponent,
   }, {
     path: 'layout', component: ExLayoutComponent,
+  }, {
+    path: 'color', component: ExColorComponent,
   }],
 }]
 

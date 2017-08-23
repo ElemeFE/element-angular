@@ -36,6 +36,9 @@
     "children": [{
       "name": "Layout 布局",
       "link": "/basic/layout"
+    },{
+      "name": "Color 色彩",
+      "link": "/basic/color"
     }, {
       "name": "Button 按钮",
       "link": "/basic/button"

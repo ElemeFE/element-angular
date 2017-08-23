@@ -11,7 +11,7 @@ export class ExLayoutComponent {
   
   private page: any = {
     previous: { name: '更新日志', link: '/guide/log' },
-    next: { name: 'Button 按钮', link: '/basic/button' },
+    next: { name: 'Color 色彩', link: '/basic/color' },
   }
   private code: string[] = code
 }
