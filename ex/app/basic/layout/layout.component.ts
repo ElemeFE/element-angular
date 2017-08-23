@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
+import code from './code'
 
 @Component({
   selector: 'ex-layout',
@@ -6,13 +7,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core'
   styleUrls: ['./layout.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ExLayoutComponent implements OnInit {
+export class ExLayoutComponent {
   
   private page: any = {
     previous: { name: '更新日志', link: '/guide/log' },
     next: { name: 'Button 按钮', link: '/basic/button' },
   }
-  
-  ngOnInit(): void {
-  }
+  private code: string[] = code
 }

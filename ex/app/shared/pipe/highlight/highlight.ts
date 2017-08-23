@@ -3,7 +3,7 @@ import { SafeHtml, DomSanitizer } from '@angular/platform-browser'
 import * as hljs from 'highlight.js'
 
 @Pipe({ name: 'highlightAuto' })
-export class SafeHtmlPipe implements PipeTransform {
+export class HighLightPipe implements PipeTransform {
   
   constructor(
     private sanitizer: DomSanitizer,

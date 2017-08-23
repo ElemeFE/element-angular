@@ -1,0 +1,49 @@
+import {
+  Input, Directive, OnInit, Compiler, Component,
+  ModuleWithComponentFactories, NgModule, ReflectiveInjector, ViewContainerRef, ComponentRef,
+} from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { RouterModule } from '@angular/router'
+
+// Rendering ElComponent dependence
+import { ElModule } from '../../../../../src/index'
+
+@Directive({
+  selector: '[ex-dynamic]',
+})
+export class ElDynamicDirective implements OnInit {
+  
+  @Input('ex-dynamic') dynamicHtml: string
+  
+  private comRef: ComponentRef<any>
+  
+  constructor(
+    private vcRef: ViewContainerRef,
+    private compiler: Compiler,
+  ) {
+  }
+  
+  ngOnInit(): void {
+    if (!this.dynamicHtml) return
+    const decorated = Component(new Component({
+      selector: 'ex-dynamic-html',
+      template: this.dynamicHtml,
+    }))(class DynamicComponent {})
+  
+    @NgModule({
+      imports: [CommonModule, RouterModule, ElModule],
+      declarations: [decorated],
+    })
+    class DynamicModule {}
+  
+    this.compiler.compileModuleAndAllComponentsAsync(DynamicModule)
+      .then((moduleWithComponentFactory: ModuleWithComponentFactories<any>) =>
+        moduleWithComponentFactory.componentFactories.find(x =>
+          x.componentType === decorated))
+      .then(factory => {
+        const injector = ReflectiveInjector.fromResolvedProviders([], this.vcRef.parentInjector)
+        this.comRef = this.vcRef.createComponent(factory, 0 , injector)
+      })
+  }
+  
+}

@@ -2,20 +2,22 @@ import { NgModule, ModuleWithProviders } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
 import { ExFooterNavComponent, ExDemoComponent, ExDocumentComponent } from './components'
-import { SafeHtmlPipe } from './pipe'
-
+import { HighLightPipe } from './pipe'
+import { ElDynamicDirective } from './directives'
 
 @NgModule({
   declarations: [
+    ElDynamicDirective,
     ExFooterNavComponent,
     ExDemoComponent,
     ExDocumentComponent,
-    SafeHtmlPipe,
+    HighLightPipe,
   ],
   exports: [
+    ElDynamicDirective,
     ExFooterNavComponent,
     ExDocumentComponent,
-    SafeHtmlPipe,
+    HighLightPipe,
     ExDemoComponent,
   ],
   imports: [

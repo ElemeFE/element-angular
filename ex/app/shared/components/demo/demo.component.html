@@ -1,13 +1,13 @@
 <div [class]="classes" [class.hover]="hovering"
   (mouseenter)="hovering = true"
   (mouseleave)="hovering = false">
-  <div class="source">
-    <ng-content></ng-content>
+  <div class="source" *ngIf="code">
+    <ng-container [ex-dynamic]="code"></ng-container>
   </div>
   <div class="meta" [@expand]="isExpanded" style="height: 0;">
     <div class="description">
       <ng-container *ngIf="notes">
-        <div [innerHTML]="notes"></div>
+        <div [innerHTML]="safeNotes"></div>
       </ng-container>
       <ng-container *ngIf="link">
         <button type="button" class="el-button el-tooltip el-button--primary el-button--small"
@@ -21,7 +21,7 @@
       <div class="highlight">
         <pre>
           <code class="hljs" [innerHTML]="code | highlightAuto"></code>
-       </pre>
+        </pre>
       </div>
     </ng-container>
   </div>

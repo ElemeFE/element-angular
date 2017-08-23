@@ -1,19 +1,14 @@
-import { Component, Input, OnInit, ViewEncapsulation, ElementRef } from '@angular/core'
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core'
+import { trigger, state, style, animate, transition } from '@angular/animations'
 import { ActivatedRoute } from '@angular/router'
-import { SafeHtmlPipe } from '../../pipe'
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-} from '@angular/animations'
+import { HighLightPipe } from '../../pipe'
+import { SafeHtml, DomSanitizer } from '@angular/platform-browser'
 
 @Component({
   selector: 'ex-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.scss'],
-  providers: [SafeHtmlPipe],
+  providers: [HighLightPipe],
   animations: [
     trigger('state', [
       state('false', style({
@@ -42,15 +37,17 @@ export class ExDemoComponent implements OnInit {
   
   @Input() link: string
   @Input() notes: string
+  @Input() code: string
   
-  private code: string
   private classes: string = 'demo-block demo-box demo-zh-CN'
   private hovering: boolean = false
   private isExpanded: boolean = false
+  private safeNotes: SafeHtml
+  
   
   constructor(
     private route: ActivatedRoute,
-    private el: ElementRef,
+    private sanitizer: DomSanitizer
   ) {
   }
   
@@ -66,8 +63,10 @@ export class ExDemoComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.code = this.el.nativeElement.querySelector('.source').innerHTML
-    this.code = this.code.replace(/=""/g, '')
+    this.safeNotes = this.sanitizer.bypassSecurityTrustHtml(this.notes)
     this.classes += ` demo-${this.route.routeConfig.path}`
+    // this.code = this.el.nativeElement.querySelector('.source').innerHTML
+    // this.code = this.code.replace(/=""/g, '')
+    //   .replace(/<!---->/g, '')
   }
 }
