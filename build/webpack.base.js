@@ -4,6 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const helpers = require('./helpers')
 const tslintConfig = require('../tslint.json')
+const isDebug = process.env.DEBUG || 'false'
 
 module.exports = {
   entry: {
@@ -90,11 +91,15 @@ module.exports = {
     new CopyWebpackPlugin([
       {
         from: helpers.root('ex/docs'),
-        to: helpers.root('dist/ex/docs'),
+        to: helpers.root('dist/docs'),
         force: true,
         toType: 'dir',
         ignore: ['.*']
       }
     ]),
+  
+    new webpack.DefinePlugin({
+      __DEBUG__: isDebug,
+    }),
   ],
 }
