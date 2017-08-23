@@ -5,101 +5,21 @@
 <h3>基础布局</h3>
 <p>使用单一分栏创建基础的栅格布局。</p>
 
-<ex-demo link="2" notes="<code>el-row</code> 与 <code>el-col</code> 可以被轻易的运用在任何元素上，这些指令使元素具备额外的能力。">
-  <div el-row>
-    <div el-col span="24"><div class="grid-content bg-purple-dark"></div></div>
-  </div>
-  <div el-row>
-    <div el-col span="12"><div class="grid-content bg-purple"></div></div>
-    <div el-col span="12"><div class="grid-content bg-purple-light"></div></div>
-  </div>
-  <div el-row>
-    <div el-col span="8"><div class="grid-content bg-purple"></div></div>
-    <div el-col span="8"><div class="grid-content bg-purple-light"></div></div>
-    <div el-col span="8"><div class="grid-content bg-purple"></div></div>
-  </div>
-  <div el-row>
-    <div el-col span="6"><div class="grid-content bg-purple"></div></div>
-    <div el-col span="6"><div class="grid-content bg-purple-light"></div></div>
-    <div el-col span="6"><div class="grid-content bg-purple"></div></div>
-    <div el-col span="6"><div class="grid-content bg-purple-light"></div></div>
-  </div>
-  <div el-row>
-    <div el-col span="4"><div class="grid-content bg-purple"></div></div>
-    <div el-col span="4"><div class="grid-content bg-purple-light"></div></div>
-    <div el-col span="4"><div class="grid-content bg-purple"></div></div>
-    <div el-col span="4"><div class="grid-content bg-purple-light"></div></div>
-    <div el-col span="4"><div class="grid-content bg-purple"></div></div>
-    <div el-col span="4"><div class="grid-content bg-purple-light"></div></div>
-  </div>
+<ex-demo [code]="code[0]" link="2" notes="<code>el-row</code> 与 <code>el-col</code> 可以被轻易的运用在任何元素上，这些指令使元素具备额外的能力。">
 </ex-demo>
 
 <h3>分栏间隔</h3>
 <p>分栏之间存在间隔。</p>
-<ex-demo link="2" notes="当属性的值固定时，也可以直接传入模板字符串。 如 <code>gutter=&quot;20&quot;</code>">
-  <div el-row gutter="20">
-    <div el-col span="6">
-      <div class="grid-content bg-purple"></div>
-    </div>
-    <div el-col span="6">
-      <div class="grid-content bg-purple"></div>
-    </div>
-    <div el-col span="6">
-      <div class="grid-content bg-purple"></div>
-    </div>
-    <div el-col span="6">
-      <div class="grid-content bg-purple"></div>
-    </div>
-  </div>
+<ex-demo [code]="code[1]" link="2" notes="当属性的值固定时，也可以直接传入模板字符串。 如 <code>gutter=&quot;20&quot;</code>">
 </ex-demo>
 
 <h3>混合布局</h3>
 <p>通过基础的 1/24 分栏任意扩展组合形成较为复杂的混合布局。</p>
-<ex-demo link="2">
-  <div el-row gutter="20">
-    <div el-col [span]="16"><div class="grid-content bg-purple"></div></div>
-    <div el-col [span]="8"><div class="grid-content bg-purple"></div></div>
-  </div>
-  <div el-row :gutter="20">
-    <div el-col [span]="8"><div class="grid-content bg-purple"></div></div>
-    <div el-col [span]="8"><div class="grid-content bg-purple"></div></div>
-    <div el-col [span]="4"><div class="grid-content bg-purple"></div></div>
-    <div el-col [span]="4"><div class="grid-content bg-purple"></div></div>
-  </div>
-  <div el-row :gutter="20">
-    <div el-col [span]="4"><div class="grid-content bg-purple"></div></div>
-    <div el-col [span]="16"><div class="grid-content bg-purple"></div></div>
-    <div el-col [span]="4"><div class="grid-content bg-purple"></div></div>
-  </div>
+<ex-demo [code]="code[2]" link="2">
 </ex-demo>
 
 <h3>对齐方式</h3>
-<ex-demo link="2" notes="将 <code>type</code> 属性赋值为 'flex'，可以启用 flex 布局，并可通过 <code>justify</code> 属性来指定 start, center, end, space-between, space-around 其中的值来定义子元素的排版方式。">
-  <div el-row type="flex" class="row-bg">
-    <div el-col [span]="6"><div class="grid-content bg-purple"></div></div>
-    <div el-col [span]="6"><div class="grid-content bg-purple-light"></div></div>
-    <div el-col [span]="6"><div class="grid-content bg-purple"></div></div>
-  </div>
-  <div el-row type="flex" class="row-bg" justify="center">
-    <div el-col [span]="6"><div class="grid-content bg-purple"></div></div>
-    <div el-col [span]="6"><div class="grid-content bg-purple-light"></div></div>
-    <div el-col [span]="6"><div class="grid-content bg-purple"></div></div>
-  </div>
-  <div el-row type="flex" class="row-bg" justify="end">
-    <div el-col [span]="6"><div class="grid-content bg-purple"></div></div>
-    <div el-col [span]="6"><div class="grid-content bg-purple-light"></div></div>
-    <div el-col [span]="6"><div class="grid-content bg-purple"></div></div>
-  </div>
-  <div el-row type="flex" class="row-bg" justify="space-between">
-    <div el-col [span]="6"><div class="grid-content bg-purple"></div></div>
-    <div el-col [span]="6"><div class="grid-content bg-purple-light"></div></div>
-    <div el-col [span]="6"><div class="grid-content bg-purple"></div></div>
-  </div>
-  <div el-row type="flex" class="row-bg" justify="space-around">
-    <div el-col [span]="6"><div class="grid-content bg-purple"></div></div>
-    <div el-col [span]="6"><div class="grid-content bg-purple-light"></div></div>
-    <div el-col [span]="6"><div class="grid-content bg-purple"></div></div>
-  </div>
+<ex-demo [code]="code[3]" link="2" notes="将 <code>type</code> 属性赋值为 'flex'，可以启用 flex 布局，并可通过 <code>justify</code> 属性来指定 start, center, end, space-between, space-around 其中的值来定义子元素的排版方式。">
 </ex-demo>
 
 <ex-document doc="row"></ex-document>
