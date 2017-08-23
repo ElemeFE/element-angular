@@ -9,7 +9,7 @@ export class ExColorComponent implements OnInit {
   
   private page: any = {
     previous: { name: 'Layout 布局', link: '/basic/layout' },
-    next: { name: 'Button 按钮', link: '/basic/button' },
+    next: { name: 'Typography 字体', link: '/basic/font' },
   }
   
   ngOnInit(): void {
