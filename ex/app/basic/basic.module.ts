@@ -9,6 +9,8 @@ import { ExBasicMainComponent } from './main/main.component'
 import { ExButtonComponent } from './button/button.component'
 import { ExIconComponent } from './icon/icon.component'
 import { ExLayoutComponent } from './layout/layout.component'
+import { ExColorComponent } from './color/color.component'
+import { ExFontComponent } from './font/font.component'
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { ExLayoutComponent } from './layout/layout.component'
     ExButtonComponent,
     ExIconComponent,
     ExLayoutComponent,
+    ExColorComponent,
+    ExFontComponent,
   ],
   imports: [
     CommonModule,

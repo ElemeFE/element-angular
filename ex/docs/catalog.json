@@ -37,11 +37,17 @@
       "name": "Layout 布局",
       "link": "/basic/layout"
     }, {
-      "name": "Button 按钮",
-      "link": "/basic/button"
+      "name": "Color 色彩",
+      "link": "/basic/color"
+    }, {
+      "name": "Typography 字体",
+      "link": "/basic/font"
     }, {
       "name": "Icon 图标",
       "link": "/basic/icon"
+    }, {
+      "name": "Button 按钮",
+      "link": "/basic/button"
     }]
   }, {
     "name": "Form",
