@@ -43,11 +43,11 @@
       "name": "Typography 字体",
       "link": "/basic/font"
     }, {
-      "name": "Button 按钮",
-      "link": "/basic/button"
-    }, {
       "name": "Icon 图标",
       "link": "/basic/icon"
+    }, {
+      "name": "Button 按钮",
+      "link": "/basic/button"
     }]
   }, {
     "name": "Form",

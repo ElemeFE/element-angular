@@ -11,8 +11,8 @@ export class ExButtonComponent {
   
   private code: string[] = code
   private page: any = {
-    previous: { name: 'Typography 字体', link: '/basic/font' },
-    next: { name: 'Icon 图标', link: '/basic/icon' },
+    previous: { name: 'Icon 图标', link: '/basic/icon' },
+    next: { name: 'Radio 单选框', link: '/form/radio' },
   }
   
 }
