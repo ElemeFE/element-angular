@@ -1,5 +1,5 @@
 import { EventEmitter, Input, Output } from '@angular/core'
-export type AutoSize = { minRows: number, maxRows: number } | false
+export type AutoSize = { minRows: number, maxRows: number }
 
 export class ElInputPoprs {
   
@@ -13,7 +13,7 @@ export class ElInputPoprs {
   @Input() rows: number = 2           // only type === 'textarea'
   @Input() resize: string             // only type === 'textarea' enum: none, both, horizontal, vertical
   @Input() icon: string
-  @Input() autosize: AutoSize = false      // only type === 'textarea'. example: { minRows: 2, maxRows: 6 }
+  @Input() autosize?: AutoSize        // only type === 'textarea'. example: { minRows: 2, maxRows: 6 }
   
   // native attrs
   @Input('auto-complete') autoComplete: string = 'off'     // only type === 'text'
