@@ -58,6 +58,9 @@
     }, {
       "name": "checkbox 多选框",
       "link": "/form/checkbox"
+    }, {
+      "name": "input 输入框",
+      "link": "/form/input"
     }]
   }, {
     "name": "Navigation",
