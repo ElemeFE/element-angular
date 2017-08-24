@@ -8,7 +8,7 @@ import { getTextareaHeight } from './help'
   template: `
     <div [class]="type === 'text' ? 'el-input' : 'el-textarea' + size ? 'el-input--' + size : ''"
       [class.is-disabled]="disabled"
-      [class.el-input-group]="includePrepend"
+      [class.el-input-group]="includePrepend || includeAppend"
       [class.el-input-group--append]="includeAppend"
       [class.el-input-group--prepend]="includePrepend">
       <ng-container *ngIf="type === 'text'">
