@@ -69,6 +69,8 @@ export class ElRadio implements OnInit, AfterViewInit {
       this.model = this.rootGroup.model
     }
     this.parentIsGroup = Utils.isParentTag(nativeElement, 'el-radio-group')
+    Utils.removeNgTag(nativeElement)
+    
     if (this.parentIsGroup && this.rootGroup) {
       update()
       this.rootGroup.subscriber.push(update)
