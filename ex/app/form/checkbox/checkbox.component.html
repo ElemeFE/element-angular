@@ -1,30 +1,35 @@
-<h2>checkbox</h2>
-single
-<el-checkbox [(model)]="checked">备选项</el-checkbox>
+<h2>Checkbox 多选框</h2>
+<p>一组备选项中进行多选</p>
 
-<p>group</p>
-<el-checkbox-group [(model)]="checkList" [fill]="'#fff'">
-  <el-checkbox label="复选框A"></el-checkbox>
-  <el-checkbox label="复选框B"></el-checkbox>
-  <el-checkbox label="复选框C"></el-checkbox>
-  <el-checkbox label="禁用" [disabled]="true"></el-checkbox>
-  <el-checkbox label="选中且禁用" [disabled]="true"></el-checkbox>
-</el-checkbox-group>
+<h3>基础用法</h3>
+<p>单独使用可以表示两种状态之间的切换，写在标签中的内容为 checkbox 按钮后的介绍。</p>
+<ex-demo link="2" [code]="code[0]" notes="在组件中定义 <code>model</code> 绑定变量，
+单一使用组件时，默认绑定变量的值会是 <code>Boolean</code>，选中为 <code>true</code>">
+</ex-demo>
 
-<p>group limit 2</p>
-<el-checkbox-group [(model)]="checkList" [max]="2">
-  <el-checkbox label="复选框A"></el-checkbox>
-  <el-checkbox label="复选框B"></el-checkbox>
-  <el-checkbox label="复选框C"></el-checkbox>
-  <el-checkbox label="禁用" [disabled]="true"></el-checkbox>
-  <el-checkbox label="选中且禁用" [disabled]="true"></el-checkbox>
-</el-checkbox-group>
+<h3>禁用状态</h3>
+<p>多选框不可用状态。</p>
+<ex-demo link="2" [code]="code[1]" notes="设置 <code>disabled</code> 属性即可">
+</ex-demo>
 
-<p>checkbox button</p>
-<el-checkbox-group [(model)]="buttonList">
-  <el-checkbox-button label="背景"></el-checkbox-button>
-  <el-checkbox-button label="上海"></el-checkbox-button>
-  <el-checkbox-button label="广州"></el-checkbox-button>
-  <el-checkbox-button label="福建"></el-checkbox-button>
-  <el-checkbox-button label="杭州"></el-checkbox-button>
-</el-checkbox-group>
+<h3>多选框组</h3>
+<p>适用于多个勾选框绑定到同一个数组的情景，通过是否勾选来表示这一组选项中选中的项。</p>
+<ex-demo link="2" [code]="code[2]" notes="<code>label</code> 与数组中的元素值相对应，
+如果存在指定的值则为选中状态，否则为不选中。">
+</ex-demo>
+
+<h3>可选项目数量的限制</h3>
+<p>使用 <code>min</code> 和 <code>max</code> 属性能够限制可以被勾选的项目的数量。</p>
+<ex-demo link="2" [code]="code[3]">
+</ex-demo>
+
+<h3>按钮样式</h3>
+<p>按钮样式的多选组合。</p>
+<ex-demo link="2" [code]="code[4]" notes="组件还提供了 <code>size</code> 属性，
+支持 <code>large</code> 和 <code>small</code> 两种。">
+</ex-demo>
+
+
+
+
+<ex-footer-nav [page]="page"></ex-footer-nav>
