@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import code from './code'
 
 @Component({
   selector: 'ex-checkbox',
@@ -7,15 +8,11 @@ import { Component, OnInit } from '@angular/core'
 })
 export class ExCheckboxComponent implements OnInit {
   
-  private checked: boolean = true
-  private checkList: string[] = [
-    '复选框A',
-    '选中且禁用',
-  ]
-  private buttonList: string[] = [
-    '上海',
-    '广州',
-  ]
+  private code: string[] = code
+  private page: any = {
+    previous: { name: 'Radio 单选框', link: '/form/radio' },
+    next: { name: 'Input 输入框', link: '/form/checkbox' },
+  }
   
   ngOnInit(): void {
   }
