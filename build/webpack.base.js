@@ -4,6 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const helpers = require('./helpers')
 const tslintConfig = require('../tslint.json')
+const pkg = require('../package.json')
 const isDebug = process.env.DEBUG || 'false'
 
 module.exports = {
@@ -100,6 +101,9 @@ module.exports = {
   
     new webpack.DefinePlugin({
       __DEBUG__: isDebug,
+      __CONFIG__: {
+        version: JSON.stringify(pkg.version),
+      },
     }),
   ],
 }
