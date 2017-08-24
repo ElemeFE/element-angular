@@ -25,7 +25,7 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
       </span>
     </label>
   `,
-  styles: ['.el-checkbox-button, .el-checkbox-button__inner { display: inline; }'],
+  styles: ['.el-checkbox-button, .el-checkbox-button__inner { display: table-cell; }'],
   encapsulation: ViewEncapsulation.None,
 })
 export class ElCheckboxButton implements OnInit, AfterViewInit {
