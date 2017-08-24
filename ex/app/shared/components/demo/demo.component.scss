@@ -23,7 +23,7 @@
     transition: height .2s;
   }
   .description {
-    padding: 18px 24px;
+    padding: 16px 12px;
     width: 40%;
     box-sizing: border-box;
     border-left: solid 1px #eaeefb;
@@ -47,6 +47,9 @@
       border-radius: 3px;
       height: 18px;
       line-height: 18px;
+    }
+    button {
+      margin-top: 10px;
     }
   }
   .highlight {
