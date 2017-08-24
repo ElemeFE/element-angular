@@ -1,21 +1,29 @@
-import { Component, Input, ViewChild, AfterContentInit, Output, EventEmitter } from '@angular/core'
+import {
+  Component, Input, ViewChild, AfterContentInit, Output, EventEmitter, Optional,
+  ElementRef, AfterViewInit,
+} from '@angular/core'
+import { ElRadioGroup } from './radio-group'
+import { Utils } from '../shared'
 
 @Component({
   selector: 'el-radio-button',
   template: `
     <label [class]="'el-radio-button' + (size ? ' el-radio-button--' + size : '')"
-      [ngClass]="classes()">
+      [class.is-disabled]="disabled"
+      [class.is-active]="model === label">
       <input class="el-radio-button__orig-radio" type="radio"
         [value]="label" [name]="nativeName" [disabled]="disabled"
         [ngModel]="model" (ngModelChange)="changeHandle()">
-      <span class="el-radio-button__inner" [ngStyle]="model === label && activeStyle()" #content>
-        <ng-content></ng-content>
+      <span class="el-radio-button__inner" [ngStyle]="model === label && activeStyles">
         <span *ngIf="showLabel">{{label}}</span>
+        <span *ngIf="!showLabel" #content>
+          <ng-content></ng-content>
+        </span>
       </span>
     </label>
   `,
 })
-export class ElRadioButton implements AfterContentInit {
+export class ElRadioButton implements AfterViewInit {
   
   @ViewChild('content') content: any
   
@@ -27,53 +35,48 @@ export class ElRadioButton implements AfterContentInit {
   
   private size: string
   private showLabel: boolean = false
-  private isGroup: boolean = false
-  private fillColor: string
-  private textColor: string
-  private modelChangeFromGroup: Function
+  private parentIsGroup: boolean = false
+  private activeStyles: any
   
   constructor(
+    @Optional() private rootGroup: ElRadioGroup,
+    private el: ElementRef,
   ) {
   }
   
-  classes(): any {
-    return {
-      'is-disabled': this.disabled,
-      'is-active': this.model === this.label,
-    }
-  }
-  
-  activeStyle(): any {
-    return {
-      backgroundColor: this.fillColor || '',
-      borderColor: this.fillColor || '',
-      boxShadow: this.fillColor ? `-1px 0 0 0 ${this.fillColor}` : '',
-      color: this.textColor || '',
-    }
-  }
-  
   changeHandle(): void {
-    if (this.isGroup) {
-      return this.modelChangeFromGroup(this.label)
+    if (this.parentIsGroup) {
+      return this.rootGroup.changeHandle(this.label)
     }
     this.modelChange.emit(this.label)
   }
   
-  _fromParentSet(configFromGroup: any): void {
-    this.isGroup = true
-    this.size = configFromGroup.buttonSize
-    this.fillColor = configFromGroup.fillColor
-    this.textColor = configFromGroup.textColor
-    this.disabled = configFromGroup.disabled
-    this.modelChangeFromGroup = configFromGroup.modelChange
+  
+  ngAfterViewInit(): void {
+    const contentText = this.content && this.content.nativeElement.innerText
+    setTimeout(() => {
+      this.showLabel = !contentText || contentText.length < 1
+    }, 0)
   }
   
-  _fromParentSetOnlyModel(model: any): void {
-    this.model = model
-  }
-  
-  ngAfterContentInit(): void {
-    this.showLabel = this.content.nativeElement.children.length <= 0
+  ngOnInit(): void {
+    const nativeElement = this.el.nativeElement
+    const update = () => {
+      this.disabled = this.rootGroup.disabled
+      this.model = this.rootGroup.model
+      this.size = this.rootGroup.buttonSize
+      this.activeStyles =  {
+        backgroundColor: this.rootGroup.fillColor || '',
+        borderColor: this.rootGroup.fillColor || '',
+        boxShadow: this.rootGroup.fillColor ? `-1px 0 0 0 ${this.rootGroup.fillColor}` : '',
+        color: this.rootGroup.textColor || '',
+      }
+    }
+    this.parentIsGroup = Utils.isParentTag(nativeElement, 'el-radio-group')
+    if (this.parentIsGroup && this.rootGroup) {
+      update()
+      this.rootGroup.subscriber.push(update)
+    }
   }
   
 }

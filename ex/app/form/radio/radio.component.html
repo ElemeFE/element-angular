@@ -1,13 +1,29 @@
-<h2>radio</h2>
+<h2>Radio 单选框</h2>
+<p>在一组备选项中进行单选</p>
 
-<p>group</p>
-<el-radio-group [(model)]="test">
-  <el-radio [label]="'test1'"></el-radio>
-  <el-radio [label]="'test2'"></el-radio>
-</el-radio-group>
+<h3>基础用法</h3>
+<p>由于选项默认可见，不宜过多，若选项过多，建议使用 Select 选择器。</p>
+<ex-demo link="2" [code]="code[0]" notes="要使用 Radio 组件，只需要设置 <code>[(model)]</code>绑定变量。
+如果组件中未包含内容，则会优先显示 <code>[label]</code> 中的内容。">
+</ex-demo>
 
-<p>button group</p>
-<el-radio-group [(model)]="btn">
-  <el-radio-button [label]="'btn1'"></el-radio-button>
-  <el-radio-button [label]="'btn2'"></el-radio-button>
-</el-radio-group>
+<h3>禁用状态</h3>
+<p>单选框不可用的状态。</p>
+<ex-demo link="2" [code]="code[1]" notes="选中的条件是绑定的变量值等于`label`中的值。只要在<code>el-radio</code>元素中设置
+<code>disabled</code>属性即可，它接受一个<code>boolean</code>，<code>true</code>为禁用。">
+</ex-demo>
+
+<h3>单选框组</h3>
+<p>适用于在多个互斥的选项中选择的场景</p>
+<ex-demo link="2" [code]="code[2]" notes="在 <code>el-radio-group</code> 中绑定 <code>model</code>，
+在el-radio中设置好label即可，无需再给每一个el-radio绑定变量 (会被忽略)。">
+</ex-demo>
+
+<h3>按钮样式</h3>
+<p>按钮样式的单选组合。</p>
+<ex-demo link="2" [code]="code[3]" notes="只需要把 <code>el-radio</code> 元素换成
+<code>el-radio-button</code> 元素即可，此组件还提供了 <code>size</code> 属性，支持
+<code>large</code> 和 <code>small</code> 两种">
+</ex-demo>
+
+<ex-footer-nav [page]="page"></ex-footer-nav>

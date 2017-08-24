@@ -1,6 +1,4 @@
-import { Component, Input, AfterContentInit, EventEmitter, Output, ContentChildren, OnChanges } from '@angular/core'
-import { ElRadio } from './radio'
-import { ElRadioButton } from './radio-button'
+import { Component, Input, EventEmitter, Output } from '@angular/core'
 
 @Component({
   selector: 'el-radio-group',
@@ -10,48 +8,23 @@ import { ElRadioButton } from './radio-button'
     </div>
   `,
 })
-export class ElRadioGroup implements AfterContentInit, OnChanges {
+export class ElRadioGroup {
   
   @Input('size') buttonSize: string
   @Input('fill') fillColor: string = '#20a0ff'
   @Input() textColor: string
   @Input() disabled: boolean = false
-  
   @Input() model: any
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
-  @ContentChildren(ElRadio) radioTmp: any
-  @ContentChildren(ElRadioButton) radioBtnTmp: any
   
-  change(results: any[], handler: any): void {
-    results.forEach((radio: ElRadio) => {
-      radio._fromParentSet({
-        buttonSize: this.buttonSize,
-        fillColor: this.fillColor,
-        textColor: this.textColor,
-        disabled: this.disabled,
-        modelChange: (model: any) => handler.emit(model),
-      })
-      radio._fromParentSetOnlyModel(this.model)
-    })
-  }
+  subscriber: Function[] = []
   
-  ngAfterContentInit(): void {
-    this.radioTmp._results && this.change(this.radioTmp._results, this.modelChange)
-    this.radioBtnTmp._results && this.change(this.radioBtnTmp._results, this.modelChange)
-  }
-  
-  ngOnChanges(changes: any): void {
-    if (!changes || !changes.model) return
-    if (this.radioTmp) {
-      this.radioTmp._results.forEach((radio: ElRadio) => {
-        radio._fromParentSetOnlyModel(changes.model.currentValue)
-      })
-    }
-    if (this.radioBtnTmp) {
-      this.radioBtnTmp._results.forEach((radio: ElRadioButton) => {
-        radio._fromParentSetOnlyModel(changes.model.currentValue)
-      })
-    }
+  changeHandle(nextValue: string | number): void {
+    setTimeout(() => {
+      this.model = nextValue
+      this.modelChange.emit(nextValue)
+      this.subscriber.forEach(sub => sub())
+    }, 0)
   }
   
 }

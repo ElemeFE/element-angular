@@ -1,10 +1,18 @@
-import { Component, Input, ViewChild, Output, EventEmitter, AfterViewInit } from '@angular/core'
+import {
+  Component, Input, ViewChild, Output, EventEmitter, ElementRef, Optional, OnInit,
+  AfterViewInit,
+} from '@angular/core'
+import { ElRadioGroup } from './radio-group'
+import { Utils } from '../shared'
 
 @Component({
   selector: 'el-radio',
   template: `
     <label class="el-radio">
-      <span class="el-radio__input" [ngClass]="classes()">
+      <span class="el-radio__input"
+        [class.is-disabled]="disabled"
+        [class.is-checked]="model === label"
+        [class.is-focus]="isFocus">
         <span class="el-radio__inner"></span>
         <input class="el-radio__original" type="radio"
           [value]="label" [name]="nativeName" [disabled]="disabled"
@@ -20,7 +28,7 @@ import { Component, Input, ViewChild, Output, EventEmitter, AfterViewInit } from
     </label>
   `,
 })
-export class ElRadio implements AfterViewInit {
+export class ElRadio implements OnInit, AfterViewInit {
   
   @ViewChild('content') content: any
   
@@ -32,36 +40,19 @@ export class ElRadio implements AfterViewInit {
   
   private isFocus: boolean = false
   private showLabel: boolean = false
-  private isGroup: boolean = false
-  private modelChangeFromGroup: Function
+  private parentIsGroup: boolean = false
   
   constructor(
+    @Optional() private rootGroup: ElRadioGroup,
+    private el: ElementRef,
   ) {
   }
   
-  classes(): any {
-    return {
-      'is-disabled': this.disabled,
-      'is-checked': this.model === this.label,
-      'is-focus': this.isFocus,
-    }
-  }
-  
   changeHandle(): void {
-    if (this.isGroup) {
-      return this.modelChangeFromGroup(this.label)
+    if (this.parentIsGroup) {
+      return this.rootGroup.changeHandle(this.label)
     }
     this.modelChange.emit(this.label)
-  }
-  
-  _fromParentSet(configFromGroup: any): void {
-    this.isGroup = true
-    this.disabled = configFromGroup.disabled
-    this.modelChangeFromGroup = configFromGroup.modelChange
-  }
-  
-  _fromParentSetOnlyModel(model: any): void {
-    this.model = model
   }
   
   ngAfterViewInit(): void {
@@ -71,4 +62,16 @@ export class ElRadio implements AfterViewInit {
     }, 0)
   }
   
+  ngOnInit(): void {
+    const nativeElement = this.el.nativeElement
+    const update = () => {
+      this.disabled = this.rootGroup.disabled
+      this.model = this.rootGroup.model
+    }
+    this.parentIsGroup = Utils.isParentTag(nativeElement, 'el-radio-group')
+    if (this.parentIsGroup && this.rootGroup) {
+      update()
+      this.rootGroup.subscriber.push(update)
+    }
+  }
 }
