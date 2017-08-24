@@ -59,7 +59,7 @@ gulp.task('bundle', done => {
   })
 })
 
-gulp.task('clean', () => del([PATHS.release, PATHS.temp, PATHS.bundle, PATHS.publish]))
+gulp.task('clean', () => del([PATHS.release, PATHS.temp, PATHS.bundle]))
 gulp.task('clean:ex', () => del([PATHS.publish]))
 
 gulp.task('build', gulp.series('clean', 'compile', 'bundle'))
