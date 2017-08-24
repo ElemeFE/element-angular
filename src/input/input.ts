@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core'
 import { ElInputPoprs } from './input-props'
 
 @Component({
@@ -11,19 +11,23 @@ import { ElInputPoprs } from './input-props'
       [class.el-input-group--prepend]="includePrepend">
       <ng-container *ngIf="type === 'text'">
         
-        <div class="el-input-group__prepend" *ngIf="includePrepend">
-          <!--<slot name="prepend"></slot>-->
+        <div class="el-input-group__prepend" *ngIf="includePrepend" #prepend>
+          <ng-content select="[slot=prepend]"></ng-content>
         </div>
         
         <i [class]="'el-input__icon ' + ('el-icon-' + icon) + (iconClick ? ' is-clickable' : '')"
-          *ngIf="icon" (click)="handleIconClick"></i>
+          *ngIf="icon" (click)="iconClick.emit($event)"></i>
         <input class="el-input__inner"
-          [autocomplete]="autoComplete" [value]="currentValue"
-          (input)="handleInput" (focus)="handleFocus" (blur)="handleBlur">
+          [autocomplete]="autoComplete" [value]="value" [name]="name"
+          [placeholder]="placeholder" [autofocus]="autofocus"
+          [disabled]="disabled" [readonly]="readonly"
+          [maxlength]="maxlength" [minlength]="minlength"
+          [ngModel]="model" (input)="handleInput($event.target.value)"
+          (focus)="focus.emit($event)" (blur)="blur.emit($event)">
         <i *ngIf="validating" class="el-input__icon el-icon-loading"></i>
         
-        <div class="el-input-group__append" *ngIf="includeAppend">
-          <!--<slot name="append"></slot>-->
+        <div class="el-input-group__append" *ngIf="includeAppend" #append>
+          <ng-content select="[slot=append]"></ng-content>
         </div>
       </ng-container>
       
@@ -31,15 +35,19 @@ import { ElInputPoprs } from './input-props'
         <textarea class="el-textarea__inner"
           [value]="currentValue"
           [style]="''"
-          (input)="handleInput" (focus)="handleFocus" (blur)="handleBlur"></textarea>
+          (input)="handleInput"
+          (focus)="focus.emit($event)" (blur)="blur.emit($event)"></textarea>
       </ng-container>
     </div>
   `,
 })
-export class ElInput extends ElInputPoprs implements OnInit {
+export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit {
   
-  private includePrepend: boolean = false
-  private includeAppend: boolean = false
+  @ViewChild('prepend') prepend: any
+  @ViewChild('append') append: any
+  
+  private includePrepend: boolean = true
+  private includeAppend: boolean = true
   private validating: boolean = false // parent === validating
   private currentValue: string | number
   
@@ -48,24 +56,20 @@ export class ElInput extends ElInputPoprs implements OnInit {
     super()
   }
   
-  handleIconClick(): void {
-  
-  }
-  
-  handleFocus(): void {
-  
-  }
-  
-  handleBlur(): void {
-  
-  }
-  
-  handleInput(): void {
-  
+  handleInput(val: string): void {
+    this.modelChange.emit(val)
   }
   
   ngOnInit(): void {
-    this.currentValue = this.value
+    this.model = this.value
   }
   
+  ngAfterViewInit(): void {
+    const prependText = this.prepend && this.prepend.nativeElement.innerText
+    const appendText = this.append && this.append.nativeElement.innerText
+    setTimeout(() => {
+      this.includePrepend = prependText || prependText.length > 1
+      this.includeAppend = appendText || appendText.length > 1
+    }, 0)
+  }
 }
