@@ -1,0 +1,16 @@
+{
+  "name": "Radio-group Attributes",
+  "attrs": [{
+    "name": "label",
+    "notes": "Radio 的 value",
+    "type": "string,number",
+    "enum": null,
+    "default": null
+  },{
+    "name": "disabled",
+    "notes": "是否禁用",
+    "type": "boolean",
+    "enum": null,
+    "default": false
+  }]
+}

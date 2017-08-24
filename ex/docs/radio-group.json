@@ -1,0 +1,22 @@
+{
+  "name": "Radio-group Attributes",
+  "attrs": [{
+    "name": "size",
+    "notes": "Radio 按钮组尺寸",
+    "type": "string",
+    "enum": "large, small",
+    "default": null
+  },{
+    "name": "fill",
+    "notes": "按钮激活时的填充色和边框色",
+    "type": "string",
+    "enum": null,
+    "default": "#20a0ff"
+  },{
+    "name": "text-color",
+    "notes": "按钮激活时的文本颜色",
+    "type": "string",
+    "enum": null,
+    "default": "#ffffff"
+  }]
+}
