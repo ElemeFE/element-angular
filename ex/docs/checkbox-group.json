@@ -1,0 +1,41 @@
+{
+    "name": "Checkbox-group Attributes",
+    "attrs": [
+      {
+        "name": "size",
+        "notes": "Checkbox 按钮组尺寸",
+        "type": "string",
+        "enum": "large, small",
+        "default": null
+      },
+      {
+        "name": "fill",
+        "notes": "按钮激活时的填充色和边框颜色",
+        "type": "string",
+        "enum": null,
+        "default": "#20a0ff"
+      },
+      {
+        "name": "text-color",
+        "notes": "按钮激活时的文本颜色",
+        "type": "string",
+        "enum": null,
+        "default": "#ffffff"
+      },
+      {
+        "name": "min",
+        "notes": "可被勾选的 checkbox 的最小数量",
+        "type": "number",
+        "enum": null,
+        "default": null
+      },
+      {
+        "name": "max",
+        "notes": "可被勾选的 checkbox 的最大数量",
+        "type": "number",
+        "enum": null,
+        "default": null
+      }
+    ]
+  }
+  
