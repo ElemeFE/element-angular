@@ -8,17 +8,18 @@ import { ElMenusModule } from './menu/module'
 import { ElTooltipModule } from './tooltip/module'
 import { ElRowModule } from './row/module'
 import { ElColModule } from './col/module'
+import { ElInputsModule } from './input/module'
 
 const ElMODULES = [
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
-  ElColModule, ElCheckboxsModule,
+  ElColModule, ElCheckboxsModule, ElInputsModule,
 ]
 
 @NgModule({
   imports: [
     ElButtonsModule.forRoot(), ElIconsModule.forRoot(), ElRadiosModule.forRoot(),
     ElTooltipModule.forRoot(), ElMenusModule.forRoot(), ElRowModule.forRoot(),
-    ElColModule.forRoot(), ElCheckboxsModule.forRoot(),
+    ElColModule.forRoot(), ElCheckboxsModule.forRoot(), ElInputsModule.forRoot(),
     BrowserAnimationsModule,
   ],
   exports: ElMODULES
