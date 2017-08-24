@@ -1,6 +1,6 @@
 import {
   Component, Input, Output, EventEmitter, OnInit,
-  ElementRef, Optional
+  ElementRef, Optional, ViewChild, AfterViewInit, ViewEncapsulation,
 } from '@angular/core'
 import { ElCheckboxGroup } from './checkbox-group'
 import { Utils } from '../shared'
@@ -10,20 +10,27 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
   selector: 'el-checkbox-button',
   template: `
     <label [class]="'el-checkbox-button' + (size ? ' el-checkbox-button--' + size : '') "
-      [class.is-disabled]="disabled" [class.is-focus]="focus"
+      [class.is-disabled]="disabled" [class.is-focus]="isFocus"
       [class.is-indeterminate]="indeterminate" [class.is-checked]="checked">
       <input class="el-checkbox-button__original" type="checkbox"
         [disabled]="disabled" [value]="label" [name]="name"
         [ngModel]="model" (ngModelChange)="changeHandle($event)"
-        (focus)="toggleFocus(true)" (blur)="toggleFocus(false)">
-      <span class="el-checkbox-button__inner" [style]="checked ? activeStyle() : ''">
-        <ng-container *ngIf="label">{{label}}</ng-container>
-        <ng-content *ngIf="!label"></ng-content>
+        (focus)="isFocus = true" (blur)="isFocus = false">
+      <span class="el-checkbox-button__inner"
+        [style]="checked ? activeStyle() : 'display: block'">
+        <ng-container *ngIf="showLabel">{{label}}</ng-container>
+        <span *ngIf="!showLabel" #content>
+          <ng-content></ng-content>
+        </span>
       </span>
     </label>
   `,
+  styles: ['.el-checkbox-button, .el-checkbox-button__inner { display: inline; }'],
+  encapsulation: ViewEncapsulation.None,
 })
-export class ElCheckboxButton implements OnInit {
+export class ElCheckboxButton implements OnInit, AfterViewInit {
+  
+  @ViewChild('content') content: any
   
   @Input() label: string
   @Input() model: any
@@ -36,7 +43,8 @@ export class ElCheckboxButton implements OnInit {
   
   private labels: any[]
   private parentIsGroup: boolean = false
-  private focus: boolean = false
+  private isFocus: boolean = false
+  private showLabel: boolean = false
   // special key
   private size: string
   
@@ -55,10 +63,6 @@ export class ElCheckboxButton implements OnInit {
     return this.domSanitizer.bypassSecurityTrustStyle(styles)
   }
   
-  toggleFocus(t: boolean): void {
-    this.focus = t
-  }
-  
   isChecked(): boolean {
     if (this.parentIsGroup) {
       return this.hostGroup.model.indexOf(this.label) > -1
@@ -75,6 +79,7 @@ export class ElCheckboxButton implements OnInit {
   ngOnInit(): void {
     const nativeElement = this.el.nativeElement
     this.parentIsGroup = Utils.isParentTag(nativeElement, 'el-checkbox-group')
+    Utils.removeNgTag(nativeElement)
     // update model from group
     if (this.parentIsGroup) {
       this.labels = this.hostGroup.model
@@ -84,5 +89,12 @@ export class ElCheckboxButton implements OnInit {
       this.hostGroup.subscriber.push(() => this.model = this.isChecked())
     }
     this.checked = this.isChecked()
+  }
+  
+  ngAfterViewInit(): void {
+    const contentText = this.content && this.content.nativeElement.innerText
+    setTimeout(() => {
+      this.showLabel = !contentText || contentText.length < 1
+    }, 0)
   }
 }
