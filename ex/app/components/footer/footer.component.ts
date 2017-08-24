@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { trigger, state, style, animate, transition } from '@angular/animations'
+import { environment } from '../../../environments'
 
 @Component({
   selector: 'ex-footer',
@@ -22,7 +23,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 export class ExFooterComponent implements OnInit {
   
   // todo get versions from environment
-  private version: string = '0.0.1'
+  private version: string = environment.version
   private showFooter: boolean = false
   
   ngOnInit(): void {
