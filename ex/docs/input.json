@@ -1,0 +1,110 @@
+{
+  "name": "Input Attributes",
+  "attrs": [
+    {
+      "name": "type",
+      "notes": "类型",
+      "type": "string",
+      "enum": "text/textarea",
+      "default": "text"
+    },
+    {
+      "name": "model",
+      "notes": "绑定值",
+      "type": "string, number",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "maxlength",
+      "notes": "最大输入长度",
+      "type": "number",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "minlength",
+      "notes": "最小输入长度",
+      "type": "number",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "placeholder",
+      "notes": "输入框占位文本",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "disabled",
+      "notes": "禁用",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "size",
+      "notes": "输入框尺寸，只在 <code>type=text</code> 时有效",
+      "type": "string",
+      "enum": "large, small, mini",
+      "default": null
+    },
+    {
+      "name": "icon",
+      "notes": "输入框尾部图标 参考 Icon",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "rows",
+      "notes": "输入框行数，只对 <code>type=textarea</code> 有效 ",
+      "type": "number",
+      "enum": null,
+      "default": 2
+    },
+    {
+      "name": "autosize",
+      "notes": "自适应内容高度，只对 <code>type=textarea</code> 有效",
+      "type": "{ minRows: number, maxRows: number } ",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "auto-complete",
+      "notes": "原生属性，自动补全，只在 <code>type=text</code> 时有效",
+      "type": "string",
+      "enum": "on, off",
+      "default": "off"
+    },
+    {
+      "name": "readonly",
+      "notes": "原生属性，是否只读",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "resize",
+      "notes": "控制是否能被用户缩放，只对 <code>type=textarea</code> 有效",
+      "type": "string",
+      "enum": "none, both, horizontal, vertical",
+      "default": null
+    },
+    {
+      "name": "autofocus",
+      "notes": "原生属性，自动获取焦点",
+      "type": "boolean",
+      "enum": "true, false",
+      "default": false
+    },
+    {
+      "name": "icon-click",
+      "notes": "点击 Input 内的图标的钩子函数",
+      "type": "expression",
+      "enum": null,
+      "default": null
+    }
+  ]
+}
