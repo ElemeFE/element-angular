@@ -9,7 +9,6 @@ export class DocsService {
   constructor(
     private http:Http,
   ) {
-    console.log(environment)
   }
   
   getCatalog(): Observable<any> {
