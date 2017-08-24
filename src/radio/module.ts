@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
 import { ElRadioGroup } from './radio-group'
 import { ElRadioButton } from './radio-button'
-import { ElRadioConfig } from './radio-config'
 import { ElRadio } from './radio'
 
 
@@ -15,6 +14,6 @@ import { ElRadio } from './radio'
 })
 export class ElRadiosModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: ElRadiosModule, providers: [ElRadioConfig] }
+    return { ngModule: ElRadiosModule, providers: [] }
   }
 }

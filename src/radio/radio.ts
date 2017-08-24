@@ -1,6 +1,4 @@
-import { Component, Input, ViewChild, AfterContentInit, Output, EventEmitter } from '@angular/core'
-import { ElRadioConfig } from './radio-config'
-import { RadioGroupConfig, Label, ClassesType } from './radio.interface'
+import { Component, Input, ViewChild, Output, EventEmitter, AfterViewInit } from '@angular/core'
 
 @Component({
   selector: 'el-radio',
@@ -13,20 +11,22 @@ import { RadioGroupConfig, Label, ClassesType } from './radio.interface'
           (focus)="isFocus = true" (blur)="isFocus = false"
           [ngModel]="model" (ngModelChange)="changeHandle()">
       </span>
-      <span class="el-radio__label" #content>
-        <ng-content></ng-content>
+      <span class="el-radio__label">
         <span *ngIf="showLabel">{{label}}</span>
+        <span *ngIf="!showLabel" #content>
+          <ng-content></ng-content>
+        </span>
       </span>
     </label>
   `,
 })
-export class ElRadio implements AfterContentInit {
+export class ElRadio implements AfterViewInit {
   
   @ViewChild('content') content: any
   
-  @Input() disabled: boolean
-  @Input() label: Label
-  @Input('name') nativeName: string
+  @Input() disabled: boolean = false
+  @Input() label: string | number = ''
+  @Input('name') nativeName: string = ''
   @Input() model: any
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
@@ -35,13 +35,11 @@ export class ElRadio implements AfterContentInit {
   private isGroup: boolean = false
   private modelChangeFromGroup: Function
   
-  constructor(private config: ElRadioConfig) {
-    this.disabled = config.disabled
-    this.label = config.label
-    this.nativeName = config.nativeName
+  constructor(
+  ) {
   }
   
-  classes(): ClassesType {
+  classes(): any {
     return {
       'is-disabled': this.disabled,
       'is-checked': this.model === this.label,
@@ -56,7 +54,7 @@ export class ElRadio implements AfterContentInit {
     this.modelChange.emit(this.label)
   }
   
-  _fromParentSet(configFromGroup: RadioGroupConfig): void {
+  _fromParentSet(configFromGroup: any): void {
     this.isGroup = true
     this.disabled = configFromGroup.disabled
     this.modelChangeFromGroup = configFromGroup.modelChange
@@ -66,8 +64,11 @@ export class ElRadio implements AfterContentInit {
     this.model = model
   }
   
-  ngAfterContentInit(): void {
-    this.showLabel = this.content.nativeElement.children.length <= 0
+  ngAfterViewInit(): void {
+    const contentText = this.content && this.content.nativeElement.innerText
+    setTimeout(() => {
+      this.showLabel = !contentText || contentText.length < 1
+    }, 0)
   }
   
 }

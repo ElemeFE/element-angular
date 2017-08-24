@@ -23,7 +23,7 @@ export class ElRadioGroup implements AfterContentInit, OnChanges {
   @ContentChildren(ElRadioButton) radioBtnTmp: any
   
   change(results: any[], handler: any): void {
-    results.forEach((radio: ElRadio | ElRadioButton) => {
+    results.forEach((radio: ElRadio) => {
       radio._fromParentSet({
         buttonSize: this.buttonSize,
         fillColor: this.fillColor,
