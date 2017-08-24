@@ -1,6 +1,4 @@
 import { Component, Input, ViewChild, AfterContentInit, Output, EventEmitter } from '@angular/core'
-import { ElRadioConfig } from './radio-config'
-import { RadioGroupConfig, Label, ClassesType } from './radio.interface'
 
 @Component({
   selector: 'el-radio-button',
@@ -21,9 +19,9 @@ export class ElRadioButton implements AfterContentInit {
   
   @ViewChild('content') content: any
   
-  @Input() disabled: boolean
-  @Input() label: Label
-  @Input('name') nativeName: string
+  @Input() disabled: boolean = false
+  @Input() label: string | number
+  @Input('name') nativeName: string = ''
   @Input() model: any
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
@@ -34,20 +32,18 @@ export class ElRadioButton implements AfterContentInit {
   private textColor: string
   private modelChangeFromGroup: Function
   
-  constructor(private config: ElRadioConfig) {
-    this.disabled = config.disabled
-    this.label = config.label
-    this.nativeName = config.nativeName
+  constructor(
+  ) {
   }
   
-  classes(): ClassesType {
+  classes(): any {
     return {
       'is-disabled': this.disabled,
       'is-active': this.model === this.label,
     }
   }
   
-  activeStyle(): ClassesType {
+  activeStyle(): any {
     return {
       backgroundColor: this.fillColor || '',
       borderColor: this.fillColor || '',
@@ -63,7 +59,7 @@ export class ElRadioButton implements AfterContentInit {
     this.modelChange.emit(this.label)
   }
   
-  _fromParentSet(configFromGroup: RadioGroupConfig): void {
+  _fromParentSet(configFromGroup: any): void {
     this.isGroup = true
     this.size = configFromGroup.buttonSize
     this.fillColor = configFromGroup.fillColor
