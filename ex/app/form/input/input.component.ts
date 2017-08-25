@@ -12,7 +12,7 @@ export class ExInputComponent implements OnInit {
   private code: string[] = code
   private page: any = {
     previous: { name: 'Check 多选框', link: '/form/checkbox' },
-    next: { name: 'Input 输入框', link: '/form/input' },
+    next: { name: 'InputNumber 计数器', link: '/form/input-number' },
   }
   
   ngOnInit(): void {
