@@ -11,6 +11,7 @@ export class ExStartComponent implements OnInit {
     previous: { name: '安装', link: '/guide/install' },
     next: { name: '国际化', link: '/guide/i18n' },
   }
+  
   constructor(
   ) {
   }

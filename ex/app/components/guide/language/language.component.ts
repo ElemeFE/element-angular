@@ -11,6 +11,7 @@ export class ExLanguageComponent implements OnInit {
     previous: { name: '快速上手', link: '/guide/start' },
     next: { name: '自定义主题', link: '/guide/theme' },
   }
+  
   constructor(
   ) {
   }

@@ -14,10 +14,10 @@ import { ElModule } from 'element-angular'
 
 @NgModule({
   imports: [
-  ElModule.forRoot(),
-  ...
+    ElModule.forRoot(),
+    ...
   ],
-  ...
+    ...
   bootstrap: [ExAppComponent],
 })
 
