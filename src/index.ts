@@ -11,10 +11,11 @@ import { ElColModule } from './col/module'
 import { ElInputsModule } from './input/module'
 import { ElInputNumberModule } from './input-number/module'
 import { ElTagsModule } from './tag/module'
+import { ElSelectModule } from './select/module'
 
 const ElMODULES = [
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
-  ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule,
+  ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
 ]
 
 @NgModule({
@@ -22,7 +23,7 @@ const ElMODULES = [
     ElButtonsModule.forRoot(), ElIconsModule.forRoot(), ElRadiosModule.forRoot(),
     ElTooltipModule.forRoot(), ElMenusModule.forRoot(), ElRowModule.forRoot(),
     ElColModule.forRoot(), ElCheckboxsModule.forRoot(), ElInputsModule.forRoot(),
-    ElInputNumberModule.forRoot(), ElTagsModule.forRoot(),
+    ElInputNumberModule.forRoot(), ElTagsModule.forRoot(), ElSelectModule.forRoot(),
     BrowserAnimationsModule,
   ],
   exports: ElMODULES
