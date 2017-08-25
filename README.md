@@ -40,7 +40,15 @@ other frameworks:
 
 ## Getting Started
 
-...
+```bash
+# install
+npm i --save element-angular
+
+# improt
+import { ElModule } from 'element-angular'
+
+```
+more: [Doc](https://eleme.github.io/element-angular/)
 
 
 
