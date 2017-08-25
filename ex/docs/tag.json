@@ -1,0 +1,28 @@
+{
+  "name": "Tag Attributes",
+  "attrs": [{
+    "name": "type",
+    "notes": "主题",
+    "type": "string",
+    "enum": "primary/gray/success/warning/danger",
+    "default": null
+  },{
+    "name": "closable",
+    "notes": "是否可关闭",
+    "type": "boolean",
+    "enum": null,
+    "default": false
+  },{
+    "name": "hit",
+    "notes": "是否有边框描边",
+    "type": "boolean",
+    "enum": null,
+    "default": false
+  },{
+    "name": "color",
+    "notes": "背景色",
+    "type": "string",
+    "enum": null,
+    "default": null
+  }]
+}
