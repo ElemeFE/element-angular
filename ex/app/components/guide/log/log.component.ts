@@ -12,6 +12,7 @@ export class ExLogComponent implements OnInit {
     previous: { name: 'Angular 动画', link: '/guide/transition' },
     next: { name: 'Layout 布局', link: '/basic/layout' },
   }
+  
   constructor(
   ) {
   }

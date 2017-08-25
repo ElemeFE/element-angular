@@ -11,6 +11,7 @@ export class ExTransitionComponent implements OnInit {
     previous: { name: '自定义主题', link: '/guide/theme' },
     next: { name: '更新日志', link: '/guide/log' },
   }
+  
   constructor(
   ) {
   }

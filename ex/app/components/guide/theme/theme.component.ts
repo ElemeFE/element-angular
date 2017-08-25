@@ -11,6 +11,7 @@ export class ExThemeComponent implements OnInit {
     previous: { name: '国际化', link: '/guide/i18n' },
     next: { name: 'Angular 动画', link: '/guide/transition' },
   }
+  
   constructor(
   ) {
   }
