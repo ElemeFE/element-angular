@@ -64,6 +64,9 @@
     }, {
       "name": "inputNumber 计数器",
       "link": "/form/input-number"
+    }, {
+      "name": "select 选择器",
+      "link": "/form/select"
     }]
   }, {
     "name": "Data",
