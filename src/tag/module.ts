@@ -9,8 +9,8 @@ import { ElTag } from './tag'
   imports: [CommonModule],
   entryComponents: [ElTag],
 })
-export class ElIconsModule {
+export class ElTagsModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: ElIconsModule, providers: [] }
+    return { ngModule: ElTagsModule, providers: [] }
   }
 }

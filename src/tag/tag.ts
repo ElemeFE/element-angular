@@ -8,7 +8,7 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
     <span [class]="'el-tag' + (type ? ' el-tag--' + type : '')"
       [class.is-hit]="hit">
       <ng-content></ng-content>
-      <i class="el-tag__close el-icon-close" *ngIf="closable" (click)="closeEmitter.emit"></i>
+      <i class="el-tag__close el-icon-close" *ngIf="closable" (click)="closeEmitter.emit()"></i>
     </span>
   `,
 })
