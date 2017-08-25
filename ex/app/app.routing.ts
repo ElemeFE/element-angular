@@ -22,6 +22,10 @@ export const appRoutes: Routes = [
     path: 'guide',
     loadChildren: './components/guide/guide.module#GuideModule',
   },
+  {
+    path: 'data',
+    loadChildren: './data/data.module#DataModule',
+  },
   { path: '', redirectTo: '/guide/install', pathMatch: 'full' },
 ]
 

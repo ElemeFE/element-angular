@@ -66,17 +66,24 @@
       "link": "/form/input-number"
     }]
   }, {
+    "name": "Data",
+    "link": null,
+    "children": [{
+      "name": "tag 标签",
+      "link": "/data/tag"
+    }]
+  }, {
     "name": "Navigation",
     "link": null,
     "children": [{
-      "name": "NabMenu 导航菜单",
+      "name": "nab-menu 导航菜单",
       "link": "/nav/menu"
     }]
   }, {
     "name": "Others",
     "link": null,
     "children": [{
-      "name": "Tooltip 文字提示",
+      "name": "tooltip 文字提示",
       "link": "/others/tooltip"
     }]
   }]
