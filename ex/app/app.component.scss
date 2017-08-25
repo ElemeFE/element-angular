@@ -1,5 +1,6 @@
 
 .page-container {
+  min-height: 100vh;
   padding-top: 55px;
   h2 {
     font-size: 28px;
@@ -44,6 +45,7 @@
 }
 
 .page-component {
+  min-height: 100vh;
   padding-bottom: 95px;
   box-sizing: border-box;
   .content {
