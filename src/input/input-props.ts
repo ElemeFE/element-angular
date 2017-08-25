@@ -19,15 +19,13 @@ export class ElInputPoprs {
   @Input('auto-complete') autoComplete: string = 'off'     // only type === 'text'
   @Input() name: string
   @Input() readonly: boolean = false
-  // @Input() max: string | number
-  // @Input() min: string | number
   // @Input() step: any
   @Input() autofocus: boolean = false
   // @Input() form: string
   
   // bind value
   @Input() model: any = ''
-  protected modelChange: EventEmitter<any> = new EventEmitter<any> ()
+  @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
   // hook
   @Output('icon-click') iconClick: EventEmitter<any> = new EventEmitter<any>()  // handle on the input icon

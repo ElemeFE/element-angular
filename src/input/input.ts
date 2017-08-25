@@ -19,12 +19,12 @@ import { getTextareaHeight } from './help'
         
         <i [class]="'el-input__icon ' + ('el-icon-' + icon) + (iconClick ? ' is-clickable' : '')"
           *ngIf="icon" (click)="iconClick.emit($event)"></i>
-        <input class="el-input__inner" #textarea
+        <input class="el-input__inner"
           [autocomplete]="autoComplete" [value]="value" [name]="name"
           [placeholder]="placeholder" [autofocus]="autofocus"
           [disabled]="disabled" [readonly]="readonly"
           [maxlength]="maxlength" [minlength]="minlength"
-          [ngModel]="model" (input)="handleInput($event.target.value)"
+          [ngModel]="model" (ngModelChange)="handleInput($event)"
           (focus)="focus.emit($event)" (blur)="blur.emit($event)">
         <i *ngIf="validating" class="el-input__icon el-icon-loading"></i>
         
@@ -70,6 +70,7 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit {
   }
   
   handleInput(val: string): void {
+    this.model = val
     this.modelChange.emit(val)
     const timer: any = setTimeout(() => {
       this.makeTextareaStyles()
