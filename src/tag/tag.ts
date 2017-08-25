@@ -8,8 +8,7 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
     <span [class]="'el-tag' + (type ? ' el-tag--' + type : '')"
       [class.is-hit]="hit">
       <ng-content></ng-content>
-      <i class="el-tag__close el-icon-close" *ngIf="closable"
-         (click)="closeHandle"></i>
+      <i class="el-tag__close el-icon-close" *ngIf="closable" (click)="closeEmitter.emit"></i>
     </span>
   `,
 })
@@ -20,17 +19,13 @@ export class ElTag implements OnInit {
   @Input() hit: boolean = false
   @Input() color: string
   @Input('close-transition') closeTransition: boolean = false
-  @Output() close: EventEmitter<any> = new EventEmitter<any>()
+  @Output('close') closeEmitter: EventEmitter<any> = new EventEmitter<any>()
   
   private tagStyles: SafeStyle
   
   constructor(
     private sanitizer: DomSanitizer,
   ) {
-  }
-  
-  closeHandle(): void {
-  
   }
   
   ngOnInit(): void {
