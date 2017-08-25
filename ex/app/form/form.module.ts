@@ -9,6 +9,7 @@ import { ExFormMainComponent } from './main/main.component'
 import { ExRadioComponent } from './radio/radio.component'
 import { ExCheckboxComponent } from './checkbox/checkbox.component'
 import { ExInputComponent } from './input/input.component'
+import { ExInputNumberComponent } from './input-number/input-number.component'
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ExInputComponent } from './input/input.component'
     ExRadioComponent,
     ExCheckboxComponent,
     ExInputComponent,
+    ExInputNumberComponent,
   ],
   imports: [
     CommonModule,

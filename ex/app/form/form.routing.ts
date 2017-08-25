@@ -4,6 +4,7 @@ import { ExFormMainComponent } from './main/main.component'
 import { ExCheckboxComponent } from './checkbox/checkbox.component'
 import { ExRadioComponent } from './radio/radio.component'
 import { ExInputComponent } from './input/input.component'
+import { ExInputNumberComponent } from './input-number/input-number.component'
 
 
 export const formRoutes: Routes = [{
@@ -14,6 +15,8 @@ export const formRoutes: Routes = [{
     path: 'checkbox', component: ExCheckboxComponent,
   }, {
     path: 'input', component: ExInputComponent,
+  }, {
+    path: 'input-number', component: ExInputNumberComponent,
   }],
 }]
 

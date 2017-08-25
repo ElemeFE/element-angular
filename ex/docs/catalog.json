@@ -61,6 +61,9 @@
     }, {
       "name": "input 输入框",
       "link": "/form/input"
+    }, {
+      "name": "inputNumber 计数器",
+      "link": "/form/input-number"
     }]
   }, {
     "name": "Navigation",
