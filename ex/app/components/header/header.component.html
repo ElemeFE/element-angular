@@ -13,7 +13,10 @@
       </h1>
       <ul class="nav">
         <li class="nav-item">
-          <a routerLinkActive="active" [routerLink]="['/basic']">组件</a>
+          <a [class.active]="isGuide" [routerLink]="['/guide/install']">开发指南</a>
+        </li>
+        <li class="nav-item">
+          <a [class.active]="!isGuide" [routerLink]="['/basic/layout']">组件</a>
         </li>
         <li class="nav-item">
           <a href="https://github.com/eleme/element-angular" target="_blank">GIT</a>

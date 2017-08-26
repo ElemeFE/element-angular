@@ -15,6 +15,7 @@
   flex-direction: row;
   align-items: center;
   position: relative;
+  user-select: none;
   .container {
     height: 100%;
     box-sizing: border-box;

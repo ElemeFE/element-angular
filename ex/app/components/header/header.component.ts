@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { NavigationStart, Router } from '@angular/router'
 
 @Component({
   selector: 'ex-header',
@@ -7,8 +8,19 @@ import { Component, OnInit } from '@angular/core'
 })
 export class ExHeaderComponent implements OnInit {
   
-  private isHome: boolean = true
+  private isGuide: boolean = false
+  
+  constructor(
+    private router: Router,
+  ) {
+  }
   
   ngOnInit(): void {
+    this.router.events
+      .subscribe(event => {
+        if(event instanceof NavigationStart) {
+          this.isGuide = event.url.startsWith('/guide')
+        }
+      })
   }
 }
