@@ -7,7 +7,7 @@ export class ElSelectPoprs {
   @Input() clearable: boolean = false
   @Input() name: string
   @Input() size: string               // enum: large, small, mini
-  @Input() placeholder: string = ''
+  @Input() placeholder: string = '请选择'
   @Input('popper-class') popperClass: string
   @Input('multiple-limit') multipleLimit: number = 0     // 0 mean no limit
   @Input('no-data-text') noDataText: string = '无数据'

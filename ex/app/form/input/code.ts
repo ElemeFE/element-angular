@@ -59,13 +59,17 @@ export default [
 `
 <div>
   <el-input placeholder="请输入内容" [model]="input3">
-    <span slot="prepend">Http://</span>
+    <ng-template #prepend>
+      <span>Http://</span>
+    </ng-template>
   </el-input>
 </div>
 
 <div style="margin-top: 15px;">
   <el-input placeholder="请输入内容" [model]="input4">
-    <span slot="append">.com</span>
+  <ng-template #append>
+    <span>.com</span>
+  </ng-template>
   </el-input>
 </div>
 

@@ -15,6 +15,10 @@ export class ExSelectComponent implements OnInit {
     next: { name: 'InputNumber 计数器', link: '/form/input-number' },
   }
   
+  handle(val: string): void {
+    console.log(val)
+  }
+  
   ngOnInit(): void {
   }
 }
