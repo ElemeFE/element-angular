@@ -1,4 +1,7 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core'
+import {
+  AfterContentInit, AfterViewInit, Component, ContentChild, ElementRef, OnInit, TemplateRef,
+  ViewChild,
+} from '@angular/core'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 import { ElInputPoprs } from './input-props'
 import { getTextareaHeight } from './help'
@@ -6,15 +9,17 @@ import { getTextareaHeight } from './help'
 @Component({
   selector: 'el-input',
   template: `
-    <div [class]="(type === 'text' ? 'el-input' : 'el-textarea') + (size ? ' el-input--' + size : '')"
+    <div [class]="(type === 'text' ? 'el-input' : 'el-textarea') +
+    (size ? ' el-input--' + size : '') + ' ' + parentClass"
       [class.is-disabled]="disabled"
-      [class.el-input-group]="includePrepend || includeAppend"
-      [class.el-input-group--append]="includeAppend"
-      [class.el-input-group--prepend]="includePrepend">
+      [class.el-input-group]="prepend || append"
+      [class.el-input-group--append]="append"
+      [class.el-input-group--prepend]="prepend">
       <ng-container *ngIf="type === 'text'">
         
-        <div class="el-input-group__prepend" *ngIf="includePrepend" #prepend>
-          <ng-content select="[slot=prepend]"></ng-content>
+        <div class="el-input-group__prepend" *ngIf="prepend">
+          <ng-template [ngTemplateOutlet]="prepend">
+          </ng-template>
         </div>
         
         <i [class]="'el-input__icon ' + ('el-icon-' + icon) + (iconClick ? ' is-clickable' : '')"
@@ -28,8 +33,9 @@ import { getTextareaHeight } from './help'
           (focus)="focus.emit($event)" (blur)="blur.emit($event)">
         <i *ngIf="validating" class="el-input__icon el-icon-loading"></i>
         
-        <div class="el-input-group__append" *ngIf="includeAppend" #append>
-          <ng-content select="[slot=append]"></ng-content>
+        <div class="el-input-group__append" *ngIf="append">
+          <ng-template [ngTemplateOutlet]="append">
+          </ng-template>
         </div>
       </ng-container>
       
@@ -48,12 +54,10 @@ import { getTextareaHeight } from './help'
 })
 export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit {
   
-  @ViewChild('prepend') prepend: any
-  @ViewChild('append') append: any
+  @ContentChild('prepend') prepend: TemplateRef<any>
+  @ContentChild('append') append: TemplateRef<any>
   @ViewChild('textarea') textarea: any
   
-  private includePrepend: boolean = true
-  private includeAppend: boolean = true
   private textareaStyles: SafeStyle
   
   constructor(
@@ -79,7 +83,9 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit {
   }
   
   ngOnInit(): void {
-    this.model = this.value
+    if (this.value && !this.model) {
+      this.model = this.value
+    }
   }
   
   ngAfterViewInit(): any {
@@ -87,15 +93,7 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit {
     if (this.type === 'textarea') {
       return setTimeout(() => {
         this.makeTextareaStyles()
-        this.includePrepend = this.includeAppend = false
       }, 0)
     }
-    // hide empty elements
-    const prependText = this.prepend && this.prepend.nativeElement.innerText
-    const appendText = this.append && this.append.nativeElement.innerText
-    setTimeout(() => {
-      this.includePrepend = prependText || prependText.length > 1
-      this.includeAppend = appendText || appendText.length > 1
-    }, 0)
   }
 }
