@@ -10,6 +10,7 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 export class ExSideComponent implements OnInit {
   
   private catalog: JSON
+  private version: string
   
   constructor(
     private docsService: DocsService,
@@ -25,5 +26,7 @@ export class ExSideComponent implements OnInit {
   ngOnInit(): void {
     this.docsService.getCatalog()
       .subscribe(json => this.catalog = json)
+    this.docsService.getVersion()
+      .subscribe((v: string) => this.version = v)
   }
 }
