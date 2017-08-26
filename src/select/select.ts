@@ -52,6 +52,7 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy {
   }
   
   clearSelected(event: Event): void {
+    if (!this.clearable) return
     event.stopPropagation()
     // reset icon
     this.mouseHandle(false)
