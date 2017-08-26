@@ -36,6 +36,7 @@ export class ElSelect extends ElSelectPoprs implements OnInit {
   }
   
   toggleHandle(): void {
+    if (this.disabled) return
     this.dropdownActive = !this.dropdownActive
     this.iconClass = `caret-top ${this.dropdownActive ? 'is-reverse' : ''}`
   }
