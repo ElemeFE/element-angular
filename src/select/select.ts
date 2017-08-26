@@ -1,10 +1,10 @@
-import { Component, OnInit, ElementRef } from '@angular/core'
+import { Component, OnInit, ElementRef, Renderer2, OnDestroy } from '@angular/core'
 import { ElSelectPoprs } from './select-props'
 
 @Component({
   selector: 'el-select',
   template: `
-    <div class="el-select" (click)="toggleHandle()">
+    <div class="el-select" (click)="toggleHandle($event)">
       <el-input [model]="selectedLabel" [placeholder]="placeholder" [icon]="iconClass"
         [name]="name" [size]="size" [disabled]="disabled" [readonly]="!filterable || multiple"
         (mouseenter)="mouseHandle(true)" (mouseleave)="mouseHandle(false)"
@@ -20,7 +20,7 @@ import { ElSelectPoprs } from './select-props'
     </div>
   `,
 })
-export class ElSelect extends ElSelectPoprs implements OnInit {
+export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy {
   
   selfWidth: string
   subscriber: Function[] = []
@@ -28,9 +28,12 @@ export class ElSelect extends ElSelectPoprs implements OnInit {
   private dropdownActive: boolean = false
   private selectedLabel: string | number
   private iconClass: string = 'caret-top'
+  private globalListener: Function
+  
   
   constructor(
     private el: ElementRef,
+    private renderer: Renderer2,
   ) {
     super()
   }
@@ -40,8 +43,9 @@ export class ElSelect extends ElSelectPoprs implements OnInit {
     this.iconClass = `${isEnter ? 'circle-close is-show-close' : 'caret-top'}`
   }
   
-  toggleHandle(): void {
+  toggleHandle(event?: Event): void {
     if (this.disabled) return
+    event && event.stopPropagation()
     this.dropdownActive = !this.dropdownActive
     this.iconClass = !this.clearable ? (this.dropdownActive ? 'is-reverse' : '') : this.iconClass
   }
@@ -57,10 +61,11 @@ export class ElSelect extends ElSelectPoprs implements OnInit {
   }
   
   changeLabel(nextLabel: string | number, nextValue?: any): void {
+    this.dropdownActive && this.toggleHandle()
     // only update label
     this.selectedLabel = nextLabel
-    
     if (!nextValue) return
+    
     this.model = nextValue
     this.modelChange.emit(nextValue)
     this.subscriber.forEach(sub => sub())
@@ -70,6 +75,13 @@ export class ElSelect extends ElSelectPoprs implements OnInit {
     setTimeout(() => {
       this.selfWidth = this.el.nativeElement.getBoundingClientRect().width
     }, 0)
+    this.globalListener = this.renderer.listen('document', 'click', event => {
+      this.dropdownActive && this.toggleHandle()
+    })
+  }
+  
+  ngOnDestroy(): void {
+    this.globalListener && this.globalListener()
   }
   
 }
