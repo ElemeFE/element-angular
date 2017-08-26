@@ -1,15 +1,38 @@
 <h2>Select 选择器</h2>
 <p>当选项过多时，使用下拉菜单展示并选择内容。</p>
 
+<h3>基础用法</h3>
+<p>适用广泛的基础单选</p>
+<ex-demo link="2" [code]="code[0]" notes="<code>el-option</code> 的属性
+<code>label</code>和<code>value</code>是必填的。">
+</ex-demo>
 
-<el-select (modelChange)="handle($event)">
-  <el-option value="value1" label="label1">
-  </el-option>
-  <el-option value="value2" label="label2">
-  </el-option>
-</el-select>
+<h3>有禁用选项</h3>
+<ex-demo link="2" [code]="code[1]" notes="在<code>el-option</code>中，设定
+<code>disabled</code>值为 true，即可禁用该选项。">
+</ex-demo>
+
+<h3>禁用状态</h3>
+<p>选择器不可用状态</p>
+<ex-demo link="2" [code]="code[2]" notes="在<code>el-option</code>中，设定
+<code>disabled</code>值为 true，即可禁用该选项。">
+</ex-demo>
+
+<h3>默认选中</h3>
+<p>初始状态时默认选中值</p>
+<ex-demo link="2" [code]="code[3]" notes="在<code>el-select</code>中，设定
+model 初始值等于需要选中项的 value 即可。">
+</ex-demo>
+
+<h3>可清空单选</h3>
+<p>包含清空按钮，可将选择器清空为初始状态</p>
+<ex-demo link="2" [code]="code[4]" notes="在<code>el-select</code>中，设定
+<code>clearable</code>值为 true，则可将选择器清空。">
+</ex-demo>
 
 
+<ex-document doc="select"></ex-document>
+<ex-document doc="select-option"></ex-document>
 
 <ex-footer-nav [page]="page"></ex-footer-nav>
 
