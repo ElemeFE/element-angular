@@ -7,7 +7,6 @@ import { ElSelect } from './select'
   selector: 'el-select-dropdown',
   template: `
     <div [class]="'el-select-dropdown ' + popperClass"
-      [class.is-multiple]="multiple"
       [style]="dropdownStyles"
       [@state]="isActived">
       <ng-content></ng-content>
@@ -49,7 +48,6 @@ export class ElSelectDropdown implements OnInit {
       const styles = `min-width: ${this.rootSelect.selfWidth}px;`
       this.dropdownStyles = this.sanitizer.bypassSecurityTrustStyle(styles)
       this.popperClass = this.rootSelect.popperClass
-      this.multiple = this.rootSelect.multiple
     }, 0)
   }
   

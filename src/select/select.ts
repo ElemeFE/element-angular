@@ -6,7 +6,7 @@ import { ElSelectPoprs } from './select-props'
   template: `
     <div class="el-select" (click)="toggleHandle($event)">
       <el-input [model]="selectedLabel" [placeholder]="placeholder" [icon]="iconClass"
-        [name]="name" [size]="size" [disabled]="disabled" [readonly]="!filterable || multiple"
+        [name]="name" [size]="size" [disabled]="disabled"
         (mouseenter)="mouseHandle(true)" (mouseleave)="mouseHandle(false)"
         (icon-click)="clearSelected($event)">
       </el-input>
