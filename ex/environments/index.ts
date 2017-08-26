@@ -7,7 +7,7 @@ import * as env from './environment'
 import * as envProd from './environment.prod'
 
 const staticEnv: any = __DEBUG__ ? env.environment : envProd.environment
-const environment = Object.assign(staticEnv, __CONFIG__)
+const environment: any = Object.assign(staticEnv, __CONFIG__)
 
 export {
   environment,
