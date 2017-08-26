@@ -18,7 +18,7 @@ export const formRoutes: Routes = [{
     path: 'input', component: ExInputComponent,
   }, {
     path: 'input-number', component: ExInputNumberComponent,
-  },, {
+  }, {
     path: 'select', component: ExSelectComponent,
   }],
 }]

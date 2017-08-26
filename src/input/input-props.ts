@@ -21,6 +21,7 @@ export class ElInputPoprs {
   @Input() readonly: boolean = false
   // @Input() step: any
   @Input() autofocus: boolean = false
+  @Input() class: string
   // @Input() form: string
   
   // bind value
