@@ -1,0 +1,47 @@
+{
+  "name": "Select Attributes",
+  "attrs": [
+    {
+      "name": "disabled",
+      "notes": "禁用所有选择与选项框",
+      "type": "boolean",
+      "enum": "true, false",
+      "default": false
+    },
+    {
+      "name": "clearable",
+      "notes": "清除按钮，清除当前选项",
+      "type": "boolean",
+      "enum": "true, false",
+      "default": false
+    },
+    {
+      "name": "name",
+      "notes": "原生属性，select input 的 name 属性",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "size",
+      "notes": "select input 尺寸",
+      "type": "string",
+      "enum": "large/small/mini",
+      "default": null
+    },
+    {
+      "name": "placeholder",
+      "notes": "select input 占位符",
+      "type": "string",
+      "enum": "请选择",
+      "default": null
+    },
+    {
+      "name": "popper-class",
+      "notes": "Select 下拉框的类名",
+      "type": "string",
+      "enum": null,
+      "default": null
+    }
+  ]
+}
