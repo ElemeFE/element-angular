@@ -1,0 +1,26 @@
+{
+  "name": "Select-option Attributes",
+  "attrs": [
+    {
+      "name": "value",
+      "notes": "选项的值，必选属性",
+      "type": "string | number",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "label",
+      "notes": "选项的标签，必选属性",
+      "type": "string | number",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "disabled",
+      "notes": "是否禁用该选项",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    }
+  ]
+}
