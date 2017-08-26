@@ -1,5 +1,5 @@
 import {
-  AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnInit,
+  AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnInit, Renderer2,
   ViewChild,
 } from '@angular/core'
 import {
@@ -62,6 +62,7 @@ export class ElTooltip implements AfterContentInit, OnInit {
     private config: ElTooltipConfig,
     private sanitizer: DomSanitizer,
     private changeDetectorRef: ChangeDetectorRef,
+    private renderer: Renderer2,
     ) {
   }
   
@@ -91,9 +92,9 @@ export class ElTooltip implements AfterContentInit, OnInit {
     const { self, position } = this.cache
     const arrowElement: Element = self.querySelector('.popper__arrow')
     this.xPlacement = position.arrowFace
-    self.style.left = `${position.left}px`
-    self.style.top = `${position.top}px`
-    arrowElement.setAttribute('style', `${position.arrowDir}: ${position.arrowPosition}px`)
+    this.renderer.setStyle(self, 'left', `${position.left}px`)
+    this.renderer.setStyle(self, 'top', `${position.top}px`)
+    this.renderer.setStyle(arrowElement, position.arrowDir, `${position.arrowPosition}px`)
   }
   
   bindEvent(host: HTMLElement): void {
