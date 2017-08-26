@@ -37,5 +37,10 @@ export class ElOption implements OnInit {
     this.rootDisabled = this.rootSelect.disabled
     updateHandle()
     this.rootSelect.subscriber.push(updateHandle)
+    
+    // selected default
+    if (this.itemSelected) {
+      this.rootSelect.changeLabel(this.label)
+    }
   }
 }

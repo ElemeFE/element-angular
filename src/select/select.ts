@@ -56,8 +56,11 @@ export class ElSelect extends ElSelectPoprs implements OnInit {
     this.dropdownActive = false
   }
   
-  changeLabel(nextLabel: string | number, nextValue: any): void {
+  changeLabel(nextLabel: string | number, nextValue?: any): void {
+    // only update label
     this.selectedLabel = nextLabel
+    
+    if (!nextValue) return
     this.model = nextValue
     this.modelChange.emit(nextValue)
     this.subscriber.forEach(sub => sub())
