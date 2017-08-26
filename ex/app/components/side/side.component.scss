@@ -84,6 +84,16 @@
     line-height: 26px;
     margin-top: 10px;
   }
+  .version {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    color: #5e6d82;
+    line-height: 40px;
+    transition: .2s;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #eaeefb;
+  }
 }
 .nav-dropdown-list {
   width: 120px;

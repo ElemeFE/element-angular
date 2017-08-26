@@ -21,4 +21,8 @@ export class DocsService {
       .map(res => res.json())
   }
   
+  getVersion(): Observable<any> {
+    return Observable.of(environment.version || '1.0.0')
+  }
+  
 }
