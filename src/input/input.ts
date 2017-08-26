@@ -7,7 +7,7 @@ import { getTextareaHeight } from './help'
   selector: 'el-input',
   template: `
     <div [class]="(type === 'text' ? 'el-input' : 'el-textarea') +
-    (size ? ' el-input--' + size : '') + ' ' + class"
+    (size ? ' el-input--' + size : '') + ' ' + parentClass"
       [class.is-disabled]="disabled"
       [class.el-input-group]="includePrepend || includeAppend"
       [class.el-input-group--append]="includeAppend"
@@ -56,15 +56,11 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit {
   private includePrepend: boolean = true
   private includeAppend: boolean = true
   private textareaStyles: SafeStyle
-  private nativeClass: string = ' '
   
   constructor(
     private sanitizer: DomSanitizer,
-    private el: ElementRef,
   ) {
     super()
-    console.log(this.el.nativeElement.classList, 456)
-    this.nativeClass += this.el.nativeElement.classList.value
   }
   
   makeTextareaStyles(): void {
