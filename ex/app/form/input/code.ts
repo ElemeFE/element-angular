@@ -67,9 +67,9 @@ export default [
 
 <div style="margin-top: 15px;">
   <el-input placeholder="请输入内容" [model]="input4">
-  <ng-template #append>
-    <span>.com</span>
-  </ng-template>
+    <ng-template #append>
+      <span>.com</span>
+    </ng-template>
   </el-input>
 </div>
 
