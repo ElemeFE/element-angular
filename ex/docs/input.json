@@ -105,6 +105,20 @@
       "type": "expression",
       "enum": null,
       "default": null
+    },
+    {
+      "name": "#prepend",
+      "notes": "前置自定义元素",
+      "type": "ng-template",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "#append",
+      "notes": "后置自定义元素",
+      "type": "ng-template",
+      "enum": null,
+      "default": null
     }
   ]
 }
