@@ -47,7 +47,8 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy {
     if (this.disabled) return
     event && event.stopPropagation()
     this.dropdownActive = !this.dropdownActive
-    this.iconClass = !this.clearable ? (this.dropdownActive ? 'is-reverse' : '') : this.iconClass
+    const nextClass = 'caret-top' + (this.dropdownActive ? ' is-reverse' : '')
+    this.iconClass = !this.clearable ? nextClass : this.iconClass
   }
   
   clearSelected(event: Event): void {
