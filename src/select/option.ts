@@ -7,7 +7,7 @@ import { ElSelect } from './select'
     <li class="el-select-dropdown__item"
       [class.is-disabled]="disabled || rootDisabled"
       [class.selected]="itemSelected"
-      (click)="clickHandle()">
+      (click)="clickHandle($event)">
       <span>{{ label }}</span>
     </li>
   `,
@@ -26,7 +26,8 @@ export class ElOption implements OnInit {
   ) {
   }
   
-  clickHandle(): void {
+  clickHandle(event: Event): void {
+    event.stopPropagation()
     this.rootSelect.changeLabel(this.label, this.value)
   }
   
@@ -37,5 +38,10 @@ export class ElOption implements OnInit {
     this.rootDisabled = this.rootSelect.disabled
     updateHandle()
     this.rootSelect.subscriber.push(updateHandle)
+    
+    // selected default
+    if (this.itemSelected) {
+      this.rootSelect.changeLabel(this.label)
+    }
   }
 }
