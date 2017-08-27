@@ -11,6 +11,7 @@ import { ExCheckboxComponent } from './checkbox/checkbox.component'
 import { ExInputComponent } from './input/input.component'
 import { ExInputNumberComponent } from './input-number/input-number.component'
 import { ExSelectComponent } from './select/select.component'
+import { ExSwitchComponent } from './switch/switch.component'
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ExSelectComponent } from './select/select.component'
     ExInputComponent,
     ExInputNumberComponent,
     ExSelectComponent,
+    ExSwitchComponent,
   ],
   imports: [
     CommonModule,
