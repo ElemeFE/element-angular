@@ -1,79 +1,34 @@
 export default [
 // 基础用法
-  `
-<!--你可以通过 model 来获取每次选择的值-->
+`
+<!--你可以为 model 绑定布尔变量-->
 <!--或者通过绑定 (modelChange)=handle 来获得每次值改变的触发-->
-<el-select [(model)]="value" placeholder="请选择">
-  <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
-      { value: '选项2', label: '双皮奶' },
-      { value: '选项3', label: '蚵仔煎' },
-      { value: '选项4', label: '龙须面' },
-      { value: '选项5', label: '北京烤鸭' }]"
-    [label]="item.label"
-    [value]="item.value">
-  </el-option>
-</el-select>
+<el-switch [(model)]="value1" [on-text]="" [off-text]="">
+</el-switch>
+<el-switch [model]="true" [on-color]="'#13ce66'" [off-color]="'#ff4949'">
+</el-switch>
 
 `,
 
 // 有禁用选项
 `
 
-<el-select [(model)]="value" placeholder="请选择">
-  <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
-      { value: '选项2', label: '双皮奶' },
-      { disabled: true, value: '选项3', label: '蚵仔煎' },
-      { value: '选项4', label: '龙须面' },
-      { value: '选项5', label: '北京烤鸭' }]"
-    [label]="item.label"
-    [disabled]="item.disabled"
-    [value]="item.value">
-  </el-option>
-</el-select>
+<el-switch [(model)]="value1" [on-text]="" [off-text]=""
+  [disabled]="true">
+</el-switch>
+<el-switch [(model)]="value2" [on-color]="'#13ce66'" [off-color]="'#ff4949'"
+  [disabled]="true">
+</el-switch>
 
 `,
 
-// 禁用 select
+// 自定义图标
 `
 
-<el-select [model]="'选项2'" [disabled]="true">
-  <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' }]"
-    [label]="item.label"
-    [value]="item.value">
-  </el-option>
-</el-select>
+<el-switch [model]="true" [on-text]="" [off-text]=""
+  [on-icon-class]="'el-icon-circle-check'" [off-icon-class]="'el-icon-circle-cross'">
+</el-switch>
 
-`,
-
-// 默认选中
-`
-
-<el-select [model]="'选项2'">
-  <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
-      { value: '选项2', label: '双皮奶' },
-      { disabled: true, value: '选项3', label: '蚵仔煎' },
-      { value: '选项4', label: '龙须面' },
-      { value: '选项5', label: '北京烤鸭' }]"
-    [label]="item.label"
-    [value]="item.value">
-  </el-option>
-</el-select>
-
-`,
-
-// 有清空按钮
-`
-
-<el-select [(model)]="value" [clearable]="true">
-  <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
-      { value: '选项2', label: '双皮奶' },
-      { disabled: true, value: '选项3', label: '蚵仔煎' },
-      { value: '选项4', label: '龙须面' },
-      { value: '选项5', label: '北京烤鸭' }]"
-    [label]="item.label"
-    [value]="item.value">
-  </el-option>
-</el-select>
 
 `,
 ]
