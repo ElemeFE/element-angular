@@ -79,7 +79,6 @@ export class ElSwitch implements OnInit {
   ngOnInit(): void {
     this.hasText = !!this.onText || !!this.offText
     this.realWidth = this.width ? this.width : (this.hasText ? 58 : 46)
-    console.log(this.realWidth)
     this.updateStyles()
   }
   
