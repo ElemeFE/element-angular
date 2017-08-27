@@ -8,7 +8,7 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
       [class.is-disabled]="disabled"
       [class.el-switch--wide]="hasText"
       [class.is-checked]="model">
-      <div class="el-switch__mask" [hidden]="!disabled"></div>
+      <div class="el-switch__mask" *ngIf="disabled"></div>
       <input class="el-switch__input" type="checkbox"
         [name]="name" [disabled]="disabled"
         [ngModel]="model" (ngModelChange)="changeHandle($event)">
@@ -63,10 +63,10 @@ export class ElSwitch implements OnInit {
   }
   
   updateStyles(): void {
-    let baseStyle = `width: ${this.realWidth}px`
+    let baseStyle = `width: ${this.realWidth}px;`
     const translate = this.model ? `translate(${this.realWidth - 20}px, 2px)` : 'translate(2px, 2px)'
     const color = this.model ? this.onColor : this.offColor;
-    const colorStyles = `border-color: ${color}; background-color: ${color}`
+    const colorStyles = `border-color: ${color}; background-color: ${color};`
     
     this.labelStyles = this.sanitizer.bypassSecurityTrustStyle(baseStyle)
     this.iconTransform = this.sanitizer.bypassSecurityTrustStyle(`transform: ${translate}`)
@@ -79,6 +79,7 @@ export class ElSwitch implements OnInit {
   ngOnInit(): void {
     this.hasText = !!this.onText || !!this.offText
     this.realWidth = this.width ? this.width : (this.hasText ? 58 : 46)
+    console.log(this.realWidth)
     this.updateStyles()
   }
   
