@@ -67,6 +67,9 @@
     }, {
       "name": "select 选择器",
       "link": "/form/select"
+    }, {
+      "name": "switch 开关",
+      "link": "/form/switch"
     }]
   }, {
     "name": "Data",
