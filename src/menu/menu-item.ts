@@ -10,10 +10,13 @@ import { Utils } from '../shared'
     <li class="el-menu-item" (click)="clickHandle"
       [ngStyle]="paddingStyle()"
       [ngClass]="{ 'is-active': active, 'is-disabled': disabled }">
-      <el-tooltip *ngIf="isGroup" [context]="{ effect: 'dark', placement: 'right', content: title }">
+      <el-tooltip *ngIf="isGroup" effect="dark" placement="right">
         <div style="position: absolute;left: 0;top: 0;height: 100%;width: 100%;display: inline-block;box-sizing: border-box;padding: 0 20px;">
           <ng-content></ng-content>
         </div>
+        <ng-template #tip>
+          <span >{{title}}</span>
+        </ng-template>
       </el-tooltip>
       <ng-container *ngIf="!isGroup">
         <ng-content></ng-content>

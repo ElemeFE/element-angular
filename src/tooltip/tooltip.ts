@@ -1,130 +1,95 @@
 import {
-  AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnInit, Renderer2,
-  ViewChild,
+  AfterContentInit, Component, ContentChild, ElementRef, Inject, Input,
+  Renderer2, TemplateRef, ViewChild,
 } from '@angular/core'
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-} from '@angular/animations'
-import { ElTooltipConfig } from './tooltip-config'
-import { TooltipConfigType, PositionType} from './tooltip.interface'
-import { Utils } from '../shared'
-import { DomSanitizer } from '@angular/platform-browser'
+import { Utils, Animation } from '../shared'
+export type Shape = { width: number, height: number }
 
 @Component({
   selector: 'el-tooltip',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div [class]="'el-tooltip__popper is-' + checkedCtx.effect + ' ' + checkedCtx.popperClass"
-      style="left: -1000px; top: -1000px; position: fixed"
-      [@state]="!showPopper"
-      [attr.x-placement]="xPlacement"
-      #popperContent
-    >
-      <div x-arrow class="popper__arrow" [hidden]="!checkedCtx['visible-arrow']"></div>
-      <span [innerHTML]="checkedCtx.content"></span>
+    <div style="position: relative; display: inline-block;">
+      <div [class]="'el-tooltip__popper is-' + effect + ' ' + popperClass"
+           style="left: -20000px; top: 0; position: absolute;"
+           [@fadeAnimation]="!showPopper"
+           [attr.x-placement]="xPlacement"
+           #popperContent>
+        <div x-arrow class="popper__arrow" [hidden]="!visibleArrow"></div>
+        <ng-template [ngTemplateOutlet]="tip">
+        </ng-template>
+      </div>
+      <ng-content></ng-content>
     </div>
-    <a #popperHost>
-      <ng-content>
-      </ng-content>
-    </a>
   `,
-  providers: [ElTooltipConfig],
-  animations: [
-    trigger('state', [
-      state('true', style({
-        opacity: 0,
-        display: 'none'
-      })),
-      state('false', style({
-        opacity: 1,
-        display: 'block'
-      })),
-      transition('* => *', animate(`250ms ease-in-out`)),
-    ])
-  ],
+  animations: [Animation.fadeAnimation],
 })
-export class ElTooltip implements AfterContentInit, OnInit {
+export class ElTooltip implements AfterContentInit {
   
-  @Input() context: TooltipConfigType
-  @ViewChild('popperHost') popperHost: ElementRef
+  @Input() disabled: boolean = false
+  @Input() placement: string = 'bottom'
+  @Input() popperClass: string
+  @Input() effect: string = 'dark'
+  @Input('visible-arrow') visibleArrow: boolean = true
   @ViewChild('popperContent') popperContent: ElementRef
+  @ContentChild('tip') tip: TemplateRef<any>
   
-  private checkedCtx: ElTooltipConfig
-  private xPlacement: string = this.config.placement
+  private xPlacement: string = 'bottom'
   private showPopper: boolean = true
   private cache: any = {}
+  private tipElementShape: Shape
   
   constructor(
-    private config: ElTooltipConfig,
-    private sanitizer: DomSanitizer,
-    private changeDetectorRef: ChangeDetectorRef,
     private renderer: Renderer2,
-    ) {
+    private el: ElementRef,
+    @Inject('Window') private window: Window
+  ) {
   }
   
-  getPosition(host: HTMLElement, self: HTMLElement): void {
-    // ensure accuracy
-    this.changeDetectorRef.detectChanges()
-    const hostRect = Utils.getBoundingClientRect(host)
-    const selfRect = { width: self.offsetWidth, height: self.offsetHeight }
-    
-    // reset element
-    this.showPopper = false
-    this.changeDetectorRef.reattach()
-    this.changeDetectorRef.markForCheck()
-  
-    // get rect
-    const placement: string = this.checkedCtx.placement
-    const doubleConventions: boolean = placement.includes('-')
-    const arrowDir: string = doubleConventions ? placement.split('-')[1] : 'center'
-    const dir: string = doubleConventions ? placement.split('-')[0] : placement
-    const position: PositionType = Utils.getPositionForDir(hostRect, selfRect, dir, arrowDir)
-   
-    this.bindEvent(host)
-    this.cache = { self, position }
+  // get rect
+  getPosition(hostRect: any, selfRect: any): void {
+    const doubleConventions: boolean = this.placement.includes('-')
+    const arrowDir: string = doubleConventions ? this.placement.split('-')[1] : 'center'
+    const dir: string = doubleConventions ? this.placement.split('-')[0] : this.placement
+    const position: any = Utils.getPositionForDir(hostRect, selfRect, dir, arrowDir)
+    this.cache.position = position
   }
   
   setPopoerPositionAndShow(): void {
-    const { self, position } = this.cache
-    const arrowElement: Element = self.querySelector('.popper__arrow')
+    const { tipElement, position } = this.cache
+    const arrowElement: Element = tipElement.querySelector('.popper__arrow')
     this.xPlacement = position.arrowFace
-    this.renderer.setStyle(self, 'left', `${position.left}px`)
-    this.renderer.setStyle(self, 'top', `${position.top}px`)
+    this.renderer.setStyle(tipElement, 'left', `${position.left}px`)
+    this.renderer.setStyle(tipElement, 'top', `${position.top}px`)
+    
+    // fix tipbox auto wrap
+    this.renderer.setStyle(tipElement, 'width', `${this.tipElementShape.width}px`)
+    this.renderer.setStyle(tipElement, 'height', `${this.tipElementShape.height}px`)
     this.renderer.setStyle(arrowElement, position.arrowDir, `${position.arrowPosition}px`)
   }
   
   bindEvent(host: HTMLElement): void {
     host.addEventListener('mouseenter', () => {
+      if (this.disabled) return
       this.setPopoerPositionAndShow()
       this.showPopper = true
-      this.changeDetectorRef.markForCheck()
     })
     host.addEventListener('mouseleave', () => {
       this.showPopper = false
-      this.changeDetectorRef.markForCheck()
     })
   }
   
   ngAfterContentInit(): void {
-    let children = this.popperHost.nativeElement.children
-    if (!children) return console.warn('el-tooltip component must have a child')
-    if (children[0].tagName.indexOf('EL-') > -1) {
-      children = children[0].children
-    }
-    
-    const self: HTMLElement = this.popperContent.nativeElement
+    const tipElement: HTMLElement = this.popperContent.nativeElement
+    const hostElement: HTMLElement = this.el.nativeElement.children[0]
+    this.bindEvent(hostElement)
+    this.cache.tipElement = tipElement
+  
     const timer = setTimeout(() => {
-      this.getPosition(children[0], self)
+      this.tipElementShape = Utils.getRealShape(tipElement)
+      const tipRect = { width: tipElement.offsetWidth, height: tipElement.offsetHeight }
+      const hostRect = hostElement.getBoundingClientRect()
+      this.getPosition(hostRect, tipRect)
       clearTimeout(timer)
     }, 0)
-  }
-  
-  ngOnInit(): void {
-    this.checkedCtx = Object.assign(this.config, this.context)
-    this.checkedCtx.content = this.sanitizer.bypassSecurityTrustHtml(this.checkedCtx.content)
   }
 }

@@ -19,7 +19,7 @@ export class ExHeaderComponent implements OnInit {
     this.router.events
       .subscribe(event => {
         if(event instanceof NavigationStart) {
-          this.isGuide = event.url.startsWith('/guide')
+          this.isGuide = event.url === '/' || event.url.startsWith('/guide')
         }
       })
   }

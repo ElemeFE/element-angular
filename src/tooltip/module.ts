@@ -1,6 +1,5 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { CommonModule } from '@angular/common'
-
 import { ElTooltip } from './tooltip'
 
 @NgModule({
@@ -11,6 +10,8 @@ import { ElTooltip } from './tooltip'
 })
 export class ElTooltipModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: ElTooltipModule, providers: [] }
+    return { ngModule: ElTooltipModule, providers: [{
+      provide: 'Window', useValue: window,
+    }]}
   }
 }
