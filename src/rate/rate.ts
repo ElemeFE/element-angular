@@ -65,7 +65,7 @@ export class ElRate extends ElRateProps implements OnInit {
   
   makeIconClasses(index: number): string {
     const voidClass = this.disabled ? this.rateMap.disabled.class : this.rateMap.void.class
-    const activeItem = this.findCurrentType(index, this.rateMap)
+    const activeItem = this.findCurrentType(this.model, this.rateMap)
     const classes = index <= this.model ? activeItem.class : voidClass
     return 'el-rate__icon ' + classes
   }
