@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, AfterContentInit, ViewChild, Renderer2 } from '@angular/core'
+import { Component, ElementRef, OnInit, ViewChild, Renderer2 } from '@angular/core'
 import { ElRateProps } from './rate.props'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 type RateMapItem = { color: string, class: string }
@@ -14,59 +14,62 @@ export type RateMap = {
   selector: 'el-rate',
   template: `
     <div class="el-rate">
-      <span *ngFor="let show of scores; let i = index" class="el-rate__item"
+      <span *ngFor="let s of scores; let i = index" class="el-rate__item"
         [ngStyle]="{cursor: disabled ? 'auto' : 'pointer'}"
-        (mousemove)="hoverToggle(i)"
-        (mouseleave)="hoverToggle(i, false)"
+        (mousemove)="hoverToggle($event, i)"
+        (mouseleave)="hoverToggle($event, i, true)"
         (click)="selectValue(i)">
-        <i class="el-rate__icon" [style]="updateStyle(i)"
-          [class.el-icon-star-on]="true"
+        <i class="el-rate__icon" [style]="makeIconStyles(i)"
+          [class]="makeIconClasses(i)"
           [class.hover]="i"
-          #rateIcon>
-          <!--<i class="el-rate__decimal" [class]="decimalIconClass"-->
-            <!--*ngIf="showDecimalIcon(item)"-->
-            <!--[style]="decimalStyle" ></i>-->
-        </i>
+          #rateIcon></i>
       </span>
-      <span *ngIf="showText" class="el-rate__text" [ngStyle]="{ color: textColor }">{{ text }}</span>
+      <span *ngIf="showText" class="el-rate__text" [ngStyle]="{ color: textColor }">
+        {{ texts[model] }}
+      </span>
     </div>
   `,
 })
-export class ElRate extends ElRateProps implements OnInit, AfterContentInit {
+export class ElRate extends ElRateProps implements OnInit {
   
+  @ViewChild('rateIcon') rateIcon: ElementRef
   private scores: boolean[] = []
   private rateMap: RateMap
   private backupModel: number
-  @ViewChild('rateIcon') rateIcon: ElementRef
   
   constructor(
     private sanitizer: DomSanitizer,
-    private el: ElementRef,
     private renderer: Renderer2
   ) {
     super()
   }
   
   // hover todo
-  hoverToggle(index?: number, reset: boolean = false): void {
+  hoverToggle({ srcElement }: Event, index?: number, reset: boolean = false): void {
+    if (this.disabled) return
+    const iconElement: Element = srcElement.tagName === 'I' ? srcElement : srcElement.children[0]
     if (reset) {
       this.model = this.backupModel
-      this.renderer.removeClass(this.rateIcon.nativeElement, 'hover')
+      this.renderer.removeClass(iconElement, 'hover')
     } else {
       this.model = index
-      this.renderer.addClass(this.rateIcon.nativeElement, 'hover')
+      this.renderer.addClass(iconElement, 'hover')
     }
   }
   
   selectValue(index: number): void {
-  
+    if (this.disabled) return
+    this.model = this.backupModel = index
   }
   
-  classes(index: number): string {
-    return ''
+  makeIconClasses(index: number): string {
+    const voidClass = this.disabled ? this.rateMap.disabled.class : this.rateMap.void.class
+    const activeItem = this.findCurrentType(index, this.rateMap)
+    const classes = index <= this.model ? activeItem.class : voidClass
+    return 'el-rate__icon ' + classes
   }
   
-  updateStyle(index: number): SafeStyle {
+  makeIconStyles(index: number): SafeStyle {
     const voidColor = this.disabled ? this.rateMap.disabled.color : this.rateMap.void.color
     const activeItem = this.findCurrentType(index, this.rateMap)
     const styles = `color: ${index <= this.model ? activeItem.color : voidColor};`
@@ -80,9 +83,7 @@ export class ElRate extends ElRateProps implements OnInit, AfterContentInit {
   }
   
   ngOnInit(): void {
-    this.scores = new Array(this.max)
-      .fill(false)
-      .map((v, i) => i <= this.model)
+    this.scores = new Array(this.max).fill('')
     this.backupModel = this.model
     
     this.rateMap = {
@@ -94,6 +95,4 @@ export class ElRate extends ElRateProps implements OnInit, AfterContentInit {
     }
   }
   
-  ngAfterContentInit(): void {
-  }
 }
