@@ -43,10 +43,7 @@ export class ElModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: ElRootModule,
-      // providers: [
-      //   { provide: CONFIG, useValue: config },
-      //   ElConfig,
-      // ],
+      providers: [],
     }
   }
 }

@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild, Renderer2 } from '@angular/core'
 import { ElRateProps } from './rate.props'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
-type RateMapItem = { color: string, class: string }
+export type RateMapItem = { color: string, class: string }
 export type RateMap = {
   low: RateMapItem,
   high: RateMapItem,

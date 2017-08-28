@@ -1,8 +1,12 @@
 import {
-  AfterContentInit, Component, ContentChild, ElementRef, Inject, Input,
+  AfterContentInit, Component, ContentChild, ElementRef, Inject, Injectable, Input,
   Renderer2, TemplateRef, ViewChild,
 } from '@angular/core'
 import { Utils, Animation } from '../shared'
+
+@Injectable()
+export class WindowWrapper extends Window {
+}
 export type Shape = { width: number, height: number }
 
 @Component({
@@ -41,7 +45,7 @@ export class ElTooltip implements AfterContentInit {
   constructor(
     private renderer: Renderer2,
     private el: ElementRef,
-    @Inject('Window') private window: Window
+    private window: WindowWrapper,
   ) {
   }
   
