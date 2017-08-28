@@ -12,6 +12,7 @@ import { ExInputComponent } from './input/input.component'
 import { ExInputNumberComponent } from './input-number/input-number.component'
 import { ExSelectComponent } from './select/select.component'
 import { ExSwitchComponent } from './switch/switch.component'
+import { ExRateComponent } from './rate/rate.component'
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ExSwitchComponent } from './switch/switch.component'
     ExInputNumberComponent,
     ExSelectComponent,
     ExSwitchComponent,
+    ExRateComponent,
   ],
   imports: [
     CommonModule,
