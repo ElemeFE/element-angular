@@ -1,96 +1,112 @@
-<!--<h2>tooltip</h2>-->
+<h2>tooltip</h2>
 
 <div class="box">
   <div class="top">
-    <el-tooltip [context]="makeTooltipSetting('top-start')">
+    <el-tooltip placement="top-start">
       <el-button>
         上左
       </el-button>
+      <ng-template #tip>
+        <span>placement is top-start</span>
+      </ng-template>
     </el-tooltip>
-    <el-tooltip [context]="makeTooltipSetting('top')">
+    <el-tooltip placement="top">
       <el-button>
         上边
       </el-button>
+      <ng-template #tip>
+        <span>placement is top</span>
+      </ng-template>
     </el-tooltip>
-    <el-tooltip [context]="makeTooltipSetting('top-end')">
+    <el-tooltip placement="top-end">
       <el-button>
         上右
       </el-button>
+      <ng-template #tip>
+        <span>placement is top-end</span>
+      </ng-template>
     </el-tooltip>
   </div>
+
   <div class="left">
-    <el-tooltip [context]="makeTooltipSetting('left-start')">
+    <el-tooltip placement="left-start">
       <el-button>
         左上
       </el-button>
+      <ng-template #tip>
+        <span>placement is left-start</span>
+      </ng-template>
     </el-tooltip>
-    <el-tooltip [context]="makeTooltipSetting('left')">
+    <el-tooltip placement="left">
       <el-button>
         左边
       </el-button>
+      <ng-template #tip>
+        <span>placement is left</span>
+      </ng-template>
     </el-tooltip>
-    <el-tooltip [context]="makeTooltipSetting('left-end')">
+    <el-tooltip placement="left-end">
       <el-button>
         左下
       </el-button>
+      <ng-template #tip>
+        <span>placement is left-end</span>
+      </ng-template>
     </el-tooltip>
   </div>
+
   <div class="right">
-    <el-tooltip [context]="makeTooltipSetting('right-start')">
+    <el-tooltip placement="right-start">
       <el-button>
         右上
       </el-button>
+      <ng-template #tip>
+        <span>placement is right-start</span>
+      </ng-template>
     </el-tooltip>
-    <el-tooltip [context]="makeTooltipSetting('right')">
+    <el-tooltip placement="right">
       <el-button>
         右边
       </el-button>
+      <ng-template #tip>
+        <span>placement is right</span>
+      </ng-template>
     </el-tooltip>
-    <el-tooltip [context]="makeTooltipSetting('right-end')">
+    <el-tooltip placement="right-end">
       <el-button>
         右下
       </el-button>
+      <ng-template #tip>
+        <span>placement is right-end</span>
+      </ng-template>
     </el-tooltip>
   </div>
+
   <div class="bottom">
-    <el-tooltip [context]="makeTooltipSetting('bottom-start')">
+    <el-tooltip placement="bottom-start">
       <el-button>
         下左
       </el-button>
+      <ng-template #tip>
+        <span>placement is bottom-start</span>
+      </ng-template>
     </el-tooltip>
-    <el-tooltip [context]="makeTooltipSetting('bottom')">
+    <el-tooltip placement="bottom">
       <el-button>
         下边
       </el-button>
+      <ng-template #tip>
+        <span>placement is bottom</span>
+      </ng-template>
     </el-tooltip>
-    <el-tooltip [context]="makeTooltipSetting('bottom-end')">
+    <el-tooltip placement="bottom-end">
       <el-button>
         下右
       </el-button>
+      <ng-template #tip>
+        <span>placement is bottom-end</span>
+      </ng-template>
     </el-tooltip>
   </div>
 </div>
 
-
-<!--<el-button  [el-tooltip]="{ content: makeStringContent() }">-->
-  <!--一段文字-->
-<!--</el-button>-->
-
-<!--<el-button  [el-tooltip]="{ content: makeElementContent()}">-->
-  <!--HtmlElement-->
-<!--</el-button>-->
-<!--<el-button  [el-tooltip]="makeTooltipSetting('test2')">-->
-  <!--test-->
-<!--</el-button>-->
-
-<el-tooltip [context]="{ content: makeElementContent() }">
-  <el-button>
-    test2
-  </el-button>
-</el-tooltip>
-
-<el-tooltip [context]="{ content: '22' }">
-  <el-button>
-    test2
-  </el-button>
-</el-tooltip>

@@ -7,14 +7,6 @@ import { Component, OnInit } from '@angular/core'
 })
 export class ExTooltipComponent implements OnInit {
   
-  makeTooltipSetting(placement: string): any {
-    return {
-      effect: 'dark',
-      content: `placement is ${placement}`,
-      placement: placement,
-    }
-  }
-  
   makeStringContent(): string {
     return `
       <div>

@@ -1,10 +1,9 @@
-import { getBoundingClientRect, getPositionForDir, getHiddenShape } from './bounding'
+import { getPositionForDir, getRealShape } from './bounding'
 import { removeNgTag, isParentTag, isParentAttr } from './host'
 
 export {
-  getBoundingClientRect,
   getPositionForDir,
-  getHiddenShape,
+  getRealShape,
   removeNgTag,
   isParentTag,
   isParentAttr,
