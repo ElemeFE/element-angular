@@ -7,6 +7,7 @@ import { ExInputComponent } from './input/input.component'
 import { ExInputNumberComponent } from './input-number/input-number.component'
 import { ExSelectComponent } from './select/select.component'
 import { ExSwitchComponent } from './switch/switch.component'
+import { ExRateComponent } from './rate/rate.component'
 
 
 export const formRoutes: Routes = [{
@@ -23,6 +24,8 @@ export const formRoutes: Routes = [{
     path: 'select', component: ExSelectComponent,
   }, {
     path: 'switch', component: ExSwitchComponent,
+  }, {
+    path: 'rate', component: ExRateComponent,
   }],
 }]
 

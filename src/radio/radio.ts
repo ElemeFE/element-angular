@@ -30,7 +30,7 @@ import { Utils } from '../shared'
 })
 export class ElRadio implements OnInit, AfterViewInit {
   
-  @ViewChild('content') content: any
+  @ViewChild('content') content: ElementRef
   
   @Input() disabled: boolean = false
   @Input() label: string | number = ''

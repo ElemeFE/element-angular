@@ -70,6 +70,9 @@
     }, {
       "name": "switch 开关",
       "link": "/form/switch"
+    }, {
+      "name": "rate 评分",
+      "link": "/form/rate"
     }]
   }, {
     "name": "Data",
