@@ -60,6 +60,7 @@ export class ElRate extends ElRateProps implements OnInit {
   selectValue(index: number): void {
     if (this.disabled) return
     this.model = this.backupModel = index
+    this.modelChange.emit(index)
   }
   
   makeIconClasses(index: number): string {
