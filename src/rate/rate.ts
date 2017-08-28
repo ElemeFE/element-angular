@@ -72,7 +72,7 @@ export class ElRate extends ElRateProps implements OnInit {
   
   makeIconStyles(index: number): SafeStyle {
     const voidColor = this.disabled ? this.rateMap.disabled.color : this.rateMap.void.color
-    const activeItem = this.findCurrentType(index, this.rateMap)
+    const activeItem = this.findCurrentType(this.model, this.rateMap)
     const styles = `color: ${index <= this.model ? activeItem.color : voidColor};`
     return this.sanitizer.bypassSecurityTrustStyle(styles)
   }
