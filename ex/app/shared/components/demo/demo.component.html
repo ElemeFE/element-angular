@@ -2,7 +2,7 @@
   (mouseenter)="hovering = true"
   (mouseleave)="hovering = false">
   <div class="source" *ngIf="code">
-    <ng-container [ex-dynamic]="code"></ng-container>
+    <ng-container [ex-dynamic]="code" [class]="parentClass"></ng-container>
   </div>
   <div class="meta" [@expand]="isExpanded" style="height: 0;">
     <div class="description">

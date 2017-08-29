@@ -14,6 +14,7 @@ import { ElModule } from '../../../../../src/index'
 export class ElDynamicDirective implements OnInit {
   
   @Input('ex-dynamic') dynamicHtml: string
+  @Input('class') parentClass : new () => {} = class {}
   
   private comRef: ComponentRef<any>
   
@@ -25,10 +26,10 @@ export class ElDynamicDirective implements OnInit {
   
   ngOnInit(): void {
     if (!this.dynamicHtml) return
-    const decorated = Component(new Component({
+    const decorated: any = Component(new Component({
       selector: 'ex-dynamic-html',
       template: this.dynamicHtml,
-    }))(class DynamicComponent {})
+    }))(class DynamicComponent extends this.parentClass {})
   
     @NgModule({
       imports: [CommonModule, RouterModule, ElModule],
