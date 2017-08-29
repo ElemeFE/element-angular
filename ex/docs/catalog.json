@@ -90,6 +90,9 @@
     "children": [{
       "name": "nab-menu 导航菜单",
       "link": "/nav/menu"
+    }, {
+      "name": "Steps 步骤条",
+      "link": "/nav/steps"
     }]
   }, {
     "name": "Others",
