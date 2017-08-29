@@ -8,10 +8,8 @@ import { ElSteps } from './steps'
     <div [class]="'el-step is-' + rootSteps.direction"
       [ngStyle]="{'margin-right': isLast() ? '' : - rootSteps.offset + 'px' }"
       [style]="makeStepStyles()">
-      <div [class]="'el-step__head is-' + currentStatus()"
-        [class.is-text]="!icon">
-        <div [class]="'el-step__line is-' + rootSteps.direction"
-          [class.is-icon]="icon"
+      <div [class]="'el-step__head is-' + currentStatus() + (icon ? '' : ' is-text')">
+        <div [class]="'el-step__line is-' + rootSteps.direction + (icon ? ' is-icon' : '')"
           [ngStyle]="{'margin-right': isLast() ? '' : rootSteps.offset + 'px' }">
           <i class="el-step__line-inner" [style]="makeLineStyles()"></i>
         </div>
@@ -44,7 +42,7 @@ export class ElStep implements OnInit {
   @Input() icon: string
   @Input() status: string
   
-  private index: number = 0
+  private index: number = 1
   
   constructor(
     @Optional() private rootSteps: ElSteps,
@@ -76,11 +74,10 @@ export class ElStep implements OnInit {
   makeLineStyles(): SafeStyle {
     const step: number = this.index === this.rootSteps.active - 1
       ? (this.currentStatus() !== 'error' ? 50 : 0)
-      : this.rootSteps.processStatus === 'wait' ? 0 : 100
+      : this.currentStatus() === 'wait' ? 0 : 100
     const delay: string = (this.rootSteps.processStatus === 'wait' ? -1 : 1) * 150 * this.index + 'ms'
     const key = this.rootSteps.direction === 'vertical' ? 'height' : 'width'
     const styles = `border-width: ${step ? '1px' : 0}; ${key}: ${step}%; transition-delay: ${delay};`
-    
     return this.sanitizer.bypassSecurityTrustStyle(styles)
   }
   
