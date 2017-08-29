@@ -47,6 +47,9 @@ npm i --save element-angular
 # improt
 import { ElModule } from 'element-angular'
 
+# import style
+import 'element-theme-default'
+
 ```
 more: [Doc](https://eleme.github.io/element-angular/)
 

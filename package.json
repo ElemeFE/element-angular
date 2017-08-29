@@ -84,5 +84,7 @@
   "peerDependencies": {
     "@angular/core": "^4.3.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "element-theme-default": "^1.4.3"
+  }
 }
