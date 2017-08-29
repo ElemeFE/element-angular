@@ -1,0 +1,22 @@
+{
+  "name": "Step Attributes",
+  "attrs": [{
+    "name": "title",
+    "notes": "标题",
+    "type": "string",
+    "enum": null,
+    "default": null
+  },{
+    "name": "description",
+    "notes": "描述性文字",
+    "type": "string",
+    "enum": null,
+    "default": null
+  },{
+    "name": "icon",
+    "notes": "图标",
+    "type": "string",
+    "enum": "Element Icon 提供的图标",
+    "default": null
+  }]
+}

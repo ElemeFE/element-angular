@@ -1,0 +1,10 @@
+.demo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  .el-button {
+    margin-bottom: 25px;
+  }
+}

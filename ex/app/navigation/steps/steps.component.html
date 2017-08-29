@@ -1,18 +1,35 @@
 <h2>Steps 步骤条</h2>
 <p>引导用户按照流程完成任务的分步导航条，可根据实际应用场景设定步骤，至少需要 2 步</p>
-<el-steps space="100px" [active]="active" [finish-status]="'success'">
-  <el-step title="步骤 1"></el-step>
-  <el-step title="步骤 2"></el-step>
-  <el-step title="步骤 3"></el-step>
-</el-steps>
-<el-button (click)="change()">next</el-button>
+
+<h3>基础用法</h3>
+<p>简单的步骤条。</p>
+<ex-demo link="2" [code]="code[0]" [class]="ExClass">
+</ex-demo>
+
+<h3>含状态步骤条</h3>
+<p>每一步骤显示出该步骤的状态。</p>
+<ex-demo link="2" [code]="code[1]">
+</ex-demo>
+
+<h3>有描述的步骤条</h3>
+<p>每个步骤有其对应的步骤状态描述。</p>
+<ex-demo link="2" [code]="code[2]">
+</ex-demo>
+
+<h3>带图标的步骤条</h3>
+<p>步骤条内可以启用各种自定义的图标。</p>
+<ex-demo link="2" [code]="code[3]" notes="通过 <code>icon</code> 属性来设置图标，图标的类型可以参考 Icon 组件的文档">
+</ex-demo>
+
+<h3>竖式步骤条</h3>
+<p>竖直方向的步骤条。</p>
+<ex-demo link="2" [code]="code[4]">
+</ex-demo>
 
 
+<ex-document doc="steps"></ex-document>
+<ex-document doc="step"></ex-document>
 
-
-
-
-<!--<ex-document doc="input"></ex-document>-->
 <ex-footer-nav [page]="page"></ex-footer-nav>
 
 

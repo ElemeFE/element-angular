@@ -9,20 +9,22 @@ import code from './code'
 })
 export class ExStepsComponent implements OnInit {
   
-  private active: number = 0
+  private ExClass: new () => {} = class {
+    private active: number = 1
+    handle(): void {
+      if (this.active === 3) {
+        this.active = 0
+      } else {
+        this.active ++
+      }
+    }
+  }
   private code: string[] = code
   private page: any = {
     previous: { name: 'Check 多选框', link: '/form/checkbox' },
     next: { name: 'InputNumber 计数器', link: '/form/input-number' },
   }
   
-  change(): void {
-    if (this.active < 3) {
-      this.active ++
-    } else {
-      this.active  = 0
-    }
-  }
   
   ngOnInit(): void {
   }
