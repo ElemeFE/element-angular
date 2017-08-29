@@ -15,11 +15,12 @@ import { ElSelectModule } from './select/module'
 import { ElSwitchModule } from './switch/module'
 import { ElRateModule } from './rate/module'
 import { ElProgressModule } from './progress/module'
+import { ElStepsModule } from './steps/module'
 
 const ElMODULES = [
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
-  ElSwitchModule, ElRateModule, ElProgressModule,
+  ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule,
 ]
 
 @NgModule({
@@ -29,6 +30,7 @@ const ElMODULES = [
     ElColModule.forRoot(), ElCheckboxsModule.forRoot(), ElInputsModule.forRoot(),
     ElInputNumberModule.forRoot(), ElTagsModule.forRoot(), ElSelectModule.forRoot(),
     ElSwitchModule.forRoot(), ElRateModule.forRoot(), ElProgressModule.forRoot(),
+    ElStepsModule.forRoot(),
     BrowserAnimationsModule,
   ],
   exports: ElMODULES
