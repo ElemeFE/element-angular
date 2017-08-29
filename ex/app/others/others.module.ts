@@ -6,6 +6,7 @@ import { ElModule } from '../../../src/index'
 
 import { ExUserMainComponent } from './main/main.component'
 import { ExTooltipComponent } from './tooltip/tooltip.component'
+import { ExSharedModule } from '../shared/module'
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ExTooltipComponent } from './tooltip/tooltip.component'
     FormsModule,
     OthersRoutingModule,
     ElModule,
+    ExSharedModule,
   ],
   exports: [ExUserMainComponent],
   providers: [],

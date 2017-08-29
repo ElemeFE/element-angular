@@ -1,112 +1,24 @@
-<h2>tooltip</h2>
+<h2>Tooltip 文字提示</h2>
+<p>常用于展示鼠标 hover 时的提示信息。</p>
+<p>与其他组件一样，此组件未依赖任何第三方组件，这是与 <code>element-vue</code> 的不同之处。</p>
 
-<div class="box">
-  <div class="top">
-    <el-tooltip placement="top-start">
-      <el-button>
-        上左
-      </el-button>
-      <ng-template #tip>
-        <span>placement is top-start</span>
-      </ng-template>
-    </el-tooltip>
-    <el-tooltip placement="top">
-      <el-button>
-        上边
-      </el-button>
-      <ng-template #tip>
-        <span>placement is top</span>
-      </ng-template>
-    </el-tooltip>
-    <el-tooltip placement="top-end">
-      <el-button>
-        上右
-      </el-button>
-      <ng-template #tip>
-        <span>placement is top-end</span>
-      </ng-template>
-    </el-tooltip>
-  </div>
+<h3>基础用法</h3>
+<p>在这里我们提供 9 种不同方向的展示方式，可以通过以下完整示例来理解，选择你要的效果。</p>
+<ex-demo link="2" [code]="code[0]" notes="使用 <code>ng-template</code> 的 <code>#tip</code>
+属性来决定 hover 时的提示信息或模板。由 <code>placement</code> 属性决定展示效果，提示框体展示的位置与朝向。具体请参阅组件接口文档。">
+</ex-demo>
 
-  <div class="left">
-    <el-tooltip placement="left-start">
-      <el-button>
-        左上
-      </el-button>
-      <ng-template #tip>
-        <span>placement is left-start</span>
-      </ng-template>
-    </el-tooltip>
-    <el-tooltip placement="left">
-      <el-button>
-        左边
-      </el-button>
-      <ng-template #tip>
-        <span>placement is left</span>
-      </ng-template>
-    </el-tooltip>
-    <el-tooltip placement="left-end">
-      <el-button>
-        左下
-      </el-button>
-      <ng-template #tip>
-        <span>placement is left-end</span>
-      </ng-template>
-    </el-tooltip>
-  </div>
+<h3>主题</h3>
+<p>Tooltip 组件提供了两个不同的主题：<code>dark</code> 和 <code>light</code>。</p>
+<ex-demo link="2" [code]="code[1]" notes="通过设置 <code>effect</code> 属性来改变主题，默认为 <code>dark</code>">
+</ex-demo>
 
-  <div class="right">
-    <el-tooltip placement="right-start">
-      <el-button>
-        右上
-      </el-button>
-      <ng-template #tip>
-        <span>placement is right-start</span>
-      </ng-template>
-    </el-tooltip>
-    <el-tooltip placement="right">
-      <el-button>
-        右边
-      </el-button>
-      <ng-template #tip>
-        <span>placement is right</span>
-      </ng-template>
-    </el-tooltip>
-    <el-tooltip placement="right-end">
-      <el-button>
-        右下
-      </el-button>
-      <ng-template #tip>
-        <span>placement is right-end</span>
-      </ng-template>
-    </el-tooltip>
-  </div>
+<h3>禁用</h3>
+<p>设置提示禁用</p>
+<ex-demo link="2" [code]="code[2]" notes="设置禁用后不会影响内容本身的响应，但不再弹出提示。">
+</ex-demo>
 
-  <div class="bottom">
-    <el-tooltip placement="bottom-start">
-      <el-button>
-        下左
-      </el-button>
-      <ng-template #tip>
-        <span>placement is bottom-start</span>
-      </ng-template>
-    </el-tooltip>
-    <el-tooltip placement="bottom">
-      <el-button>
-        下边
-      </el-button>
-      <ng-template #tip>
-        <span>placement is bottom</span>
-      </ng-template>
-    </el-tooltip>
-    <el-tooltip placement="bottom-end">
-      <el-button>
-        下右
-      </el-button>
-      <ng-template #tip>
-        <span>placement is bottom-end</span>
-      </ng-template>
-    </el-tooltip>
-  </div>
-</div>
 
+<ex-document doc="tooltip"></ex-document>
+
+<ex-footer-nav [page]="page"></ex-footer-nav>
