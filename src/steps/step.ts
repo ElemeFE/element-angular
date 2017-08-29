@@ -68,7 +68,8 @@ export class ElStep implements OnInit {
     const width: number = this.rootSteps.center ? this.rootSteps.stepsLength - 1 : this.rootSteps.stepsLength
     const space: string = this.rootSteps.space ? this.rootSteps.space : 100 / width + '%'
     const styles: string = `${this.rootSteps.direction === 'horizontal' ? 'width' : 'height'}: ${space};`
-    return this.sanitizer.bypassSecurityTrustStyle(styles)
+    const dontSetStyle = this.rootSteps.direction !== 'horizontal' && this.isLast()
+    return this.sanitizer.bypassSecurityTrustStyle(dontSetStyle ? '' : styles)
   }
   
   makeLineStyles(): SafeStyle {
@@ -83,7 +84,7 @@ export class ElStep implements OnInit {
   
   
   isLast(): boolean {
-    return this.rootSteps.active - 1 === this.index
+    return this.rootSteps.stepsLength - 1 === this.index
   }
   
   ngOnInit(): void {
