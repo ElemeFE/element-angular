@@ -80,6 +80,9 @@
     "children": [{
       "name": "tag 标签",
       "link": "/data/tag"
+    }, {
+      "name": "progress 进度条",
+      "link": "/data/progress"
     }]
   }, {
     "name": "Navigation",

@@ -3,12 +3,15 @@ import { RouterModule, Routes } from '@angular/router'
 import { ExUserMainComponent } from './main/main.component'
 
 import { ExTagComponent } from './tag/tag.component'
+import { ExProgressComponent } from './progress/progress.component'
 
 
 export const dataRoutes: Routes = [{
   path: '', component: ExUserMainComponent,
   children: [{
     path: 'tag', component: ExTagComponent,
+  }, {
+    path: 'progress', component: ExProgressComponent,
   }],
 }]
 
