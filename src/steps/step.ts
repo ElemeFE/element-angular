@@ -74,7 +74,14 @@ export class ElStep implements OnInit {
   }
   
   makeLineStyles(): SafeStyle {
-    return this.sanitizer.bypassSecurityTrustStyle('')
+    const step: number = this.index === this.rootSteps.active - 1
+      ? (this.currentStatus() !== 'error' ? 50 : 0)
+      : this.rootSteps.processStatus === 'wait' ? 0 : 100
+    const delay: string = (this.rootSteps.processStatus === 'wait' ? -1 : 1) * 150 * this.index + 'ms'
+    const key = this.rootSteps.direction === 'vertical' ? 'height' : 'width'
+    const styles = `border-width: ${step ? '1px' : 0}; ${key}: ${step}%; transition-delay: ${delay};`
+    
+    return this.sanitizer.bypassSecurityTrustStyle(styles)
   }
   
   
