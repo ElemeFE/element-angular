@@ -1,0 +1,19 @@
+import { NgModule } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'
+import { ExNoticeMainComponent } from './main/main.component'
+import { ExLoadingComponent } from './loading/loading.component'
+
+
+export const noticeRoutes: Routes = [{
+  path: '', component: ExNoticeMainComponent,
+  children: [{
+    path: 'loading', component: ExLoadingComponent,
+  }],
+}]
+
+@NgModule({
+  imports: [RouterModule.forChild(noticeRoutes)],
+  exports: [RouterModule],
+})
+export class NoticeRoutingModule {
+}
