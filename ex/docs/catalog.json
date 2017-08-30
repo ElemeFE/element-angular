@@ -82,6 +82,13 @@
       "link": "/data/progress"
     }]
   }, {
+    "name": "Notice",
+    "link": null,
+    "children": [{
+      "name": "loading 加载",
+      "link": "/notice/loading"
+    }]
+  }, {
     "name": "Navigation",
     "link": null,
     "children": [{

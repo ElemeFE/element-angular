@@ -26,6 +26,10 @@ export const appRoutes: Routes = [
     path: 'data',
     loadChildren: './data/data.module#DataModule',
   },
+  {
+    path: 'notice',
+    loadChildren: './notice/notice.module#NoticeModule',
+  },
   { path: '', redirectTo: '/guide/install', pathMatch: 'full' },
 ]
 
