@@ -18,28 +18,36 @@ import { ElProgressModule } from './progress/module'
 import { ElStepsModule } from './steps/module'
 import { ElLoadingModule } from './loading/module'
 
-const ElMODULES = {
+const ElChildModules: any = {
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule,
 }
-const ELMODULES_ARRAY = Object.keys(ElMODULES).map(name => ElMODULES[name])
+const ELMODULES_GROUP: any[] = [
+  ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
+  ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
+  ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule,
+]
 
 @NgModule({
   imports: [
-    [...ELMODULES_ARRAY.map(module => module.forRoot())],
+    ElButtonsModule.forRoot(), ElIconsModule.forRoot(), ElRadiosModule.forRoot(), ElMenusModule.forRoot(),
+    ElTooltipModule.forRoot(), ElRowModule.forRoot(), ElColModule.forRoot(), ElCheckboxsModule.forRoot(),
+    ElInputsModule.forRoot(), ElInputNumberModule.forRoot(), ElTagsModule.forRoot(), ElSelectModule.forRoot(),
+    ElSwitchModule.forRoot(), ElRateModule.forRoot(), ElProgressModule.forRoot(), ElStepsModule.forRoot(),
+    ElLoadingModule.forRoot(),
     BrowserAnimationsModule,
   ],
-  exports: ELMODULES_ARRAY,
+  exports: ELMODULES_GROUP,
 })
-export class ElRootModule {
+class ElRootModule {
 }
 
 @NgModule({
-  imports: ELMODULES_ARRAY,
-  exports: ELMODULES_ARRAY,
+  imports: ELMODULES_GROUP,
+  exports: ELMODULES_GROUP,
 })
-export class ElModule {
+class ElModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: ElRootModule,
@@ -48,4 +56,8 @@ export class ElModule {
   }
 }
 
-export const ElChildModules = ElMODULES
+export {
+  ElChildModules,
+  ElRootModule,
+  ElModule,
+}
