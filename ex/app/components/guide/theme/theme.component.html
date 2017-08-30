@@ -11,8 +11,45 @@
 <p>如果仅仅改变主题色不能满足你的需求，请按以下步骤进行更深层次的主题定制：</p>
 
 <h3>安装工具</h3>
-<p>开发中</p>
+<p>首先安装「主题生成工具」，可以全局安装或者安装在当前项目下，推荐安装在项目里，方便别人 clone 项目时能直接安装依赖并启动，这里以全局安装做演示。</p>
+<pre>
+  <code class="hljs" [innerHTML]="code[0] | highlightAuto"></code>
+</pre>
 
+
+<h3>初始化变量文件</h3>
+<p>主题生成工具安装成功后，如果全局安装可以在命令行里通过 <code>et</code> 调用工具，如果安装在当前目录下，
+  需要通过 <code>node_modules/.bin/et</code> 访问到命令。执行 <code>-i</code> 初始化变量文件。
+  默认输出到 <code>element-variables.css</code>，当然你可以传参数指定文件输出目录。</p>
+<pre>
+  <code class="hljs" [innerHTML]="code[1] | highlightAuto"></code>
+</pre>
+<p>如果使用默认配置，执行后当前目录会有一个 <code>element-variables.css</code> 文件。
+  内部包含了主题所用到的所有变量，它们使用 CSS4 的风格定义。大致结构如下</p>
+<pre>
+  <code class="hljs language-css" [innerHTML]="code[2] | highlightAuto"></code>
+</pre>
+
+<h3>修改变量</h3>
+<p>直接编辑 <code>element-variables.css</code> 文件，例如修改主题色为红色。</p>
+<pre>
+  <code class="hljs language-css" [innerHTML]="code[3] | highlightAuto"></code>
+</pre>
+
+<h3>编译主题</h3>
+<p>保存文件后，到命令行里执行 <code>et</code> 编译主题，如果你想启用 <code>watch</code> 模式，
+  实时编译主题，增加 <code>-w</code> 参数；
+  如果你在初始化时指定了自定义变量文件，则需要增加 <code>-c</code> 参数，并带上你的变量文件名</p>
+<pre>
+  <code class="hljs language-css" [innerHTML]="code[4] | highlightAuto"></code>
+</pre>
+
+<h3>引入自定义主题</h3>
+<p>默认情况下编译的主题目录是放在 <code>./theme</code> 下，你可以通过 <code>-o</code> 参数指定打包目录。
+  像引入默认主题一样，在代码里直接引用 <code>theme/index.css</code> 文件即可。</p>
+<pre>
+  <code class="hljs" [innerHTML]="code[5] | highlightAuto"></code>
+</pre>
 
 
 <ex-footer-nav [page]="page"></ex-footer-nav>
