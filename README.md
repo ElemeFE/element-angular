@@ -9,22 +9,11 @@
 
 ## Catalog
 
--  [Progress](#progress)
 -  [Documentation](#documentation)
 -  [Getting Started](#getting-started)
 -  [Contribution](#contribution)
 -  [Support](#support)
 -  [LICENSE](#license)
-
-
-
-## Progress
-
-- [x] example compiler and lift
-- [x] github pages
-- [x] improve tslint
-- [ ] karma gulp task
-- [ ] add developer.md
 
 
 ## Documentation
@@ -51,22 +40,16 @@ import { ElModule } from 'element-angular'
 import 'element-theme-default'
 
 ```
-more: [Doc](https://eleme.github.io/element-angular/)
+More: [Doc](https://eleme.github.io/element-angular/)
 
 
 
 ## Contribution
 
-```bash
-# fork && git clone
-...
-# dev
-npm i && npm dev
+- [Contribution Guide](https://github.com/eleme/element-angular/blob/master/.github/CONTRIBUTING.en-US.md)
 
-# add example
-npm run ex
+- [贡献指南](https://github.com/eleme/element-angular/blob/master/.github/CONTRIBUTING.zh-CN.md)
 
-```
 
 
 ## Support
