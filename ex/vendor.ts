@@ -8,4 +8,4 @@ import 'rxjs'
 
 import 'highlight.js/styles/github.css'
 import './assets/styles/example.css'
-import 'element-ui/lib/theme-default/index.css'
+import 'element-theme-default'
