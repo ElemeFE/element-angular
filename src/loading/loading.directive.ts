@@ -48,7 +48,7 @@ export class ElLoadingDirective implements OnInit, OnChanges {
           <svg class="circular" viewBox="25 25 50 50">
             <circle class="path" cx="50" cy="50" r="20" fill="none"/>
           </svg>
-          <p class="el-loading-text" style="display: ${this.text ? 'inline-block': 'none'}">
+          <p class="el-loading-text" style="display: ${this.text ? 'block': 'none'}">
             ${this.text}
           </p>
         </div>
