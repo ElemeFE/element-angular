@@ -16,11 +16,12 @@ import { ElSwitchModule } from './switch/module'
 import { ElRateModule } from './rate/module'
 import { ElProgressModule } from './progress/module'
 import { ElStepsModule } from './steps/module'
+import { ElLoadingModule } from './loading/module'
 
 const ElMODULES = {
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
-  ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule,
+  ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule,
 }
 const ELMODULES_ARRAY = Object.keys(ElMODULES).map(name => ElMODULES[name])
 
