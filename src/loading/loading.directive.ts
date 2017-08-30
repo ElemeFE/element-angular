@@ -65,7 +65,7 @@ export class ElLoadingDirective implements OnInit, OnChanges {
     this.cacheElement = this.renderer.createElement('div')
     this.cacheElement.innerHTML = this.makeHtml()
     const parentElement = this.fullScreen ? this.document.body : this.el.nativeElement
-    if (this.fullScreen) {
+    if (!this.fullScreen) {
       this.renderer.setStyle(this.el.nativeElement, 'position', 'relative')
     }
     this.renderer.appendChild(parentElement, this.cacheElement)
