@@ -13,9 +13,6 @@
   }, {
     "name": "自定义主题",
     "link": "/guide/theme"
-  }, {
-    "name": "Angular 动画",
-    "link": "/guide/transition"
   }],
   "name": "开发指南",
   "link": null
