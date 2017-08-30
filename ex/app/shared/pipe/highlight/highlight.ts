@@ -11,7 +11,7 @@ export class HighLightPipe implements PipeTransform {
   }
   
   transform(value: string): SafeHtml {
-    const relevanceHandle: any = hljs.highlightAuto(value, ['shell', 'typescript', 'html'])
+    const relevanceHandle: any = hljs.highlightAuto(value, ['shell', 'typescript', 'html', 'css'])
     return this.sanitizer.bypassSecurityTrustHtml(relevanceHandle.value)
   }
 }
