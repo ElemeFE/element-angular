@@ -23,6 +23,7 @@ a {
 code {
   border: 1px solid #eaeefb;
   border-radius: 4px;
+  padding: 0 6px;
 }
 
 button, input, select, textarea {
