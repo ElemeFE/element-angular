@@ -4,7 +4,7 @@ import {
 } from '@angular/core'
 
 @Component({
-  selector: 'el-message-container',
+  selector: 'el-message',
   template: `
     <div id="id2"></div>
   `,

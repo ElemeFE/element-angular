@@ -19,7 +19,7 @@ import { ElRateModule } from './rate/module'
 import { ElProgressModule } from './progress/module'
 import { ElStepsModule } from './steps/module'
 import { ElLoadingModule } from './loading/module'
-import { ElMessagesModule } from '../release/message/module'
+import { ElMessagesModule } from './message/module'
 
 const ElChildModules: any = {
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
@@ -54,7 +54,7 @@ class ElModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: ElRootModule,
-      providers: [ElMessageService],
+      providers: [],
     }
   }
 }
