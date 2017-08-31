@@ -1,5 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ElMessageService } from './message/message.service'
+
 import { ElButtonsModule } from './button/module'
 import { ElCheckboxsModule } from './checkbox/module'
 import { ElIconsModule } from './icon/module'
@@ -17,16 +19,17 @@ import { ElRateModule } from './rate/module'
 import { ElProgressModule } from './progress/module'
 import { ElStepsModule } from './steps/module'
 import { ElLoadingModule } from './loading/module'
+import { ElMessagesModule } from '../release/message/module'
 
 const ElChildModules: any = {
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
-  ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule,
+  ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
 }
-const ELMODULES_GROUP: any[] = [
+export const ELMODULES_GROUP: any[] = [
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
-  ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule,
+  ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
 ]
 
 @NgModule({
@@ -35,7 +38,7 @@ const ELMODULES_GROUP: any[] = [
     ElTooltipModule.forRoot(), ElRowModule.forRoot(), ElColModule.forRoot(), ElCheckboxsModule.forRoot(),
     ElInputsModule.forRoot(), ElInputNumberModule.forRoot(), ElTagsModule.forRoot(), ElSelectModule.forRoot(),
     ElSwitchModule.forRoot(), ElRateModule.forRoot(), ElProgressModule.forRoot(), ElStepsModule.forRoot(),
-    ElLoadingModule.forRoot(),
+    ElLoadingModule.forRoot(), ElMessagesModule.forRoot(),
     BrowserAnimationsModule,
   ],
   exports: ELMODULES_GROUP,
@@ -51,7 +54,7 @@ class ElModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: ElRootModule,
-      providers: [],
+      providers: [ElMessageService],
     }
   }
 }
@@ -60,4 +63,5 @@ export {
   ElChildModules,
   ElRootModule,
   ElModule,
+  ElMessageService,
 }
