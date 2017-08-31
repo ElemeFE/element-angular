@@ -32,7 +32,12 @@ export class ExMessageComponent implements OnInit {
   ) {
   }
   
+  handle(): void {
+    this.message.setOptions({ showClose: true })
+    this.message.info('123')
+  }
+  
   ngOnInit(): void {
-    this.message.send('', '')
+  
   }
 }

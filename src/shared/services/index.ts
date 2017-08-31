@@ -1,5 +1,6 @@
-import { ExDynamicService } from './dynamic.service'
+import { ExDynamicService, DocumentWrapper } from './dynamic.service'
 
 export {
-  ExDynamicService
+  ExDynamicService,
+  DocumentWrapper,
 }

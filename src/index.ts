@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ElMessageService } from './message/message.service'
 
+import { ElSharedModule } from './shared/module'
 import { ElButtonsModule } from './button/module'
 import { ElCheckboxsModule } from './checkbox/module'
 import { ElIconsModule } from './icon/module'
@@ -25,11 +26,13 @@ const ElChildModules: any = {
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
+  ElSharedModule,
 }
 export const ELMODULES_GROUP: any[] = [
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
+  ElSharedModule,
 ]
 
 @NgModule({
@@ -38,7 +41,7 @@ export const ELMODULES_GROUP: any[] = [
     ElTooltipModule.forRoot(), ElRowModule.forRoot(), ElColModule.forRoot(), ElCheckboxsModule.forRoot(),
     ElInputsModule.forRoot(), ElInputNumberModule.forRoot(), ElTagsModule.forRoot(), ElSelectModule.forRoot(),
     ElSwitchModule.forRoot(), ElRateModule.forRoot(), ElProgressModule.forRoot(), ElStepsModule.forRoot(),
-    ElLoadingModule.forRoot(), ElMessagesModule.forRoot(),
+    ElLoadingModule.forRoot(), ElMessagesModule.forRoot(), ElSharedModule.forRoot(),
     BrowserAnimationsModule,
   ],
   exports: ELMODULES_GROUP,

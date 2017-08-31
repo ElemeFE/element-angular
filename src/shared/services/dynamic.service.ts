@@ -1,41 +1,32 @@
 
 import {
-  Compiler, Injectable, ViewContainerRef, Component, NgModule,
-  ModuleWithComponentFactories, ReflectiveInjector, ComponentRef,
+  Injectable, ComponentRef, ComponentFactoryResolver, Injector, ApplicationRef, Component,
 } from '@angular/core'
-import { CommonModule } from '@angular/common'
+
+@Injectable()
+export class DocumentWrapper extends Document {
+}
 
 @Injectable()
 export class ExDynamicService {
   
-  private comRef: ComponentRef<any>
-  
   constructor(
-    private vcRef: ViewContainerRef,
-    private compiler: Compiler,
+    private document: DocumentWrapper,
+    private factory: ComponentFactoryResolver,
+    private injector: Injector,
+    private appRef: ApplicationRef,
   ) {
   }
   
-  generator(parentFactory: new () => {}): any {
-    const decorated: any = Component(new Component({
-      selector: 'el-dynamic-from-service-generator',
-      template: '',
-    }))(class DynamicComponent extends parentFactory {})
+  generator(Container: any): Component {
+    const component: ComponentRef<any> = this.factory
+      .resolveComponentFactory(Container)
+      .create(this.injector)
+    this.appRef.attachView(component.hostView)
   
-    @NgModule({
-      imports: [CommonModule],
-      declarations: [decorated],
-    })
-    class DynamicModule {}
-  
-    this.compiler.compileModuleAndAllComponentsAsync(DynamicModule)
-      .then((moduleWithComponentFactory: ModuleWithComponentFactories<any>) =>
-        moduleWithComponentFactory.componentFactories.find(x =>
-          x.componentType === decorated))
-      .then(factory => {
-        const injector = ReflectiveInjector.fromResolvedProviders([], this.vcRef.parentInjector)
-        this.comRef = this.vcRef.createComponent(factory, 0 , injector)
-      })
-    return this.comRef
+    const hostElement: HTMLElement = this.document.createElement('div')
+    hostElement.appendChild((<any>component.hostView).rootNodes[0])
+    this.document.body.appendChild(hostElement)
+    return component.instance
   }
 }
