@@ -1,4 +1,4 @@
-import { Component, ComponentRef, Injectable, Optional } from '@angular/core'
+import { ComponentRef, Injectable, Optional } from '@angular/core'
 import { ElMessageContainer } from './message'
 import { Services } from '../shared'
 
@@ -15,7 +15,7 @@ export interface Options {
 @Injectable()
 export class ElMessageService {
   
-  private componentInstance: any
+  private components: any[] = []
   
   constructor(
     @Optional() private root: ElMessageContainer,
@@ -25,7 +25,24 @@ export class ElMessageService {
   }
   
   show(msg: string): void {
-    this.componentInstance.show(msg)
+    if (this.components.length === 0 || this.components[this.components.length - 1].init) {
+      this.createComponent()
+    }
+    // mark the component
+    const current = this.components[this.components.length - 1]
+    current.init = true
+  
+    current.instance.onDestroy = () => {
+      // component detach and destroy
+      this.dynamic.destroy(current.copy)
+      // remove empty item
+      const index = this.components.findIndex(com => com.id === current.id)
+      this.components.splice(index, 1)
+    }
+    const timer = setTimeout(() => {
+      current.instance.show(msg)
+      clearTimeout(timer)
+    }, 0)
   }
   
   success(msg: string): void {
@@ -49,15 +66,21 @@ export class ElMessageService {
   }
   
   setOptions(options: Options): void {
-    this.componentInstance = Object.assign(this.componentInstance, options)
+    if (this.components.length === 0 || this.components[this.components.length - 1].init) {
+      this.createComponent()
+    }
+    const last = this.components[this.components.length - 1]
+    last.instance = Object.assign(last.instance, options)
   }
   
   private createComponent(): void {
-    if (!this.componentInstance) {
-      this.componentInstance = this.dynamic.generator(ElMessageContainer)
-    }
+    const com: ComponentRef<any> = this.dynamic.generator(ElMessageContainer)
+    this.components.push({
+      instance: com.instance,
+      id: com.instance.id,
+      copy: com,
+      init: false
+    })
   }
   
 }
-
-

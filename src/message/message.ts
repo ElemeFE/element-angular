@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
+import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
 import * as Icons from './images'
 import { Animation } from '../shared'
-import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
 
 @Component({
   selector: 'el-message-container',
   template: `
-    <div [class]="'el-message' + customClass"
+    <div [class]="'el-message ' + customClass"
       style="display: none;"
       [ngStyle]="{ 'z-index': zIndex }"
       (mouseenter)="clearTimer()" (mouseleave)="startTimer()"
@@ -20,7 +20,10 @@ import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
   `,
   animations: [Animation.slideAnimation]
 })
-export class ElMessageContainer implements OnInit {
+export class ElMessageContainer {
+  
+  // element id, for destroy com
+  id: string
   
   showClose: boolean = false
   type: string = 'info'
@@ -35,6 +38,7 @@ export class ElMessageContainer implements OnInit {
   private timer: any
   
   onClose: Function = () => {}
+  onDestroy: Function = () => {}
   
   constructor(
     private sanitizer: DomSanitizer,
@@ -49,25 +53,26 @@ export class ElMessageContainer implements OnInit {
     this.message = message
     this.showBox = true
     this.timer = setTimeout(() => {
-      this.showBox = false
-      clearTimeout(this.timer)
+      this.close()
     }, this.duration)
   }
   
   close(): void {
-    this.showBox = false
     this.timer && clearTimeout(this.timer)
-  }
-  
-  ngOnInit(): void {
+    this.showBox = false
+    this.onClose()
+    this.onDestroy()
   }
   
   private startTimer(): void {
-  
+    if (!this.showBox) return
+    this.timer = setTimeout(() => {
+      this.close()
+    }, this.duration)
   }
   
   private clearTimer(): void {
-  
+    this.timer && clearTimeout(this.timer)
   }
   
 }
