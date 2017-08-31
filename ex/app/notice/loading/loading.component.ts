@@ -12,7 +12,7 @@ export class ExLoadingComponent implements OnInit {
   private code: string[] = code
   private page: any = {
     previous: { name: 'Check 多选框', link: '/form/checkbox' },
-    next: { name: 'InputNumber 计数器', link: '/form/input-number' },
+    next: { name: 'Message 消息提示', link: '/notice/message' },
   }
   private exClass: new () => {} = class {
     private loading: boolean = false

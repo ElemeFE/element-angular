@@ -87,6 +87,9 @@
     "children": [{
       "name": "loading 加载",
       "link": "/notice/loading"
+    }, {
+      "name": "message 消息提示",
+      "link": "/notice/message"
     }]
   }, {
     "name": "Navigation",
