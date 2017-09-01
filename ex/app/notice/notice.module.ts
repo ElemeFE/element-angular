@@ -8,12 +8,14 @@ import { ExSharedModule } from '../shared/module'
 import { ExNoticeMainComponent } from './main/main.component'
 import { ExLoadingComponent } from './loading/loading.component'
 import { ExMessageComponent } from './message/message.component'
+import { ExNotificationComponent } from './notification/notification.component'
 
 @NgModule({
   declarations: [
     ExNoticeMainComponent,
     ExLoadingComponent,
     ExMessageComponent,
+    ExNotificationComponent,
   ],
   imports: [
     CommonModule,

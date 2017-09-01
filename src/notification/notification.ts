@@ -5,18 +5,31 @@ import { Animation } from '../shared'
 @Component({
   selector: 'el-notification-container',
   template: `
+    <div [class]="'el-notification ' + customClass"
+      style="display: none;"
+      [@notifyAnimation]="showBox" [ngStyle]="{top: (top ? top + 'px' : 'auto'), 'z-index': zIndex}"
+      (mouseenter)="clearTimer()" (mouseleave)="startTimer()"
+      (click)="clickHnadle()">
+      <i [class]="typeClass + ' el-notification__icon ' + iconClass"
+        *ngIf="type || iconClass"></i>
+      <div [class]="'el-notification__group' + (typeClass || iconClass ? 'is-with-icon' : '')">
+        <h2 class="el-notification__title">{{title}}</h2>
+        <div class="el-notification__content">{{message}}</div>
+        <div class="el-notification__closeBtn el-icon-close" (click)="close()"></div>
+      </div>
+    </div>
   `,
-  animations: [Animation.slideAnimation]
+  animations: [Animation.notifyAnimation]
 })
 export class ElNotificationContainer {
   
   // element id, for destroy com
   id: string
+  top: number = 100
   
-  showClose: boolean = false
-  type: string = 'info'
-  duration: number = 3000
   // user setting
+  type: string = 'info'
+  duration: number = 30000
   iconClass: string = ''
   customClass: string = ''
   zIndex: number = 1000
@@ -46,6 +59,10 @@ export class ElNotificationContainer {
     this.showBox = false
     this.onClose()
     this.onDestroy()
+  }
+  
+  clickHnadle(): void {
+  
   }
   
   private startTimer(): void {

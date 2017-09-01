@@ -11,7 +11,7 @@ export class ExNotificationDemoComponent {
   }
   
   handle(): void {
-    console.log(this.notification)
+    this.notification.show()
   }
   
 }

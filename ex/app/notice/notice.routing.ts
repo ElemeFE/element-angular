@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router'
 import { ExNoticeMainComponent } from './main/main.component'
 import { ExLoadingComponent } from './loading/loading.component'
 import { ExMessageComponent } from './message/message.component'
+import { ExNotificationComponent } from './notification/notification.component'
 
 
 export const noticeRoutes: Routes = [{
@@ -11,6 +12,8 @@ export const noticeRoutes: Routes = [{
     path: 'loading', component: ExLoadingComponent,
   }, {
     path: 'message', component: ExMessageComponent,
+  }, {
+    path: 'notification', component: ExNotificationComponent,
   }],
 }]
 
