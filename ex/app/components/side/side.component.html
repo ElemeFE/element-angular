@@ -3,7 +3,7 @@
   <ul *ngFor="let item of catalog">
     <li class="nav-item">
       <!--<span *ngIf="!item.link">{{ item.name }}</span>-->
-      <a [href]="item.link" [style]="cursorSylte(item.link)">{{ item.name }}</a>
+      <a [href]="item.link || 'javascript:;'" [style]="cursorSylte(item.link)">{{ item.name }}</a>
 
       <ng-container *ngIf="item.children && item.children.length > 0">
         <ul class="pure-menu-list sub-nav">
