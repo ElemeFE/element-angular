@@ -1,7 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy, OnInit, ElementRef, Optional } from '@angular/core'
 import { DomSanitizer } from '@angular/platform-browser'
 import { ElMenu } from './menu'
-import { Utils } from '../shared'
+import { isParentTag, removeNgTag } from '../shared/utils'
 
 @Component({
   selector: 'el-menu-item',
@@ -50,8 +50,8 @@ export class ElMenuItem implements OnInit {
   
   ngOnInit(): void {
     const nativeElement = this.el.nativeElement
-    this.parentIsMenu = Utils.isParentTag(nativeElement, 'el-menu')
-    Utils.removeNgTag(nativeElement)
+    this.parentIsMenu = isParentTag(nativeElement, 'el-menu')
+    removeNgTag(nativeElement)
     this.active = this.parentIsMenu && this.rootMenu.defaultActive === this.index
   }
 }

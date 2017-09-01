@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core'
-import { Animation } from '../shared'
+import { notifyAnimation } from '../shared/animation'
 
 export const typeMap: any = {
   success: 'circle-check',
@@ -24,7 +24,7 @@ export const typeMap: any = {
       </div>
     </div>
   `,
-  animations: [Animation.notifyAnimation]
+  animations: [notifyAnimation]
 })
 export class ElNotificationContainer {
   

@@ -2,7 +2,8 @@ import {
   AfterContentInit, Component, ContentChild, ElementRef, Inject, Injectable, Input,
   Renderer2, TemplateRef, ViewChild,
 } from '@angular/core'
-import { Utils, Animation } from '../shared'
+import { fadeAnimation } from '../shared/animation'
+import { getRealShape, getPositionForDir } from '../shared/utils'
 
 @Injectable()
 export class WindowWrapper extends Window {
@@ -25,7 +26,7 @@ export type Shape = { width: number, height: number }
       <ng-content></ng-content>
     </div>
   `,
-  animations: [Animation.fadeAnimation],
+  animations: [fadeAnimation],
 })
 export class ElTooltip implements AfterContentInit {
   
@@ -54,7 +55,7 @@ export class ElTooltip implements AfterContentInit {
     const doubleConventions: boolean = this.placement.includes('-')
     const arrowDir: string = doubleConventions ? this.placement.split('-')[1] : 'center'
     const dir: string = doubleConventions ? this.placement.split('-')[0] : this.placement
-    const position: any = Utils.getPositionForDir(hostRect, selfRect, dir, arrowDir)
+    const position: any = getPositionForDir(hostRect, selfRect, dir, arrowDir)
     this.cache.position = position
   }
   
@@ -89,7 +90,7 @@ export class ElTooltip implements AfterContentInit {
     this.cache.tipElement = tipElement
   
     const timer = setTimeout(() => {
-      this.tipElementShape = Utils.getRealShape(tipElement)
+      this.tipElementShape = getRealShape(tipElement)
       const tipRect = { width: tipElement.offsetWidth, height: tipElement.offsetHeight }
       const hostRect = hostElement.getBoundingClientRect()
       this.getPosition(hostRect, tipRect)

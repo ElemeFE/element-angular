@@ -1,6 +1,6 @@
 import { Input, Directive, OnInit, ElementRef } from '@angular/core'
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser'
-import { Utils } from '../shared'
+import { isParentAttr } from '../shared/utils'
 
 @Directive({
   selector: '[el-col]',
@@ -67,7 +67,7 @@ export class ElColDirective implements OnInit {
   
   ngOnInit(): void {
     const nativeElement = this.el.nativeElement
-    this.parentIsRow = Utils.isParentAttr(nativeElement, 'el-row')
+    this.parentIsRow = isParentAttr(nativeElement, 'el-row')
     if (this.parentIsRow) {
       this.gutterFromParent = this.parentIsRow.getAttribute('gutter') || 0
     }

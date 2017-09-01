@@ -1,6 +1,6 @@
 import { ComponentRef, Injectable, Optional } from '@angular/core'
 import { ElNotificationContainer } from './notification'
-import { Services } from '../shared'
+import { ExDynamicService } from '../shared/services'
 
 export interface Options {
   type?: string
@@ -19,7 +19,7 @@ export class ElNotificationService {
   
   constructor(
     @Optional() private root: ElNotificationContainer,
-    private dynamic: Services.ExDynamicService
+    private dynamic: ExDynamicService
   ) {
     this.createComponent()
   }

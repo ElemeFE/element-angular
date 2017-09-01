@@ -2,7 +2,7 @@ import {
   Component, Input, Output, EventEmitter, OnInit, ChangeDetectionStrategy,
   ElementRef,
 } from '@angular/core'
-import { Utils } from '../shared'
+import { removeNgTag } from '../shared/utils'
 
 @Component({
   selector: 'el-button',
@@ -47,7 +47,7 @@ export class ElButton implements OnInit {
   }
   
   ngOnInit(): void {
-    Utils.removeNgTag(this.el.nativeElement)
+    removeNgTag(this.el.nativeElement)
   }
   
 }
