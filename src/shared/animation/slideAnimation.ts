@@ -2,10 +2,15 @@ import { AnimationTriggerMetadata, trigger, state, style, animate, transition } 
 
 export const slideAnimation: AnimationTriggerMetadata = trigger(
   'slideAnimation', [
+    state('*', style({
+      opacity: 0,
+      display: 'none',
+      transform: 'translate3D(-50%, 0px, 0)',
+    })),
     state('false', style({
       opacity: 0,
       display: 'none',
-      // transform: 'translate3D(-50%, 0px, 0)',
+      transform: 'translate3D(-50%, 0px, 0)',
     })),
     state('true', style({
       opacity: 1,
