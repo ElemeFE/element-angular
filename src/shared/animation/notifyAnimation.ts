@@ -4,23 +4,23 @@ export const notifyAnimation: AnimationTriggerMetadata = trigger(
   'notifyAnimation', [
     state('*', style({
       opacity: 0,
-      display: 'none',
+      visibility: 'hidden',
       transform: 'translate3D(0, 0, 0)',
     })),
     state('false', style({
-      opacity: 0.3,
-      display: 'none',
+      opacity: 0,
+      visibility: 'hidden',
       transform: 'translate3D(0, -10px, 0)',
     })),
     state('true', style({
       opacity: 1,
       transform: 'translate3D(0, 0, 0)',
-      display: 'block',
+      visibility: 'inherit',
     })),
     transition('0 => 1', [
       style({
-        opacity: 0.3,
-        display: 'none',
+        opacity: 0,
+        visibility: 'inherit',
         transform: 'translate3D(50px, 0, 0)',
       }),
       animate('250ms linear')
@@ -28,7 +28,7 @@ export const notifyAnimation: AnimationTriggerMetadata = trigger(
     transition('1 => 0', [
       style({
         opacity: 1,
-        display: 'block',
+        visibility: 'inherit',
         transform: 'translate3D(0px, 0, 0)',
       }),
       animate('250ms linear')
