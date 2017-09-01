@@ -24,45 +24,62 @@ export class ElNotificationService {
     this.createComponent()
   }
   
-  show(msg: string): void {
-    if (this.components.length === 0 || this.components[this.components.length - 1].init) {
+  show(msg: string, title?: string): void {
+    const len = this.components.length
+    if (len === 0 || this.components[len - 1].init) {
       this.createComponent()
     }
+    
     // mark the component
-    const current = this.components[this.components.length - 1]
+    const currentLen = this.components.length
+    const current = this.components[currentLen - 1]
     current.init = true
-  
+    current.instance.setContent(msg, title)
+    
+    // init current component
+    if (currentLen > 1) {
+      const lastInstance = this.components[currentLen - 2].instance
+      current.instance.top = lastInstance.height + lastInstance.top + 15
+    }
+    
     current.instance.onDestroy = () => {
-      // component detach and destroy
+      const index = this.components.findIndex(com => com.id === current.id)
+      
+      // reflow top style
+      this.components.forEach((com, i) => {
+        if (i <= index) return
+        com.instance.top = com.instance.top - current.instance.height - 15
+      })
+      // component detach and remove element
       this.dynamic.destroy(current.copy)
       // remove empty item
-      const index = this.components.findIndex(com => com.id === current.id)
       this.components.splice(index, 1)
     }
+    
     const timer = setTimeout(() => {
-      current.instance.show(msg)
+      current.instance.show()
       clearTimeout(timer)
     }, 0)
   }
   
-  success(msg: string): void {
+  success(msg: string, title?: string): void {
     this.setOptions({ type: 'success' })
-    this.show(msg)
+    this.show(msg, title)
   }
   
-  warning(msg: string): void {
+  warning(msg: string, title?: string): void {
     this.setOptions({ type: 'warning' })
-    this.show(msg)
+    this.show(msg, title)
   }
   
-  info(msg: string): void {
+  info(msg: string, title?: string): void {
     this.setOptions({ type: 'info' })
-    this.show(msg)
+    this.show(msg, title)
   }
   
-  error(msg: string): void {
+  error(msg: string, title?: string): void {
     this.setOptions({ type: 'error' })
-    this.show(msg)
+    this.show(msg, title)
   }
   
   setOptions(options: Options): void {

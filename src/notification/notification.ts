@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit } from '@angular/core'
-import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
 import { Animation } from '../shared'
 
 export const typeMap: any = {
@@ -13,10 +12,9 @@ export const typeMap: any = {
   selector: 'el-notification-container',
   template: `
     <div [class]="'el-notification ' + customClass"
-      style="display: none;"
+      style="visibility: hidden;"
       [@notifyAnimation]="showBox" [ngStyle]="{top: (top ? top + 'px' : 'auto'), 'z-index': zIndex}"
-      (mouseenter)="clearTimer()" (mouseleave)="startTimer()"
-      (click)="clickHnadle()">
+      (mouseenter)="clearTimer()" (mouseleave)="startTimer()">
       <i [class]="makeClass() + ' el-notification__icon ' + iconClass"
         *ngIf="type || iconClass"></i>
       <div [class]="((makeClass() || iconClass) ? 'is-with-icon' : '') + ' el-notification__group'">
@@ -28,15 +26,16 @@ export const typeMap: any = {
   `,
   animations: [Animation.notifyAnimation]
 })
-export class ElNotificationContainer implements OnInit {
+export class ElNotificationContainer {
   
   // element id, for destroy com
   id: string
-  top: number = 100
+  top: number = 15
+  height: number = 0
   
   // user setting
   type: string = 'info'
-  duration: number = 30000
+  duration: number = 3000
   iconClass: string = ''
   customClass: string = ''
   zIndex: number = 1000
@@ -50,7 +49,6 @@ export class ElNotificationContainer implements OnInit {
   onDestroy: Function = () => {}
   
   constructor(
-    private sanitizer: DomSanitizer,
     private el: ElementRef,
   ) {
   }
@@ -59,8 +57,15 @@ export class ElNotificationContainer implements OnInit {
     return typeMap[this.type] ? `el-icon-${typeMap[this.type]}` : ''
   }
   
-  show(message: string): void {
+  setContent(message: string, title: string = ''): void {
     this.message = message
+    this.title = title
+    setTimeout(() => {
+      this.height = this.el.nativeElement.children[0].offsetHeight
+    }, 0)
+  }
+  
+  show(): void {
     this.showBox = true
     this.timer = setTimeout(() => {
       this.close()
@@ -72,14 +77,6 @@ export class ElNotificationContainer implements OnInit {
     this.showBox = false
     this.onClose()
     this.onDestroy()
-  }
-  
-  clickHnadle(): void {
-  
-  }
-  
-  ngOnInit(): void {
-    console.log(this.el.nativeElement)
   }
   
   private startTimer(): void {
