@@ -1,6 +1,24 @@
-import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, forwardRef, Inject, OnInit, Optional, ViewEncapsulation } from '@angular/core'
 import { ElMessageService } from '../../../../src/index'
 import code from './code'
+
+@Component({ selector: 'ex-message-demo' })
+export class ExMessageDemoComponent {
+  
+  constructor(
+    @Inject(forwardRef(() => ElMessageService)) private message: any,
+  ) {
+  }
+  
+  handle(type: string = 'show'): void {
+    this.message[type]('这是一条消息提示' + type)
+  }
+  
+  handle2(type: string = 'show'): void {
+    this.message.setOptions({ showClose: true })
+    this.message[type]('这是一条可关闭的消息提示')
+  }
+}
 
 @Component({
   selector: 'ex-message',
@@ -15,26 +33,14 @@ export class ExMessageComponent implements OnInit {
     previous: { name: 'Loading 加载', link: '/notice/loading' },
     next: { name: 'Loading 加载', link: '/notice/loading' },
   }
-  private exClass: new () => {} = class {
-    private loading: boolean = false
-    
-    handle(): void {
-      this.loading = true
-      const timer = setTimeout(() => {
-        this.loading = false
-        clearTimeout(timer)
-      }, 3000)
-    }
-  }
+  private exClass: any = ExMessageDemoComponent
   
   constructor(
-    private message: ElMessageService,
   ) {
   }
   
   handle(): void {
-    this.message.setOptions({ showClose: true })
-    this.message.info('123')
+  
   }
   
   ngOnInit(): void {
