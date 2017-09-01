@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders, Injectable } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { Services } from '../shared'
+import { ExDynamicService, DocumentWrapper } from '../shared/services'
 export function getDocument(): any { return document }
 
 @NgModule({
@@ -12,8 +12,8 @@ export function getDocument(): any { return document }
 export class ElSharedModule {
   static forRoot(): ModuleWithProviders {
     return { ngModule: ElSharedModule, providers: [
-      Services.ExDynamicService,
-      { provide: Services.DocumentWrapper, useFactory: getDocument },
+      ExDynamicService,
+      { provide: DocumentWrapper, useFactory: getDocument },
     ]}
   }
 }

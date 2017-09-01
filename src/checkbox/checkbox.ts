@@ -3,7 +3,7 @@ import {
   ElementRef, Optional, AfterViewInit, ViewChild,
 } from '@angular/core'
 import { ElCheckboxGroup } from './checkbox-group'
-import { Utils } from '../shared'
+import { isParentTag, removeNgTag } from '../shared/utils'
 
 @Component({
   selector: 'el-checkbox',
@@ -66,8 +66,8 @@ export class ElCheckbox implements OnInit, AfterViewInit {
   
   ngOnInit(): void {
     const nativeElement = this.el.nativeElement
-    this.parentIsGroup = Utils.isParentTag(nativeElement, 'el-checkbox-group')
-    Utils.removeNgTag(nativeElement)
+    this.parentIsGroup = isParentTag(nativeElement, 'el-checkbox-group')
+    removeNgTag(nativeElement)
     // update model from group
     if (this.parentIsGroup) {
       this.labels = this.hostGroup.model

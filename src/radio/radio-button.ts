@@ -3,7 +3,7 @@ import {
   ElementRef, AfterViewInit,
 } from '@angular/core'
 import { ElRadioGroup } from './radio-group'
-import { Utils } from '../shared'
+import { isParentTag, removeNgTag } from '../shared/utils'
 
 @Component({
   selector: 'el-radio-button',
@@ -72,8 +72,8 @@ export class ElRadioButton implements AfterViewInit {
         color: this.rootGroup.textColor || '',
       }
     }
-    this.parentIsGroup = Utils.isParentTag(nativeElement, 'el-radio-group')
-    Utils.removeNgTag(nativeElement)
+    this.parentIsGroup = isParentTag(nativeElement, 'el-radio-group')
+    removeNgTag(nativeElement)
     
     if (this.parentIsGroup && this.rootGroup) {
       update()

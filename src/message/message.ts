@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
 import * as Icons from './images'
-import { Animation } from '../shared'
+import { slideAnimation } from '../shared/animation'
 
 @Component({
   selector: 'el-message-container',
@@ -18,7 +18,7 @@ import { Animation } from '../shared'
       </div>
     </div>
   `,
-  animations: [Animation.slideAnimation]
+  animations: [slideAnimation]
 })
 export class ElMessageContainer {
   
