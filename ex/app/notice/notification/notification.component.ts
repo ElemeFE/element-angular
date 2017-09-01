@@ -6,12 +6,20 @@ import code from './code'
 export class ExNotificationDemoComponent {
   
   constructor(
-    @Inject(forwardRef(() => ElNotificationService)) private notification: any,
+    @Inject(forwardRef(() => ElNotificationService)) private notify: any,
   ) {
   }
   
   handle(): void {
-    this.notification.show('hello')
+    this.notify.show('这是一条消息提示')
+  }
+  
+  handle2(): void {
+    this.notify.show('这是一条消息提示', '消息标题')
+  }
+  
+  handle3(type: string): void {
+    this.notify[type]('这是一条消息提示: ' + type, type)
   }
   
 }
