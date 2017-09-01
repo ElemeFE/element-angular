@@ -11,7 +11,7 @@ export class ExNotificationDemoComponent {
   }
   
   handle(): void {
-    this.notification.show()
+    this.notification.show('hello')
   }
   
 }

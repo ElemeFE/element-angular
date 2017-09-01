@@ -1,6 +1,13 @@
-import { Component } from '@angular/core'
+import { Component, ElementRef, OnInit } from '@angular/core'
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
 import { Animation } from '../shared'
+
+export const typeMap: any = {
+  success: 'circle-check',
+  info: 'information',
+  warning: 'warning',
+  error: 'circle-cross',
+}
 
 @Component({
   selector: 'el-notification-container',
@@ -10,10 +17,10 @@ import { Animation } from '../shared'
       [@notifyAnimation]="showBox" [ngStyle]="{top: (top ? top + 'px' : 'auto'), 'z-index': zIndex}"
       (mouseenter)="clearTimer()" (mouseleave)="startTimer()"
       (click)="clickHnadle()">
-      <i [class]="typeClass + ' el-notification__icon ' + iconClass"
+      <i [class]="makeClass() + ' el-notification__icon ' + iconClass"
         *ngIf="type || iconClass"></i>
-      <div [class]="'el-notification__group' + (typeClass || iconClass ? 'is-with-icon' : '')">
-        <h2 class="el-notification__title">{{title}}</h2>
+      <div [class]="((makeClass() || iconClass) ? 'is-with-icon' : '') + ' el-notification__group'">
+        <h2 class="el-notification__title" *ngIf="title">{{title}}</h2>
         <div class="el-notification__content">{{message}}</div>
         <div class="el-notification__closeBtn el-icon-close" (click)="close()"></div>
       </div>
@@ -21,7 +28,7 @@ import { Animation } from '../shared'
   `,
   animations: [Animation.notifyAnimation]
 })
-export class ElNotificationContainer {
+export class ElNotificationContainer implements OnInit {
   
   // element id, for destroy com
   id: string
@@ -34,6 +41,7 @@ export class ElNotificationContainer {
   customClass: string = ''
   zIndex: number = 1000
   
+  private title: string = ''
   private message: string = ''
   private showBox: boolean = false
   private timer: any
@@ -43,7 +51,12 @@ export class ElNotificationContainer {
   
   constructor(
     private sanitizer: DomSanitizer,
+    private el: ElementRef,
   ) {
+  }
+  
+  makeClass(): string {
+    return typeMap[this.type] ? `el-icon-${typeMap[this.type]}` : ''
   }
   
   show(message: string): void {
@@ -63,6 +76,10 @@ export class ElNotificationContainer {
   
   clickHnadle(): void {
   
+  }
+  
+  ngOnInit(): void {
+    console.log(this.el.nativeElement)
   }
   
   private startTimer(): void {
