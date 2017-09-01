@@ -1,6 +1,6 @@
 import {
   Input, Directive, OnInit, Compiler, Component,
-  ModuleWithComponentFactories, NgModule, ReflectiveInjector, ViewContainerRef, ComponentRef,
+  ModuleWithComponentFactories, NgModule, ReflectiveInjector, ViewContainerRef, ComponentRef, ClassDefinition,
 } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
@@ -14,7 +14,7 @@ import { ElModule } from '../../../../../src/index'
 export class ElDynamicDirective implements OnInit {
   
   @Input('ex-dynamic') dynamicHtml: string
-  @Input('class') parentClass : new () => {} = class {}
+  @Input('class') parentClass: new ([string]?: any) => {} = class {}
   
   private comRef: ComponentRef<any>
   

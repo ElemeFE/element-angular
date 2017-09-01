@@ -38,7 +38,7 @@ export class ExDemoComponent implements OnInit {
   @Input() link: string
   @Input() notes: string
   @Input() code: string
-  @Input('class') parentClass : new () => {} = class {}
+  @Input('class') parentClass: new ([string]?: any) => {} = class {}
   
   private classes: string = 'demo-block demo-box demo-zh-CN'
   private hovering: boolean = false
