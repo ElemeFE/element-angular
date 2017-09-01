@@ -34,6 +34,7 @@ export class ElNotificationService {
     const currentLen = this.components.length
     const current = this.components[currentLen - 1]
     current.init = true
+    current.instance.setContent(msg, title)
     
     // init current component
     if (currentLen > 1) {
@@ -56,7 +57,7 @@ export class ElNotificationService {
     }
     
     const timer = setTimeout(() => {
-      current.instance.show(msg, title)
+      current.instance.show()
       clearTimeout(timer)
     }, 0)
   }

@@ -26,7 +26,7 @@ export const typeMap: any = {
   `,
   animations: [Animation.notifyAnimation]
 })
-export class ElNotificationContainer implements OnInit {
+export class ElNotificationContainer {
   
   // element id, for destroy com
   id: string
@@ -35,7 +35,7 @@ export class ElNotificationContainer implements OnInit {
   
   // user setting
   type: string = 'info'
-  duration: number = 30000
+  duration: number = 3000
   iconClass: string = ''
   customClass: string = ''
   zIndex: number = 1000
@@ -57,11 +57,16 @@ export class ElNotificationContainer implements OnInit {
     return typeMap[this.type] ? `el-icon-${typeMap[this.type]}` : ''
   }
   
-  show(message: string, title: string = ''): void {
+  setContent(message: string, title: string = ''): void {
     this.message = message
     this.title = title
+    setTimeout(() => {
+      this.height = this.el.nativeElement.children[0].offsetHeight
+    }, 0)
+  }
+  
+  show(): void {
     this.showBox = true
-    
     this.timer = setTimeout(() => {
       this.close()
     }, this.duration)
@@ -72,13 +77,6 @@ export class ElNotificationContainer implements OnInit {
     this.showBox = false
     this.onClose()
     this.onDestroy()
-  }
-  
-  ngOnInit(): void {
-    const timer: any = setTimeout(() => {
-      this.height = this.el.nativeElement.children[0].offsetHeight
-      clearTimeout(timer)
-    }, 0)
   }
   
   private startTimer(): void {
