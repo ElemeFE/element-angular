@@ -1,6 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ElMessageService } from './message/message.service'
+import { ElNotificationService } from './notification/notification.service'
 
 import { ElSharedModule } from './shared/module'
 import { ElButtonsModule } from './button/module'
@@ -21,18 +22,19 @@ import { ElProgressModule } from './progress/module'
 import { ElStepsModule } from './steps/module'
 import { ElLoadingModule } from './loading/module'
 import { ElMessagesModule } from './message/module'
+import { ElNotificationModule } from './notification/module'
 
 const ElChildModules: any = {
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
-  ElSharedModule,
+  ElSharedModule, ElNotificationModule,
 }
 export const ELMODULES_GROUP: any[] = [
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
-  ElSharedModule,
+  ElSharedModule, ElNotificationModule,
 ]
 
 @NgModule({
@@ -41,7 +43,7 @@ export const ELMODULES_GROUP: any[] = [
     ElTooltipModule.forRoot(), ElRowModule.forRoot(), ElColModule.forRoot(), ElCheckboxsModule.forRoot(),
     ElInputsModule.forRoot(), ElInputNumberModule.forRoot(), ElTagsModule.forRoot(), ElSelectModule.forRoot(),
     ElSwitchModule.forRoot(), ElRateModule.forRoot(), ElProgressModule.forRoot(), ElStepsModule.forRoot(),
-    ElLoadingModule.forRoot(), ElMessagesModule.forRoot(), ElSharedModule.forRoot(),
+    ElLoadingModule.forRoot(), ElMessagesModule.forRoot(), ElSharedModule.forRoot(), ElNotificationModule.forRoot(),
     BrowserAnimationsModule,
   ],
   exports: ELMODULES_GROUP,
@@ -67,4 +69,5 @@ export {
   ElRootModule,
   ElModule,
   ElMessageService,
+  ElNotificationService,
 }
