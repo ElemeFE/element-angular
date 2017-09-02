@@ -1,9 +1,10 @@
 import { EventEmitter, Input, Output } from '@angular/core'
-export type Options = {
+export type Option = {
   label?: string,
   value: string,
-  children?: Options[],
+  children?: Option[],
   disabled?: boolean,
+  active?: boolean,
 }
 
 export class ElCascaderPoprs {
@@ -15,7 +16,7 @@ export class ElCascaderPoprs {
   @Input() placeholder: string = '请选择'
   
   // data
-  @Input() options: Options[]
+  @Input() options: Option[]
   
   //
   @Input() clearable: boolean = false
