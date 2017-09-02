@@ -10,9 +10,10 @@ import { dropAnimation } from '../shared/animation'
       [@dropAnimation]="root.menuVisible">
       <ul class="el-cascader-menu" *ngFor="let menuItem of root.steps; let step = index">
         <li *ngFor="let listItem of menuItem; let i = index"
-          [class]="'el-cascader-menu__item ' +
-          (listItem.children ? 'el-cascader-menu__item--extensible ' : ' ') +
-          (listItem.active ? 'is-active' : '')"
+          class="el-cascader-menu__item"
+          [class.el-cascader-menu__item--extensible]="listItem.children"
+          [class.is-active]="listItem.active"
+          [class.is-disabled]="listItem.disabled"
           (click)="root.selectHandle(step, i)">
           {{listItem.label}}
         </li>
