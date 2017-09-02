@@ -19,7 +19,7 @@ export class ElCascaderPoprs {
   @Input() options: Option[]
   
   //
-  @Input() clearable: boolean = true
+  @Input() clearable: boolean = false
   @Input('all-levels') allLevels: boolean = true
   @Input('change-on-select') changeOnSelect: boolean = false
   
