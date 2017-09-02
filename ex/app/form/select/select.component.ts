@@ -12,7 +12,7 @@ export class ExSelectComponent implements OnInit {
   private code: string[] = code
   private page: any = {
     previous: { name: 'InputNumber 计数器', link: '/form/input-number' },
-    next: { name: 'Switch 开关', link: '/form/switch' },
+    next: {  name: 'Cascader 级联选择器', link: '/form/cascader' },
   }
   
   ngOnInit(): void {

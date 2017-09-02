@@ -1,0 +1,61 @@
+{
+  "name": "Collapse Attributes",
+  "attrs": [
+    {
+      "name": "options",
+      "notes": "数据源",
+      "type": "Array<{ label: string, value: string, disabled?: boolean }>",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "model",
+      "notes": "默认绑定值，数组，每一项是数据中每一层的 value",
+      "type": "Array<string>",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "placeholder",
+      "notes": "输入框占位文本",
+      "type": "string",
+      "enum": null,
+      "default": "请选择"
+    },
+    {
+      "name": "disabled",
+      "notes": "是否禁用，在数据源 options 中设置",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "clearable",
+      "notes": "是否支持清空选项",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "all-levels",
+      "notes": "输入框中是否显示选中值的完整路径",
+      "type": "boolean",
+      "enum": null,
+      "default": true
+    },
+    {
+      "name": "change-on-select",
+      "notes": "选择任意一级的选项立即得到反馈",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "size",
+      "notes": "尺寸",
+      "type": "string",
+      "enum": "large / small / mini",
+      "default": null
+    }
+  ]
+}

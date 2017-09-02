@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core'
 })
 export class ExMenuComponent implements OnInit {
   
+  private page: any = {
+    previous: { name: 'Notification 通知', link: '/notice/notification' },
+    next: { name: 'Steps 步骤条', link: '/nav/steps' },
+  }
   ngOnInit(): void {
   }
 }

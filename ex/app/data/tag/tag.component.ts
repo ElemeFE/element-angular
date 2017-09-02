@@ -12,7 +12,7 @@ export class ExTagComponent implements OnInit {
   private code: string[] = code
   private tags: string[] = ['123', '234234', '0011']
   private page: any = {
-    previous: { name: 'Radio 单选框', link: '/form/radio' },
+    previous: { name: 'Rate 评分', link: '/form/rate' },
     next: { name: 'Progress 输入框', link: '/data/progress' },
   }
   

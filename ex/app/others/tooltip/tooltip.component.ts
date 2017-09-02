@@ -11,8 +11,8 @@ export class ExTooltipComponent implements OnInit {
   
   private code: string[] = code
   private page: any = {
-    previous: { name: 'Radio 单选框', link: '/form/radio' },
-    next: { name: 'Input 输入框', link: '/form/input' },
+    previous: { name: 'Steps 步骤条', link: '/nav/steps' },
+    next: { name: null, link: '' },
   }
   
   ngOnInit(): void {
