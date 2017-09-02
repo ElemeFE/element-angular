@@ -12,7 +12,6 @@ export class ElCascaderPoprs {
   // input props
   @Input() disabled: boolean = false
   @Input() size: string
-  @Input('popper-class') popperClass: string
   @Input() placeholder: string = '请选择'
   
   // data
@@ -25,7 +24,7 @@ export class ElCascaderPoprs {
   
   
   // bind value
-  @Input() model: any = ''
+  @Input() model: string[]
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
 }

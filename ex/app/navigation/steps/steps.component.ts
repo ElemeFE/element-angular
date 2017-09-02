@@ -21,8 +21,8 @@ export class ExStepsComponent implements OnInit {
   }
   private code: string[] = code
   private page: any = {
-    previous: { name: 'Check 多选框', link: '/form/checkbox' },
-    next: { name: 'InputNumber 计数器', link: '/form/input-number' },
+    previous: { name: 'NavMenu 导航菜单', link: '/nav/menu' },
+    next: { name: 'Tooltip 文字提示', link: '/others/tooltip' },
   }
   
   

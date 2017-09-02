@@ -31,7 +31,7 @@ export class ExMessageComponent implements OnInit {
   private code: string[] = code
   private page: any = {
     previous: { name: 'Loading 加载', link: '/notice/loading' },
-    next: { name: 'Loading 加载', link: '/notice/loading' },
+    next: { name: 'Notification 通知', link: '/notice/notification' },
   }
   private exClass: any = ExMessageDemoComponent
   

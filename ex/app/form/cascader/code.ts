@@ -1,18 +1,73 @@
 export default [
 // 基础用法
   `
-<!--你可以通过 model 来获取每次选择的值-->
-<!--或者通过绑定 (modelChange)=handle 来获得每次值改变的触发-->
-<el-select [(model)]="value" placeholder="请选择">
-  <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
-      { value: '选项2', label: '双皮奶' },
-      { value: '选项3', label: '蚵仔煎' },
-      { value: '选项4', label: '龙须面' },
-      { value: '选项5', label: '北京烤鸭' }]"
-    [label]="item.label"
-    [value]="item.value">
-  </el-option>
-</el-select>
+<!--你可以通过绑定 (modelChange)=handle 来获得每次值改变的触发-->
+<el-cascader [options]="options" (modelChange)="changeHandle($event)">
+</el-cascader>
+
+<script type="text">
+  // in Component :
+  changeHandle(event: { path: string[], value: string }): void {
+    console.log(event)
+  }
+</script>
+
+`,
+
+// 禁用
+`
+
+<el-cascader [options]="disabledOptions">
+</el-cascader>
+
+<script type="text">
+  // in Component :
+  private disabledOptions: any[] = [{
+    value: 'disabled',
+    label: 'disabled',
+    disabled: true,
+  }, {
+    value: 'normal',
+    label: 'normal',
+  }]
+</script>
+`,
+
+// 仅展示最后一级
+`
+
+<el-cascader [options]="options"
+  [all-levels]="false"
+  (modelChange)="changeHandle($event)">
+</el-cascader>
+
+<script type="text">
+  // in Component :
+  changeHandle(event: { path: string[], value: string }): void {
+    console.log(event)
+  }
+</script>
+
+`,
+
+// 默认值
+`
+
+<!--增加默认值需要输入每一层选项的 value-->
+<el-cascader [options]="options"
+  [model]="['zujian', 'layout']"
+  (modelChange)="changeHandle($event)">
+</el-cascader>
+
+`,
+
+// 选择即改变
+`
+
+<el-cascader [options]="options"
+  [change-on-select]="true"
+  (modelChange)="changeHandle($event)">
+</el-cascader>
 
 `,
 
