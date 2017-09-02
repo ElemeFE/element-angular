@@ -13,6 +13,7 @@ export class ElInputPoprs {
   @Input() rows: number = 2           // only type === 'textarea'
   @Input() resize: string             // only type === 'textarea' enum: none, both, horizontal, vertical
   @Input() icon: string
+  @Input() iconClass: string
   @Input() autosize?: AutoSize        // only type === 'textarea'. example: { minRows: 2, maxRows: 6 }
   
   // native attrs
