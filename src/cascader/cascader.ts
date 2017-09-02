@@ -75,6 +75,7 @@ export class ElCascader extends ElCascaderPoprs implements OnInit {
   }
   
   selectHandle(step: number, index: number): any {
+    if (this.steps[step][index].disabled) return
     this.steps[step] = this.steps[step].map((item: Option, i: number) =>
       Object.assign(item, { active: i === index }))
     // reset steps
