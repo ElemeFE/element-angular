@@ -58,6 +58,13 @@
       "default": null
     },
     {
+      "name": "icon-class",
+      "notes": "输入框尾部图标的额外样式，这些 CSS 类名会被追加到图标上",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
       "name": "rows",
       "notes": "输入框行数，只对 <code>type=textarea</code> 有效 ",
       "type": "number",

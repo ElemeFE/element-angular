@@ -1,4 +1,4 @@
-import { Component, OnInit, Optional } from '@angular/core'
+import { Component, Optional } from '@angular/core'
 import { ElCascader } from './cascader'
 import { dropAnimation } from '../shared/animation'
 
@@ -21,13 +21,10 @@ import { dropAnimation } from '../shared/animation'
   `,
   animations: [dropAnimation],
 })
-export class ElCascaderMenu implements OnInit {
+export class ElCascaderMenu {
   
   constructor(
     @Optional() private root: ElCascader,
   ) {
-  }
-  
-  ngOnInit(): void {
   }
 }
