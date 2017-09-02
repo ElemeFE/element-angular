@@ -100,6 +100,20 @@ export class ElCascader extends ElCascaderPoprs implements OnInit {
   
   ngOnInit(): void {
     this.clearValue()
+    if (this.model && this.model.length) {
+      const getLabel = (options: Option[], val: string) => {
+        const item: Option = options.filter((item: Option) => item.value === val)[0]
+        return { children: item.children, val: item }
+      }
+      
+      let options: Option[] = this.options
+      const val: Option[] = this.model.map(v => {
+        const { children, val } = getLabel(options, v)
+        options = children
+        return val
+      })
+      this.currentLabels = val.filter(v => !!v)
+    }
   }
   
 }

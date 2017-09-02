@@ -25,7 +25,7 @@ export class ElCascaderPoprs {
   
   
   // bind value
-  @Input() model: any = ''
+  @Input() model: string[]
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
 }
