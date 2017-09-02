@@ -1,21 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
-@Component({
-  selector: 'ex-cascader',
-  templateUrl: './cascader.component.html',
-  styleUrls: ['./cascader.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-})
-export class ExCascaderComponent implements OnInit {
-  
-  private code: string[] = code
-  private page: any = {
-    previous: { name: 'Select 选择器', link: '/form/select' },
-    next: { name: 'Switch 开关', link: '/form/switch' },
-  }
-  
-  private selectedOptions: any[] = []
+@Component({ selector: 'ex-cascader-demo' })
+export class ExCascaderDemoComponent {
   private options: any[] = [{
     value: 'zhinan',
     label: '指南',
@@ -72,10 +59,35 @@ export class ExCascaderComponent implements OnInit {
       label: 'Cascader 级联选择器',
     }],
   }]
+  private disabledOptions: any[] = [{
+    value: 'disabled',
+    label: 'disabled',
+    disabled: true,
+  }, {
+    value: 'normal',
+    label: 'normal',
+  }]
   
-  changeHandle(e: any): void {
-    console.log(e)
+  changeHandle(event: { path: string[], value: string }): void {
+    console.log(event)
   }
+}
+
+@Component({
+  selector: 'ex-cascader',
+  templateUrl: './cascader.component.html',
+  styleUrls: ['./cascader.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+})
+export class ExCascaderComponent implements OnInit {
+  
+  private code: string[] = code
+  private page: any = {
+    previous: { name: 'Select 选择器', link: '/form/select' },
+    next: { name: 'Switch 开关', link: '/form/switch' },
+  }
+  
+  private exClass: any = ExCascaderDemoComponent
   
   ngOnInit(): void {
   }
