@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core'
+import { Component, HostListener, OnDestroy, Renderer2 } from '@angular/core'
 import { Value } from './dropdown.item'
 import { ElDropdownProps } from './dropdown.props'
 import { dropAnimation } from '../shared/animation'
@@ -11,7 +11,7 @@ import { dropAnimation } from '../shared/animation'
     </ng-template>
     <div class="el-dropdown">
       <ng-container *ngIf="splitButton">
-        <el-button [type]="type" [size]="size" (click)="openMenu()">
+        <el-button [type]="type" [size]="size" (click)="openMenu($event)">
           <span>
             <ng-template [ngTemplateOutlet]="content"></ng-template>
             <i class="el-icon-caret-bottom el-icon--right"></i>
@@ -19,7 +19,7 @@ import { dropAnimation } from '../shared/animation'
         </el-button>
       </ng-container>
       <ng-container *ngIf="!splitButton">
-        <span class="el-dropdown-link" (click)="openMenu()" style="cursor: pointer;">
+        <span class="el-dropdown-link" (click)="openMenu($event)" style="cursor: pointer;">
           <ng-template [ngTemplateOutlet]="content"></ng-template>
           <i class="el-icon-caret-bottom el-icon--right"></i>
         </span>
@@ -38,10 +38,11 @@ import { dropAnimation } from '../shared/animation'
   `,
   animations: [dropAnimation],
 })
-export class ElDropdown extends ElDropdownProps {
+export class ElDropdown extends ElDropdownProps implements OnDestroy {
   
   private showMenu: boolean = false
   private timer: any
+  private globalListenFunc: Function
   
   @HostListener('mouseleave') mouseleave = () => {
     if (this.trigger !== 'hover') return
@@ -59,18 +60,26 @@ export class ElDropdown extends ElDropdownProps {
   }
   
   constructor(
+    private renderer: Renderer2,
   ) {
     super()
   }
   
-  openMenu(): void {
+  openMenu(event?: Event): void {
+    event && event.stopPropagation()
     this.showMenu = !this.showMenu
     this.visibleChange.emit()
+    this.globalListenFunc = this.renderer.listen(
+      'document',
+      'click',
+      () => this.closeMenu()
+    )
   }
   
   closeMenu(): void {
     this.showMenu = false
     this.visibleChange.emit()
+    this.globalListenFunc && this.globalListenFunc()
   }
   
   selectHandle(model: Value): void {
@@ -78,6 +87,10 @@ export class ElDropdown extends ElDropdownProps {
     
     // select and hide menu (props)
     this.hideOnClick && this.closeMenu()
+  }
+  
+  ngOnDestroy(): void {
+    this.globalListenFunc && this.globalListenFunc()
   }
 
 }

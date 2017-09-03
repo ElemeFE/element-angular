@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core'
 import { ElCascaderPoprs, Option } from './cascader-props'
 
 @Component({
@@ -32,22 +32,36 @@ import { ElCascaderPoprs, Option } from './cascader-props'
   </span>
   `,
 })
-export class ElCascader extends ElCascaderPoprs implements OnInit {
+export class ElCascader extends ElCascaderPoprs implements OnInit, OnDestroy {
   
   steps: any[] = []
   menuVisible: boolean = false
   private inputHover: boolean = false
   private currentLabels: Option[] = []
+  private globalListenFunc: Function
   
-  constructor() {
+  constructor(
+    private renderer: Renderer2,
+  ) {
     super()
   }
   
   clickHandle(event: MouseEvent): void {
+    event.stopPropagation()
     const element: HTMLElement = event.target as HTMLElement
     const isSelfTrigger = ['SPAN', 'I', 'INPUT'].find(v => v === element.tagName)
     if (!isSelfTrigger) return
     this.menuVisible = !this.menuVisible
+    
+    if (this.menuVisible) {
+      this.globalListenFunc = this.renderer.listen(
+        'document',
+        'click',
+        () => (this.menuVisible = false)
+      )
+    } else {
+      this.globalListenFunc && this.globalListenFunc()
+    }
   }
   
   changeLabels(): void {
@@ -74,7 +88,9 @@ export class ElCascader extends ElCascaderPoprs implements OnInit {
     this.menuVisible = false
   }
   
-  selectHandle(step: number, index: number): any {
+  selectHandle(event: Event, step: number, index: number): any {
+    event.stopPropagation()
+    
     if (this.steps[step][index].disabled) return
     this.steps[step] = this.steps[step].map((item: Option, i: number) =>
       Object.assign(item, { active: i === index }))
@@ -114,6 +130,10 @@ export class ElCascader extends ElCascaderPoprs implements OnInit {
       })
       this.currentLabels = val.filter(v => !!v)
     }
+  }
+  
+  ngOnDestroy(): void {
+    this.globalListenFunc && this.globalListenFunc()
   }
   
 }
