@@ -3,12 +3,24 @@
 
 <h3>基础用法</h3>
 <p>展示新消息数量。</p>
-<!--<el-badge :value="12" class="item">-->
-  <!--<el-button size="small">评论</el-button>-->
-<!--</el-badge>-->
-<!--<el-badge :value="3" class="item">-->
-  <!--<el-button size="small">回复</el-button>-->
-<!--</el-badge>-->
+<ex-demo link="2" [code]="code[0]">
+</ex-demo>
+
+<h3>最大值</h3>
+<p>可自定义最大值。</p>
+<ex-demo link="2" [code]="code[1]" notes="由 <code>max</code> 属性定义，
+需要注意的是，只有当 <code>model</code> 为 <code>number</code> 时，它才会生效。">
+</ex-demo>
+
+<h3>自定义内容</h3>
+<p>可以显示数字以外的文本内容。</p>
+<ex-demo link="2" [code]="code[2]">
+</ex-demo>
+
+<h3>小红点</h3>
+<p>以红点的形式标注需要关注的内容。</p>
+<ex-demo link="2" [code]="code[3]">
+</ex-demo>
 
 <!--<ex-document doc="tag"></ex-document>-->
 
