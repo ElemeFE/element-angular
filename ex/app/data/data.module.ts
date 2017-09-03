@@ -8,12 +8,14 @@ import { ExSharedModule } from '../shared/module'
 import { ExUserMainComponent } from './main/main.component'
 import { ExTagComponent } from './tag/tag.component'
 import { ExProgressComponent } from './progress/progress.component'
+import { ExBadgeComponent } from './badge/badge.component'
 
 @NgModule({
   declarations: [
     ExUserMainComponent,
     ExTagComponent,
     ExProgressComponent,
+    ExBadgeComponent,
   ],
   imports: [
     CommonModule,

@@ -11,8 +11,8 @@ export class ExProgressComponent implements OnInit {
   
   private code: string[] = code
   private page: any = {
-    previous: { name: 'Progress 进度条', link: '/data/progress' },
-    next: { name: 'Loading 加载', link: '/notice/loading' },
+    previous: { name: 'Tag 标签', link: '/data/tag' },
+    next: { name: 'Badge 标记', link: '/data/badge' },
   }
   
   ngOnInit(): void {

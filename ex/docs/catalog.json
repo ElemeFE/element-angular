@@ -83,6 +83,9 @@
     }, {
       "name": "progress 进度条",
       "link": "/data/progress"
+    }, {
+      "name": "badge 标记",
+      "link": "/data/badge"
     }]
   }, {
     "name": "Notice",
