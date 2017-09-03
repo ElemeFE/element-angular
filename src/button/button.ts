@@ -10,7 +10,8 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
   <button (click)="clickHandle($event)"
-    [class]="'el-button' + (themeType && ' el-button--' + themeType) + (size && ' el-button--' + size) + nativeClass"
+    [class]="'el-button ' + (themeType ? ' el-button--' + themeType : '')
+      + (size ? ' el-button--' + size : '') + ' ' + nativeClass"
     [class.is-disabled]="disabled"
     [class.is-loading]="loading"
     [class.is-plain]="plain"
@@ -27,7 +28,7 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 export class ElButton implements OnInit {
   
   @Input('type') themeType: string = ''
-  @Input('native-type') nativeType: string = ''
+  @Input('native-type') nativeType: string = 'button'
   @Input() size: string = ''
   @Input() icon: string = ''
   @Input() disabled: boolean = false
@@ -35,15 +36,13 @@ export class ElButton implements OnInit {
   @Input() plain: boolean = false
   @Input() autofocus: boolean = false
   @Input() style: string = ''
+  @Input('class') nativeClass: string = ''
   @Output() click: EventEmitter<any> = new EventEmitter<any>()
-  
-  private nativeClass: string = ' '
   
   constructor(
     private el: ElementRef,
     private sanitizer: DomSanitizer,
   ) {
-    this.nativeClass += this.el.nativeElement.classList.value
   }
   
   clickHandle($event: Event): void {
@@ -55,6 +54,7 @@ export class ElButton implements OnInit {
   }
   
   ngOnInit(): void {
+    console.log(this.nativeClass)
     removeNgTag(this.el.nativeElement)
   }
   
