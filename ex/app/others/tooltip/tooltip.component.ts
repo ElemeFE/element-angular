@@ -12,7 +12,7 @@ export class ExTooltipComponent implements OnInit {
   private code: string[] = code
   private page: any = {
     previous: { name: 'Steps 步骤条', link: '/nav/steps' },
-    next: { name: null, link: '' },
+    next: { name: 'Card 卡片', link: '/others/card' },
   }
   
   ngOnInit(): void {

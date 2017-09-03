@@ -25,18 +25,19 @@ import { ElMessagesModule } from './message/module'
 import { ElNotificationModule } from './notification/module'
 import { ElCascaderModule } from './cascader/module'
 import { ElBadgesModule } from './badge/module'
+import { ElCardsModule } from './card/module'
 
 const ElChildModules: any = {
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
-  ElSharedModule, ElNotificationModule, ElCascaderModule, ElBadgesModule,
+  ElSharedModule, ElNotificationModule, ElCascaderModule, ElBadgesModule, ElCardsModule,
 }
 export const ELMODULES_GROUP: any[] = [
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
-  ElSharedModule, ElNotificationModule, ElCascaderModule, ElBadgesModule,
+  ElSharedModule, ElNotificationModule, ElCascaderModule, ElBadgesModule, ElCardsModule,
 ]
 
 @NgModule({
@@ -47,7 +48,7 @@ export const ELMODULES_GROUP: any[] = [
     ElInputsModule.forRoot(), ElInputNumberModule.forRoot(), ElTagsModule.forRoot(), ElSelectModule.forRoot(),
     ElSwitchModule.forRoot(), ElRateModule.forRoot(), ElProgressModule.forRoot(), ElStepsModule.forRoot(),
     ElLoadingModule.forRoot(), ElMessagesModule.forRoot(), ElSharedModule.forRoot(), ElNotificationModule.forRoot(),
-    ElCascaderModule.forRoot(), ElBadgesModule.forRoot(),
+    ElCascaderModule.forRoot(), ElBadgesModule.forRoot(), ElCardsModule.forRoot(),
     
   ],
   exports: ELMODULES_GROUP,

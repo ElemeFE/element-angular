@@ -116,6 +116,9 @@
     "children": [{
       "name": "tooltip 文字提示",
       "link": "/others/tooltip"
+    }, {
+      "name": "card 卡片",
+      "link": "/others/card"
     }]
   }]
 }]
