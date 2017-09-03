@@ -50,51 +50,51 @@
     "name": "Form",
     "link": null,
     "children": [{
-      "name": "radio 单选框",
+      "name": "Radio 单选框",
       "link": "/form/radio"
     }, {
-      "name": "checkbox 多选框",
+      "name": "Checkbox 多选框",
       "link": "/form/checkbox"
     }, {
-      "name": "input 输入框",
+      "name": "Input 输入框",
       "link": "/form/input"
     }, {
-      "name": "inputNumber 计数器",
+      "name": "InputNumber 计数器",
       "link": "/form/input-number"
     }, {
-      "name": "select 选择器",
+      "name": "Select 选择器",
       "link": "/form/select"
     }, {
-      "name": "cascader 级联选择器",
+      "name": "Cascader 级联选择器",
       "link": "/form/cascader"
     }, {
-      "name": "switch 开关",
+      "name": "Switch 开关",
       "link": "/form/switch"
     }, {
-      "name": "rate 评分",
+      "name": "Rate 评分",
       "link": "/form/rate"
     }]
   }, {
     "name": "Data",
     "link": null,
     "children": [{
-      "name": "tag 标签",
+      "name": "Tag 标签",
       "link": "/data/tag"
     }, {
-      "name": "progress 进度条",
+      "name": "Progress 进度条",
       "link": "/data/progress"
     }, {
-      "name": "badge 标记",
+      "name": "Badge 标记",
       "link": "/data/badge"
     }]
   }, {
     "name": "Notice",
     "link": null,
     "children": [{
-      "name": "loading 加载",
+      "name": "Loading 加载",
       "link": "/notice/loading"
     }, {
-      "name": "message 消息提示",
+      "name": "Message 消息提示",
       "link": "/notice/message"
     }, {
       "name": "Notification 通知",
@@ -104,7 +104,7 @@
     "name": "Navigation",
     "link": null,
     "children": [{
-      "name": "nab-menu 导航菜单",
+      "name": "Nav-menu 导航菜单",
       "link": "/nav/menu"
     }, {
       "name": "Steps 步骤条",
@@ -117,10 +117,10 @@
     "name": "Others",
     "link": null,
     "children": [{
-      "name": "tooltip 文字提示",
+      "name": "Tooltip 文字提示",
       "link": "/others/tooltip"
     }, {
-      "name": "card 卡片",
+      "name": "Card 卡片",
       "link": "/others/card"
     }]
   }]
