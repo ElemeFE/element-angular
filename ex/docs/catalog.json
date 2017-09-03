@@ -109,6 +109,9 @@
     }, {
       "name": "Steps 步骤条",
       "link": "/nav/steps"
+    }, {
+      "name": "Dropdown 下拉菜单",
+      "link": "/nav/dropdown"
     }]
   }, {
     "name": "Others",

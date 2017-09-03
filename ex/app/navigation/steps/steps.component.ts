@@ -22,7 +22,7 @@ export class ExStepsComponent implements OnInit {
   private code: string[] = code
   private page: any = {
     previous: { name: 'NavMenu 导航菜单', link: '/nav/menu' },
-    next: { name: 'Tooltip 文字提示', link: '/others/tooltip' },
+    next: { name: 'Dropdown 下拉菜单', link: '/nav/dropdown' },
   }
   
   

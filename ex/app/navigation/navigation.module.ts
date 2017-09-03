@@ -8,12 +8,14 @@ import { ExNavigationMainComponent } from './main/main.component'
 import { ExMenuComponent } from './menu/menu.component'
 import { ExStepsComponent } from './steps/steps.component'
 import { ExSharedModule } from '../shared/module'
+import { ExDropdownComponent } from './dropdown/dropdown.component'
 
 @NgModule({
   declarations: [
     ExNavigationMainComponent,
     ExMenuComponent,
     ExStepsComponent,
+    ExDropdownComponent,
   ],
   imports: [
     CommonModule,
