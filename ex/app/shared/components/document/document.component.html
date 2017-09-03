@@ -14,7 +14,7 @@
   <tbody>
   <tr *ngFor="let attr of apis.attrs">
     <td>{{attr.name}}</td>
-    <td>{{attr.notes}}</td>
+    <td [innerHTML]="attr.notes"></td>
     <td>{{attr.type}}</td>
     <td>{{attr.enum !== null ? attr.enum : '—'}}</td>
     <td>{{attr.default !== null ? attr.default : '-'}}</td>
