@@ -12,8 +12,8 @@ export class ExBadgeComponent implements OnInit {
   private code: string[] = code
   private tags: string[] = ['123', '234234', '0011']
   private page: any = {
-    previous: { name: 'Rate 评分', link: '/form/rate' },
-    next: { name: 'Progress 输入框', link: '/data/progress' },
+    previous: { name: 'Progress 进度条', link: '/data/progress' },
+    next: { name: 'Loading 加载', link: '/notice/loading' },
   }
   
   handle(): void {
