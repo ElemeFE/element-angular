@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core'
+import { Component, ContentChild, HostListener, TemplateRef } from '@angular/core'
 import { Value } from './dropdown.item'
 import { ElDropdownProps } from './dropdown.props'
 import { dropAnimation } from '../shared/animation'
@@ -6,19 +6,21 @@ import { dropAnimation } from '../shared/animation'
 @Component({
   selector: 'el-dropdown',
   template: `
+    <ng-template #content>
+      <ng-content></ng-content>
+    </ng-template>
     <div class="el-dropdown">
       <ng-container *ngIf="splitButton">
         <el-button [type]="type" [size]="size" (click)="openMenu()">
-        <span class="el-dropdown-link">
-          <ng-content></ng-content>
-          <i class="el-icon-caret-bottom el-icon--right"></i>
-        </span>
+          <span class="el-dropdown-link" style="cursor: pointer;">
+            <ng-template [ngTemplateOutlet]="content"></ng-template>
+            <i class="el-icon-caret-bottom el-icon--right"></i>
+          </span>
         </el-button>
       </ng-container>
       <ng-container *ngIf="!splitButton">
-        <span class="el-dropdown-link" (click)="openMenu()"
-          style="cursor: pointer;">
-          <ng-content></ng-content>
+        <span class="el-dropdown-link" (click)="openMenu()" style="cursor: pointer;">
+          <ng-template [ngTemplateOutlet]="content"></ng-template>
           <i class="el-icon-caret-bottom el-icon--right"></i>
         </span>
       </ng-container>

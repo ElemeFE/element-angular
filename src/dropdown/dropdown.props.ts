@@ -13,7 +13,7 @@ export class ElDropdownProps {
   
   // trigger type
   @Input() trigger: string = 'hover'
-  @Input('hide-on-click') hideOnClick: boolean = false
+  @Input('hide-on-click') hideOnClick: boolean = true
   
   // event
   @Output('visible-change') visibleChange: EventEmitter<any> = new EventEmitter<any>()
