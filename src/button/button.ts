@@ -3,6 +3,7 @@ import {
   ElementRef,
 } from '@angular/core'
 import { removeNgTag } from '../shared/utils'
+import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 
 @Component({
   selector: 'el-button',
@@ -15,6 +16,7 @@ import { removeNgTag } from '../shared/utils'
     [class.is-plain]="plain"
     [disabled]="disabled"
     [type]="nativeType"
+    [style]="extendStyles()"
     [autofocus]="autofocus">
     <i class="el-icon-loading" *ngIf="loading"></i>
     <i [class]="'el-icon-' + icon" *ngIf="icon && !loading"></i>
@@ -32,18 +34,24 @@ export class ElButton implements OnInit {
   @Input() loading: boolean = false
   @Input() plain: boolean = false
   @Input() autofocus: boolean = false
+  @Input() style: string = ''
   @Output() click: EventEmitter<any> = new EventEmitter<any>()
   
   private nativeClass: string = ' '
   
   constructor(
     private el: ElementRef,
+    private sanitizer: DomSanitizer,
   ) {
     this.nativeClass += this.el.nativeElement.classList.value
   }
   
   clickHandle($event: Event): void {
     this.click.emit($event)
+  }
+  
+  extendStyles(): SafeStyle {
+    return this.sanitizer.bypassSecurityTrustStyle(this.style)
   }
   
   ngOnInit(): void {
