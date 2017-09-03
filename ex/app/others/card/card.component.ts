@@ -16,7 +16,7 @@ export class ExCardComponent implements OnInit {
     }
   }
   private page: any = {
-    previous: { name: 'Steps 步骤条', link: '/nav/steps' },
+    previous: { name: 'Tooltip 文字提示', link: '/others/tooltip' },
     next: { name: null, link: '' },
   }
   
