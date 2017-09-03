@@ -7,11 +7,13 @@ import { ElModule } from '../../../src/index'
 import { ExUserMainComponent } from './main/main.component'
 import { ExTooltipComponent } from './tooltip/tooltip.component'
 import { ExSharedModule } from '../shared/module'
+import { ExCardComponent } from './card/card.component'
 
 @NgModule({
   declarations: [
     ExUserMainComponent,
     ExTooltipComponent,
+    ExCardComponent,
   ],
   imports: [
     CommonModule,
