@@ -54,7 +54,6 @@ export class ElButton implements OnInit {
   }
   
   ngOnInit(): void {
-    console.log(this.nativeClass)
     removeNgTag(this.el.nativeElement)
   }
   
