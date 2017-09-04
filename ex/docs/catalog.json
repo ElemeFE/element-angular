@@ -107,6 +107,9 @@
       "name": "Nav-menu 导航菜单",
       "link": "/nav/menu"
     }, {
+      "name": "Breadcrumb 面包屑",
+      "link": "/nav/breadcrumb"
+    }, {
       "name": "Steps 步骤条",
       "link": "/nav/steps"
     }, {

@@ -1,0 +1,25 @@
+<h2>Breadcrumb 面包屑</h2>
+<p>显示当前页面的路径，快速返回之前的任意页面。</p>
+
+<h3>基础用法</h3>
+<p>适用广泛的基础用法。</p>
+<ex-demo link="2" [code]="code[0]">
+</ex-demo>
+
+<h3>手动跳转</h3>
+<p>关闭组件的自动跳转从而手动设置路由，这是复杂的应用常见的需求。</p>
+<ex-demo link="2" [code]="code[1]" [class]="exClass" notes="设置 <code>prevent</code> 会阻止组件默认的跳转，
+你可以从 <code>(next)</code> 事件中收集每次跳转的路径。">
+</ex-demo>
+
+
+
+
+
+
+
+<!--<ex-document doc="dropdown"></ex-document>-->
+
+<ex-footer-nav [page]="page"></ex-footer-nav>
+
+

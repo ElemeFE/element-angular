@@ -5,6 +5,7 @@ import { ExNavigationMainComponent } from './main/main.component'
 import { ExMenuComponent } from './menu/menu.component'
 import { ExStepsComponent } from './steps/steps.component'
 import { ExDropdownComponent } from './dropdown/dropdown.component'
+import { ExBreadcrumbComponent } from './breadcrumb/breadcrumb.component'
 
 
 export const navigationRoutes: Routes = [{
@@ -15,6 +16,8 @@ export const navigationRoutes: Routes = [{
     path: 'steps', component: ExStepsComponent,
   }, {
     path: 'dropdown', component: ExDropdownComponent,
+  }, {
+    path: 'breadcrumb', component: ExBreadcrumbComponent,
   }],
 }]
 
