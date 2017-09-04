@@ -74,6 +74,9 @@
       "name": "DatePicker 日期选择器",
       "link": "/form/date-picker"
     }, {
+      "name": "Slider 滑块",
+      "link": "/form/slider"
+    }, {
       "name": "Rate 评分",
       "link": "/form/rate"
     }]

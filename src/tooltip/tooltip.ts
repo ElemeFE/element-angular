@@ -31,6 +31,7 @@ export type Shape = { width: number, height: number }
 export class ElTooltip implements AfterContentInit {
   
   @Input() disabled: boolean = false
+  @Input() watch: boolean = false
   @Input() placement: string = 'bottom'
   @Input() popperClass: string
   @Input() effect: string = 'dark'
@@ -57,6 +58,7 @@ export class ElTooltip implements AfterContentInit {
     const dir: string = doubleConventions ? this.placement.split('-')[0] : this.placement
     const position: any = getPositionForDir(hostRect, selfRect, dir, arrowDir)
     this.cache.position = position
+    this.cache.hostRect = hostRect
   }
   
   setPopoerPositionAndShow(): void {
@@ -80,7 +82,21 @@ export class ElTooltip implements AfterContentInit {
     })
     host.addEventListener('mouseleave', () => {
       this.showPopper = false
+      this.watch && this.update()
     })
+  }
+  
+  update(): void {
+    const { tipElement, hostRect } = this.cache
+    this.renderer.setStyle(tipElement, 'width', 'auto')
+    this.renderer.setStyle(tipElement, 'height', 'auto')
+    setTimeout(() => {
+      this.tipElementShape = getRealShape(tipElement)
+      const tipRect = { width: tipElement.offsetWidth, height: tipElement.offsetHeight }
+      this.getPosition(hostRect, tipRect)
+      this.renderer.setStyle(tipElement, 'width', `${this.tipElementShape.width}px`)
+      this.renderer.setStyle(tipElement, 'height', `${this.tipElementShape.height}px`)
+    }, 0)
   }
   
   ngAfterContentInit(): void {
