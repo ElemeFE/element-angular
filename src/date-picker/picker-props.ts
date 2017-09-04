@@ -1,0 +1,26 @@
+
+
+import { EventEmitter, Input, Output } from '@angular/core'
+
+export class ElDatePickerProps {
+  
+  @Input() readonly: boolean = false
+  @Input() disabled: boolean = false
+  @Input() editable: boolean = true
+  @Input() clearable: boolean = true
+  
+  @Input() size: string                 // enum: large, small, mini
+  @Input() align: string = 'left'                // enum: left, center, right
+  @Input() type : string = 'date'                // enum: year/month/date/week/datetime/datetimerange/daterange
+  @Input() placeholder: string
+  @Input() format: string = 'yyyy-MM-dd'
+  
+  @Input('popper-class') popperClass: string
+  @Input('picker-options') pickerOptions: any = {}
+  @Input('range-separator') rangeSeparator: string = '-'
+  @Input('default-value') defaultValue: string
+  
+  @Input() model: string
+  @Output() modelChange: EventEmitter<string> = new EventEmitter<string>()
+  
+}

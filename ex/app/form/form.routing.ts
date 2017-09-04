@@ -9,6 +9,7 @@ import { ExSelectComponent } from './select/select.component'
 import { ExSwitchComponent } from './switch/switch.component'
 import { ExRateComponent } from './rate/rate.component'
 import { ExCascaderComponent } from './cascader/cascader.component'
+import { ExDatePickerComponent } from './date-picker/date-picker.component'
 
 
 export const formRoutes: Routes = [{
@@ -29,6 +30,8 @@ export const formRoutes: Routes = [{
     path: 'rate', component: ExRateComponent,
   }, {
     path: 'cascader', component: ExCascaderComponent,
+  }, {
+    path: 'date-picker', component: ExDatePickerComponent,
   }],
 }]
 
