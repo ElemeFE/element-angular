@@ -1,6 +1,7 @@
-import { Component, Input, ChangeDetectionStrategy, Optional } from '@angular/core'
+import { Component, Input, Optional, OnInit, ElementRef, ChangeDetectionStrategy } from '@angular/core'
 import { ElBreadcrumb } from './breadcrumb'
 import { NavigationExtras, Router } from '@angular/router'
+import { removeNgTag } from '../shared/utils'
 
 @Component({
   selector: 'el-breadcrumb-item',
@@ -14,7 +15,7 @@ import { NavigationExtras, Router } from '@angular/router'
     </span>
   `,
 })
-export class ElBreadcrumbItem {
+export class ElBreadcrumbItem implements OnInit {
   
   @Input() to: string
   @Input() prevent: boolean = false
@@ -23,16 +24,19 @@ export class ElBreadcrumbItem {
   constructor(
     @Optional() private root: ElBreadcrumb,
     private router: Router,
+    private el: ElementRef,
   ) {
   }
   
-  clickHandle(event: Event): void {
+  clickHandle(event: Event): any {
     event.stopPropagation()
     this.root.itemHandle(this.to)
     if (!this.to || this.root.prevent || this.prevent) return
-    this.router.navigateByUrl(this.to, this.extras)
-      .then(() => {})
-      .catch(() => {})
+    return this.router.navigateByUrl(this.to, this.extras)
+  }
+  
+  ngOnInit(): void {
+    removeNgTag(this.el.nativeElement)
   }
   
 }
