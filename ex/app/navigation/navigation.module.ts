@@ -9,6 +9,7 @@ import { ExMenuComponent } from './menu/menu.component'
 import { ExStepsComponent } from './steps/steps.component'
 import { ExSharedModule } from '../shared/module'
 import { ExDropdownComponent } from './dropdown/dropdown.component'
+import { ExBreadcrumbComponent } from './breadcrumb/breadcrumb.component'
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ExDropdownComponent } from './dropdown/dropdown.component'
     ExMenuComponent,
     ExStepsComponent,
     ExDropdownComponent,
+    ExBreadcrumbComponent,
   ],
   imports: [
     CommonModule,
