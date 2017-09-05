@@ -15,8 +15,8 @@ import { DateFormat } from './utils/format'
         [model]="model"
         (icon-click)="iconClickHandle()"
         (modelChange)="changeHandle($event)"
-        (iconMouseEnter)="iconMouseActionHandle(true)"
-        (iconMouseLeave)="iconMouseActionHandle(false)"
+        (icon-mouseenter)="iconMouseActionHandle(true)"
+        (icon-mouseleave)="iconMouseActionHandle(false)"
         (focus)="focusHandle()">
       </el-input>
       <el-data-picker-panel [show]="showPanelPicker"
