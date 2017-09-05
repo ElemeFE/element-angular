@@ -12,7 +12,14 @@ export class ExDatePickerComponent implements OnInit {
   private code: string[] = code
   private page: any = {
     previous: { name: 'Switch 开关', link: '/form/switch' },
-    next: { name: 'Tag 标签', link: '/data/tag' },
+    next: { name: 'Rate 评分', link: '/form/rate' },
+  }
+  private exClass: any = class {
+    handle(time: string): void {
+      // [time] is string
+      // date style follow format props
+      console.log(time)
+    }
   }
   
   ngOnInit(): void {
