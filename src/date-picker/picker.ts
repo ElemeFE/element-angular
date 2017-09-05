@@ -52,8 +52,9 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
     // use close action
     if (this.iconShowClose) {
       this.model = null
-      this.showPanelPicker = false
       this.value = Date.now()
+      this.showPanelPicker = false
+      this.iconShowClose = false
       return
     }
     // toggle action
