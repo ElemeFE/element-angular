@@ -24,7 +24,8 @@ import { getTextareaHeight } from './help'
         
         <i [class]="'el-input__icon ' + ('el-icon-' + icon) + (iconClick ? ' is-clickable ' : ' ')
         + (iconClass ? iconClass : '')"
-          *ngIf="icon" (click)="iconClick.emit($event)"></i>
+          *ngIf="icon" (click)="iconClick.emit($event)"
+          (mouseenter)="iconMouseEnter.emit($event)" (mouseleave)="iconMouseLeave.emit($event)"></i>
         <input class="el-input__inner"
           [autocomplete]="autoComplete" [value]="value" [name]="name"
           [placeholder]="placeholder" [autofocus]="autofocus"

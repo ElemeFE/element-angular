@@ -71,6 +71,9 @@
       "name": "Switch 开关",
       "link": "/form/switch"
     }, {
+      "name": "DatePicker 日期选择器",
+      "link": "/form/date-picker"
+    }, {
       "name": "Rate 评分",
       "link": "/form/rate"
     }]

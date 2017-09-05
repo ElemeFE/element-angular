@@ -14,6 +14,7 @@ import { ExSelectComponent } from './select/select.component'
 import { ExSwitchComponent } from './switch/switch.component'
 import { ExRateComponent } from './rate/rate.component'
 import { ExCascaderComponent } from './cascader/cascader.component'
+import { ExDatePickerComponent } from './date-picker/date-picker.component'
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ExCascaderComponent } from './cascader/cascader.component'
     ExSwitchComponent,
     ExRateComponent,
     ExCascaderComponent,
+    ExDatePickerComponent,
   ],
   imports: [
     CommonModule,
