@@ -28,6 +28,7 @@ export class ElOption implements OnInit {
   
   clickHandle(event: Event): void {
     event.stopPropagation()
+    if (this.disabled || this.rootDisabled) return
     this.rootSelect.changeLabel(this.label, this.value)
   }
   
