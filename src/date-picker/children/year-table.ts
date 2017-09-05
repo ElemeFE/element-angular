@@ -3,10 +3,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 @Component({
   selector: 'el-year-table',
   template: `
-    <table class="el-year-table" (click)="handleYearTableClick()">
+    <table class="el-year-table">
       <tbody>
       <tr *ngFor="let years of yearRows">
-        <td class="available" *ngFor="let year of years">
+        <td class="available" *ngFor="let year of years"
+          [class.current]="year === currentYear"
+          (click)="clickHandle(year)">
           <a class="cell">{{year}}</a>
         </td>
       </tr>
@@ -19,7 +21,7 @@ export class ElYearTable implements OnInit {
   @Input() showWeekNumber: boolean = false
   @Input() model: number
   @Input('disabled-date') disabledDate: any
-  @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
+  @Output() modelChange: EventEmitter<number> = new EventEmitter<number>()
   
   private date: Date
   private yearRows: number[][]
@@ -29,16 +31,10 @@ export class ElYearTable implements OnInit {
   ) {
   }
   
-  getCellClasses(cell: any): string {
-    return ''
-  }
-  
-  handleYearTableClick(): void {
-  
-  }
-  
-  getCellStyle(): void {
-  
+  clickHandle(year: number): void {
+    this.currentYear = year
+    this.date.setFullYear(year)
+    this.modelChange.emit(this.date.getTime())
   }
   
   updateYearRow(currentYear: number): number[][] {

@@ -49,7 +49,7 @@ import { dropAnimation } from '../shared/animation'
             </el-date-table>
             <el-year-table *ngIf="currentView === 'year'"
               [model]="model"
-              (modelChange)="handleYearPick()"
+              (modelChange)="yearPickChangeHandle($event)"
               [disabled-date]="disabledDate">
             </el-year-table>
             <el-month-table *ngIf="currentView === 'month'"
@@ -105,6 +105,12 @@ export class ElDatePickerPanel implements OnInit {
   monthPickChangeHandle(time: number): void {
     this.model = time
     this.currentView = 'date'
+    this.updateDate()
+  }
+  
+  yearPickChangeHandle(time: number): void {
+    this.model = time
+    this.currentView = 'month'
     this.updateDate()
   }
   
