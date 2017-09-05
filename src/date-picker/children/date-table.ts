@@ -47,7 +47,7 @@ export class ElDateTable implements OnInit, OnChanges {
   private today: number
   private currentMonthOffset: number
   
-  static BuildMonthStartRow: Function = (first: number, lastCount: number): DateRowItem[] => {
+  static BuildMonthStartRow(first: number, lastCount: number): DateRowItem[] {
     let lastday: number = 7 - first
     // first loop
     lastCount ++
