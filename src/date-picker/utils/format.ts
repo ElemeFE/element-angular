@@ -69,7 +69,7 @@ export class DateFormat {
   
   }
   
-  getTime(input: any): number {
+  getTime(input?: any): number {
     const date: Date = new Date(input)
     if (String(date) === 'Invalid Date') {
       return 0

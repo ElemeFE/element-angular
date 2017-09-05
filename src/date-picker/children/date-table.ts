@@ -86,7 +86,7 @@ export class ElDateTable implements OnInit, OnChanges {
   getRows(): void {
     const date = this.date
     this.targetDay = date.getDate()
-    this.today = new Date().getDate()
+    this.today = Date.now()
     this.currentMonthOffset = DateFormat.getCurrentMonthOffset(date)
   
     const lastMonth: number = date.getMonth() - 1

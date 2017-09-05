@@ -12,7 +12,7 @@ export class ElDatePickerProps {
   @Input() size: string                 // enum: large, small, mini
   @Input() align: string = 'left'                // enum: left, center, right
   @Input() type : string = 'date'                // enum: year/month/date/week/datetime/datetimerange/daterange
-  @Input() placeholder: string
+  @Input() placeholder: string = '选择日期'
   @Input() format: string = 'yyyy-MM-dd'
   
   @Input('popper-class') popperClass: string

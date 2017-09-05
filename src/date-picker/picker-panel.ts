@@ -149,7 +149,7 @@ export class ElDatePickerPanel implements OnInit, OnChanges {
   }
   
   ngOnInit(): void {
-    this.model = this.model || new Date().getTime()
+    this.model = this.model || Date.now()
     this.updateDate()
   }
   
@@ -160,7 +160,7 @@ export class ElDatePickerPanel implements OnInit, OnChanges {
     if (!changes.model.previousValue) return
   
     this.model = changes.model.currentValue
-    this.model = this.model || new Date().getTime()
+    this.model = this.model || Date.now()
     this.updateDate()
   }
   

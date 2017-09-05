@@ -33,4 +33,6 @@ export class ElInputPoprs {
   @Output('icon-click') iconClick: EventEmitter<any> = new EventEmitter<any>()  // handle on the input icon
   @Output() focus: EventEmitter<any> = new EventEmitter<any>()
   @Output() blur: EventEmitter<any> = new EventEmitter<any>()
+  @Output() iconMouseEnter: EventEmitter<any> = new EventEmitter<any>()
+  @Output() iconMouseLeave: EventEmitter<any> = new EventEmitter<any>()
 }

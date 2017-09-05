@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core'
 import { ElDatePickerProps } from './picker-props'
 import { DateFormat } from './utils/format'
 
@@ -6,14 +6,17 @@ import { DateFormat } from './utils/format'
   selector: 'el-date-picker',
   providers: [DateFormat],
   template: `
-    <div>
+    <div (click)="propagationHandle($event)">
       <el-input [class]="'el-date-editor ' + 'el-date-editor--' + type"
         [readonly]="!editable || readonly" [disabled]="disabled"
         [size]="size" [placeholder]="placeholder"
-        [icon]="showClose ? 'close' : 'date'"
+        [icon]="iconShowClose ? 'close' : 'date'"
+        [model]="model"
         (icon-click)="iconClickHandle()"
-        [model]="model" (modelChange)="changeHandle($event)"
-        (focus)="focusHandle()" (blur)="blurHandle()">
+        (modelChange)="changeHandle($event)"
+        (iconMouseEnter)="iconMouseActionHandle(true)"
+        (iconMouseLeave)="iconMouseActionHandle(false)"
+        (focus)="focusHandle()">
       </el-input>
       <el-data-picker-panel [show]="showPanelPicker"
         [model]="value"
@@ -22,19 +25,41 @@ import { DateFormat } from './utils/format'
     </div>
   `,
 })
-export class ElDataPicker extends ElDatePickerProps implements OnInit {
+export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy {
   
   private showPanelPicker: boolean = false
   private value: number
+  private globalClickListener: Function
+  private globalKeydownListener: Function
+  private iconShowClose: boolean = false
   
   constructor(
     private dateFormat: DateFormat,
+    private renderer: Renderer2,
   ) {
     super()
   }
   
+  iconMouseActionHandle(t: boolean): void {
+    if (!this.clearable) return
+    this.iconShowClose = this.model && t
+  }
+  
+  
   iconClickHandle(): void {
+    // use close action
+    if (this.iconShowClose) {
+      this.model = null
+      this.showPanelPicker = false
+      this.value = Date.now()
+      return
+    }
+    // toggle action
     this.showPanelPicker = !this.showPanelPicker
+  }
+  
+  propagationHandle(event: Event): void {
+    event.stopPropagation()
   }
   
   // text to time
@@ -51,18 +76,33 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit {
   
   focusHandle(): void {
     this.showPanelPicker = true
-  }
-  
-  blurHandle(): void {
-    // this.showPanelPicker = false
+    this.globalKeydownListener && this.globalKeydownListener()
+    this.globalKeydownListener = this.renderer.listen(
+    'document', 'keydown', (event) => {
+      if (event.keyCode === 9 || event.keyCode === 27) {
+        this.showPanelPicker = false
+        this.globalKeydownListener && this.globalKeydownListener()
+      }
+    })
   }
   
   // text to time
   ngOnInit(): void {
+    this.globalClickListener = this.renderer.listen(
+    'document', 'click', () => {
+      if (!this.showPanelPicker) return
+      this.showPanelPicker = false
+    })
+    // init value
     const time: number = this.dateFormat.getTime(this.model)
     if (!time) return
     this.model = DateFormat.moment(time, this.format)
     this.value = time
+  }
+  
+  ngOnDestroy(): void {
+    this.globalClickListener && this.globalClickListener()
+    this.globalKeydownListener && this.globalKeydownListener()
   }
   
 }
