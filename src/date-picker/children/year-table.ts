@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core'
 
 @Component({
   selector: 'el-year-table',
@@ -16,7 +16,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
     </table>
   `,
 })
-export class ElYearTable implements OnInit {
+export class ElYearTable implements OnInit, OnChanges {
   
   @Input() showWeekNumber: boolean = false
   @Input() model: number
@@ -26,10 +26,6 @@ export class ElYearTable implements OnInit {
   private date: Date
   private yearRows: number[][]
   private currentYear: number
-  
-  constructor(
-  ) {
-  }
   
   clickHandle(year: number): void {
     this.currentYear = year
@@ -44,6 +40,18 @@ export class ElYearTable implements OnInit {
   }
   
   ngOnInit(): void {
+    this.date = new Date(this.model)
+    this.currentYear = this.date.getFullYear()
+    this.yearRows = this.updateYearRow(this.currentYear)
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    // not include model
+    if (!changes || !changes.model) return
+    // first change
+    if (!changes.model.previousValue) return
+  
+    this.model = changes.model.currentValue
     this.date = new Date(this.model)
     this.currentYear = this.date.getFullYear()
     this.yearRows = this.updateYearRow(this.currentYear)

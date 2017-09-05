@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core'
 
 @Component({
   selector: 'el-month-table',
@@ -17,7 +17,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
     </table>
   `,
 })
-export class EMonthTable implements OnInit {
+export class EMonthTable implements OnInit, OnChanges {
   
   @Input() showWeekNumber: boolean = false
   @Input() model: number
@@ -33,10 +33,6 @@ export class EMonthTable implements OnInit {
     ['九月', '十月', '十一月', '十二月'],
   ]
   
-  constructor(
-  ) {
-  }
-  
   clickHandle(i: number, k: number): void {
     const monthID = 4 * i + k
     this.currentMonth = monthID
@@ -48,6 +44,17 @@ export class EMonthTable implements OnInit {
   }
   
   ngOnInit(): void {
+    this.date = new Date(this.model)
+    this.currentMonth = this.date.getMonth()
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    // not include model
+    if (!changes || !changes.model) return
+    // first change
+    if (!changes.model.previousValue) return
+  
+    this.model = changes.model.currentValue
     this.date = new Date(this.model)
     this.currentMonth = this.date.getMonth()
   }

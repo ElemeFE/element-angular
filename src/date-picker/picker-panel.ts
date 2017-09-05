@@ -1,6 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Optional, Output } from '@angular/core'
+import { Component, EventEmitter, Input, OnChanges, OnInit, Optional, Output, SimpleChanges } from '@angular/core'
 import { ElDataPicker } from './picker'
 import { dropAnimation } from '../shared/animation'
+
+export type DateModelItem = {
+  month: number,
+  year: number,
+  yearRange: number[],
+}
 
 @Component({
   selector: 'el-data-picker-panel',
@@ -22,22 +28,30 @@ import { dropAnimation } from '../shared/animation'
         <div class="el-picker-panel__body">
           <div class="el-date-picker__header">
             <button class="el-picker-panel__icon-btn el-date-picker__prev-btn el-icon-d-arrow-left"
-              type="button" (click)="prevYear">
+              type="button" (click)="nextYear(-1)">
             </button>
             <button class="el-picker-panel__icon-btn el-date-picker__prev-btn el-icon-arrow-left"
-              type="button" (click)="prevMonth"
+              type="button" (click)="nextMonth(-1)"
               *ngIf="currentView === 'date'">
             </button>
-            <span class="el-date-picker__header-label" (click)="showPicker('year')">{{dateShowModels.year}} 年</span>
+            
+            <!--year label-->
+            <span class="el-date-picker__header-label" *ngIf="currentView !== 'year'"
+              (click)="showPicker('year')">{{dateShowModels.year}} 年</span>
+            <!--year range label-->
+            <span class="el-date-picker__header-label" *ngIf="currentView === 'year'">
+              {{dateShowModels.yearRange[0]}} 年 - {{dateShowModels.yearRange[1]}}年
+            </span>
+            
             <span class="el-date-picker__header-label"
               [class.active]="currentView === 'month'"
               (click)="showPicker('month')"
-              *ngIf="currentView === 'date'">{{dateShowModels.month}} 月</span>
+              *ngIf="currentView === 'date'">{{dateShowModels.month + 1}} 月</span>
             <button class="el-picker-panel__icon-btn el-date-picker__next-btn el-icon-d-arrow-right"
-              type="button" (click)="nextYear">
+              type="button" (click)="nextYear(1)">
             </button>
             <button class="el-picker-panel__icon-btn el-date-picker__next-btn el-icon-arrow-right"
-              type="button" (click)="nextMonth"
+              type="button" (click)="nextMonth(1)"
               *ngIf="currentView === 'date'">
             </button>
           </div>
@@ -69,7 +83,7 @@ import { dropAnimation } from '../shared/animation'
     </div>
   `
 })
-export class ElDatePickerPanel implements OnInit {
+export class ElDatePickerPanel implements OnInit, OnChanges {
   
   @Input() show: boolean = false
   @Input() width: number = 254
@@ -77,7 +91,7 @@ export class ElDatePickerPanel implements OnInit {
   @Output() modelChange: EventEmitter<number> = new EventEmitter<number>()
   
   private currentView: string = 'date'
-  private dateShowModels: any = {}
+  private dateShowModels: DateModelItem
   
   constructor(
     @Optional() private root: ElDataPicker,
@@ -89,10 +103,12 @@ export class ElDatePickerPanel implements OnInit {
   }
   
   updateDate(): void {
-    const date = new Date(this.model)
+    const date: Date = new Date(this.model)
+    const startYear: number = ~~(date.getFullYear() / 10) * 10
     this.dateShowModels = {
-      month: date.getMonth() + 1,
+      month: date.getMonth(),
       year: date.getFullYear(),
+      yearRange: [startYear, startYear + 10],
     }
   }
   
@@ -114,10 +130,38 @@ export class ElDatePickerPanel implements OnInit {
     this.updateDate()
   }
   
-  ngOnInit(): void {
-    if (!this.model) {
-      this.model = new Date().getTime()
+  nextYear(step: number): void {
+    // year table component opened, edit year range
+    if (this.currentView === 'year') {
+      step = step * 10
     }
+    const date = new Date(this.model)
+    date.setFullYear(this.dateShowModels.year + step)
+    this.model = date.getTime()
     this.updateDate()
   }
+  
+  nextMonth(step: number): void {
+    const date = new Date(this.model)
+    date.setMonth(this.dateShowModels.month + step)
+    this.model = date.getTime()
+    this.updateDate()
+  }
+  
+  ngOnInit(): void {
+    this.model = this.model || new Date().getTime()
+    this.updateDate()
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    // not include model
+    if (!changes || !changes.model) return
+    // first change
+    if (!changes.model.previousValue) return
+  
+    this.model = changes.model.currentValue
+    this.model = this.model || new Date().getTime()
+    this.updateDate()
+  }
+  
 }

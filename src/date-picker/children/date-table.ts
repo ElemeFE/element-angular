@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core'
 import { DateFormat } from '../utils/format'
 
 export type DateRowItem = {
@@ -33,7 +33,7 @@ export type DateRow = DateRowItem[]
     </table>
   `,
 })
-export class ElDateTable implements OnInit {
+export class ElDateTable implements OnInit, OnChanges {
   
   @Input() model: number
   @Input('disabled-date') disabledDate: any
@@ -58,11 +58,6 @@ export class ElDateTable implements OnInit {
       lastCount --
       return { day: lastCount, monthOffset: -1 }
     }).reverse()
-  }
-  
-  constructor(
-    private el: ElementRef,
-  ) {
   }
   
   isToday(item: DateRowItem): boolean {
@@ -116,6 +111,17 @@ export class ElDateTable implements OnInit {
   }
   
   ngOnInit(): void {
+    this.date = new Date(this.model)
+    this.getRows()
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    // not include model
+    if (!changes || !changes.model) return
+    // first change
+    if (!changes.model.previousValue) return
+    
+    this.model = changes.model.currentValue
     this.date = new Date(this.model)
     this.getRows()
   }

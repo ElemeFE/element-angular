@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { ElDatePickerProps } from './picker-props'
 import { DateFormat } from './utils/format'
 
@@ -16,15 +16,16 @@ import { DateFormat } from './utils/format'
         (focus)="focusHandle()" (blur)="blurHandle()">
       </el-input>
       <el-data-picker-panel [show]="showPanelPicker"
-        [model]="model"
+        [model]="value"
         (modelChange)="dateChangeHandle($event)">
       </el-data-picker-panel>
     </div>
   `,
 })
-export class ElDataPicker extends ElDatePickerProps {
+export class ElDataPicker extends ElDatePickerProps implements OnInit {
   
   private showPanelPicker: boolean = false
+  private value: number
   
   constructor(
     private dateFormat: DateFormat,
@@ -36,8 +37,11 @@ export class ElDataPicker extends ElDatePickerProps {
     this.showPanelPicker = !this.showPanelPicker
   }
   
-  changeHandle(): void {
-  
+  // text to time
+  changeHandle(input: string): void {
+    const time: number = this.dateFormat.getTime(input)
+    if (!time) return
+    this.value = time
   }
   
   dateChangeHandle(time: number): void {
@@ -51,6 +55,14 @@ export class ElDataPicker extends ElDatePickerProps {
   
   blurHandle(): void {
     // this.showPanelPicker = false
+  }
+  
+  // text to time
+  ngOnInit(): void {
+    const time: number = this.dateFormat.getTime(this.model)
+    if (!time) return
+    this.model = DateFormat.moment(time, this.format)
+    this.value = time
   }
   
 }
