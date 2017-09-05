@@ -74,6 +74,7 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
   dateChangeHandle(time: number): void {
     this.model = DateFormat.moment(time, this.format)
     this.modelChange.emit(this.model)
+    this.showPanelPicker = false
   }
   
   focusHandle(): void {
