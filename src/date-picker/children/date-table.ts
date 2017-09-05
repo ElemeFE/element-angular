@@ -13,18 +13,14 @@ export type DateRow = DateRowItem[]
   providers: [DateFormat],
   styles: ['.hover { background-color: #E4E7EF }'],
   template: `
-    <table class="el-date-table" cellspacing="0" cellpadding="0"
-      [class.is-week-mode]="selectionMode === 'week'"
-      (click)="handleClick()" (mousemove)="handleMouseMove">
+    <table class="el-date-table" cellspacing="0" cellpadding="0">
       <tbody>
       <tr>
-        <th *ngIf="showWeekNumber">123</th>
-        <th *ngFor="let week of WEEKS">{{week}}</th>
+        <th *ngFor="let week of weeks">{{week}}</th>
       </tr>
       <tr class="el-date-table__row"
           *ngFor="let row of tableRows">
-        <td *ngFor="let item of row"
-          #td
+        <td *ngFor="let item of row" #td
           (mouseenter)="item.monthOffset === 0 && (td.hover = true)"
           (mouseleave)="td.hover = false"
           [class.next-month]="item.monthOffset === 1"
@@ -32,7 +28,8 @@ export type DateRow = DateRowItem[]
           [class.normal]="item.monthOffset === 0"
           [class.today]="isToday(item)"
           [class.current]="isTargetDay(item)"
-          [class.hover]="td.hover">
+          [class.hover]="td.hover"
+          (click)="clickHandle(item)">
           {{isToday(item) ? '今天' : item.day}}
         </td>
       </tr>
@@ -42,14 +39,11 @@ export type DateRow = DateRowItem[]
 })
 export class ElDateTable implements OnInit {
   
-  @Input() showWeekNumber: boolean = false
   @Input() time: number
-  @Input('selection-mode') selectionMode: any
-  @Input('first-day-of-week') firstDayOfWeek: any
   @Input('disabled-date') disabledDate: any
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
-  private WEEKS: string[] = ['日', '一', '二', '三', '四', '五', '六']
+  private weeks: string[] = ['日', '一', '二', '三', '四', '五', '六']
   private tableRows: DateRow[] = [ [], [], [], [], [], [] ]
   private targetDay: number
   private today: number
@@ -69,7 +63,6 @@ export class ElDateTable implements OnInit {
   }
   
   constructor(
-    private dateFormat: DateFormat,
     private el: ElementRef,
   ) {
   }
@@ -83,12 +76,13 @@ export class ElDateTable implements OnInit {
     return item.monthOffset === 0 && item.day === this.targetDay
   }
   
-  handleClick(): void {
-  
-  }
-  
-  handleMouseMove(): void {
-  
+  clickHandle(item: DateRowItem): void {
+    const date = new Date(this.time)
+    const currentMonth = date.getMonth()
+    const targetMonth = currentMonth + item.monthOffset
+    date.setMonth(targetMonth)
+    date.setDate(item.day)
+    this.modelChange.emit(date.getTime())
   }
   
   getRows(): void {
@@ -97,11 +91,11 @@ export class ElDateTable implements OnInit {
     this.today = new Date().getDate()
     this.currentMonthOffset = DateFormat.getCurrentMonthOffset(date)
     
-    const lastMonth = date.getMonth() - 1
-    const lastYear = lastMonth < 0 ? date.getFullYear() - 1 : date.getFullYear()
-    const currentMonthdayCount = DateFormat.getDayCountOfMonth(date.getFullYear(), date.getMonth())
-    const lastMonthDayCount = DateFormat.getDayCountOfMonth(lastYear, lastMonth < 0 ? 12 : lastMonth)
-    const firstDay = DateFormat.getFirstDayOfMonth(date)
+    const lastMonth: number = date.getMonth() - 1
+    const lastYear: number = lastMonth < 0 ? date.getFullYear() - 1 : date.getFullYear()
+    const currentMonthdayCount: number = DateFormat.getDayCountOfMonth(date.getFullYear(), date.getMonth())
+    const lastMonthDayCount: number = DateFormat.getDayCountOfMonth(lastYear, lastMonth < 0 ? 12 : lastMonth)
+    const firstDay: number = DateFormat.getFirstDayOfMonth(date)
     
     let nextMonthDay: number = 0
     this.tableRows = this.tableRows.map((row, index) => {

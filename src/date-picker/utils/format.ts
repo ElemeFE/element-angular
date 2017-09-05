@@ -33,6 +33,38 @@ export class DateFormat {
     return (offset > 1 || offset < -1) ? null : offset
   }
   
+  static moment(input: any, format: string): string {
+    const d: Date = new Date(input)
+    if (String(d) === 'Invalid Date') return ''
+    const makeReg: Function = (value: number | string): RegExp => new RegExp(`(${value})`)
+    const keys: string[] = ['M+', 'd+', 'h+', 'm+', 's+', 'q+', 'S']
+    const values: number[] = [
+      d.getMonth() + 1,
+      d.getDate(),
+      d.getHours(),
+      d.getMinutes(),
+      d.getSeconds(),
+      Math.floor((d.getMonth() + 3) / 3),
+      d.getMilliseconds(),
+    ]
+    
+    if (/(y+)/.test(format)) {
+      format = format.replace(RegExp.$1, (d.getFullYear() + '').substr(4 - RegExp.$1.length))
+    }
+    
+    let len = 0, key: string, val: number
+    while (len < keys.length) {
+      key = keys[len]
+      val = values[len]
+      if (makeReg(key).test(format)) {
+        format = (<any>format).replace(RegExp.$1, (RegExp.$1.length === 1) ? val : ('00' + val).substr(('' + val).length))
+      }
+      len ++
+    }
+    return format
+  }
+  
+  
   constructor() {
   
   }

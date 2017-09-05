@@ -1,4 +1,4 @@
-import { Component, Input, Optional } from '@angular/core'
+import { Component, EventEmitter, Input, Optional, Output } from '@angular/core'
 import { ElDataPicker } from './picker'
 import { dropAnimation } from '../shared/animation'
 
@@ -7,7 +7,7 @@ import { dropAnimation } from '../shared/animation'
   animations: [dropAnimation],
   template: `
     <div [@dropAnimation]="show"
-      [ngStyle]="{width: width + 'px', height: height + 'px'}"
+      [ngStyle]="{width: width + 'px'}"
       [class]="'el-picker-panel ' + 'el-date-picker ' + popperClass"
       [class.has-sidebar]="root.sidebar || shortcuts"
       [class.has-time]="showTime">
@@ -43,7 +43,7 @@ import { dropAnimation } from '../shared/animation'
 
           <div class="el-picker-panel__content">
             <el-date-table *ngIf="currentView === 'date'"
-              (modelChange)="handleDatePick($event)"
+              (modelChange)="datePickChangeHandle($event)"
               [time]="today">
             </el-date-table>
             <el-year-table *ngIf="currentView === 'year'"
@@ -72,7 +72,7 @@ export class ElDatePickerPanel {
   
   @Input() show: boolean = false
   @Input() width: number = 254
-  @Input() height: number = 286
+  @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
   private currentView: string = 'date'
   private today: number = new Date().getTime()
@@ -80,6 +80,9 @@ export class ElDatePickerPanel {
   constructor(
     @Optional() private root: ElDataPicker,
   ) {
+  }
   
+  datePickChangeHandle(time: number): void {
+    this.modelChange.emit(time)
   }
 }
