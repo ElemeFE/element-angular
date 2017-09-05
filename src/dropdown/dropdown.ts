@@ -1,7 +1,12 @@
-import { Component, HostListener, OnDestroy, Renderer2 } from '@angular/core'
+import {
+  AfterViewInit, Component, ElementRef, HostListener, OnDestroy, Renderer2,
+  ViewChild,
+} from '@angular/core'
+import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 import { Value } from './dropdown.item'
 import { ElDropdownProps } from './dropdown.props'
 import { dropAnimation } from '../shared/animation'
+import { DocumentWrapper } from '../shared/services'
 
 @Component({
   selector: 'el-dropdown',
@@ -24,25 +29,26 @@ import { dropAnimation } from '../shared/animation'
           <i class="el-icon-caret-bottom el-icon--right"></i>
         </span>
       </ng-container>
-      
-      <ul class="el-dropdown-menu" [ngStyle]="{
-        top: '100%',
-        left: menuAlign === 'end' ? 'auto' : 0,
-        right: menuAlign === 'end' ? 0 : 'auto'}"
-        [@dropAnimation]="showMenu">
-        <el-dropdown-item *ngFor="let item of model" [model]="item"
-          (selected)="selectHandle()">
-        </el-dropdown-item>
-      </ul>
+      <div [style]="makeListStyles()">
+        <ul class="el-dropdown-menu" #list [@dropAnimation]="showMenu">
+          <el-dropdown-item *ngFor="let item of model" [model]="item" (selected)="selectHandle()">
+          </el-dropdown-item>
+        </ul>
+      </div>
     </div>
   `,
   animations: [dropAnimation],
 })
-export class ElDropdown extends ElDropdownProps implements OnDestroy {
+export class ElDropdown extends ElDropdownProps implements OnDestroy, AfterViewInit {
+  
+  @ViewChild('list') list: any
   
   private showMenu: boolean = false
   private timer: any
+  private slideToBottom: boolean = true
+  private listHeight: number
   private globalListenFunc: Function
+  private globalScrollFunc: Function
   
   @HostListener('mouseleave') mouseleave = () => {
     if (this.trigger !== 'hover') return
@@ -61,6 +67,9 @@ export class ElDropdown extends ElDropdownProps implements OnDestroy {
   
   constructor(
     private renderer: Renderer2,
+    private sanitizer: DomSanitizer,
+    private document: DocumentWrapper,
+    private el: ElementRef,
   ) {
     super()
   }
@@ -89,8 +98,27 @@ export class ElDropdown extends ElDropdownProps implements OnDestroy {
     this.hideOnClick && this.closeMenu()
   }
   
+  makeListStyles(): SafeStyle {
+    const styles = `top: ${this.slideToBottom ? '100%' : (0 - this.listHeight) + 'px' };` +
+      `${this.menuAlign === 'end' ? 'right' : 'left'}: 0; position: absolute; min-width: 100px;`
+    return this.sanitizer.bypassSecurityTrustStyle(styles)
+  }
+  
+  ngAfterViewInit(): void {
+    this.listHeight = this.list.nativeElement.offsetHeight + 12
+    this.globalScrollFunc = this.renderer.listen(
+    'window', 'scroll', () => {
+      const top = this.el.nativeElement.getBoundingClientRect().top
+      const nextValue = this.document.documentElement.clientHeight - top > this.listHeight
+      if (nextValue !== this.slideToBottom) {
+        this.slideToBottom = nextValue
+      }
+    })
+  }
+  
   ngOnDestroy(): void {
     this.globalListenFunc && this.globalListenFunc()
+    this.globalScrollFunc && this.globalScrollFunc()
   }
 
 }
