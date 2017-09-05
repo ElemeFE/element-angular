@@ -20,6 +20,8 @@ export class ElDatePickerProps {
   @Input('range-separator') rangeSeparator: string = '-'
   @Input('default-value') defaultValue: string
   
+  // @Input() disabledDateFilter: Function
+  
   @Input() model: string
   @Output() modelChange: EventEmitter<string> = new EventEmitter<string>()
   
