@@ -15,8 +15,8 @@ import { DateFormat } from './utils/format'
         [model]="model"
         (icon-click)="iconClickHandle()"
         (modelChange)="changeHandle($event)"
-        (iconMouseEnter)="iconMouseActionHandle(true)"
-        (iconMouseLeave)="iconMouseActionHandle(false)"
+        (icon-mouseenter)="iconMouseActionHandle(true)"
+        (icon-mouseleave)="iconMouseActionHandle(false)"
         (focus)="focusHandle()">
       </el-input>
       <el-data-picker-panel [show]="showPanelPicker"
@@ -52,8 +52,9 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
     // use close action
     if (this.iconShowClose) {
       this.model = null
-      this.showPanelPicker = false
       this.value = Date.now()
+      this.showPanelPicker = false
+      this.iconShowClose = false
       return
     }
     // toggle action
