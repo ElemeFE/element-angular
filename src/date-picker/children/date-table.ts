@@ -1,6 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { DateFormat } from '../utils/format'
-import { removeNgTag } from '../../shared/utils'
 
 export type DateRowItem = {
   day: number,                  // day value
@@ -11,7 +10,6 @@ export type DateRow = DateRowItem[]
 @Component({
   selector: 'el-date-table',
   providers: [DateFormat],
-  styles: ['.hover { background-color: #E4E7EF }'],
   template: `
     <table class="el-date-table" cellspacing="0" cellpadding="0">
       <tbody>
@@ -20,15 +18,13 @@ export type DateRow = DateRowItem[]
       </tr>
       <tr class="el-date-table__row"
           *ngFor="let row of tableRows">
-        <td *ngFor="let item of row" #td
-          (mouseenter)="item.monthOffset === 0 && (td.hover = true)"
-          (mouseleave)="td.hover = false"
+        <td *ngFor="let item of row"
+          [class.available]="item.monthOffset === 0"
           [class.next-month]="item.monthOffset === 1"
           [class.prev-month]="item.monthOffset === -1"
           [class.normal]="item.monthOffset === 0"
           [class.today]="isToday(item)"
           [class.current]="isTargetDay(item)"
-          [class.hover]="td.hover"
           (click)="clickHandle(item)">
           {{isToday(item) ? '今天' : item.day}}
         </td>
@@ -39,13 +35,15 @@ export type DateRow = DateRowItem[]
 })
 export class ElDateTable implements OnInit {
   
-  @Input() time: number
+  @Input() model: number
   @Input('disabled-date') disabledDate: any
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
   private weeks: string[] = ['日', '一', '二', '三', '四', '五', '六']
   private tableRows: DateRow[] = [ [], [], [], [], [], [] ]
   private targetDay: number
+  private targetMonthOffset: number = 0               // default: current month, offset = 0
+  private date: Date
   private today: number
   private currentMonthOffset: number
   
@@ -73,24 +71,29 @@ export class ElDateTable implements OnInit {
   }
   
   isTargetDay(item: DateRowItem): boolean {
-    return item.monthOffset === 0 && item.day === this.targetDay
+    return item.monthOffset === this.targetMonthOffset && item.day === this.targetDay
   }
   
   clickHandle(item: DateRowItem): void {
-    const date = new Date(this.time)
+    const date = this.date
     const currentMonth = date.getMonth()
     const targetMonth = currentMonth + item.monthOffset
+    // update target and update view
+    this.targetDay = item.day
+    this.targetMonthOffset = item.monthOffset
+    
+    // get time and emit a number
     date.setMonth(targetMonth)
     date.setDate(item.day)
     this.modelChange.emit(date.getTime())
   }
   
   getRows(): void {
-    const date = new Date(this.time)
+    const date = this.date
     this.targetDay = date.getDate()
     this.today = new Date().getDate()
     this.currentMonthOffset = DateFormat.getCurrentMonthOffset(date)
-    
+  
     const lastMonth: number = date.getMonth() - 1
     const lastYear: number = lastMonth < 0 ? date.getFullYear() - 1 : date.getFullYear()
     const currentMonthdayCount: number = DateFormat.getDayCountOfMonth(date.getFullYear(), date.getMonth())
@@ -113,8 +116,8 @@ export class ElDateTable implements OnInit {
   }
   
   ngOnInit(): void {
+    this.date = new Date(this.model)
     this.getRows()
-    removeNgTag(this.el.nativeElement)
   }
   
 }

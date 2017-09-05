@@ -1,63 +1,31 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 
 @Component({
   selector: 'el-year-table',
   template: `
     <table class="el-year-table" (click)="handleYearTableClick()">
       <tbody>
-      <tr>
-        <td class="available" [class]="getCellStyle(startYear + 0)">
-          <a class="cell">{{ startYear }}</a>
+      <tr *ngFor="let years of yearRows">
+        <td class="available" *ngFor="let year of years">
+          <a class="cell">{{year}}</a>
         </td>
-        <td class="available" [class]="getCellStyle(startYear + 1)">
-          <a class="cell">{{ startYear + 1 }}</a>
-        </td>
-        <td class="available" [class]="getCellStyle(startYear + 2)">
-          <a class="cell">{{ startYear + 2 }}</a>
-        </td>
-        <td class="available" [class]="getCellStyle(startYear + 3)">
-          <a class="cell">{{ startYear + 3 }}</a>
-        </td>
-      </tr>
-      <tr>
-        <td class="available" [class]="getCellStyle(startYear + 4)">
-          <a class="cell">{{ startYear + 4 }}</a>
-        </td>
-        <td class="available" [class]="getCellStyle(startYear + 5)">
-          <a class="cell">{{ startYear + 5 }}</a>
-        </td>
-        <td class="available" [class]="getCellStyle(startYear + 6)">
-          <a class="cell">{{ startYear + 6 }}</a>
-        </td>
-        <td class="available" [class]="getCellStyle(startYear + 7)">
-          <a class="cell">{{ startYear + 7 }}</a>
-        </td>
-      </tr>
-      <tr>
-        <td class="available" [class]="getCellStyle(startYear + 8)">
-          <a class="cell">{{ startYear + 8 }}</a>
-        </td>
-        <td class="available" [class]="getCellStyle(startYear + 9)">
-          <a class="cell">{{ startYear + 9 }}</a>
-        </td>
-        <td></td>
-        <td></td>
       </tr>
       </tbody>
     </table>
   `,
 })
-export class ElYearTable {
+export class ElYearTable implements OnInit {
   
   @Input() showWeekNumber: boolean = false
-  @Input() time: Date
+  @Input() model: number
   @Input('disabled-date') disabledDate: any
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
-  private startYear: any
+  private date: Date
+  private yearRows: number[][]
+  private currentYear: number
   
   constructor(
-  
   ) {
   }
   
@@ -72,4 +40,17 @@ export class ElYearTable {
   getCellStyle(): void {
   
   }
+  
+  updateYearRow(currentYear: number): number[][] {
+    const startYear: number = ~~(currentYear / 10) * 10
+    return [ [], [], [] ].map((v, index) =>
+      [0, 1, 2, 3].map(num => startYear + (index * 4) + num))
+  }
+  
+  ngOnInit(): void {
+    this.date = new Date(this.model)
+    this.currentYear = this.date.getFullYear()
+    this.yearRows = this.updateYearRow(this.currentYear)
+  }
+  
 }

@@ -29,7 +29,7 @@ export class DateFormat {
     if (currentDate.getFullYear() !== checkedDate.getFullYear()) {
       return null
     }
-    const offset: number = checkedDate.getMonth() - currentDate.getMonth()
+    const offset: number = currentDate.getMonth() - checkedDate.getMonth()
     return (offset > 1 || offset < -1) ? null : offset
   }
   

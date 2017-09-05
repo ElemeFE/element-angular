@@ -16,6 +16,7 @@ import { DateFormat } from './utils/format'
         (focus)="focusHandle()" (blur)="blurHandle()">
       </el-input>
       <el-data-picker-panel [show]="showPanelPicker"
+        [model]="model"
         (modelChange)="dateChangeHandle($event)">
       </el-data-picker-panel>
     </div>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Optional, Output } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Optional, Output } from '@angular/core'
 import { ElDataPicker } from './picker'
 import { dropAnimation } from '../shared/animation'
 
@@ -28,10 +28,11 @@ import { dropAnimation } from '../shared/animation'
               type="button" (click)="prevMonth"
               *ngIf="currentView === 'date'">
             </button>
-            <span class="el-date-picker__header-label" (click)="showYearPicker">{{ yearLabel }}</span>
-            <span class="el-date-picker__header-label" (click)="showMonthPicker"
+            <span class="el-date-picker__header-label" (click)="showPicker('year')">{{dateShowModels.year}} 年</span>
+            <span class="el-date-picker__header-label"
               [class.active]="currentView === 'month'"
-              *ngIf="currentView === 'date'">990</span>
+              (click)="showPicker('month')"
+              *ngIf="currentView === 'date'">{{dateShowModels.month}} 月</span>
             <button class="el-picker-panel__icon-btn el-date-picker__next-btn el-icon-d-arrow-right"
               type="button" (click)="nextYear">
             </button>
@@ -44,16 +45,16 @@ import { dropAnimation } from '../shared/animation'
           <div class="el-picker-panel__content">
             <el-date-table *ngIf="currentView === 'date'"
               (modelChange)="datePickChangeHandle($event)"
-              [time]="today">
+              [model]="model">
             </el-date-table>
             <el-year-table *ngIf="currentView === 'year'"
-              [time]="today"
+              [model]="model"
               (modelChange)="handleYearPick()"
               [disabled-date]="disabledDate">
             </el-year-table>
             <el-month-table *ngIf="currentView === 'month'"
-              [time]="today"
-              (modelChange)="handleMonthPick()"
+              [model]="model"
+              (modelChange)="monthPickChangeHandle($event)"
               [disabled-date]="disabledDate">
             </el-month-table>
           </div>
@@ -68,21 +69,49 @@ import { dropAnimation } from '../shared/animation'
     </div>
   `
 })
-export class ElDatePickerPanel {
+export class ElDatePickerPanel implements OnInit {
   
   @Input() show: boolean = false
   @Input() width: number = 254
-  @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
+  @Input() model: number
+  @Output() modelChange: EventEmitter<number> = new EventEmitter<number>()
   
   private currentView: string = 'date'
-  private today: number = new Date().getTime()
+  private dateShowModels: any = {}
   
   constructor(
     @Optional() private root: ElDataPicker,
   ) {
   }
   
+  showPicker(pickPath: string): void {
+    this.currentView = pickPath
+  }
+  
+  updateDate(): void {
+    const date = new Date(this.model)
+    this.dateShowModels = {
+      month: date.getMonth() + 1,
+      year: date.getFullYear(),
+    }
+  }
+  
   datePickChangeHandle(time: number): void {
+    this.model = time
     this.modelChange.emit(time)
+    this.updateDate()
+  }
+  
+  monthPickChangeHandle(time: number): void {
+    this.model = time
+    this.currentView = 'date'
+    this.updateDate()
+  }
+  
+  ngOnInit(): void {
+    if (!this.model) {
+      this.model = new Date().getTime()
+    }
+    this.updateDate()
   }
 }
