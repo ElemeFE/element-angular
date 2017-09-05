@@ -8,6 +8,7 @@ import { getTextareaHeight } from './help'
 
 @Component({
   selector: 'el-input',
+  styles: ['.icon-disabled {cursor: not-allowed;} .icon-disabled:before {cursor: not-allowed;}'],
   template: `
     <div [class]="(type === 'text' ? 'el-input' : 'el-textarea') +
     (size ? ' el-input--' + size : '') + ' ' + parentClass"
@@ -24,6 +25,8 @@ import { getTextareaHeight } from './help'
         
         <i [class]="'el-input__icon ' + ('el-icon-' + icon) + (iconClick ? ' is-clickable ' : ' ')
         + (iconClass ? iconClass : '')"
+          [attr.disabled]="disabled"
+          [class.icon-disabled]="disabled"
           *ngIf="icon" (click)="iconClick.emit($event)"
           (mouseenter)="iconMouseEnter.emit($event)" (mouseleave)="iconMouseLeave.emit($event)"></i>
         <input class="el-input__inner"
