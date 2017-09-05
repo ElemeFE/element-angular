@@ -11,7 +11,7 @@ export class ExRateComponent implements OnInit {
   
   private code: string[] = code
   private page: any = {
-    previous: { name: 'Switch 开关', link: '/form/switch' },
+    previous: { name: 'DatePicker 日期选择器', link: '/form/date-picker' },
     next: { name: 'Tag 标签', link: '/data/tag' },
   }
   
