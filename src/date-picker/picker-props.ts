@@ -15,11 +15,6 @@ export class ElDatePickerProps {
   @Input() placeholder: string = '选择日期'
   @Input() format: string = 'yyyy-MM-dd'
   
-  @Input('popper-class') popperClass: string
-  @Input('picker-options') pickerOptions: any = {}
-  @Input('range-separator') rangeSeparator: string = '-'
-  @Input('default-value') defaultValue: string
-  
   // @Input() disabledDateFilter: Function
   
   @Input() model: string
