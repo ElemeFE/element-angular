@@ -14,6 +14,10 @@ export class ExSliderComponent implements OnInit {
     previous: { name: 'Switch 开关', link: '/form/switch' },
     next: { name: 'Rate 评分', link: '/form/rate' },
   }
+  private exClass: any = class {
+    handle(val: any): void {
+    }
+  }
   
   ngOnInit(): void {
   }
