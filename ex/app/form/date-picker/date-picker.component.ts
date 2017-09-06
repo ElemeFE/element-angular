@@ -12,7 +12,7 @@ export class ExDatePickerComponent implements OnInit {
   private code: string[] = code
   private page: any = {
     previous: { name: 'Switch 开关', link: '/form/switch' },
-    next: { name: 'Rate 评分', link: '/form/rate' },
+    next: { name: 'Slider 滑块', link: '/form/slider' },
   }
   private exClass: any = class {
     handle(time: string): void {
