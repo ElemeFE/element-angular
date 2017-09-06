@@ -44,13 +44,14 @@ export class ElSlider extends ElSliderProps implements OnInit, AfterViewInit {
   }
   
   makeRunwayStyle(): SafeStyle {
-    const styles = this.vertical ? `height: ${this.height};` : ''
+    const styles = this.vertical ? `height: ${this.height}px;` : ''
     return this.sanitizer.bypassSecurityTrustStyle(styles)
   }
   
   makeBarStyle(): SafeStyle {
-    const styles = this.vertical ? `height: ${this.model}%; bottom: ${this.start}%;`
-      : `width: ${this.model}%; left: ${this.start}%;`
+    const val: number = (this.model - this.min) * 100 / (this.max - this.min)
+    const styles = this.vertical ? `height: ${val}%; bottom: ${this.start}%;`
+      : `width: ${val}%; left: ${this.start}%;`
     return this.sanitizer.bypassSecurityTrustStyle(styles)
   }
   
@@ -71,7 +72,7 @@ export class ElSlider extends ElSliderProps implements OnInit, AfterViewInit {
     const { left, bottom } = this.runwayElement.nativeElement.getBoundingClientRect()
     const offset: number = val - (this.vertical ? bottom : left)
     // update value
-    this.model = Math.round(offset / this.size * 100)
+    this.model = Math.round((offset / this.size) * (this.max - this.min)) + this.min
     this.makeBarStyle()
   }
   
@@ -81,7 +82,9 @@ export class ElSlider extends ElSliderProps implements OnInit, AfterViewInit {
   }
   
   ngOnInit(): void {
-  
+    if (!this.model) {
+      this.model = this.min
+    }
   }
   
   ngAfterViewInit(): void {

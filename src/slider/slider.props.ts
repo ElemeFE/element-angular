@@ -14,7 +14,7 @@ export class ElSliderProps {
   @Input('format-tooltip') formatTooltip: Function
   
   @Input() vertical: boolean = false
-  @Input('vertical-height') height: string
+  @Input('vertical-height') height: number = 200
   
   // bind value
   @Input() model: number = 0

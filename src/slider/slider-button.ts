@@ -16,11 +16,13 @@ import { ElSlider } from './slider'
       display: none;
       transform: translateX(-50%);
     }
+    .isVertical { margin-left: 2px; }
   `],
   animations: [fadeAnimation],
   template: `
     <div class="el-slider__button-wrapper"
       [class.hover]="hovering" [class.dragging]="dragging"
+      [class.isVertical]="vertical"
       [style]="wrapperStyles"
       (mouseenter)="togglePopper(true)"
       (mouseleave)="togglePopper(false)"
@@ -28,7 +30,7 @@ import { ElSlider } from './slider'
       <div class="el-slider__button el-tooltip" #wrapper
         (mouseenter)="popperMouseHandle(true)" (mouseleave)="popperMouseHandle(false)"></div>
       <div class="el-tooltip__popper is-dark popper-center" x-placement="top"
-        [@fadeAnimation]="!showPopper && !disabled">
+        [@fadeAnimation]="!showPopper">
         <div x-arrow class="popper__arrow" style="left: 50%; transform: translateX(-50%);"></div>
         <span>{{ formatValue() }}</span>
       </div>
@@ -70,7 +72,7 @@ export class ElSliderButton implements OnInit, OnChanges {
     if (!this.dragging && !t) {
       this.showPopper = false
     }
-    if (t) {
+    if (t && !this.disabled) {
       this.showPopper = true
     }
   }
@@ -95,7 +97,6 @@ export class ElSliderButton implements OnInit, OnChanges {
   }
   
   buttonDownHandle(event: Event): void {
-    if (this.disabled) return
     event.preventDefault()
     this.onDragStart(event)
     this.globalListenFunc.push(...[
@@ -107,7 +108,7 @@ export class ElSliderButton implements OnInit, OnChanges {
   
   onDragStart(event: Event): void {
     // show tooltip
-    this.showPopper = true
+    this.popperMouseHandle(true)
     this.dragging = true
     if (this.vertical) {
       this.startY = (<any>event).clientY
@@ -134,9 +135,9 @@ export class ElSliderButton implements OnInit, OnChanges {
   }
   
   dragEndHandle(): void {
+    if (!this.dragging) return
     // hide tooltip
     this.showPopper = false
-    if (!this.dragging) return
     const timer: any = setTimeout(() => {
       this.dragging = false
       this.togglePopper(false)
