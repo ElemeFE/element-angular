@@ -82,7 +82,7 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
     this.showPanelPicker = true
     this.globalKeydownListener && this.globalKeydownListener()
     this.globalKeydownListener = this.renderer.listen(
-    'document', 'keydown', (event) => {
+    'document', 'keydown', (event: KeyboardEvent) => {
       if (event.keyCode === 9 || event.keyCode === 27) {
         this.showPanelPicker = false
         this.globalKeydownListener && this.globalKeydownListener()
