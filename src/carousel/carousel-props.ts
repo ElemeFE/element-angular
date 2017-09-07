@@ -2,8 +2,9 @@ import { EventEmitter, Input, Output } from '@angular/core'
 
 export class ElCarouselProps {
 
-  @Input() height: string
+  @Input() height: string = '150px'
   @Input() trigger: string = 'click'            // click, hover
+  @Input() indicatorTrigger: string = 'click'            // click, hover
   @Input() autoplay: boolean = true
   @Input() interval: number = 3000
   
@@ -11,9 +12,9 @@ export class ElCarouselProps {
   @Input('indicator-position') indicatorPosition: string      // outside, none
   
   @Input() arrow: string = 'hover'    // always, hover, never
-  @Input() type: string = 'card'
+  @Input() type: string
   
-  @Input() model: any = ''
+  @Input() model: number = 0
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any> ()
   
 }

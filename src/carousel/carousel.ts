@@ -1,28 +1,34 @@
-import { Component, Input } from '@angular/core'
+import {
+  AfterViewInit,
+  Component, ElementRef, OnInit, Renderer2,
+} from '@angular/core'
 import { ElCarouselProps } from './carousel-props'
-import { fadeAnimation } from '../shared/animation'
+import { carouselBtnLeftAnimation, carouselBtnRightAnimation } from './animations'
 
 @Component({
   selector: 'el-carousel',
-  animations: [fadeAnimation],
+  animations: [carouselBtnLeftAnimation, carouselBtnRightAnimation],
   template: `
     <div class="el-carousel"
+      #carousel
       [class.el-carousel--card]="type === 'card'"
-      (mouseenter)="mouseHandle(true)"
-      (mouseleave)="mouseHandle(false)">
+      (mouseenter)="carousel.hover = true"
+      (mouseleave)="carousel.hover = false">
       <div class="el-carousel__container" [ngStyle]="{height: height}">
         <button class="el-carousel__arrow el-carousel__arrow--left"
+          #leftBtn
           *ngIf="arrow !== 'never'"
-          [@fadeAnimation]="arrow === 'always' || hover"
-          (mouseenter)="btnMouseHandle(true, 'left')" (mouseleave)="btnMouseHandle(false)"
-          (click)="btnClickHandle(-1)">
+          [@carouselBtnLeftAnimation]="arrow === 'always' || carousel.hover"
+          (mouseenter)="btnActionHandle(model - 1,'hover')"
+          (click)="btnActionHandle(model - 1, 'click')">
           <i class="el-icon-arrow-left"></i>
         </button>
         <button class="el-carousel__arrow el-carousel__arrow--right"
+          #rightBtn
           *ngIf="arrow !== 'never'"
-          [@fadeAnimation]="arrow === 'always' || hover"
-          (mouseenter)="btnMouseHandle(true, 'left')" (mouseleave)="btnMouseHandle(false)"
-          (click)="btnClickHandle(1)">
+          [@carouselBtnRightAnimation]="arrow === 'always' || carousel.hover"
+          (mouseenter)="btnActionHandle(model + 1, 'hover')"
+          (click)="btnActionHandle(model + 1, 'click')">
           <i class="el-icon-arrow-right"></i>
         </button>
         <ng-content></ng-content>
@@ -32,34 +38,62 @@ import { fadeAnimation } from '../shared/animation'
         [class.el-carousel__indicators--outside]="indicatorPosition === 'outside' || type === 'card'">
         <li *ngFor="let item of items; let i = index"
           class="el-carousel__indicator"
-          [class.is-active]="i === activeIndex"
-          (mouseenter)="btnClickHandle(i)" (click)="btnClickHandle(i)">
+          [class.is-active]="i === model"
+          (mouseenter)="indicatorActionHandle(i, 'hover')"
+          (click)="indicatorActionHandle(i, 'click')">
           <button class="el-carousel__button">
-            <span *ngIf="hasLabel">{{item.label}}</span>
+            <span *ngIf="hasLabel">{{item}}</span>
           </button>
         </li>
       </ul>
     </div>
   `,
 })
-export class ElCarousel extends ElCarouselProps {
+export class ElCarousel extends ElCarouselProps implements OnInit, AfterViewInit {
   
-  private hasLabel: boolean = true
+  subscriber: Function[] = []
+  items: any[] = []
+  private hasLabel: boolean = false
+  private itemLength: number
   
-  constructor() {
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+  ) {
     super()
   }
   
-  mouseHandle(t: boolean): void {
-  
+  btnActionHandle(nextValue: number, eventType: string): void {
+    if (this.trigger !== eventType) return
+    this.setActiveItem(nextValue)
   }
   
-  btnMouseHandle(t: boolean, isLeft: boolean): void {
-  
+  indicatorActionHandle(nextValue: number, eventType: string): void {
+    if (this.indicatorTrigger !== eventType) return
+    this.setActiveItem(nextValue)
   }
   
-  btnClickHandle(step: number): void {
-  
+  setActiveItem(index: number): void {
+    const nextValue = index >= this.itemLength ? 0 : index < 0 ? this.itemLength - 1 : index
+    this.model = nextValue
+    this.subscriber.forEach(func => func())
+    this.modelChange.emit(this.model)
   }
   
+  ngOnInit(): void {
+    const children = this.el.nativeElement.querySelectorAll('el-carousel-item')
+    if (!children || !children.length) {
+      return console.warn('steps components required children')
+    }
+    children.forEach((el: HTMLElement, index: number) => {
+      this.renderer.setAttribute(el, 'el-index', String(index))
+    })
+    this.itemLength = children.length
+  }
+  
+  ngAfterViewInit(): void {
+    // all labels are validated
+    this.hasLabel = !this.items.some(item => !item)
+  }
+
 }
