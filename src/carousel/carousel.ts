@@ -1,6 +1,6 @@
 import {
   AfterViewInit,
-  Component, ElementRef, OnInit, Renderer2,
+  Component, ElementRef, OnChanges, OnInit, Renderer2, SimpleChanges,
 } from '@angular/core'
 import { ElCarouselProps } from './carousel-props'
 import { carouselBtnLeftAnimation, carouselBtnRightAnimation } from './animations'
@@ -49,7 +49,8 @@ import { carouselBtnLeftAnimation, carouselBtnRightAnimation } from './animation
     </div>
   `,
 })
-export class ElCarousel extends ElCarouselProps implements OnInit, AfterViewInit {
+export class ElCarousel extends ElCarouselProps implements
+  OnInit, AfterViewInit, OnChanges {
   
   subscriber: Function[] = []
   items: any[] = []
@@ -94,6 +95,12 @@ export class ElCarousel extends ElCarouselProps implements OnInit, AfterViewInit
   ngAfterViewInit(): void {
     // all labels are validated
     this.hasLabel = !this.items.some(item => !item)
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    // not include model
+    if (!changes || !changes.model) return
+    this.setActiveItem(changes.model.currentValue)
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, Optional, SimpleChanges } from '@angular/core'
+import { Component, ElementRef, Input, OnInit, Optional } from '@angular/core'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 import { ElCarousel } from './carousel'
 import { fadeAnimation } from '../shared/animation'
@@ -24,7 +24,7 @@ import { removeNgTag } from '../shared/utils'
     </div>
   `,
 })
-export class ElCarouselItem implements OnInit, OnChanges {
+export class ElCarouselItem implements OnInit {
   
   @Input() label: string = ''
   
@@ -41,11 +41,6 @@ export class ElCarouselItem implements OnInit, OnChanges {
     private sanitizer: DomSanitizer,
     private el: ElementRef,
   ) {
-  
-  }
-  
-  clickHandle(): void {
-  
   }
   
   makeStyles(): void {
@@ -83,10 +78,6 @@ export class ElCarouselItem implements OnInit, OnChanges {
     // manually update
     this.root.subscriber.push(() => this.update())
     this.update()
-  }
-  
-  ngOnChanges(changes: SimpleChanges): void {
-  
   }
   
 }
