@@ -30,20 +30,21 @@ import { ElDropdownModule } from './dropdown/module'
 import { ElBreadcrumbsModule } from './breadcrumb/module'
 import { ElDateModule } from './date-picker/module'
 import { ElSliderModule } from './slider/module'
+import { ElDialogModule } from './dialog/module'
 
 const ElChildModules: any = {
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
   ElSharedModule, ElNotificationModule, ElCascaderModule, ElBadgesModule, ElCardsModule, ElDropdownModule,
-  ElBreadcrumbsModule, ElDateModule, ElSliderModule,
+  ElBreadcrumbsModule, ElDateModule, ElSliderModule, ElDialogModule,
 }
 export const ELMODULES_GROUP: any[] = [
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
   ElSharedModule, ElNotificationModule, ElCascaderModule, ElBadgesModule, ElCardsModule, ElDropdownModule,
-  ElBreadcrumbsModule, ElDateModule, ElSliderModule,
+  ElBreadcrumbsModule, ElDateModule, ElSliderModule, ElDialogModule,
 ]
 
 @NgModule({
@@ -55,7 +56,7 @@ export const ELMODULES_GROUP: any[] = [
     ElSwitchModule.forRoot(), ElRateModule.forRoot(), ElProgressModule.forRoot(), ElStepsModule.forRoot(),
     ElLoadingModule.forRoot(), ElMessagesModule.forRoot(), ElSharedModule.forRoot(), ElNotificationModule.forRoot(),
     ElCascaderModule.forRoot(), ElBadgesModule.forRoot(), ElCardsModule.forRoot(), ElDropdownModule.forRoot(),
-    ElBreadcrumbsModule.forRoot(), ElDateModule.forRoot(), ElSliderModule.forRoot(),
+    ElBreadcrumbsModule.forRoot(), ElDateModule.forRoot(), ElSliderModule.forRoot(), ElDialogModule.forRoot(),
   ],
   exports: ELMODULES_GROUP,
 })
