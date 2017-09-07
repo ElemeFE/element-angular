@@ -131,6 +131,9 @@
     }, {
       "name": "Card 卡片",
       "link": "/others/card"
+    }, {
+      "name": "Dialog 对话框",
+      "link": "/others/dialog"
     }]
   }]
 }]

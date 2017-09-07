@@ -2,12 +2,12 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
 @Component({
-  selector: 'ex-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
+  selector: 'ex-dialog',
+  templateUrl: './dialog.component.html',
+  styleUrls: ['./dialog.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ExCardComponent implements OnInit {
+export class ExDialogComponent implements OnInit {
   
   private code: string[] = code
   private exClass: any = class {
@@ -16,8 +16,8 @@ export class ExCardComponent implements OnInit {
     }
   }
   private page: any = {
-    previous: { name: 'Tooltip 文字提示', link: '/others/tooltip' },
-    next: { name: 'Dialog 对话框', link: '/others/dialog' },
+    previous: { name: 'Card 卡片', link: '/others/card' },
+    next: { name: null, link: '' },
   }
   
   ngOnInit(): void {
