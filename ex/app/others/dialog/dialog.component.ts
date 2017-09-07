@@ -11,8 +11,9 @@ export class ExDialogComponent implements OnInit {
   
   private code: string[] = code
   private exClass: any = class {
-    currentDate(): Date {
-      return new Date()
+    handle(done: Function): void {
+      alert('一段同步或异步的任务')
+      done()
     }
   }
   private page: any = {

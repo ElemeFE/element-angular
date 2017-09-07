@@ -2,48 +2,60 @@ export default [
 // 基础用法
 `
 
-<el-card class="box-card">
-  <ng-template #header>
-    <div class="clearfix">
-      <span style="line-height: 36px;">卡片名称</span>
-      <el-button style="float: right;" type="primary">操作按钮</el-button>
-    </div>
-  </ng-template>
-  <div *ngFor="let item of [0, 1, 2, 4]" class="text item">
-    {{'列表内容 ' + item }}
-  </div>
-</el-card>
+<div class="box-card" #card>
+  <p el-row>点击按钮显示提示</p>
+  <el-button (click)="card.toggle = true">扬州</el-button>
+  <el-dialog title="扬州" [(visible)]="card.toggle">
+    <span>一个平均寿命很高的城市。</span>
+  </el-dialog>
+  
+  <el-button (click)="card.toggle2 = true">夏威夷</el-button>
+  <el-dialog title="夏威夷" [(visible)]="card.toggle2">
+    <span>我选择在夏威夷演讲。</span>
+  </el-dialog>
+</div>
 
 `,
 
-// 简单卡片
-
+// 自定义内容
 `
 
-<el-card class="box-card">
-  <div *ngFor="let item of [0, 1, 2, 4]" class="text item">
-    {{'列表内容 ' + item }}
-  </div>
-</el-card>
+<div class="box-card" #card>
+
+  <el-button (click)="card.toggle = true">自定义标题</el-button>
+  <el-dialog title="扬州" [(visible)]="card.toggle">
+    <ng-template #title>
+      <span class="el-icon-warning"></span>
+      <span>自定义的标题</span>
+    </ng-template>
+    <span>一个平均寿命很高的城市。</span>
+  </el-dialog>
+  
+  <el-button (click)="card.toggle2 = true">自定义尾部</el-button>
+  <el-dialog [(visible)]="card.toggle2">
+    <ng-template #title>
+      <span>朗诵</span>
+    </ng-template>
+    <span>这篇葛底斯堡演讲朗诵的很好。</span>
+    <ng-template #footer>
+      <el-button (click)="card.toggle2 = false">是的</el-button>
+    </ng-template>
+  </el-dialog>
+</div>
 
 `,
 
-// 带图片
+// 基础用法
 `
 
-<div el-row>
-  <div el-col span="8" *ngFor="let item of [0, 1]" [offset]="item > 0 ? 2 : 0">
-    <el-card body-style="padding: 0px">
-      <img src="http://element.eleme.io/1.4/static/hamburger.50e4091.png" class="image">
-      <div style="padding: 14px;">
-        <span>好吃的汉堡</span>
-        <div class="bottom clearfix">
-          <time class="time">{{ currentDate() | date: 'dd/MM/yyyy hh:mm' }}</time>
-          <el-button type="text" class="button">操作按钮</el-button>
-        </div>
-      </div>
-    </el-card>
-  </div>
+<div class="box-card" #card>
+  <el-button (click)="card.toggle = true">回调函数</el-button>
+  
+  <el-dialog title="扬州" [(visible)]="card.toggle"
+    [before-close]="handle">
+    <span>一个平均寿命很高的城市。</span>
+  </el-dialog>
+  
 </div>
 
 `,
