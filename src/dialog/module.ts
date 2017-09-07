@@ -1,8 +1,9 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { ElDialog } from './dialog'
+import { ElDialog, DocumentWrapper, WindowWrapper } from './dialog'
 
-
+export function getDocument(): any { return document }
+export function getWindow(): any { return window }
 @NgModule({
   declarations: [ElDialog],
   exports: [ElDialog],
@@ -11,6 +12,10 @@ import { ElDialog } from './dialog'
 })
 export class ElDialogModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: ElDialogModule, providers: [] }
+    return { ngModule: ElDialogModule, providers: [{
+      provide: DocumentWrapper, useFactory: getDocument,
+    }, {
+      provide: WindowWrapper, useFactory: getWindow,
+    }]}
   }
 }
