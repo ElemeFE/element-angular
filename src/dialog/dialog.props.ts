@@ -6,7 +6,6 @@ export class ElDialogProps {
   @Input() size: string = 'small'             // tiny/small/large/full
   
   @Input() top: string = '15%'                // css value
-  @Input() modal: boolean = true
   @Input('close-on-click-modal') closeOnClickModal: boolean = true
   @Input('close-on-press-escape') closeOnPressEscape: boolean = true
   
