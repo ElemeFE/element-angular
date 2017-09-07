@@ -26,7 +26,7 @@ export class WindowWrapper extends Window {
         (click)="$event.stopPropagation()">
         <div class="el-dialog__header">
           <ng-container *ngIf="titleTmp">
-            <ng-template ngTemplateOutlet="title"></ng-template>
+            <ng-template [ngTemplateOutlet]="titleTmp"></ng-template>
           </ng-container>
           <span class="el-dialog__title" *ngIf="!titleTmp">{{title}}</span>
           <button type="button" class="el-dialog__headerbtn"
@@ -41,7 +41,7 @@ export class WindowWrapper extends Window {
         </div>
         <div class="el-dialog__footer">
           <ng-container *ngIf="footerTmp">
-            <ng-template ngTemplateOutlet="footer"></ng-template>
+            <ng-template [ngTemplateOutlet]="footerTmp"></ng-template>
           </ng-container>
         </div>
       </div>
@@ -59,7 +59,6 @@ export class ElDialog extends ElDialogProps implements OnInit, OnChanges, OnDest
   private globalListenFunc: Function
   
   constructor(
-    private el: ElementRef,
     private sanitizer: DomSanitizer,
     private renderer: Renderer2,
     private window: WindowWrapper,
