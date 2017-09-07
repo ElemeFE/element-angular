@@ -8,12 +8,14 @@ import { ExUserMainComponent } from './main/main.component'
 import { ExTooltipComponent } from './tooltip/tooltip.component'
 import { ExSharedModule } from '../shared/module'
 import { ExCardComponent } from './card/card.component'
+import { ExDialogComponent } from './dialog/dialog.component'
 
 @NgModule({
   declarations: [
     ExUserMainComponent,
     ExTooltipComponent,
     ExCardComponent,
+    ExDialogComponent,
   ],
   imports: [
     CommonModule,

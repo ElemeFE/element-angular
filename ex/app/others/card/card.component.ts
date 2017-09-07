@@ -17,7 +17,7 @@ export class ExCardComponent implements OnInit {
   }
   private page: any = {
     previous: { name: 'Tooltip 文字提示', link: '/others/tooltip' },
-    next: { name: null, link: '' },
+    next: { name: 'Dialog 对话框', link: '/others/dialog' },
   }
   
   ngOnInit(): void {
