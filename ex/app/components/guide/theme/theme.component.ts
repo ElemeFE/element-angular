@@ -4,7 +4,6 @@ import code from './code'
 @Component({
   selector: 'ex-theme',
   templateUrl: './theme.component.html',
-  styleUrls: ['./theme.component.scss'],
 })
 export class ExThemeComponent implements OnInit {
   

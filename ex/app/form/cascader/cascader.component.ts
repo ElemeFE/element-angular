@@ -76,7 +76,6 @@ export class ExCascaderDemoComponent {
 @Component({
   selector: 'ex-cascader',
   templateUrl: './cascader.component.html',
-  styleUrls: ['./cascader.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class ExCascaderComponent implements OnInit {

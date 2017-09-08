@@ -27,7 +27,6 @@ export class ExNotificationDemoComponent {
 @Component({
   selector: 'ex-notification',
   templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class ExNotificationComponent {

@@ -4,7 +4,6 @@ import code from './code'
 @Component({
   selector: 'ex-dialog',
   templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class ExDialogComponent implements OnInit {
