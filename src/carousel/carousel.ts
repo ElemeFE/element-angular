@@ -91,11 +91,18 @@ export class ElCarousel extends ElCarouselProps implements AfterViewInit, OnChan
   }
   
   ngAfterViewInit(): void {
-    this.children.forEach((item, index) => item.index = index)
-    // all labels are validated
-    this.hasLabel = !this.items.some(item => !item)
-    // auto play
-    this.autoplay && this.resetInterval()
+    const timer = setTimeout(() => {
+      this.children.forEach((item, index) => {
+        item.index = index
+        item.updateActive()
+        item.updateStyles()
+      })
+      // all labels are validated
+      this.hasLabel = !this.items.some(item => !item)
+      // auto play
+      this.autoplay && this.resetInterval()
+      clearTimeout(timer)
+    }, 0)
   }
   
   ngOnChanges(changes: SimpleChanges): void {
