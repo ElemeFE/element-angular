@@ -4,7 +4,6 @@ import code from './code'
 @Component({
   selector: 'ex-select',
   templateUrl: './select.component.html',
-  styleUrls: ['./select.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class ExSelectComponent implements OnInit {

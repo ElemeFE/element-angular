@@ -23,7 +23,6 @@ export class ExMessageDemoComponent {
 @Component({
   selector: 'ex-message',
   templateUrl: './message.component.html',
-  styleUrls: ['./message.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class ExMessageComponent implements OnInit {

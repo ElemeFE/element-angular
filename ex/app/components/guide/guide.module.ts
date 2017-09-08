@@ -10,7 +10,6 @@ import { ExInstallComponent } from './install/install.component'
 import { ExStartComponent } from './start/start.component'
 import { ExLanguageComponent } from './language/language.component'
 import { ExThemeComponent } from './theme/theme.component'
-import { ExTransitionComponent } from './transition/transition.component'
 import { ExLogComponent } from './log/log.component'
 
 @NgModule({
@@ -20,7 +19,6 @@ import { ExLogComponent } from './log/log.component'
     ExStartComponent,
     ExLanguageComponent,
     ExThemeComponent,
-    ExTransitionComponent,
     ExLogComponent,
   ],
   imports: [

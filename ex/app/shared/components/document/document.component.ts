@@ -6,7 +6,6 @@ import { DocsService } from '../../services'
 @Component({
   selector: 'ex-document',
   templateUrl: './document.component.html',
-  styleUrls: ['./document.component.scss'],
   providers: [HighLightPipe, DocsService],
   encapsulation: ViewEncapsulation.None,
 })
@@ -20,7 +19,6 @@ export class ExDocumentComponent implements OnInit {
   constructor(
     private docsService: DocsService
   ) {
-  
   }
   
   ngOnInit(): void {

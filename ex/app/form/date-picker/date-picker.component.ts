@@ -4,7 +4,6 @@ import code from './code'
 @Component({
   selector: 'ex-date-picker',
   templateUrl: './date-picker.component.html',
-  styleUrls: ['./date-picker.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class ExDatePickerComponent implements OnInit {

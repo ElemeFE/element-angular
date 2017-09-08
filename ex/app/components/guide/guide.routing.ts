@@ -5,7 +5,6 @@ import { ExInstallComponent } from './install/install.component'
 import { ExStartComponent } from './start/start.component'
 import { ExLanguageComponent } from './language/language.component'
 import { ExThemeComponent } from './theme/theme.component'
-import { ExTransitionComponent } from './transition/transition.component'
 import { ExLogComponent } from './log/log.component'
 
 export const guideRoutes: Routes = [{
@@ -18,8 +17,6 @@ export const guideRoutes: Routes = [{
     path: 'i18n', component: ExLanguageComponent,
   }, {
     path: 'theme', component: ExThemeComponent,
-  }, {
-    path: 'transition', component: ExTransitionComponent,
   }, {
     path: 'log', component: ExLogComponent,
   }],

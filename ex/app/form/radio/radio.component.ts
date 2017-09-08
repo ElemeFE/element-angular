@@ -4,7 +4,6 @@ import code from './code'
 @Component({
   selector: 'ex-radio',
   templateUrl: './radio.component.html',
-  styleUrls: ['./radio.component.scss'],
 })
 export class ExRadioComponent implements OnInit {
   

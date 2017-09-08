@@ -20,9 +20,11 @@
   .footer-main {
     .footer-main-title {
       display: block;
-      line-height: 1;
-      font-size: 22px;
+      line-height: 1.6;
+      font-size: 19px;
       margin: 0;
+      user-select: none;
+      cursor: default;
     }
     .footer-main-link {
       margin: 12px 18px 0 0;
