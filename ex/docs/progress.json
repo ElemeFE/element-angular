@@ -49,6 +49,13 @@
       "type": "boolean",
       "enum": null,
       "default": true
+    },
+    {
+      "name": "active-color",
+      "notes": "自定义进度条激活时的背景颜色 (只在 type=line 时可用)",
+      "type": "string",
+      "enum": null,
+      "default": null
     }
   ]
 }
