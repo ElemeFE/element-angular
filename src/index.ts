@@ -32,20 +32,21 @@ import { ElDateModule } from './date-picker/module'
 import { ElSliderModule } from './slider/module'
 import { ElDialogModule } from './dialog/module'
 import { ElCarouselModule } from './carousel/module'
+import { ElCollapseModule } from './collapse/module'
 
 const ElChildModules: any = {
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
   ElSharedModule, ElNotificationModule, ElCascaderModule, ElBadgesModule, ElCardsModule, ElDropdownModule,
-  ElBreadcrumbsModule, ElDateModule, ElSliderModule, ElDialogModule, ElCarouselModule,
+  ElBreadcrumbsModule, ElDateModule, ElSliderModule, ElDialogModule, ElCarouselModule, ElCollapseModule,
 }
 export const ELMODULES_GROUP: any[] = [
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
   ElSharedModule, ElNotificationModule, ElCascaderModule, ElBadgesModule, ElCardsModule, ElDropdownModule,
-  ElBreadcrumbsModule, ElDateModule, ElSliderModule, ElDialogModule, ElCarouselModule,
+  ElBreadcrumbsModule, ElDateModule, ElSliderModule, ElDialogModule, ElCarouselModule, ElCollapseModule,
 ]
 
 @NgModule({
@@ -58,7 +59,7 @@ export const ELMODULES_GROUP: any[] = [
     ElLoadingModule.forRoot(), ElMessagesModule.forRoot(), ElSharedModule.forRoot(), ElNotificationModule.forRoot(),
     ElCascaderModule.forRoot(), ElBadgesModule.forRoot(), ElCardsModule.forRoot(), ElDropdownModule.forRoot(),
     ElBreadcrumbsModule.forRoot(), ElDateModule.forRoot(), ElSliderModule.forRoot(), ElDialogModule.forRoot(),
-    ElCarouselModule.forRoot(),
+    ElCarouselModule.forRoot(), ElCollapseModule.forRoot(),
   ],
   exports: ELMODULES_GROUP,
 })

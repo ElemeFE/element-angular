@@ -10,6 +10,7 @@ import { ExSharedModule } from '../shared/module'
 import { ExCardComponent } from './card/card.component'
 import { ExDialogComponent } from './dialog/dialog.component'
 import { ExCarouselComponent } from './carousel/carousel.component'
+import { ExCollapseComponent } from './collapse/collapse.component'
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ExCarouselComponent } from './carousel/carousel.component'
     ExCardComponent,
     ExDialogComponent,
     ExCarouselComponent,
+    ExCollapseComponent,
   ],
   imports: [
     CommonModule,

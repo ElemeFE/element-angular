@@ -1,0 +1,40 @@
+import { Component, EventEmitter, Input, Output } from '@angular/core'
+
+export type ModelValue = string | number
+
+@Component({
+  selector: 'el-collapse',
+  template: `
+    <div class="el-collapse">
+      <ng-content></ng-content>
+    </div>
+  `,
+})
+export class ElCollapse {
+  
+  @Input() accordion: boolean = false
+  @Input() model: ModelValue[] = []
+  @Output() modelChange: EventEmitter<ModelValue[]> = new EventEmitter<ModelValue[]>()
+  
+  constructor() {
+  
+  }
+  
+  updateModel(value: ModelValue): void {
+    if (this.accordion) {
+      this.model = [value]
+      return this.modelChange.emit(this.model)
+    }
+    
+    const index = this.model.findIndex(val => val === value)
+    if (index < 0) {
+      this.model.push(value)
+    } else {
+      this.model.splice(index, 1)
+    }
+    this.modelChange.emit(this.model)
+  }
+  
+}
+
+
