@@ -20,14 +20,14 @@ export class ElCollapse {
   }
   
   updateModel(value: ModelValue): void {
-    if (this.accordion) {
-      this.model = [value]
-      return this.modelChange.emit(this.model)
-    }
-    
     const index = this.model.findIndex(val => val === value)
     if (index < 0) {
+      this.accordion && (this.model = [])
       this.model.push(value)
+      return this.modelChange.emit(this.model)
+    }
+    if (this.accordion) {
+      this.model = []
     } else {
       this.model.splice(index, 1)
     }
