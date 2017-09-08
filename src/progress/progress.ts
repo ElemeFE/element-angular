@@ -9,7 +9,7 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
       [class.el-progress--text-inside]="textInside">
       <div class="el-progress-bar" *ngIf="type === 'line'">
         <div class="el-progress-bar__outer" [ngStyle]="{height: strokeWidth + 'px'}">
-          <div class="el-progress-bar__inner" [ngStyle]="{width: percentage + '%'}">
+          <div class="el-progress-bar__inner" [style]="colorStryles()">
             <div class="el-progress-bar__innerText" *ngIf="showText && textInside">{{percentage}}%</div>
           </div>
         </div>
@@ -40,6 +40,7 @@ export class Elprogress implements OnInit {
   @Input('show-text') showText: boolean = true
   // only in type=circle
   @Input() width: number = 126
+  @Input('active-color') activeColor: string
   
   private relativeStrokeWidth: string
   
@@ -79,8 +80,15 @@ export class Elprogress implements OnInit {
     return this.sanitizer.bypassSecurityTrustStyle(styles)
   }
   
+  colorStryles(): SafeStyle {
+    const styles = `width: ${this.percentage}%;` +
+      (this.activeColor ? `background-color: ${this.activeColor};` : '')
+    return this.sanitizer.bypassSecurityTrustStyle(styles)
+  }
+  
   ngOnInit(): void {
     this.percentage > 100 && (this.percentage = 100)
     this.relativeStrokeWidth = (this.strokeWidth / this.width * 100).toFixed(1)
   }
+  
 }
