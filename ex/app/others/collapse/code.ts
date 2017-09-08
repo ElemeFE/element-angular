@@ -1,50 +1,84 @@
 export default [
 // 基础用法
 `
-
-<el-card class="box-card">
-  <ng-template #header>
-    <div class="clearfix">
-      <span style="line-height: 36px;">卡片名称</span>
-      <el-button style="float: right;" type="primary">操作按钮</el-button>
-    </div>
-  </ng-template>
-  <div *ngFor="let item of [0, 1, 2, 4]" class="text item">
-    {{'列表内容 ' + item }}
-  </div>
-</el-card>
+<!-- 可以指定 [(model)] 或 (modelChange) 来获取每次改变的值-->
+<el-collapse [model]="[1]">
+  <el-collapse-item label="一致性 Consistency" value="1">
+    <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+    <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+  </el-collapse-item>
+  <el-collapse-item label="反馈 Feedback" value="2">
+    <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
+    <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+  </el-collapse-item>
+  <el-collapse-item label="效率 Efficiency" value="3">
+    <div>简化流程：设计简洁直观的操作流程；</div>
+    <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
+    <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+  </el-collapse-item>
+  <el-collapse-item label="可控 Controllability" value="4">
+    <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
+    <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+  </el-collapse-item>
+</el-collapse>
 
 `,
 
-// 简单卡片
 
+// 手风琴
 `
 
-<el-card class="box-card">
-  <div *ngFor="let item of [0, 1, 2, 4]" class="text item">
-    {{'列表内容 ' + item }}
-  </div>
-</el-card>
+<el-collapse [model]="[1]" [accordion]="true">
+  <el-collapse-item label="一致性 Consistency" value="1">
+    <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+    <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+  </el-collapse-item>
+  <el-collapse-item label="反馈 Feedback" value="2">
+    <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
+    <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+  </el-collapse-item>
+  <el-collapse-item label="效率 Efficiency" value="3">
+    <div>简化流程：设计简洁直观的操作流程；</div>
+    <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
+    <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+  </el-collapse-item>
+  <el-collapse-item label="可控 Controllability" value="4">
+    <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
+    <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+  </el-collapse-item>
+</el-collapse>
 
 `,
 
-// 带图片
+// 基础用法
 `
 
-<div el-row>
-  <div el-col span="8" *ngFor="let item of [0, 1]" [offset]="item > 0 ? 2 : 0">
-    <el-card body-style="padding: 0px">
-      <img src="http://element.eleme.io/1.4/static/hamburger.50e4091.png" class="image">
-      <div style="padding: 14px;">
-        <span>好吃的汉堡</span>
-        <div class="bottom clearfix">
-          <time class="time">{{ currentDate() | date: 'dd/MM/yyyy hh:mm' }}</time>
-          <el-button type="text" class="button">操作按钮</el-button>
-        </div>
-      </div>
-    </el-card>
-  </div>
-</div>
+<el-collapse [model]="[1]">
+  <el-collapse-item label="一致性 Consistency" value="1">
+  
+    <ng-template #label>
+      一致性 Consistency<i class="header-icon el-icon-information"></i>
+    </ng-template>
+    
+    <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+    <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+  </el-collapse-item>
+  <el-collapse-item label="反馈 Feedback" value="2">
+    <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
+    <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+  </el-collapse-item>
+  <el-collapse-item label="效率 Efficiency" value="3">
+    <div>简化流程：设计简洁直观的操作流程；</div>
+    <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
+    <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+  </el-collapse-item>
+  <el-collapse-item label="可控 Controllability" value="4">
+    <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
+    <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+  </el-collapse-item>
+</el-collapse>
 
 `,
+
+
 ]
