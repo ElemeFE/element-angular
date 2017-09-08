@@ -1,0 +1,12 @@
+{
+  "name": "Carousel Item Attributes",
+  "attrs": [
+    {
+      "name": "label",
+      "notes": "该张幻灯片对应的文本描述 (将显示在指示器上)",
+      "type": "string",
+      "enum": null,
+      "default": null
+    }
+  ]
+}

@@ -13,7 +13,7 @@ export class ExCarouselComponent implements OnInit {
   private exClass: any = class {
   }
   private page: any = {
-    previous: { name: 'Card 卡片', link: '/others/card' },
+    previous: { name: 'Dialog 对话框', link: '/others/dialog' },
     next: { name: null, link: '' },
   }
   
