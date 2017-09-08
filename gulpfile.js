@@ -16,8 +16,8 @@ const compilePath = /^win/.test(process.platform)
 const PATHS = {
   src: ['src/**/*.ts', '!src/**/*.spec.ts', '!ex/**/*.ts'],
   templates: ['src/**/*.html'],
-  release: '/release/',    // tsc compiler
-  bundle: '/bundle/',      // umd file
+  release: 'release/',    // tsc compiler
+  bundle: 'bundle/',      // umd file
   temp: 'temp/',           // ngc compiler
   publish: 'dist/',       // publish
   spec: ['src/**/*.ts', 'test/{util,mock}/*.ts'],
