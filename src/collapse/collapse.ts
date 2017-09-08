@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
-
 export type ModelValue = string | number
 
 @Component({

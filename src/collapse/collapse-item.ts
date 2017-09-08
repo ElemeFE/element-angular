@@ -1,6 +1,7 @@
-import { Component, ContentChild, Input, Optional, TemplateRef } from '@angular/core'
+import { Component, ContentChild, ElementRef, Input, OnInit, Optional, TemplateRef } from '@angular/core'
 import { ElCollapse, ModelValue } from './collapse'
 import { dropAnimation } from '../shared/animation'
+import { removeNgTag } from '../shared/utils'
 
 @Component({
   selector: 'el-collapse-item',
@@ -23,16 +24,16 @@ import { dropAnimation } from '../shared/animation'
     </div>
   `,
 })
-export class ElCollapseItem {
+export class ElCollapseItem implements OnInit {
   
   @ContentChild('label') labelTmp: TemplateRef<any>
   @Input() label: string
-  @Input() value: ModelValue
+  @Input() value: ModelValue | null = null
   
   constructor(
     @Optional() private root: ElCollapse,
+    private el: ElementRef,
   ) {
-  
   }
   
   isActive(): boolean {
@@ -40,7 +41,14 @@ export class ElCollapseItem {
   }
   
   clickHandle(): void {
+    if (this.value === null) {
+      this.value = Math.random().toString(16).substr(2, 8)
+    }
     this.root.updateModel(this.value)
+  }
+  
+  ngOnInit(): void {
+    removeNgTag(this.el.nativeElement)
   }
   
 }
