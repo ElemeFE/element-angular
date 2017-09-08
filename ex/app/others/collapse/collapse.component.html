@@ -1,0 +1,25 @@
+<h2>Collapse 折叠面板</h2>
+<p>通过折叠面板收纳内容区域</p>
+
+<h3>基础用法</h3>
+<p>可同时展开多个面板，面板之间不影响</p>
+<ex-demo link="2" [code]="code[0]" notes="<code>[model]</code> 接受一个初始化的数组，
+数组中的每一项与 <code>el-collapse-item</code> 的属性 <code>[value]</code> 相对应。">
+</ex-demo>
+
+<h3>手风琴效果</h3>
+<p>每次只能展开一个面板</p>
+<ex-demo link="2" [code]="code[1]">
+</ex-demo>
+
+<h3>自定义面板标题</h3>
+<p>除了可以通过 <code>label</code> 属性以外，还可以通过 `ng-template` 来实现自定义面板的标签内容，以实现增加图标等效果。</p>
+<ex-demo link="2" [code]="code[2]">
+</ex-demo>
+
+
+
+<ex-document doc="collapse"></ex-document>
+<ex-document doc="collapse-item"></ex-document>
+
+<ex-footer-nav [page]="page"></ex-footer-nav>

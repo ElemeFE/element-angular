@@ -14,7 +14,7 @@ export class ExCarouselComponent implements OnInit {
   }
   private page: any = {
     previous: { name: 'Dialog 对话框', link: '/others/dialog' },
-    next: { name: null, link: '' },
+    next: { name: 'Collapse 折叠面板', link: '/others/collapse' },
   }
   
   ngOnInit(): void {

@@ -137,6 +137,9 @@
     }, {
       "name": "Carousel 走马灯",
       "link": "/others/carousel"
+    }, {
+      "name": "Collapse 折叠面板",
+      "link": "/others/collapse"
     }]
   }]
 }]

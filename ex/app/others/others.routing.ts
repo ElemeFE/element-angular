@@ -6,6 +6,7 @@ import { ExTooltipComponent } from './tooltip/tooltip.component'
 import { ExCardComponent } from './card/card.component'
 import { ExDialogComponent } from './dialog/dialog.component'
 import { ExCarouselComponent } from './carousel/carousel.component'
+import { ExCollapseComponent } from './collapse/collapse.component'
 
 
 export const othersRoutes: Routes = [{
@@ -18,6 +19,8 @@ export const othersRoutes: Routes = [{
     path: 'dialog', component: ExDialogComponent,
   }, {
     path: 'carousel', component: ExCarouselComponent,
+  }, {
+    path: 'collapse', component: ExCollapseComponent,
   }],
 }]
 
