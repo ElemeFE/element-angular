@@ -11,8 +11,8 @@ export class ExCollapseComponent implements OnInit {
   
   private code: string[] = code
   private page: any = {
-    previous: { name: 'Tooltip 文字提示', link: '/others/tooltip' },
-    next: { name: 'Dialog 对话框', link: '/others/dialog' },
+    previous: { name: 'Carousel 走马灯', link: '/others/carousel' },
+    next: { name: null, link: null },
   }
   
   ngOnInit(): void {
