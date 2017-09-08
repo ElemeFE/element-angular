@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, Optional } from '@angular/core'
+import { Component, ElementRef, forwardRef, Inject, Input, OnInit, Optional } from '@angular/core'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 import { ElCarousel } from './carousel'
 import { fadeAnimation } from '../shared/animation'
@@ -9,41 +9,47 @@ import { removeNgTag } from '../shared/utils'
   animations: [fadeAnimation],
   template: `
     <div class="el-carousel__item"
-      [class.is-active]="root.model === index"
+      [class.is-active]="isActive"
       [class.el-carousel__item--card]="root.type === 'card'"
       [class.is-in-stage]="inStage"
-      [class.is-hover]="hover"
       [class.is-animating]="isAnimating"
-      (click)="clickHandle()"
       [style]="styles">
-      <div class="el-carousel__mask"
-        *ngIf="root.type === 'card'"
-        [@fadeAnimation]="active">
-      </div>
+      <!--<div class="el-carousel__mask" *ngIf="root.type === 'card'"-->
+        <!--[@fadeAnimation]="isActive()">-->
+      <!--</div>-->
       <ng-content></ng-content>
     </div>
   `,
 })
 export class ElCarouselItem implements OnInit {
   
+  // parent component will set index
+  @Input() index: number
   @Input() label: string = ''
   
-  private scale: number = 1
-  private index: number
+  // oninit set
   private width: number
   
   private preTranslate: number
   private isAnimating: boolean
+  private isActive: boolean = false
   private styles: SafeStyle
   
   constructor(
-    @Optional() private root: ElCarousel,
+    @Inject(forwardRef(() => ElCarousel)) private root: ElCarousel,
     private sanitizer: DomSanitizer,
     private el: ElementRef,
   ) {
   }
   
-  makeStyles(): void {
+  updateActive(): void {
+    const isActive: boolean = this.root.model === this.index
+    if (this.isActive !== isActive) {
+      this.isActive = isActive
+    }
+  }
+  
+  updateStyles(): void {
     const map: any = {
       '1': 0 - this.width,
       '-1': this.width,
@@ -53,7 +59,7 @@ export class ElCarouselItem implements OnInit {
     }
     const offset: number = this.root.model - this.index
     const translate = map[offset]
-    const styles: string = `transform: translateX(${translate}px) scale(${this.scale});`
+    const styles: string = `transform: translateX(${translate}px);`
     // change direction disable animation
     const changeDirection: boolean = (this.preTranslate < 0 && translate > 0)
       || (this.preTranslate > 0 && translate < 0)
@@ -64,14 +70,13 @@ export class ElCarouselItem implements OnInit {
   }
   
   update(): void {
-    this.makeStyles()
+    this.updateStyles()
+    this.updateActive()
   }
   
   ngOnInit(): void {
     // collect items
     this.root.items.push(this.label)
-    // get static serial number
-    this.index = + this.el.nativeElement.getAttribute('el-index')
     this.width = this.el.nativeElement.children[0].offsetWidth
     removeNgTag(this.el.nativeElement)
     

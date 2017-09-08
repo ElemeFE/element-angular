@@ -1,7 +1,8 @@
 import {
-  AfterViewInit,
-  Component, ElementRef, OnChanges, OnInit, Renderer2, SimpleChanges,
+  AfterViewInit, Component, ContentChildren, forwardRef,
+  OnChanges, OnDestroy, QueryList, SimpleChanges,
 } from '@angular/core'
+import { ElCarouselItem } from './carousel-item'
 import { ElCarouselProps } from './carousel-props'
 import { carouselBtnLeftAnimation, carouselBtnRightAnimation } from './animations'
 
@@ -49,58 +50,62 @@ import { carouselBtnLeftAnimation, carouselBtnRightAnimation } from './animation
     </div>
   `,
 })
-export class ElCarousel extends ElCarouselProps implements
-  OnInit, AfterViewInit, OnChanges {
+export class ElCarousel extends ElCarouselProps implements AfterViewInit, OnChanges, OnDestroy {
   
+  @ContentChildren(forwardRef(() => ElCarouselItem)) children: QueryList<ElCarouselItem>
   subscriber: Function[] = []
   items: any[] = []
   private hasLabel: boolean = false
-  private itemLength: number
+  private timer: any
   
   constructor(
-    private el: ElementRef,
-    private renderer: Renderer2,
   ) {
     super()
   }
   
   btnActionHandle(nextValue: number, eventType: string): void {
     if (this.trigger !== eventType) return
+    this.autoplay && this.resetInterval()
     this.setActiveItem(nextValue)
   }
   
   indicatorActionHandle(nextValue: number, eventType: string): void {
     if (this.indicatorTrigger !== eventType) return
+    this.autoplay && this.resetInterval()
     this.setActiveItem(nextValue)
   }
   
   setActiveItem(index: number): void {
-    const nextValue = index >= this.itemLength ? 0 : index < 0 ? this.itemLength - 1 : index
+    const len = this.children.length
+    const nextValue = index >= len ? 0 : index < 0 ? len - 1 : index
     this.model = nextValue
     this.subscriber.forEach(func => func())
     this.modelChange.emit(this.model)
   }
   
-  ngOnInit(): void {
-    const children = this.el.nativeElement.querySelectorAll('el-carousel-item')
-    if (!children || !children.length) {
-      return console.warn('steps components required children')
-    }
-    children.forEach((el: HTMLElement, index: number) => {
-      this.renderer.setAttribute(el, 'el-index', String(index))
-    })
-    this.itemLength = children.length
+  resetInterval(): void {
+    this.timer && clearInterval(this.timer)
+    this.timer = setInterval(() => {
+      this.setActiveItem(this.model + 1)
+    }, this.interval)
   }
   
   ngAfterViewInit(): void {
+    this.children.forEach((item, index) => item.index = index)
     // all labels are validated
     this.hasLabel = !this.items.some(item => !item)
+    // auto play
+    this.autoplay && this.resetInterval()
   }
   
   ngOnChanges(changes: SimpleChanges): void {
     // not include model
     if (!changes || !changes.model) return
     this.setActiveItem(changes.model.currentValue)
+  }
+  
+  ngOnDestroy(): void {
+    this.timer && clearInterval(this.timer)
   }
 
 }
