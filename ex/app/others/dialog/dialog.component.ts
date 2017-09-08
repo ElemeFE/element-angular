@@ -18,7 +18,7 @@ export class ExDialogComponent implements OnInit {
   }
   private page: any = {
     previous: { name: 'Card 卡片', link: '/others/card' },
-    next: { name: null, link: '' },
+    next: { name: 'Carousel 走马灯', link: '/others/carousel' },
   }
   
   ngOnInit(): void {
