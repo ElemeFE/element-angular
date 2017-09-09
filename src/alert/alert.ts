@@ -1,4 +1,7 @@
-import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core'
+import {
+  Component, Input, ChangeDetectionStrategy, Output, EventEmitter,
+  ContentChild, TemplateRef,
+} from '@angular/core'
 import { fadeAnimation } from '../shared/animation'
 
 export const ICON_CLASS_MAP: { [key: string]: string } = {
@@ -21,10 +24,9 @@ export const ICON_CLASS_MAP: { [key: string]: string } = {
         <p class="el-alert__description" *ngIf="description && !descriptionTmp">
           {{description}}
         </p>
-        <ng-container *ngIf="descriptionTmp">
-          <ng-template [ngTemplateOutlet]="descriptionTmp">
-          </ng-template>
-        </ng-container>
+        <p class="el-alert__description" *ngIf="descriptionTmp">
+          <ng-template [ngTemplateOutlet]="descriptionTmp"></ng-template>
+        </p>
         <i class="el-alert__closebtn"
           *ngIf="closable"
           [class.is-customed]="closeText !== ''"
@@ -38,7 +40,7 @@ export const ICON_CLASS_MAP: { [key: string]: string } = {
 })
 export class ElAlert {
   
-  @ViewChild('description') descriptionTmp: ElementRef
+  @ContentChild('description') descriptionTmp: TemplateRef<any>
   
   @Input() type: string = 'info'
   @Input() description: string
