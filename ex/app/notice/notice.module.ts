@@ -9,6 +9,7 @@ import { ExNoticeMainComponent } from './main/main.component'
 import { ExLoadingComponent } from './loading/loading.component'
 import { ExMessageComponent } from './message/message.component'
 import { ExNotificationComponent } from './notification/notification.component'
+import { ExAlertComponent } from './alert/alert.component'
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ExNotificationComponent } from './notification/notification.component'
     ExLoadingComponent,
     ExMessageComponent,
     ExNotificationComponent,
+    ExAlertComponent,
   ],
   imports: [
     CommonModule,

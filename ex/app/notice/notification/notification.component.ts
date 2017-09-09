@@ -34,7 +34,7 @@ export class ExNotificationComponent {
   private code: string[] = code
   private page: any = {
     previous: { name: 'Message 消息', link: '/notice/message' },
-    next: { name: 'NavMenu 导航菜单', link: '/nav/menu' },
+    next: { name: 'Alert 警告', link: '/notice/alert' },
   }
   private exClass: any = ExNotificationDemoComponent
   

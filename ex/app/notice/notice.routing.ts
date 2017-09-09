@@ -4,6 +4,7 @@ import { ExNoticeMainComponent } from './main/main.component'
 import { ExLoadingComponent } from './loading/loading.component'
 import { ExMessageComponent } from './message/message.component'
 import { ExNotificationComponent } from './notification/notification.component'
+import { ExAlertComponent } from './alert/alert.component'
 
 
 export const noticeRoutes: Routes = [{
@@ -14,6 +15,8 @@ export const noticeRoutes: Routes = [{
     path: 'message', component: ExMessageComponent,
   }, {
     path: 'notification', component: ExNotificationComponent,
+  }, {
+    path: 'alert', component: ExAlertComponent,
   }],
 }]
 

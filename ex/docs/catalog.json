@@ -105,6 +105,9 @@
     }, {
       "name": "Notification 通知",
       "link": "/notice/notification"
+    }, {
+      "name": "Alert 警告",
+      "link": "/notice/alert"
     }]
   }, {
     "name": "Navigation",
