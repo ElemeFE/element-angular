@@ -43,7 +43,7 @@ export class ElAlert {
   @Input() type: string = 'info'
   @Input() description: string
   @Input() closable: boolean = true
-  @Input('close-text') closeText: string
+  @Input('close-text') closeText: string = ''
   @Input('show-icon') showIcon: boolean = false
   @Output() close: EventEmitter<Event> = new EventEmitter<Event>()
   
