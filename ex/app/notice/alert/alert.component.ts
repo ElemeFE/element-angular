@@ -14,5 +14,10 @@ export class ExAlertComponent {
     previous: { name: 'Notification 通知', link: '/notice/notification' },
     next: { name: 'NavMenu 导航菜单', link: '/nav/menu' },
   }
+  private exClass: any = class {
+    handle(): void {
+      console.log('close')
+    }
+  }
   
 }
