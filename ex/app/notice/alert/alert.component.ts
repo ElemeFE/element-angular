@@ -11,8 +11,8 @@ export class ExAlertComponent {
   
   private code: string[] = code
   private page: any = {
-    previous: { name: 'Check 多选框', link: '/form/checkbox' },
-    next: { name: 'Message 消息提示', link: '/notice/message' },
+    previous: { name: 'Notification 通知', link: '/notice/notification' },
+    next: { name: 'NavMenu 导航菜单', link: '/nav/menu' },
   }
   
 }
