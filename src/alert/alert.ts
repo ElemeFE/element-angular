@@ -1,23 +1,35 @@
-import { Component, Input, ChangeDetectionStrategy} from '@angular/core'
+import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core'
 import { fadeAnimation } from '../shared/animation'
+
+export const ICON_CLASS_MAP: { [key: string]: string } = {
+  'success': 'el-icon-circle-check',
+  'warning': 'el-icon-warning',
+  'error': 'el-icon-circle-cross',
+}
 
 @Component({
   selector: 'el-alert',
   animations: [fadeAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div [class]="'el-alert ' + typeClass" [@fadeAnimation]="visible">
-      <i [class]="'el-alert__icon ' + iconClass + ' ' + isBigIcon" *ngIf="showIcon"></i>
+    <div [class]="'el-alert el-alert--' + type" [@fadeAnimation]="!visible">
+      <i [class]="'el-alert__icon ' + makeIconClass()" *ngIf="showIcon"></i>
       <div class="el-alert__content">
-        <span [class]="'el-alert__title ' + isBoldTitle" *ngIf="title">{{title}}</span>
-        <slot>
-          <p class="el-alert__description" *ngIf="description">{{description}}</p>
-        </slot>
+        <span [class]="'el-alert__title ' + makeTitleClass()">
+          <ng-content></ng-content>
+        </span>
+        <p class="el-alert__description" *ngIf="description && !descriptionTmp">
+          {{description}}
+        </p>
+        <ng-container *ngIf="descriptionTmp">
+          <ng-template [ngTemplateOutlet]="descriptionTmp">
+          </ng-template>
+        </ng-container>
         <i class="el-alert__closebtn"
+          *ngIf="closable"
           [class.is-customed]="closeText !== ''"
           [class.el-icon-close]="closeText === ''"
-          *ngIf="closable"
-          (click)="close()">
+          (click)="clickHandle($event)">
           {{closeText}}
         </i>
       </div>
@@ -26,6 +38,34 @@ import { fadeAnimation } from '../shared/animation'
 })
 export class ElAlert {
   
-  @Input() model: string | number
+  @ViewChild('description') descriptionTmp: ElementRef
+  
+  @Input() type: string = 'info'
+  @Input() description: string
+  @Input() closable: boolean = true
+  @Input('close-text') closeText: string
+  @Input('show-icon') showIcon: boolean = false
+  @Output() close: EventEmitter<Event> = new EventEmitter<Event>()
+  
+  private visible: boolean = true
+  
+  constructor() {
+  
+  }
+  
+  makeIconClass(): string {
+    const base: string = ICON_CLASS_MAP[this.type] || 'el-icon-information'
+    const isBig: string = this.description || this.descriptionTmp ? ' is-big' : ''
+    return base + isBig
+  }
+  
+  makeTitleClass(): string {
+    return this.description || this.descriptionTmp ? ' is-bold' : ''
+  }
+  
+  clickHandle(event: Event): void {
+    this.visible = false
+    this.close.emit(event)
+  }
   
 }
