@@ -49,8 +49,7 @@ export class ElSubmenu implements OnInit {
     return {
       'el-submenu__icon-arrow': true,
       'el-icon-caret-bottom': this.rootMenu.mode === 'horizontal',
-      'el-icon-arrow-down': this.rootMenu.mode === 'vertical' && !this.rootMenu.collapse,
-      'el-icon-caret-right': this.rootMenu.mode === 'vertical' && this.rootMenu.collapse,
+      'el-icon-arrow-down': this.rootMenu.mode === 'vertical',
     }
   }
   

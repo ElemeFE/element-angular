@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
 
 @Component({
   selector: 'el-menu',
@@ -6,16 +6,14 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input,
   template: `
     <ul [class]="'el-menu ' + nativeClass"
       [class.el-menu--horizontal]="mode === 'horizontal'"
-      [class.el-menu--dark]="theme === 'dark'"
-      [class.el-menu--collapse]="collapse">
+      [class.el-menu--dark]="theme === 'dark'">
       <ng-content></ng-content>
     </ul>
   `,
 })
-export class ElMenu implements AfterViewInit {
+export class ElMenu {
   
   @Input() mode: string = 'vertical'
-  @Input() collapse: boolean = false
   @Input() theme: string = 'light'
   @Input() model: string
   @Input('class') nativeClass: string
@@ -25,9 +23,6 @@ export class ElMenu implements AfterViewInit {
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
   openedMenus: string[] = this.defaultOpeneds ? this.defaultOpeneds.slice(0) : []
-  
-  constructor() {
-  }
   
   openMenu(index: string): void {
     const openedMenus = this.openedMenus
@@ -43,9 +38,6 @@ export class ElMenu implements AfterViewInit {
     const main: string = path || index
     this.model = main
     this.modelChange.emit(main)
-  }
-  
-  ngAfterViewInit(): void {
   }
   
 }
