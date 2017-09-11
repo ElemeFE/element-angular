@@ -1,0 +1,19 @@
+{
+  "name": "SubMenu Attributes",
+  "attrs": [
+    {
+      "name": "index",
+      "notes": "唯一标识",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "title",
+      "notes": "默认标题，也可以使用 <code>ng-template</code> 传入",
+      "type": "string | ng-tempalte",
+      "enum": null,
+      "default": null
+    }
+  ]
+}
