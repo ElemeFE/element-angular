@@ -113,7 +113,7 @@
     "name": "Navigation",
     "link": null,
     "children": [{
-      "name": "Nav-menu 导航菜单",
+      "name": "NavMenu 导航菜单",
       "link": "/nav/menu"
     }, {
       "name": "Breadcrumb 面包屑",

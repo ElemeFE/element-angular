@@ -1,0 +1,26 @@
+{
+  "name": "Menu Item Attributes",
+  "attrs": [
+    {
+      "name": "index",
+      "notes": "唯一标识",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "title",
+      "notes": "默认标题",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "disabled",
+      "notes": "禁用该项",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    }
+  ]
+}
