@@ -1,4 +1,7 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import {
+  ChangeDetectionStrategy, Component, ElementRef,
+  EventEmitter, Input, OnInit, Output,
+} from '@angular/core'
 import { removeNgTag } from '../../shared/utils'
 
 @Component({
@@ -28,7 +31,7 @@ export class ElPaginationButton implements OnInit {
   
   constructor(
     private el: ElementRef,
-  ){
+  ) {
   }
   
   clickHandle(step: number): void {
