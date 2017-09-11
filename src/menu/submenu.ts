@@ -27,7 +27,7 @@ import { ElMenu } from './menu'
     </li>
   `,
 })
-export class ElSubmenu implements OnChanges, OnInit {
+export class ElSubmenu implements OnInit {
   
   @ContentChild('title') titleTmp: TemplateRef<any>
   
@@ -37,6 +37,7 @@ export class ElSubmenu implements OnChanges, OnInit {
   private timer: any
   private opened: boolean = false
   private active: boolean = false
+  private dontUserHover: boolean = false
   
   constructor(
     @Host() private rootMenu: ElMenu,
@@ -55,7 +56,7 @@ export class ElSubmenu implements OnChanges, OnInit {
   
   mouseenterHandle(): void {
     this.active = true
-    
+    if (this.dontUserHover) return
     clearTimeout(this.timer)
     this.timer = setTimeout(() => {
       this.rootMenu.openMenu(this.index)
@@ -66,7 +67,7 @@ export class ElSubmenu implements OnChanges, OnInit {
   
   mouseleaveHandle(): void {
     this.active = false
-    
+    if (this.dontUserHover) return
     clearTimeout(this.timer)
     this.timer = setTimeout(() => {
       this.rootMenu.closeMenu(this.index)
@@ -87,20 +88,23 @@ export class ElSubmenu implements OnChanges, OnInit {
   }
   
   clickHandle(): void {
-  
+    if (!this.dontUserHover) return
+    if (this.opened) {
+      this.rootMenu.closeMenu(this.index)
+    } else {
+      this.rootMenu.openMenu(this.index)
+    }
+    this.updateOpened()
   }
   
   paddingStyle(): any {
     return this.sanitizer.bypassSecurityTrustStyle(`padding-left: 20px`)
   }
   
-  ngOnChanges(changes: any): void {
-    if (!changes || !changes.rootMenu) return
-  }
-  
   ngOnInit(): void {
     this.updateOpened()
     this.active = this.index === this.rootMenu.model
+    this.dontUserHover = this.rootMenu.mode === 'vertical' || this.rootMenu.menuTrigger !== 'hover'
   }
   
 }
