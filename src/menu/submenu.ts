@@ -1,4 +1,4 @@
-import { Component, Host, Input, OnChanges, OnInit } from '@angular/core'
+import { Component, ContentChild, Host, Input, OnChanges, OnInit, TemplateRef } from '@angular/core'
 import { DomSanitizer } from '@angular/platform-browser'
 import { dropAnimation } from '../shared/animation'
 import { ElMenu } from './menu'
@@ -13,7 +13,12 @@ import { ElMenu } from './menu'
       (mouseenter)="mouseenterHandle()"
       (mouseleave)="mouseleaveHandle()">
       <div class="el-submenu__title" (click)="clickHandle()" [style]="paddingStyle()">
-        {{title}}
+        <ng-container *ngIf="!titleTmp">
+          {{title}}
+        </ng-container>
+        <ng-container *ngIf="titleTmp">
+          <ng-template [ngTemplateOutlet]="titleTmp"></ng-template>
+        </ng-container>
         <i [ngClass]="classesIcon()"></i>
       </div>
       <ul class="el-menu" [@dropAnimation]="opened">
@@ -23,6 +28,8 @@ import { ElMenu } from './menu'
   `,
 })
 export class ElSubmenu implements OnChanges, OnInit {
+  
+  @ContentChild('title') titleTmp: TemplateRef<any>
   
   @Input() index: string
   @Input() title: string
