@@ -1,18 +1,19 @@
 <h2>NavMenu 导航菜单</h2>
-<h3>为网站提供导航功能的菜单。</h3>
+<p>为网站提供导航功能的菜单。</p>
 
-<!--<h3>顶栏</h3>-->
-<!--<p>适用广泛的基础用法。</p>-->
+<h3>顶栏</h3>
+<p>适用广泛的基础用法。</p>
+<ex-demo link="2" [code]="code[0]" >
+</ex-demo>
 
-<!--<el-menu mode="horizontal" [default-active]="'2'">-->
-  <!--<el-menu-item index="1">处理中心</el-menu-item>-->
-  <!--<el-submenu index="2" title="我的工作台">-->
-    <!--<el-menu-item index="2-1">选项1</el-menu-item>-->
-    <!--<el-menu-item index="2-2">选项2</el-menu-item>-->
-    <!--<el-menu-item index="2-3">选项3</el-menu-item>-->
-  <!--</el-submenu>-->
-<!--</el-menu>-->
+<h3>侧栏</h3>
+<p>垂直菜单，可内嵌子菜单。</p>
+<ex-demo link="2" [code]="code[1]" notes="通过 <code>el-menu-item-group</code>
+组件可以实现菜单进行分组，分组名可以通过 <code>title</code> 属性直接设定也可以通过 ng-template 来设定。">
+</ex-demo>
 
-<ex-document doc="menu"></ex-document>
+
+
+<!--<ex-document doc="menu"></ex-document>-->
 
 <ex-footer-nav [page]="page"></ex-footer-nav>
