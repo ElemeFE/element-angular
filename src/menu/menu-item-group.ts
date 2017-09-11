@@ -8,9 +8,7 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser'
       <div class="el-menu-item-group__title" [style]="paddingStyle()">
         {{title}}
       </div>
-      <ul>
-        <ng-content></ng-content>
-      </ul>
+      <ul><ng-content></ng-content></ul>
     </li>
   `
 })
@@ -27,7 +25,7 @@ export class ElMenuItemGroup implements OnInit {
   
   }
   
-  paddingStyle(): any {
+  paddingStyle(): SafeStyle {
     return this.sanitizer.bypassSecurityTrustStyle('padding-left: 20px')
   }
 

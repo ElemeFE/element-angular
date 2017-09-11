@@ -1,10 +1,13 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
 
 @Component({
   selector: 'el-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <ul class="el-menu" [ngClass]="classes()">
+    <ul [class]="'el-menu ' + nativeClass"
+      [class.el-menu--horizontal]="mode === 'horizontal'"
+      [class.el-menu--dark]="theme === 'dark'"
+      [class.el-menu--collapse]="collapse">
       <ng-content></ng-content>
     </ul>
   `,
@@ -14,22 +17,16 @@ export class ElMenu implements AfterViewInit {
   @Input() mode: string = 'vertical'
   @Input() collapse: boolean = false
   @Input() theme: string = 'light'
-  @Input('default-active') defaultActive: string
+  @Input() model: string
+  @Input('class') nativeClass: string
   @Input('default-openeds') defaultOpeneds: string[]
   @Input('unique-opened') uniqueOpened: boolean = false
   @Input('menu-trigger') menuTrigger: string = 'hover'
+  @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
   openedMenus: string[] = this.defaultOpeneds ? this.defaultOpeneds.slice(0) : []
   
   constructor() {
-  }
-  
-  classes(): any {
-    return {
-      'el-menu--horizontal': this.mode === 'horizontal',
-      'el-menu--dark': this.theme === 'dark',
-      'el-menu--collapse': this.collapse,
-    }
   }
   
   openMenu(index: string): void {
@@ -42,9 +39,10 @@ export class ElMenu implements AfterViewInit {
     this.openedMenus.splice(this.openedMenus.indexOf(index), 1)
   }
   
-  toggleActive(index: string = '') :string {
-    this.defaultActive = index
-    return this.defaultActive
+  selectHandle(index: string, path?: string): void {
+    const main: string = path || index
+    this.model = main
+    this.modelChange.emit(main)
   }
   
   ngAfterViewInit(): void {

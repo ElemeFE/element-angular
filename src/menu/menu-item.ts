@@ -1,15 +1,17 @@
-import { Component, Input, ChangeDetectionStrategy, OnInit, ElementRef, Optional } from '@angular/core'
+import {
+  Component, Input, OnInit, ElementRef, Optional,
+} from '@angular/core'
 import { DomSanitizer } from '@angular/platform-browser'
 import { ElMenu } from './menu'
-import { isParentTag, removeNgTag } from '../shared/utils'
+import { ElSubmenu } from './submenu'
+import { removeNgTag } from '../shared/utils'
 
 @Component({
   selector: 'el-menu-item',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <li class="el-menu-item" (click)="clickHandle"
+    <li class="el-menu-item" (click)="clickHandle()"
       [ngStyle]="paddingStyle()"
-      [ngClass]="{ 'is-active': active, 'is-disabled': disabled }">
+      [ngClass]="{ 'is-active': rootMenu.model === index, 'is-disabled': disabled }">
       <el-tooltip *ngIf="isGroup" effect="dark" placement="right">
         <div style="position: absolute;left: 0;top: 0;height: 100%;width: 100%;display: inline-block;box-sizing: border-box;padding: 0 20px;">
           <ng-content></ng-content>
@@ -30,11 +32,9 @@ export class ElMenuItem implements OnInit {
   @Input() disabled: boolean = false
   @Input() title: string = ''
   
-  private active: boolean = false
-  private parentIsMenu: boolean = false
-  
   constructor(
     @Optional() private rootMenu: ElMenu,
+    @Optional() private subMenu: ElSubmenu,
     private sanitizer: DomSanitizer,
     private el: ElementRef,
   ) {
@@ -45,14 +45,13 @@ export class ElMenuItem implements OnInit {
   }
   
   clickHandle(): void {
-  
+    const comRef: ElMenu | ElSubmenu = this.subMenu || this.rootMenu
+    comRef.selectHandle(this.index)
   }
   
   ngOnInit(): void {
-    const nativeElement = this.el.nativeElement
-    this.parentIsMenu = isParentTag(nativeElement, 'el-menu')
-    removeNgTag(nativeElement)
-    this.active = this.parentIsMenu && this.rootMenu.defaultActive === this.index
+    removeNgTag(this.el.nativeElement)
   }
+  
 }
 

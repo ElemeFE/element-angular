@@ -1,18 +1,22 @@
 import { Component, Host, Input, OnChanges, OnInit } from '@angular/core'
-import { ElMenu } from './menu'
 import { DomSanitizer } from '@angular/platform-browser'
+import { dropAnimation } from '../shared/animation'
+import { ElMenu } from './menu'
 
 @Component({
   selector: 'el-submenu',
+  animations: [dropAnimation],
   template: `
-    <li [ngClass]="classes()"
-        (mouseenter)="mouseenterHandle()"
-        (mouseleave)="mouseleaveHandle()">
-      <div class="el-submenu__title" (click)="clickHandle" [style]="paddingStyle()">
+    <li [class.el-submenu]="true"
+      [class.is-active]="active"
+      [class.is-opened]="opened"
+      (mouseenter)="mouseenterHandle()"
+      (mouseleave)="mouseleaveHandle()">
+      <div class="el-submenu__title" (click)="clickHandle()" [style]="paddingStyle()">
         {{title}}
         <i [ngClass]="classesIcon()"></i>
       </div>
-      <ul class="el-menu" [hidden]="!opened">
+      <ul class="el-menu" [@dropAnimation]="opened">
         <ng-content></ng-content>
       </ul>
     </li>
@@ -33,14 +37,6 @@ export class ElSubmenu implements OnChanges, OnInit {
     ) {
   }
   
-  classes(): any {
-    return {
-      'el-submenu': true,
-      'is-active': this.active,
-      'is-opened': this.opened,
-    }
-  }
-  
   classesIcon(): any {
     return {
       'el-submenu__icon-arrow': true,
@@ -51,24 +47,32 @@ export class ElSubmenu implements OnChanges, OnInit {
   }
   
   mouseenterHandle(): void {
-    this.active = this.index === this.rootMenu.toggleActive(this.index)
+    this.active = true
     
     clearTimeout(this.timer)
     this.timer = setTimeout(() => {
       this.rootMenu.openMenu(this.index)
       this.updateOpened()
+      clearTimeout(this.timer)
     }, 300)
-    
   }
   
   mouseleaveHandle(): void {
-    this.active = this.index === this.rootMenu.toggleActive()
+    this.active = false
     
     clearTimeout(this.timer)
-    setTimeout(() => {
+    this.timer = setTimeout(() => {
       this.rootMenu.closeMenu(this.index)
       this.updateOpened()
+      clearTimeout(this.timer)
     }, 300)
+  }
+  
+  selectHandle(path: string): void {
+    this.rootMenu.selectHandle(this.index, path)
+    // selected and close list
+    this.rootMenu.closeMenu(this.index)
+    this.updateOpened()
   }
   
   updateOpened(): void {
@@ -89,7 +93,7 @@ export class ElSubmenu implements OnChanges, OnInit {
   
   ngOnInit(): void {
     this.updateOpened()
-    this.active = this.index === this.rootMenu.defaultActive
+    this.active = this.index === this.rootMenu.model
   }
   
 }
