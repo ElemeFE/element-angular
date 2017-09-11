@@ -1,10 +1,11 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { ElPaginationButton, ElPaginationPager } from './children'
 import { ElPagination } from './pagination'
 
 
 @NgModule({
-  declarations: [ElPagination],
+  declarations: [ElPagination, ElPaginationButton, ElPaginationPager],
   exports: [ElPagination],
   imports: [CommonModule],
   entryComponents: [ElPagination],

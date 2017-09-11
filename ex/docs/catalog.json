@@ -92,6 +92,9 @@
     }, {
       "name": "Badge 标记",
       "link": "/data/badge"
+    }, {
+      "name": "Pagination 分页",
+      "link": "/data/pagination"
     }]
   }, {
     "name": "Notice",
