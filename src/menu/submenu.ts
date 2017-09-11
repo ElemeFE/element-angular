@@ -19,7 +19,9 @@ import { ElMenu } from './menu'
         <ng-container *ngIf="titleTmp">
           <ng-template [ngTemplateOutlet]="titleTmp"></ng-template>
         </ng-container>
-        <i [ngClass]="classesIcon()"></i>
+        <i class="el-submenu__icon-arrow"
+          [class.el-icon-caret-bottom]="rootMenu.mode === 'horizontal'"
+          [class.el-icon-arrow-down]="rootMenu.mode === 'vertical'"></i>
       </div>
       <ul class="el-menu" [@dropAnimation]="opened">
         <ng-content></ng-content>
@@ -43,14 +45,6 @@ export class ElSubmenu implements OnInit {
     @Host() private rootMenu: ElMenu,
     private sanitizer: DomSanitizer,
     ) {
-  }
-  
-  classesIcon(): any {
-    return {
-      'el-submenu__icon-arrow': true,
-      'el-icon-caret-bottom': this.rootMenu.mode === 'horizontal',
-      'el-icon-arrow-down': this.rootMenu.mode === 'vertical',
-    }
   }
   
   mouseenterHandle(): void {

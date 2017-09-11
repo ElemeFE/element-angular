@@ -1,6 +1,4 @@
-import {
-  Component, Input, OnInit, ElementRef, Optional,
-} from '@angular/core'
+import { Component, Input, OnInit, ElementRef, Optional } from '@angular/core'
 import { DomSanitizer } from '@angular/platform-browser'
 import { ElMenu } from './menu'
 import { ElSubmenu } from './submenu'
@@ -11,7 +9,8 @@ import { removeNgTag } from '../shared/utils'
   template: `
     <li class="el-menu-item" (click)="clickHandle()"
       [ngStyle]="paddingStyle()"
-      [ngClass]="{ 'is-active': rootMenu.model === index, 'is-disabled': disabled }">
+      [class.is-active]="rootMenu.model === index"
+      [class.is-disabled]="disabled">
       <el-tooltip *ngIf="isGroup" effect="dark" placement="right">
         <div style="position: absolute;left: 0;top: 0;height: 100%;width: 100%;display: inline-block;box-sizing: border-box;padding: 0 20px;">
           <ng-content></ng-content>
