@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
 @Component({
@@ -6,7 +6,7 @@ import code from './code'
   templateUrl: './dialog.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class ExDialogComponent implements OnInit {
+export class ExDialogComponent {
   
   private code: string[] = code
   private exClass: any = class {
@@ -19,7 +19,5 @@ export class ExDialogComponent implements OnInit {
     previous: { name: 'Card 卡片', link: '/others/card' },
     next: { name: 'Carousel 走马灯', link: '/others/carousel' },
   }
-  
-  ngOnInit(): void {
-  }
+
 }

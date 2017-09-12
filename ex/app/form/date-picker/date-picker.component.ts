@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
 @Component({
@@ -6,7 +6,7 @@ import code from './code'
   templateUrl: './date-picker.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class ExDatePickerComponent implements OnInit {
+export class ExDatePickerComponent {
   
   private code: string[] = code
   private page: any = {
@@ -21,6 +21,4 @@ export class ExDatePickerComponent implements OnInit {
     }
   }
   
-  ngOnInit(): void {
-  }
 }

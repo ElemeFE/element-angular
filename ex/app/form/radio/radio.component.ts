@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import code from './code'
 
 @Component({
   selector: 'ex-radio',
   templateUrl: './radio.component.html',
 })
-export class ExRadioComponent implements OnInit {
+export class ExRadioComponent {
   
   private code: string[] = code
   private page: any = {
@@ -13,6 +13,4 @@ export class ExRadioComponent implements OnInit {
     next: { name: 'Checkbox 多选框', link: '/form/checkbox' },
   }
   
-  ngOnInit(): void {
-  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { Router } from '@angular/router'
 export type next = { name?: string, link?: string }
 export type page = { previous?: next, next?: next }
@@ -8,7 +8,7 @@ export type page = { previous?: next, next?: next }
   templateUrl: './footer-nav.component.html',
   styleUrls: ['./footer-nav.component.scss'],
 })
-export class ExFooterNavComponent implements OnInit {
+export class ExFooterNavComponent {
   
   @Input() page: page
   
@@ -21,7 +21,5 @@ export class ExFooterNavComponent implements OnInit {
     const link = nextPage ? this.page.next.link : this.page.previous.link
     link && this.router.navigate([link])
   }
-
-  ngOnInit(): void {
-  }
+  
 }

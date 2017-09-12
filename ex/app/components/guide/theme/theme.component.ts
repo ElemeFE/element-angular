@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import code from './code'
 
 @Component({
   selector: 'ex-theme',
   templateUrl: './theme.component.html',
 })
-export class ExThemeComponent implements OnInit {
+export class ExThemeComponent {
   
   private code: string[] = code
   private page: any = {
@@ -13,10 +13,4 @@ export class ExThemeComponent implements OnInit {
     next: { name: '更新日志', link: '/guide/log' },
   }
   
-  constructor(
-  ) {
-  }
-  
-  ngOnInit(): void {
-  }
 }

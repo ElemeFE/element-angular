@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
 @Component({
@@ -7,7 +7,7 @@ import code from './code'
   styleUrls: ['./dropdown.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ExDropdownComponent implements OnInit {
+export class ExDropdownComponent {
   
   private exClass: new () => {} = class {
     
@@ -53,7 +53,4 @@ export class ExDropdownComponent implements OnInit {
     next: { name: 'Tooltip 文字提示', link: '/others/tooltip' },
   }
   
-  
-  ngOnInit(): void {
-  }
 }

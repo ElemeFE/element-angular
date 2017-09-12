@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
 @Component({
@@ -7,7 +7,7 @@ import code from './code'
   styleUrls: ['./tooltip.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ExTooltipComponent implements OnInit {
+export class ExTooltipComponent {
   
   private code: string[] = code
   private page: any = {
@@ -15,6 +15,4 @@ export class ExTooltipComponent implements OnInit {
     next: { name: 'Card 卡片', link: '/others/card' },
   }
   
-  ngOnInit(): void {
-  }
 }

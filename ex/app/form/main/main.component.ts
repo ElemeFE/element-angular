@@ -1,15 +1,9 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'ex-form-main',
   templateUrl: './main.component.html',
 })
-export class ExFormMainComponent implements OnInit {
-  
-  constructor() {
-  }
-  
-  ngOnInit(): void {
-  }
-  
+export class ExFormMainComponent {
+
 }

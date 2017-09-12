@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
 @Component({
@@ -7,7 +7,7 @@ import code from './code'
   styleUrls: ['./steps.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ExStepsComponent implements OnInit {
+export class ExStepsComponent {
   
   private ExClass: new () => {} = class {
     private active: number = 1
@@ -25,7 +25,4 @@ export class ExStepsComponent implements OnInit {
     next: { name: 'Dropdown 下拉菜单', link: '/nav/dropdown' },
   }
   
-  
-  ngOnInit(): void {
-  }
 }

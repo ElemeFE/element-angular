@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import code from './code'
 
 @Component({
@@ -6,7 +6,7 @@ import code from './code'
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.scss'],
 })
-export class ExStartComponent implements OnInit {
+export class ExStartComponent {
   
   private code: string[] = code
   private page: any = {
@@ -14,10 +14,4 @@ export class ExStartComponent implements OnInit {
     next: { name: '国际化', link: '/guide/i18n' },
   }
   
-  constructor(
-  ) {
-  }
-  
-  ngOnInit(): void {
-  }
 }
