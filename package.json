@@ -83,6 +83,6 @@
     "@angular/core": "^4.3.4"
   },
   "dependencies": {
-    "element-theme-default": "^1.4.3"
+    "element-theme-default": "^1.4.4"
   }
 }

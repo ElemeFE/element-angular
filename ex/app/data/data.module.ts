@@ -9,6 +9,7 @@ import { ExUserMainComponent } from './main/main.component'
 import { ExTagComponent } from './tag/tag.component'
 import { ExProgressComponent } from './progress/progress.component'
 import { ExBadgeComponent } from './badge/badge.component'
+import { ExPaginationComponent } from './pagination/pagination.component'
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ExBadgeComponent } from './badge/badge.component'
     ExTagComponent,
     ExProgressComponent,
     ExBadgeComponent,
+    ExPaginationComponent,
   ],
   imports: [
     CommonModule,
