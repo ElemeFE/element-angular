@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
 @Component({
@@ -7,7 +7,7 @@ import code from './code'
   styleUrls: ['./rate.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ExRateComponent implements OnInit {
+export class ExRateComponent {
   
   private code: string[] = code
   private page: any = {
@@ -15,6 +15,4 @@ export class ExRateComponent implements OnInit {
     next: { name: 'Tag 标签', link: '/data/tag' },
   }
   
-  ngOnInit(): void {
-  }
 }

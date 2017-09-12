@@ -1,4 +1,4 @@
-import { Component, forwardRef, Inject, OnInit, Optional, ViewEncapsulation } from '@angular/core'
+import { Component, forwardRef, Inject, ViewEncapsulation } from '@angular/core'
 import { ElMessageService } from '../../../../src/index'
 import code from './code'
 
@@ -25,7 +25,7 @@ export class ExMessageDemoComponent {
   templateUrl: './message.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class ExMessageComponent implements OnInit {
+export class ExMessageComponent {
   
   private code: string[] = code
   private page: any = {
@@ -34,15 +34,4 @@ export class ExMessageComponent implements OnInit {
   }
   private exClass: any = ExMessageDemoComponent
   
-  constructor(
-  ) {
-  }
-  
-  handle(): void {
-  
-  }
-  
-  ngOnInit(): void {
-  
-  }
 }

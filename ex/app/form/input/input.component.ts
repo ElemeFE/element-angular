@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
 @Component({
@@ -7,7 +7,7 @@ import code from './code'
   styleUrls: ['./input.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ExInputComponent implements OnInit {
+export class ExInputComponent {
   
   private code: string[] = code
   private page: any = {
@@ -15,6 +15,4 @@ export class ExInputComponent implements OnInit {
     next: { name: 'InputNumber 计数器', link: '/form/input-number' },
   }
   
-  ngOnInit(): void {
-  }
 }

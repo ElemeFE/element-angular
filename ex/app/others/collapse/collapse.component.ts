@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
 @Component({
@@ -7,14 +7,12 @@ import code from './code'
   styleUrls: ['./collapse.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ExCollapseComponent implements OnInit {
+export class ExCollapseComponent {
   
   private code: string[] = code
   private page: any = {
     previous: { name: 'Carousel 走马灯', link: '/others/carousel' },
     next: { name: null, link: null },
   }
-  
-  ngOnInit(): void {
-  }
+
 }

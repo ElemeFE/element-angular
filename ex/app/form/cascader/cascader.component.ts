@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
 @Component({ selector: 'ex-cascader-demo' })
@@ -78,7 +78,7 @@ export class ExCascaderDemoComponent {
   templateUrl: './cascader.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class ExCascaderComponent implements OnInit {
+export class ExCascaderComponent {
   
   private code: string[] = code
   private page: any = {
@@ -87,7 +87,5 @@ export class ExCascaderComponent implements OnInit {
   }
   
   private exClass: any = ExCascaderDemoComponent
-  
-  ngOnInit(): void {
-  }
+
 }

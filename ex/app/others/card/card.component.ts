@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
 @Component({
@@ -7,7 +7,7 @@ import code from './code'
   styleUrls: ['./card.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ExCardComponent implements OnInit {
+export class ExCardComponent {
   
   private code: string[] = code
   private exClass: any = class {
@@ -19,7 +19,5 @@ export class ExCardComponent implements OnInit {
     previous: { name: 'Tooltip 文字提示', link: '/others/tooltip' },
     next: { name: 'Dialog 对话框', link: '/others/dialog' },
   }
-  
-  ngOnInit(): void {
-  }
+
 }

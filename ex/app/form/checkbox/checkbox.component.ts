@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import code from './code'
 
 @Component({
   selector: 'ex-checkbox',
   templateUrl: './checkbox.component.html',
 })
-export class ExCheckboxComponent implements OnInit {
+export class ExCheckboxComponent {
   
   private code: string[] = code
   private page: any = {
@@ -13,6 +13,4 @@ export class ExCheckboxComponent implements OnInit {
     next: { name: 'Input 输入框', link: '/form/input' },
   }
   
-  ngOnInit(): void {
-  }
 }

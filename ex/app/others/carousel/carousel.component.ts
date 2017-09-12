@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
 @Component({
@@ -7,7 +7,7 @@ import code from './code'
   styleUrls: ['./carousel.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ExCarouselComponent implements OnInit {
+export class ExCarouselComponent {
   
   private code: string[] = code
   private exClass: any = class {
@@ -17,6 +17,4 @@ export class ExCarouselComponent implements OnInit {
     next: { name: 'Collapse 折叠面板', link: '/others/collapse' },
   }
   
-  ngOnInit(): void {
-  }
 }

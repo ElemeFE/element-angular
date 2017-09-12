@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 
 @Component({
   selector: 'ex-log',
@@ -6,17 +6,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core'
   styleUrls: ['./log.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ExLogComponent implements OnInit {
+export class ExLogComponent {
   
   private page: any = {
     previous: { name: '自定义主题', link: '/guide/theme' },
     next: { name: 'Layout 布局', link: '/basic/layout' },
   }
   
-  constructor(
-  ) {
-  }
-  
-  ngOnInit(): void {
-  }
 }

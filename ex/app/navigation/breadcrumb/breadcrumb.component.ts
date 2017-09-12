@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
 @Component({
@@ -6,7 +6,7 @@ import code from './code'
   templateUrl: './breadcrumb.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class ExBreadcrumbComponent implements OnInit {
+export class ExBreadcrumbComponent {
   
   private code: string[] = code
   private page: any = {
@@ -19,7 +19,4 @@ export class ExBreadcrumbComponent implements OnInit {
     }
   }
   
-  
-  ngOnInit(): void {
-  }
 }

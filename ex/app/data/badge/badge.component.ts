@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
 @Component({
@@ -7,7 +7,7 @@ import code from './code'
   styleUrls: ['./badge.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ExBadgeComponent implements OnInit {
+export class ExBadgeComponent {
   
   private code: string[] = code
   private tags: string[] = ['123', '234234', '0011']
@@ -20,6 +20,4 @@ export class ExBadgeComponent implements OnInit {
     this.tags.pop()
   }
   
-  ngOnInit(): void {
-  }
 }
