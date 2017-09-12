@@ -2,16 +2,25 @@
 <p>当数据量过多时，使用分页分解数据。</p>
 
 <h3>基础用法</h3>
-<ex-demo link="2" [code]="code[0]">
+<p>属性 <code>layout</code> 共有 6 个参数，分别代表不同子组件 (功能)，只有声明需要时这些子组件才会显示。</p>
+<p> <code>prev</code>表示上一页， <code>next</code>为下一页， <code>pager</code>表示页码列表。</p>
+<p>除此以外还提供了 <code>jumper</code>和 <code>total</code>， <code>size</code>。</p>
+<p> <code>jumper</code>表示跳页元素， <code>total</code>表示显示页码总数， <code>size</code>用于设置每页显示的页码数量。</p>
+<ex-demo link="2" [code]="code[0]" notes="设置 <code>layout</code>，
+表示需要显示的内容，用逗号分隔，布局元素会依次显示。">
 </ex-demo>
 
 
+<h3>小型分页</h3>
+<p>在空间有限的情况下，可以使用简单的小型分页。</p>
+<ex-demo link="2" [code]="code[1]">
+</ex-demo>
 
-
-
-
-
-
+<h3>附加功能</h3>
+<p>根据场景需要，可以添加其他功能模块。</p>
+<ex-demo link="2" [code]="code[2]" notes="当你打开自由控制分页数量参数 <code>size</code>
+时，你可以使用 <code>page-sizes</code> 来调整具体的选项，详见文末的属性表。">
+</ex-demo>
 
 
 

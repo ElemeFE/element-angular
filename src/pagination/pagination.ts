@@ -63,15 +63,24 @@ export class ElPagination extends ElPaginationProps implements OnInit {
   }
   
   ngOnInit(): void {
+    if (!this.pageCount && !this.total) {
+      return console.warn('el-pagination required [total]')
+    }
     if (!this.pageCount) {
       this.pageCount = Math.ceil(this.total / this.pageSize)
     }
+    if (!this.total) {
+      this.total = Math.round(this.pageCount * this.pageSize)
+    }
+    
+    
     this.showPager = ElPagination.showLayout('pager', this.layout)
     this.showPrev = ElPagination.showLayout('prev', this.layout)
     this.showNext = ElPagination.showLayout('next', this.layout)
     this.showTotal = ElPagination.showLayout('total', this.layout)
     this.showSize = ElPagination.showLayout('size', this.layout)
     this.showJumper = ElPagination.showLayout('jumper', this.layout)
+  
   }
   
 }
