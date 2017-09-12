@@ -12,7 +12,7 @@ export class ExPaginationComponent {
   private code: string[] = code
   private tags: string[] = ['123', '234234', '0011']
   private page: any = {
-    previous: { name: 'Progress 进度条', link: '/data/progress' },
+    previous: { name: 'Badge 标记', link: '/data/badge' },
     next: { name: 'Loading 加载', link: '/notice/loading' },
   }
   
