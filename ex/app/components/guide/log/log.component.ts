@@ -1,4 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core'
+import { DocsService } from '../../../shared/services/docs/docs.service'
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser'
 
 @Component({
   selector: 'ex-log',
@@ -8,9 +10,26 @@ import { Component, ViewEncapsulation } from '@angular/core'
 })
 export class ExLogComponent {
   
+  private logs: JSON
   private page: any = {
     previous: { name: '自定义主题', link: '/guide/theme' },
     next: { name: 'Layout 布局', link: '/basic/layout' },
+  }
+  
+  constructor(
+    private docsService: DocsService,
+    private sanitizer: DomSanitizer,
+  ) {
+  }
+  
+  makeSafeUrl(link: string | null): SafeUrl {
+    const url: string = link || 'javascript:;'
+    return this.sanitizer.bypassSecurityTrustUrl(url)
+  }
+  
+  ngOnInit(): void {
+    this.docsService.getChangeLogs()
+      .subscribe(json => this.logs = json)
   }
   
 }

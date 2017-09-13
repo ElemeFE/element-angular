@@ -1,105 +1,36 @@
-<div class="page-changelog">
+<div class="page-changelog" *ngIf="logs">
   <div class="heading">
     <el-button class="fr">
-      <a href="https://www.npmjs.com/package/element-angular" target="_blank">
-        NPM Releases
-      </a>
+      <a [href]="makeSafeUrl(logs['releases-link'])" target="_blank">NPM Releases</a>
     </el-button>
     更新日志
   </div>
   <ul class="timeline" ref="timeline">
-    <li><h3><a href="javascript:;" target="_blank">0.0.4-alpha.3</a></h3>
-      <p><em>2017-09-12</em></p>
+    <li *ngFor="let release of logs.releases">
+      <h3>
+        <a [href]="makeSafeUrl(release.link)" target="_blank">{{release.version}}</a>
+      </h3>
+      <p><em>{{release.date}}</em></p>
       <ul>
-        <li>
-          增加 Alert / Menu / Pagination 组件与文档
-        </li>
-      </ul>
-    </li>
-    <li><h3><a href="javascript:;" target="_blank">0.0.4-alpha.2</a></h3>
-      <p><em>2017-09-08</em></p>
-      <ul>
-        <li>
-          增加 Dialog / Carousel / Collapse / Slider 组件与文档
-        </li>
-        <li>
-          增加 Progress 自定义颜色
-          <a href="https://github.com/eleme/element-angular/issues/140" target="_blank">[issue-140]</a>
-        </li>
-        <li>
-          修复 Select 清除后未更新列表激活项
-          <a href="https://github.com/eleme/element-angular/pull/162" target="_blank">[issue-162]</a>
-        </li>
-        <li>
-          修复 Tag 文档缺失
-          <a href="https://github.com/eleme/element-angular/pull/161" target="_blank">[issue-161]</a>
-        </li>
-      </ul>
-    </li>
-    <li><h3><a href="javascript:;" target="_blank">0.0.4-alpha.1</a></h3>
-      <p><em>2017-09-06</em></p>
-      <ul>
-        <li>
-          增加 DatePicker / Breadcrumb 组件与文档
-        </li>
-        <li>
-          增加 Input 图标事件与文档
-        </li>
-        <li>
-          增加 Dropdown 自动改变方向 <a href="https://github.com/eleme/element-angular/issues/143" target="_blank">[issue-143]</a>
-        </li>
-        <li>
-          修复 Select 禁用仍旧可以选中
-          <a href="https://github.com/eleme/element-angular/issues/136" target="_blank">[issue-136]</a>
-        </li>
-      </ul>
-    </li>
-    <li><h3><a href="javascript:;" target="_blank">0.0.4-alpha.0</a></h3>
-      <p><em>2017-09-03</em></p>
-      <ul>
-        <li>
-          修复文档路由标记错误、编译警告、文字错误
-        </li>
-        <li>
-          增加 Cascader / Card / Badge / Dropdown 组件与文档
-        </li>
-        <li>
-          修复 Input / Button 组件的继承样式问题
-        </li>
-      </ul>
-    </li>
-    <li><h3><a href="javascript:;" target="_blank">0.0.3-alpha.3</a></h3>
-      <p><em>2017-09-02</em></p>
-      <ul>
-        <li>
-          修复 Aot 编译警告
-        </li>
-        <li>
-          增加 Notification / message 组件
-        </li>
-      </ul>
-    </li>
-    <li><h3><a href="javascript:;" target="_blank">0.0.3-alpha.2</a></h3>
-      <p><em>2017-08-30</em></p>
-      <ul>
-        <li>
-          完成主要组件。补充组件文档以及安装引导。
-          <!--<a href="" target="_blank">#issue</a>-->
-        </li>
-      </ul>
-    </li>
-    <li><h3><a href="javascript:;" target="_blank">0.0.1</a></h3>
-      <p><em>2017-08-06</em></p>
-      <ul>
-        <li>
-          创建项目
-          <!--<a href="" target="_blank">#issue</a>-->
+        <li *ngFor="let event of release.events">
+          {{event.description}}
+          <ng-container *ngIf="event.issues && event.issues.length > 0">
+            <a target="_blank" *ngFor="let issue of event.issues"
+              [href]="makeSafeUrl('https://github.com/eleme/element-angular/issues/' + issue)">
+              [issue-{{issue}}]
+            </a>
+          </ng-container>
+          <ng-container *ngIf="event['pull-requests'] && event['pull-requests'].length > 0">
+            <a target="_blank" *ngFor="let pr of event['pull-requests']"
+               [href]="makeSafeUrl('https://github.com/eleme/element-angular/pull/' + pr)">
+              [pr-{{pr}}]
+            </a>
+          </ng-container>
         </li>
       </ul>
     </li>
   </ul>
 </div>
-
 
 <ex-footer-nav [page]="page"></ex-footer-nav>
 
