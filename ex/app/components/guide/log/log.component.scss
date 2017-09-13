@@ -78,12 +78,15 @@
     h3 {
       margin: 0 0 10px;
       &:before {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         left: -31px;
         top: 13px;
-        circle: 13px transparent;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background-color: transparent;
         border: 2px solid #20a0ff;
         box-sizing: border-box;
         background-color: #fff;
