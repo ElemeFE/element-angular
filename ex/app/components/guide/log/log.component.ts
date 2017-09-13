@@ -1,6 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core'
 import { DocsService } from '../../../shared/services/docs/docs.service'
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser'
+export type Logs = {
+  'releases-link': string
+  releases: any[]
+}
 
 @Component({
   selector: 'ex-log',
@@ -10,7 +14,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser'
 })
 export class ExLogComponent {
   
-  private logs: JSON
+  private logs: Logs
   private page: any = {
     previous: { name: '自定义主题', link: '/guide/theme' },
     next: { name: 'Layout 布局', link: '/basic/layout' },
@@ -29,7 +33,10 @@ export class ExLogComponent {
   
   ngOnInit(): void {
     this.docsService.getChangeLogs()
-      .subscribe(json => this.logs = json)
+      .subscribe(json => {
+        this.logs = json
+        this.logs.releases = this.logs.releases.reverse()
+      })
   }
   
 }
