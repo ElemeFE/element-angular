@@ -1,11 +1,12 @@
 {
   "name": "element-angular",
-  "version": "0.0.4-alpha.3",
+  "version": "0.0.4-alpha.4",
   "description": "element ui for angular",
-  "main": "release/index.d.ts",
+  "main": "./index.ts",
   "unpkg": "bundle/element-angular.js",
   "files": [
     "release",
+    "index.ts",
     "bundle"
   ],
   "scripts": {
@@ -80,7 +81,8 @@
     "zone.js": "^0.8.16"
   },
   "peerDependencies": {
-    "@angular/core": "^4.3.4"
+    "@angular/core": "^4.0.0",
+    "@angular/animations": "^4.0.0"
   },
   "dependencies": {
     "element-theme-default": "^1.4.4"
