@@ -7,11 +7,15 @@
 
 <h3>Hello world</h3>
 <p>引入模块后，我们能轻易地构建一个简易页面</p>
-<p><code>element-theme-default</code> 样式库是 <code>Element Angul</code> 的依赖，无需再次安装。</p>
+<p><code> element-theme-default </code> 样式库是 <code>Element Angular</code> 的依赖，无需再次安装。</p>
 
-<p>注: 假设你已经通过 <a href="https://github.com/angular/angular-cli" target="_blank">angular-cli</a> 创建了基础的 Angular 项目。</p>
+<p>使用 webpack 的引入方式：</p>
 <pre>
   <code class="hljs" [innerHTML]="code[1] | highlightAuto"></code>
+</pre>
+<p>如果你使用 angular-cli，你需要样式文件在 <code>/src/styles</code> 引入：</p>
+<pre>
+  <code class="hljs" [innerHTML]="code[2] | highlightAuto"></code>
 </pre>
 
 
