@@ -1,29 +1,29 @@
-import { Headers, Http } from '@angular/http'
+import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { HttpRequest } from '@angular/common/http'
+import { Observable } from 'rxjs/Observable'
 
 @Injectable()
 export class ElUploadRequest {
   
-  headers: Headers
+  private headers: HttpHeaders
   
   constructor(
-    private http: Http,
+    private http: HttpClient,
   ) {
   }
 
-  upload(path: string, file: File): void {
-    const req: any = new HttpRequest('POST', path, {
-      data: file,
-    }, Object.assign(this.headers, {
+  upload(path: string, file: File): Observable<any> {
+    const req: HttpRequest<File> = new HttpRequest('POST', path, file, {
+      headers: this.headers,
       reportProgress: true,
-    }))
-    this.http.request(req)
-      .subscribe(res => {
-        console.log(res)
-      }, err => {
-        console.log(err)
-      })
+    })
+    return this.http.request(req)
+  }
+  
+  setHeader(headers: any = {}): void {
+    this.headers = new HttpHeaders(Object.assign({
+      'content-type': 'multipart/form-data',
+    }, headers))
   }
   
 }
