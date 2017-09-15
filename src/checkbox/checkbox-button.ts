@@ -17,7 +17,7 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
         [ngModel]="model" (ngModelChange)="changeHandle($event)"
         (focus)="isFocus = true" (blur)="isFocus = false">
       <span class="el-checkbox-button__inner"
-        [style]="checked ? activeStyle() : 'display: block'">
+        [style]="activeStyle()">
         <ng-container *ngIf="showLabel">{{label}}</ng-container>
         <span *ngIf="!showLabel" #content>
           <ng-content></ng-content>
@@ -60,7 +60,7 @@ export class ElCheckboxButton implements OnInit, AfterViewInit {
     const styles: string = `backgroundColor: ${this.hostGroup.fill};` +
       `borderColor: ${this.hostGroup.fill};color: ${this.hostGroup.textColor};` +
       `box-shadow: -1px 0 0 0 ${this.hostGroup.fill};`
-    return this.domSanitizer.bypassSecurityTrustStyle(styles)
+    return this.domSanitizer.bypassSecurityTrustStyle(this.checked ? styles : 'display: block')
   }
   
   isChecked(): boolean {
