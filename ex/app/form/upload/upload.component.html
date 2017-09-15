@@ -2,14 +2,18 @@
 <p>通过点击或者拖拽上传文件</p>
 
 <h3>点击上传</h3>
-<ex-demo link="2" [code]="code[0]" [class]="exClass" notes="<code>(upload-filter)</code>
-是用于上传过滤的中间件，你可以根据此自定义一些标准，调用 <code>reject</code> 会阻止上传动作。">
+<ex-demo link="2" [code]="code[0]" [class]="exClass" notes="<code>[upload-filter]</code>
+是用于上传过滤的中间件，你可以根据此自定义一些标准，返回 <code>false</code> 会阻止上传动作。">
 </ex-demo>
 
+<h3>用户头像上传</h3>
+<ex-demo link="2" [code]="code[1]" [class]="exClass">
+</ex-demo>
 
-
-
-
+<h3>照片墙</h3>
+<p>使用 <code>list-type</code> 属性来设置文件列表的样式。</p>
+<ex-demo link="2" [code]="code[2]" [class]="exClass">
+</ex-demo>
 
 
 
