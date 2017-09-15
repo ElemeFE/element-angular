@@ -28,7 +28,7 @@ import { CommonFile } from './upload.interface'
         </el-progress>
         <span class="el-upload-list__item-actions" *ngIf="listType === 'picture-card'">
         <span class="el-upload-list__item-preview"
-          *ngIf="handlePreview && listType === 'picture-card'"
+          *ngIf="listType === 'picture-card'"
           (click)="previewHandle(file)">
           <i class="el-icon-view"></i>
         </span>
@@ -48,8 +48,9 @@ export class ElUploadList {
   @Input() disabled: boolean = false
   @Input('list-type') listType: string
   @Output() remove: EventEmitter<CommonFile> = new EventEmitter<CommonFile>()
+  @Output() preview: EventEmitter<CommonFile> = new EventEmitter<CommonFile>()
   
-  clickHandle(): void {
+  clickHandle(file: CommonFile): void {
   
   }
   
@@ -58,8 +59,8 @@ export class ElUploadList {
   }
   
   
-  previewHandle(): void {
-  
+  previewHandle(file: CommonFile): void {
+    this.preview.emit(file)
   }
   
 }

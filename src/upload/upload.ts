@@ -2,6 +2,7 @@ import {
   Component, ContentChild, ElementRef, OnInit, TemplateRef,
   ViewChild,
 } from '@angular/core'
+import { DomSanitizer } from '@angular/platform-browser'
 import { ElUploadProps } from './upload.props'
 import { ElUploadRequest } from './upload.request'
 import { CommonFile, UploadFile } from './upload.interface'
@@ -10,7 +11,16 @@ import { HttpResponse } from '@angular/common/http'
 @Component({
   selector: 'el-upload',
   template: `
-    <div [class]="'el-upload el-upload--text' + listType"
+    <ng-template #uploadList>
+      <el-upload-list [files]="files"  *ngIf="showFileList"
+        [list-type]="listType" [disabled]="disabled"
+        (remove)="removeHandle($event)" (preview)="lifecycle.preview($event)">
+      </el-upload-list>
+    </ng-template>
+    <ng-container *ngIf="listType === 'picture-card'">
+      <ng-template [ngTemplateOutlet]="uploadList"></ng-template>
+    </ng-container>
+    <div [class]="'el-upload el-upload--' + listType"
       (click)="clickHandle()">
       <el-button *ngIf="!trigger" size="small" type="primary">点击上传</el-button>
       <ng-container *ngIf="trigger">
@@ -23,11 +33,9 @@ import { HttpResponse } from '@angular/common/http'
     <ng-container *ngIf="tip">
       <ng-template [ngTemplateOutlet]="tip"></ng-template>
     </ng-container>
-
-    <el-upload-list [files]="files" [disabled]="disabled"
-      [list-type]="listType"
-      (remove)="removeHandle($event)">
-    </el-upload-list>
+    <ng-container *ngIf="listType !== 'picture-card'">
+      <ng-template [ngTemplateOutlet]="uploadList"></ng-template>
+    </ng-container>
   `,
 })
 export class ElUpload extends ElUploadProps implements OnInit {
@@ -49,6 +57,7 @@ export class ElUpload extends ElUploadProps implements OnInit {
   
   constructor(
     private request: ElUploadRequest,
+    private sanitizer: DomSanitizer,
   ) {
     super()
   }
@@ -71,14 +80,12 @@ export class ElUpload extends ElUploadProps implements OnInit {
         size: file.size,
         percentage: 0,
         raw: file,
+        url: this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(file))
       }
       this.files.push(next)
+      this.updateFile(next)
       this.lifecycle.start()
-      this.uploadFilter.emit({
-        file: next,
-        reject: () => this.removeHandle(next),
-        next: () => this.upload(next),
-      })
+      this.uploadFilter(file) === false ? this.removeHandle(next) : this.upload(next)
     })
   }
   
@@ -89,13 +96,12 @@ export class ElUpload extends ElUploadProps implements OnInit {
       .subscribe((event: any) => {
         file.percentage = ElUpload.updatePercentage(event)
         if (event instanceof HttpResponse) {
-          file = Object.assign(file, { url: event.url, status: 'success' })
-          this.lifecycle.success(file)
+          this.lifecycle.success(Object.assign(file, { status: 'success' }), event)
         }
         this.updateFile(file)
       }, err => {
         file.status = 'fail'
-        this.lifecycle.error(err)
+        this.lifecycle.error(file, err)
         this.removeHandle(file)
       })
   }
@@ -120,7 +126,7 @@ export class ElUpload extends ElUploadProps implements OnInit {
         name: file.name,
         status: 'success',
         raw: null, size: null,
-        url: file.url,
+        url: this.sanitizer.bypassSecurityTrustUrl(file.url),
       })
     })
   }

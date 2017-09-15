@@ -1,3 +1,5 @@
+import { SafeUrl } from '@angular/platform-browser'
+import { HttpResponse } from '@angular/common/http'
 
 export interface UploadFile {
   url: string,
@@ -5,7 +7,7 @@ export interface UploadFile {
 }
 
 export interface Lifecycle {
-  [key: string]: (params?: any) => void
+  [key: string]: (...params: any[]) => void
 }
 
 export interface CommonFile {
@@ -14,7 +16,7 @@ export interface CommonFile {
   status: string,
   name: string,
   raw: File,
-  url?: string,
+  url?: SafeUrl,
   percentage?: number,
 }
 
@@ -22,4 +24,10 @@ export interface FilterEvent {
   file?: CommonFile,
   reject: Function,
   next: Function,
+}
+
+export interface UploadResponse<T> {
+  commonFile: CommonFile,
+  response?: HttpResponse<T>,
+  error?: any,
 }
