@@ -73,4 +73,34 @@ errorHandle(err: any): void {
 
 `,
 
+// 缩略图
+`
+
+<el-upload class="avatar-uploader"
+  [file-list]="fileList"
+  action="https://jsonplaceholder.typicode.com/posts/"
+  list-type="picture">
+  <ng-template #trigger>
+    <el-button size="small" type="primary">点击上传</el-button>
+  </ng-template>
+</el-upload>
+
+`,
+
+// 拖拽上传
+`
+
+<el-upload class="upload-demo"
+  action="https://jsonplaceholder.typicode.com/posts/"
+  [drag]="true"
+  [multiple]="true">
+  <ng-template #trigger>
+    <i class="el-icon-upload"></i>
+    <div class="el-upload__text">将文件拖到此处，或
+      <em>点击上传</em>
+    </div>
+  </ng-template>
+</el-upload>
+
+`,
 ]
