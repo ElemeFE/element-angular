@@ -86,6 +86,17 @@
       }, {
         "description": "争对 Angular Cli 项目完善文档"
       }]
+    },
+    {
+      "version": "0.0.4-alpha.5",
+      "date": "2017-09-15",
+      "link": null,
+      "events": [{
+        "description": "修复 AOT 编译警告的问题",
+        "issues": [181]
+      }, {
+        "description": "增加 Upload 组件与文档"
+      }]
     }
   ]
 }
