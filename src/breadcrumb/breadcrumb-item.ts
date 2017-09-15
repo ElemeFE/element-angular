@@ -22,7 +22,7 @@ export class ElBreadcrumbItem implements OnInit {
   @Input() extras?: any
   
   constructor(
-    @Optional() private root: ElBreadcrumb,
+    @Optional() public root: ElBreadcrumb,
     private router: Router,
     private el: ElementRef,
   ) {

@@ -52,7 +52,7 @@
     "app-root-path": "^2.0.1",
     "awesome-typescript-loader": "^3.2.2",
     "copy-webpack-plugin": "^4.0.1",
-    "core-js": "^2.5.0",
+    "core-js": "^2.4.1",
     "css-loader": "^0.28.4",
     "del": "^3.0.0",
     "element-ui": "^1.4.2",

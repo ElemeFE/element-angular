@@ -39,13 +39,13 @@ export class ElDateTable implements OnInit, OnChanges {
   @Input('disabled-date') disabledDate: any
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
-  private weeks: string[] = ['日', '一', '二', '三', '四', '五', '六']
-  private tableRows: DateRow[] = [ [], [], [], [], [], [] ]
-  private targetDay: number
-  private targetMonthOffset: number = 0               // default: current month, offset = 0
-  private date: Date
-  private today: number
-  private currentMonthOffset: number
+  weeks: string[] = ['日', '一', '二', '三', '四', '五', '六']
+  tableRows: DateRow[] = [ [], [], [], [], [], [] ]
+  targetDay: number
+  targetMonthOffset: number = 0               // default: current month, offset = 0
+  date: Date
+  today: number
+  currentMonthOffset: number
   
   static BuildMonthStartRow(first: number, lastCount: number): DateRowItem[] {
     let lastday: number = 7 - first

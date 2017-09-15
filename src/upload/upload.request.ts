@@ -5,10 +5,10 @@ import { Observable } from 'rxjs/Observable'
 @Injectable()
 export class ElUploadRequest {
   
-  private headers: HttpHeaders
-  private withCredentials: boolean
-  private fileName: string
-  private defaultBody: any
+  headers: HttpHeaders
+  withCredentials: boolean
+  fileName: string
+  defaultBody: any
   
   constructor(
     private http: HttpClient,

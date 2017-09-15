@@ -15,7 +15,7 @@ export interface Options {
 @Injectable()
 export class ElNotificationService {
   
-  private components: any[] = []
+  components: any[] = []
   
   constructor(
     @Optional() private root: ElNotificationContainer,
@@ -90,7 +90,7 @@ export class ElNotificationService {
     last.instance = Object.assign(last.instance, options)
   }
   
-  private createComponent(): void {
+  createComponent(): void {
     const com: ComponentRef<any> = this.dynamic.generator(ElNotificationContainer)
     this.components.push({
       instance: com.instance,

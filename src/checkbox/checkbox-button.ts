@@ -41,12 +41,12 @@ export class ElCheckboxButton implements OnInit, AfterViewInit {
   @Input('true-label') trueLabel: string | number
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
-  private labels: any[]
-  private parentIsGroup: boolean = false
-  private isFocus: boolean = false
-  private showLabel: boolean = false
+  labels: any[]
+  parentIsGroup: boolean = false
+  isFocus: boolean = false
+  showLabel: boolean = false
   // special key
-  private size: string
+  size: string
   
   constructor(
     @Optional() private hostGroup: ElCheckboxGroup,

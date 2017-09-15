@@ -54,9 +54,9 @@ export class ElDialog extends ElDialogProps implements OnInit, OnChanges, OnDest
   @ContentChild('footer') footerTmp: TemplateRef<any>
   @Input() model: string | number
   
-  private cacheOverflow: string
-  private cacheModalElement: Element
-  private globalListenFunc: Function
+  cacheOverflow: string
+  cacheModalElement: Element
+  globalListenFunc: Function
   
   constructor(
     private sanitizer: DomSanitizer,

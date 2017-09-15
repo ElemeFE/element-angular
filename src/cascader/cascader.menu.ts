@@ -26,7 +26,7 @@ import { dropAnimation } from '../shared/animation'
 export class ElCascaderMenu {
   
   constructor(
-    @Optional() private root: ElCascader,
+    @Optional() public root: ElCascader,
   ) {
   }
   

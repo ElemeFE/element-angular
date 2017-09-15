@@ -63,7 +63,7 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit {
   @ContentChild('append') append: TemplateRef<any>
   @ViewChild('textarea') textarea: any
   
-  private textareaStyles: SafeStyle
+  textareaStyles: SafeStyle
   
   constructor(
     private sanitizer: DomSanitizer,

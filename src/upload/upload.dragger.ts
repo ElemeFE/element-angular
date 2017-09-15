@@ -16,18 +16,18 @@ export class ElUploadDragger {
   
   @Input() disabled: boolean = false
   @Output() change: EventEmitter<any> = new EventEmitter<any>()
-
-  private dragover: boolean = false
+  
+  dragger: boolean = false
   
   dragoverHandle(event: Event): void {
     event.preventDefault()
     if (this.disabled) return
-    this.dragover = true
+    this.dragger = true
   }
   
   dragLeaveHandle(event: Event): void {
     event.preventDefault()
-    this.dragover = false
+    this.dragger = false
   }
   
   dropHandle(event: DragEvent): void {

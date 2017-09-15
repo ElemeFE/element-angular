@@ -18,8 +18,8 @@ export class ElOption implements OnInit {
   @Input() label: string | number
   @Input() disabled: boolean = false
   
-  private rootDisabled: boolean = false
-  private itemSelected: boolean = false
+  rootDisabled: boolean = false
+  itemSelected: boolean = false
   
   constructor(
     @Optional() private rootSelect: ElSelect,

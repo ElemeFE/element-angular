@@ -32,9 +32,9 @@ export class ElSelectDropdown implements OnInit {
   
   @Input() isActived: boolean = false
   
-  private multiple: boolean = false
-  private popperClass: string
-  private dropdownStyles: SafeStyle
+  multiple: boolean = false
+  popperClass: string
+  dropdownStyles: SafeStyle
   
   constructor(
     @Optional() private rootSelect: ElSelect,

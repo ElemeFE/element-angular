@@ -42,7 +42,7 @@ export class Elprogress implements OnInit {
   @Input() width: number = 126
   @Input('active-color') activeColor: string
   
-  private relativeStrokeWidth: string
+  relativeStrokeWidth: string
   
   constructor(
     private sanitizer: DomSanitizer,

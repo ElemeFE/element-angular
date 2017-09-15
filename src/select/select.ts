@@ -25,10 +25,10 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy {
   selfWidth: string
   subscriber: Function[] = []
   
-  private dropdownActive: boolean = false
-  private selectedLabel: string | number
-  private iconClass: string = 'caret-top'
-  private globalListener: Function
+  dropdownActive: boolean = false
+  selectedLabel: string | number
+  iconClass: string = 'caret-top'
+  globalListener: Function
   
   
   constructor(

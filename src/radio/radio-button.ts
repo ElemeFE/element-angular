@@ -33,10 +33,10 @@ export class ElRadioButton implements AfterViewInit {
   @Input() model: any
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
-  private size: string
-  private showLabel: boolean = false
-  private parentIsGroup: boolean = false
-  private activeStyles: any
+  size: string
+  showLabel: boolean = false
+  parentIsGroup: boolean = false
+  activeStyles: any
   
   constructor(
     @Optional() private rootGroup: ElRadioGroup,

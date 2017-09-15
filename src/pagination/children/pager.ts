@@ -36,11 +36,11 @@ export class ElPaginationPager implements OnInit, OnChanges {
   @Input() count: number
   @Output() next: EventEmitter<number> = new EventEmitter<number>()
   
-  private pagers: number[]
-  private showPrevMore: boolean = false
-  private showNextMore: boolean = false
-  private quicknextIconClass: string = 'el-icon-more'
-  private quickprevIconClass: string = 'el-icon-more'
+  pagers: number[]
+  showPrevMore: boolean = false
+  showNextMore: boolean = false
+  quicknextIconClass: string = 'el-icon-more'
+  quickprevIconClass: string = 'el-icon-more'
   
   
   static pagerGenerator(minValue: number): number[] {

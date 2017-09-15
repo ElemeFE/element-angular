@@ -15,7 +15,7 @@ export interface Options {
 @Injectable()
 export class ElMessageService {
   
-  private components: any[] = []
+  components: any[] = []
   
   constructor(
     @Optional() private root: ElMessageContainer,
@@ -73,7 +73,7 @@ export class ElMessageService {
     last.instance = Object.assign(last.instance, options)
   }
   
-  private createComponent(): void {
+  createComponent(): void {
     const com: ComponentRef<any> = this.dynamic.generator(ElMessageContainer)
     this.components.push({
       instance: com.instance,

@@ -10,7 +10,6 @@ import { ElCascaderPoprs, Option } from './cascader-props'
       (mouseenter)="inputHover = true" (mouseleave)="inputHover = false">
       <el-input [readonly]="true"
         [placeholder]="currentLabels.length ? '' : placeholder"
-        [model]="inputValue"
         [size]="size" [disabled]="disabled"
         [icon]="showClearIcon() ? 'circle-close' : 'caret-bottom'"
         [iconClass]="showClearIcon() ? 'el-cascader__clearIcon' : (menuVisible ? 'is-reverse' : '')"
@@ -36,9 +35,9 @@ export class ElCascader extends ElCascaderPoprs implements OnInit, OnDestroy {
   
   steps: any[] = []
   menuVisible: boolean = false
-  private inputHover: boolean = false
-  private currentLabels: Option[] = []
-  private globalListenFunc: Function
+  inputHover: boolean = false
+  currentLabels: Option[] = []
+  globalListenFunc: Function
   
   constructor(
     private renderer: Renderer2,

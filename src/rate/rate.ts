@@ -33,9 +33,9 @@ export type RateMap = {
 export class ElRate extends ElRateProps implements OnInit {
   
   @ViewChild('rateIcon') rateIcon: ElementRef
-  private scores: boolean[] = []
-  private rateMap: RateMap
-  private backupModel: number
+  scores: boolean[] = []
+  rateMap: RateMap
+  backupModel: number
   
   constructor(
     private sanitizer: DomSanitizer,

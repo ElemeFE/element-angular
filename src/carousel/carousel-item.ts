@@ -11,7 +11,6 @@ import { removeNgTag } from '../shared/utils'
     <div class="el-carousel__item"
       [class.is-active]="isActive"
       [class.el-carousel__item--card]="root.type === 'card'"
-      [class.is-in-stage]="inStage"
       [class.is-animating]="isAnimating"
       [style]="styles">
       <!--<div class="el-carousel__mask" *ngIf="root.type === 'card'"-->
@@ -28,15 +27,15 @@ export class ElCarouselItem implements OnInit {
   @Input() label: string = ''
   
   // oninit set
-  private width: number
+  width: number
   
-  private preTranslate: number
-  private isAnimating: boolean
-  private isActive: boolean = false
-  private styles: SafeStyle
+  preTranslate: number
+  isAnimating: boolean
+  isActive: boolean = false
+  styles: SafeStyle
   
   constructor(
-    @Inject(forwardRef(() => ElCarousel)) private root: ElCarousel,
+    @Inject(forwardRef(() => ElCarousel)) public root: ElCarousel,
     private sanitizer: DomSanitizer,
     private el: ElementRef,
   ) {

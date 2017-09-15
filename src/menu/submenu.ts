@@ -36,13 +36,13 @@ export class ElSubmenu implements OnInit {
   @Input() index: string
   @Input() title: string
   
-  private timer: any
-  private opened: boolean = false
-  private active: boolean = false
-  private dontUserHover: boolean = false
+  timer: any
+  opened: boolean = false
+  active: boolean = false
+  dontUserHover: boolean = false
   
   constructor(
-    @Host() private rootMenu: ElMenu,
+    @Host() public rootMenu: ElMenu,
     private sanitizer: DomSanitizer,
     ) {
   }

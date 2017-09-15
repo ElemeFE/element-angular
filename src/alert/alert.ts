@@ -49,7 +49,7 @@ export class ElAlert {
   @Input('show-icon') showIcon: boolean = false
   @Output() close: EventEmitter<Event> = new EventEmitter<Event>()
   
-  private visible: boolean = true
+  visible: boolean = true
   
   constructor() {
   

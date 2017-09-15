@@ -43,12 +43,12 @@ export class ElDropdown extends ElDropdownProps implements OnDestroy, AfterViewI
   
   @ViewChild('list') list: any
   
-  private showMenu: boolean = false
-  private timer: any
-  private slideToBottom: boolean = true
-  private listHeight: number
-  private globalListenFunc: Function
-  private globalScrollFunc: Function
+  showMenu: boolean = false
+  timer: any
+  slideToBottom: boolean = true
+  listHeight: number
+  globalListenFunc: Function
+  globalScrollFunc: Function
   
   @HostListener('mouseleave') mouseleave = () => {
     if (this.trigger !== 'hover') return

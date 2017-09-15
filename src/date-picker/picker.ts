@@ -28,11 +28,11 @@ import { DateFormat } from './utils/format'
 })
 export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy {
   
-  private showPanelPicker: boolean = false
-  private value: number
-  private globalClickListener: Function
-  private globalKeydownListener: Function
-  private iconShowClose: boolean = false
+  showPanelPicker: boolean = false
+  value: number
+  globalClickListener: Function
+  globalKeydownListener: Function
+  iconShowClose: boolean = false
   
   constructor(
     private dateFormat: DateFormat,

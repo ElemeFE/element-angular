@@ -11,15 +11,9 @@ import { removeNgTag } from '../shared/utils'
       [ngStyle]="paddingStyle()"
       [class.is-active]="rootMenu.model === index"
       [class.is-disabled]="disabled">
-      <el-tooltip *ngIf="isGroup" effect="dark" placement="right">
-        <div style="position: absolute;left: 0;top: 0;height: 100%;width: 100%;display: inline-block;box-sizing: border-box;padding: 0 20px;">
-          <ng-content></ng-content>
-        </div>
-        <span>{{title}}</span>
-      </el-tooltip>
-      <ng-container *ngIf="!isGroup">
-        <ng-content></ng-content>
-      </ng-container>
+      <!--<ng-container *ngIf="!isGroup">-->
+        <!--<ng-content></ng-content>-->
+      <!--</ng-container>-->
     </li>
   `,
 })
@@ -30,7 +24,7 @@ export class ElMenuItem implements OnInit {
   @Input() title: string = ''
   
   constructor(
-    @Optional() private rootMenu: ElMenu,
+    @Optional() public rootMenu: ElMenu,
     @Optional() private subMenu: ElSubmenu,
     private sanitizer: DomSanitizer,
     private el: ElementRef,
