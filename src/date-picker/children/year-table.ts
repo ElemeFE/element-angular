@@ -23,9 +23,9 @@ export class ElYearTable implements OnInit, OnChanges {
   @Input('disabled-date') disabledDate: any
   @Output() modelChange: EventEmitter<number> = new EventEmitter<number>()
   
-  private date: Date
-  private yearRows: number[][]
-  private currentYear: number
+  date: Date
+  yearRows: number[][]
+  currentYear: number
   
   clickHandle(year: number): void {
     this.currentYear = year

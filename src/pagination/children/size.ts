@@ -21,7 +21,7 @@ export class ElPaginationSize implements OnInit {
   @Input() sizes: number[]
   @Output() modelChange: EventEmitter<number> = new EventEmitter<number>()
   
-  private options: Option[]
+  options: Option[]
   
   ngOnInit(): void {
     this.options = this.sizes.map(size => ({

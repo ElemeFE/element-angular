@@ -14,8 +14,7 @@ export type DateModelItem = {
   template: `
     <div [@dropAnimation]="show"
       [ngStyle]="{width: width + 'px'}"
-      [class]="'el-picker-panel ' + 'el-date-picker ' + popperClass"
-      [class.has-sidebar]="root.sidebar || shortcuts"
+      [class]="'el-picker-panel ' + 'el-date-picker '"
       [class.has-time]="showTime">
       <div class="el-picker-panel__body-wrapper">
         <!--<div class="el-picker-panel__sidebar" *ngIf="shortcuts">-->
@@ -75,11 +74,11 @@ export type DateModelItem = {
         </div>
       </div>
 
-      <div class="el-picker-panel__footer" *ngIf="footerVisible && currentView === 'date'">
-        <a href="JavaScript:" class="el-picker-panel__link-btn" (click)="changeToNow()">556</a>
-        <button class="el-picker-panel__btn" type="button"
-          (click)="confirm()">667</button>
-      </div>
+      <!--<div class="el-picker-panel__footer" *ngIf="footerVisible && currentView === 'date'">-->
+        <!--<a href="JavaScript:" class="el-picker-panel__link-btn" (click)="changeToNow()">556</a>-->
+        <!--<button class="el-picker-panel__btn" type="button"-->
+          <!--(click)="confirm()">667</button>-->
+      <!--</div>-->
     </div>
   `
 })
@@ -90,11 +89,13 @@ export class ElDatePickerPanel implements OnInit, OnChanges {
   @Input() model: number
   @Output() modelChange: EventEmitter<number> = new EventEmitter<number>()
   
-  private currentView: string = 'date'
-  private dateShowModels: DateModelItem
+  shortcuts: boolean = false
+  showTime: boolean = false
+  currentView: string = 'date'
+  dateShowModels: DateModelItem
   
   constructor(
-    @Optional() private root: ElDataPicker,
+    @Optional() public root: ElDataPicker,
   ) {
   }
   

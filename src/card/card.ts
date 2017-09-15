@@ -26,6 +26,7 @@ export class ElCard {
   @ContentChild('header') header: TemplateRef<any>
   @Input('header') headerStr: string
   @Input('body-style') bodyStyle: string = ''
+  @Input('class') nativeClass: string = ''
   
   constructor(
     private sanitizer: DomSanitizer,

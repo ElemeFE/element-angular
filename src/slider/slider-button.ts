@@ -47,20 +47,20 @@ export class ElSliderButton implements OnInit, OnChanges {
   @Input() max: number = 100
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
-  private hovering: boolean = false
-  private dragging: boolean = false
-  private popper: boolean = true
-  private wrapperStyles: SafeStyle
+  hovering: boolean = false
+  dragging: boolean = false
+  popper: boolean = true
+  wrapperStyles: SafeStyle
   
-  private startY: number
-  private startX: number
-  private currentY: number
-  private currentX: number
-  private startPosition: number = 0
-  private position: number
+  startY: number
+  startX: number
+  currentY: number
+  currentX: number
+  startPosition: number = 0
+  position: number
   
-  private globalListenFunc: Function[] = []
-  private showPopper: boolean = false
+  globalListenFunc: Function[] = []
+  showPopper: boolean = false
   
   constructor(
     @Optional() private root: ElSlider,

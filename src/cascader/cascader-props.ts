@@ -1,4 +1,5 @@
 import { EventEmitter, Input, Output } from '@angular/core'
+
 export type Option = {
   label?: string,
   value: string,

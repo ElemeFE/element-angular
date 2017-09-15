@@ -45,11 +45,11 @@ export class ElSwitch implements OnInit {
   @Input() model: boolean = false
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
-  private hasText: boolean = false
-  private realWidth: number
-  private labelStyles: SafeStyle
-  private coreStyles: SafeStyle
-  private iconTransform: SafeStyle
+  hasText: boolean = false
+  realWidth: number
+  labelStyles: SafeStyle
+  coreStyles: SafeStyle
+  iconTransform: SafeStyle
   
   constructor(
     private sanitizer: DomSanitizer,

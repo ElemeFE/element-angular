@@ -39,10 +39,10 @@ export class ElTooltip implements AfterContentInit {
   @ViewChild('popperContent') popperContent: ElementRef
   @ContentChild('tip') tip: TemplateRef<any>
   
-  private xPlacement: string = 'bottom'
-  private showPopper: boolean = true
-  private cache: any = {}
-  private tipElementShape: Shape
+  xPlacement: string = 'bottom'
+  showPopper: boolean = true
+  cache: any = {}
+  tipElementShape: Shape
   
   constructor(
     private renderer: Renderer2,

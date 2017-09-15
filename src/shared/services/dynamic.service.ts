@@ -41,7 +41,7 @@ export class ExDynamicService {
     }, 500)
   }
   
-  private destroyWait(com: ComponentRef<any>): void {
+  destroyWait(com: ComponentRef<any>): void {
     const id = com.instance.id
     this.appRef.detachView(com.hostView)
     com.destroy()
@@ -51,7 +51,7 @@ export class ExDynamicService {
     } catch (err) {}
   }
   
-  private makeID(): string {
+  makeID(): string {
     return Math.random().toString(16).substr(2, 8)
   }
   

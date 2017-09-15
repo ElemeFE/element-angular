@@ -33,9 +33,9 @@ export class ElMessageContainer {
   customClass: string = ''
   zIndex: number = 1000
   
-  private message: string = ''
-  private showBox: boolean = false
-  private timer: any
+  message: string = ''
+  showBox: boolean = false
+  timer: any
   
   onClose: Function = () => {}
   onDestroy: Function = () => {}
@@ -64,14 +64,14 @@ export class ElMessageContainer {
     this.onDestroy()
   }
   
-  private startTimer(): void {
+  startTimer(): void {
     if (!this.showBox) return
     this.timer = setTimeout(() => {
       this.close()
     }, this.duration)
   }
   
-  private clearTimer(): void {
+  clearTimer(): void {
     this.timer && clearTimeout(this.timer)
   }
   

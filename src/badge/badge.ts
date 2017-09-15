@@ -6,7 +6,7 @@ import { Component, Input, ChangeDetectionStrategy} from '@angular/core'
   template: `
     <div class="el-badge">
       <ng-content></ng-content>
-      <sup *ngIf="!hidden && (makeContent() || isDot)"
+      <sup *ngIf="!hidden && (!!makeContent() || isDot)"
         class="el-badge__content"
         [class.is-fixed]="true" [class.is-dot]="isDot">
         {{makeContent()}}

@@ -21,8 +21,8 @@ export class ElLoadingDirective implements OnInit, OnChanges {
   @Input('full-screen') fullScreen: boolean = false
   @Input('el-loading') showLoading: boolean = false
   
-  private cacheElement: HTMLElement
-  private cacheOverflow: string
+  cacheElement: HTMLElement
+  cacheOverflow: string
   
   constructor(
     private el: ElementRef,

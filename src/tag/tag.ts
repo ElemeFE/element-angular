@@ -21,7 +21,7 @@ export class ElTag implements OnInit {
   @Input('close-transition') closeTransition: boolean = false
   @Output('close') closeEmitter: EventEmitter<any> = new EventEmitter<any>()
   
-  private tagStyles: SafeStyle
+  tagStyles: SafeStyle
   
   constructor(
     private sanitizer: DomSanitizer,

@@ -5,13 +5,9 @@ import { ElSliderProps } from './slider.props'
 @Component({
   selector: 'el-slider',
   template: `
-    <div class="el-slider"
-      [class.is-vertical]="vertical" [class.el-slider--with-input]="showInput">
-      <div class="el-slider__runway"
-        [class.show-input]="showInput" [class.disabled]="disabled"
-        [style]="makeRunwayStyle()"
-        (click)="onSliderClick($event)"
-        #runway>
+    <div class="el-slider" [class.is-vertical]="vertical">
+      <div class="el-slider__runway" [class.disabled]="disabled"
+        [style]="makeRunwayStyle()" (click)="onSliderClick($event)" #runway>
         <div class="el-slider__bar" [style]="makeBarStyle()"></div>
         <el-slider-button [vertical]="vertical"
           [model]="model"
@@ -20,11 +16,6 @@ import { ElSliderProps } from './slider.props'
           [format-tooltip]="formatTooltip"
           [disabled]="!showTooltip">
         </el-slider-button>
-        <ng-container  *ngIf="showStops">
-          <div class="el-slider__stop" *ngFor="let item of stops"
-            [style]="makeStopsStyle(item)">
-          </div>
-        </ng-container>
       </div>
     </div>
   `,
@@ -34,8 +25,8 @@ export class ElSlider extends ElSliderProps implements OnInit, AfterViewInit {
   @ViewChild('runway') runwayElement: ElementRef
   size: number
   
-  private start: number = 0
-  private isDragging: boolean = false
+  start: number = 0
+  isDragging: boolean = false
   
   constructor(
     private sanitizer: DomSanitizer,
@@ -52,11 +43,6 @@ export class ElSlider extends ElSliderProps implements OnInit, AfterViewInit {
     const val: number = (this.model - this.min) * 100 / (this.max - this.min)
     const styles = this.vertical ? `height: ${val}%; bottom: ${this.start}%;`
       : `width: ${val}%; left: ${this.start}%;`
-    return this.sanitizer.bypassSecurityTrustStyle(styles)
-  }
-  
-  makeStopsStyle(item: string): SafeStyle {
-    const styles = `${this.vertical ? 'bottom' : 'left'}: ${item}%;`
     return this.sanitizer.bypassSecurityTrustStyle(styles)
   }
   

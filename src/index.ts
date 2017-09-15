@@ -37,7 +37,7 @@ import { ElAlertModule } from './alert/module'
 import { ElPaginationModule } from './pagination/module'
 import { ElUploadModule } from './upload/module'
 
-const ElChildModules: any = {
+export const ElChildModules: any = {
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
   ElColModule, ElCheckboxsModule, ElInputsModule, ElInputNumberModule, ElTagsModule, ElSelectModule,
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
@@ -69,7 +69,7 @@ export const ELMODULES_GROUP: any[] = [
   ],
   exports: ELMODULES_GROUP,
 })
-class ElRootModule {
+export class ElRootModule {
 }
 
 @NgModule({
@@ -86,8 +86,8 @@ class ElModule {
 }
 
 export {
-  ElChildModules,
-  ElRootModule,
+  // ElChildModules,
+  // ElRootModule,
   ElModule,
   ElMessageService,
   ElNotificationService,

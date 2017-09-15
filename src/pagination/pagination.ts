@@ -35,12 +35,12 @@ import { ElPaginationProps } from './pagination.props'
 })
 export class ElPagination extends ElPaginationProps implements OnInit {
   
-  private showPager: boolean = true
-  private showPrev: boolean = true
-  private showNext: boolean = true
-  private showTotal: boolean = true
-  private showSize: boolean = true
-  private showJumper: boolean = true
+  showPager: boolean = true
+  showPrev: boolean = true
+  showNext: boolean = true
+  showTotal: boolean = true
+  showSize: boolean = true
+  showJumper: boolean = true
   
   static showLayout(ElName: string, layout: string[]): boolean {
     const member: string = layout.find(name => name === ElName)

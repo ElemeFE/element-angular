@@ -32,7 +32,7 @@ module.exports = {
       {
         test: /\.ts$/,
         loaders: [
-          'ng-router-loader',
+          // 'ng-router-loader',
           {
             loader: 'awesome-typescript-loader',
             options: { configFileName: helpers.root('ex', 'tsconfig.json') },

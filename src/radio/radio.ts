@@ -38,9 +38,9 @@ export class ElRadio implements OnInit, AfterViewInit {
   @Input() model: any
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
-  private isFocus: boolean = false
-  private showLabel: boolean = false
-  private parentIsGroup: boolean = false
+  isFocus: boolean = false
+  showLabel: boolean = false
+  parentIsGroup: boolean = false
   
   constructor(
     @Optional() private rootGroup: ElRadioGroup,

@@ -55,8 +55,8 @@ export class ElCarousel extends ElCarouselProps implements AfterViewInit, OnChan
   @ContentChildren(forwardRef(() => ElCarouselItem)) children: QueryList<ElCarouselItem>
   subscriber: Function[] = []
   items: any[] = []
-  private hasLabel: boolean = false
-  private timer: any
+  hasLabel: boolean = false
+  timer: any
   
   constructor(
   ) {

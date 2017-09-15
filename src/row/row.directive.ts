@@ -16,7 +16,7 @@ export class ElRowDirective {
   @Input() justify: string = 'start'
   @Input() align: string = 'top'
   
-  private nativeClass: string = ' '
+  nativeClass: string = ' '
   
   constructor(
     private sanitizer: DomSanitizer,

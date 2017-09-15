@@ -56,7 +56,7 @@ export class ElUpload extends ElUploadProps implements OnInit {
   @ContentChild('tip') tip: TemplateRef<any>
   @ViewChild('input') input: ElementRef
   
-  private files: CommonFile[] = []
+  files: CommonFile[] = []
   
   static generateID(): string {
     return Math.random().toString(16).substr(2, 8)

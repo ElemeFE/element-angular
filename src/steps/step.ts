@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Optional, ElementRef } from '@angular/core'
+import { Component, Input, OnInit, Optional, ElementRef, ViewChild } from '@angular/core'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 import { ElSteps } from './steps'
 
@@ -25,7 +25,7 @@ import { ElSteps } from './steps'
       </span>
       </div>
       <div class="el-step__main" [ngStyle]="{marginLeft: mainOffset}">
-        <div [class]="'el-step__title ' + 'is-' + currentStatus()">
+        <div [class]="'el-step__title ' + 'is-' + currentStatus()" #titleRef>
           <ng-container>{{ title }}</ng-container>
         </div>
         <div [class]="'el-step__description ' + 'is-' + currentStatus()">
@@ -37,15 +37,18 @@ import { ElSteps } from './steps'
 })
 export class ElStep implements OnInit {
   
+  @ViewChild('titleRef') titleRef: ElementRef
+  
   @Input() title: string
   @Input() description: string
   @Input() icon: string
   @Input() status: string
   
-  private index: number = 1
+  index: number = 1
+  mainOffset: string = '0px'
   
   constructor(
-    @Optional() private rootSteps: ElSteps,
+    @Optional() public rootSteps: ElSteps,
     private el: ElementRef,
     private sanitizer: DomSanitizer
   ) {
@@ -89,6 +92,10 @@ export class ElStep implements OnInit {
   
   ngOnInit(): void {
     this.index = + this.el.nativeElement.getAttribute('el-index')
+    if (this.rootSteps.direction === 'horizontal' && this.rootSteps.alignCenter) {
+      const width: number = this.titleRef.nativeElement.getBoundingClientRect().width
+      this.mainOffset = width / 2 + 16 + 'px'
+    }
   }
   
 }

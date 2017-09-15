@@ -20,9 +20,9 @@ export class ElColDirective implements OnInit {
   @Input() md: any
   @Input() lg: any
   
-  private parentIsRow: any = null
-  private gutterFromParent: number = 0
-  private nativeClass: string = ' '
+  parentIsRow: any = null
+  gutterFromParent: number = 0
+  nativeClass: string = ' '
   
   constructor(
     private sanitizer: DomSanitizer,

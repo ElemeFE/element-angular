@@ -24,8 +24,8 @@ import { ElInputNumberPoprs } from './input-number-props'
 })
 export class ElInputNumber extends ElInputNumberPoprs {
   
-  private minDisabled: boolean = false
-  private maxDisabled: boolean = false
+  minDisabled: boolean = false
+  maxDisabled: boolean = false
   
   constructor(
   ) {
