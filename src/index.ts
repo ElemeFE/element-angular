@@ -35,6 +35,7 @@ import { ElCarouselModule } from './carousel/module'
 import { ElCollapseModule } from './collapse/module'
 import { ElAlertModule } from './alert/module'
 import { ElPaginationModule } from './pagination/module'
+import { ElUploadModule } from './upload/module'
 
 const ElChildModules: any = {
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
@@ -42,7 +43,7 @@ const ElChildModules: any = {
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
   ElSharedModule, ElNotificationModule, ElCascaderModule, ElBadgesModule, ElCardsModule, ElDropdownModule,
   ElBreadcrumbsModule, ElDateModule, ElSliderModule, ElDialogModule, ElCarouselModule, ElCollapseModule,
-  ElAlertModule, ElPaginationModule,
+  ElAlertModule, ElPaginationModule, ElUploadModule,
 }
 export const ELMODULES_GROUP: any[] = [
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
@@ -50,7 +51,7 @@ export const ELMODULES_GROUP: any[] = [
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
   ElSharedModule, ElNotificationModule, ElCascaderModule, ElBadgesModule, ElCardsModule, ElDropdownModule,
   ElBreadcrumbsModule, ElDateModule, ElSliderModule, ElDialogModule, ElCarouselModule, ElCollapseModule,
-  ElAlertModule, ElPaginationModule,
+  ElAlertModule, ElPaginationModule, ElUploadModule,
 ]
 
 @NgModule({
@@ -64,6 +65,7 @@ export const ELMODULES_GROUP: any[] = [
     ElCascaderModule.forRoot(), ElBadgesModule.forRoot(), ElCardsModule.forRoot(), ElDropdownModule.forRoot(),
     ElBreadcrumbsModule.forRoot(), ElDateModule.forRoot(), ElSliderModule.forRoot(), ElDialogModule.forRoot(),
     ElCarouselModule.forRoot(), ElCollapseModule.forRoot(), ElAlertModule.forRoot(), ElPaginationModule.forRoot(),
+    ElUploadModule.forRoot(),
   ],
   exports: ELMODULES_GROUP,
 })

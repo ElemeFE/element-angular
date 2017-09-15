@@ -11,6 +11,7 @@ import { ExRateComponent } from './rate/rate.component'
 import { ExCascaderComponent } from './cascader/cascader.component'
 import { ExDatePickerComponent } from './date-picker/date-picker.component'
 import { ExSliderComponent } from './slider/slider.component'
+import { ExUploadComponent } from './upload/upload.component'
 
 
 export const formRoutes: Routes = [{
@@ -35,6 +36,8 @@ export const formRoutes: Routes = [{
     path: 'date-picker', component: ExDatePickerComponent,
   }, {
     path: 'slider', component: ExSliderComponent,
+  }, {
+    path: 'upload', component: ExUploadComponent,
   }],
 }]
 

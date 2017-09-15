@@ -79,6 +79,9 @@
     }, {
       "name": "Rate 评分",
       "link": "/form/rate"
+    }, {
+      "name": "Upload 上传",
+      "link": "/form/upload"
     }]
   }, {
     "name": "Data",
