@@ -12,7 +12,7 @@ export class ExRateComponent {
   private code: string[] = code
   private page: any = {
     previous: { name: 'Slider 滑块', link: '/form/slider' },
-    next: { name: 'Tag 标签', link: '/data/tag' },
+    next: { name: 'Upload 上传', link: '/form/upload' },
   }
   
 }

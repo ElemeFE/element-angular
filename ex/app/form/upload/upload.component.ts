@@ -64,8 +64,8 @@ export class ExUploadComponent {
   
   private code: string[] = code
   private page: any = {
-    previous: { name: 'Cascader 级联选择器', link: '/form/cascader' },
-    next: { name: 'DatePicker 日期选择器', link: '/form/date-picker' },
+    previous: { name: 'Rate 评分', link: '/form/rate' },
+    next: { name: 'Tag 标签', link: '/data/tag' },
   }
   private exClass: any = ExUploadDemoComponent
 
