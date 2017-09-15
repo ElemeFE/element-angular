@@ -1,6 +1,6 @@
 import { Component, Input, Optional, OnInit, ElementRef, ChangeDetectionStrategy } from '@angular/core'
 import { ElBreadcrumb } from './breadcrumb'
-import { NavigationExtras, Router } from '@angular/router'
+import { Router } from '@angular/router'
 import { removeNgTag } from '../shared/utils'
 
 @Component({
@@ -19,7 +19,7 @@ export class ElBreadcrumbItem implements OnInit {
   
   @Input() to: string
   @Input() prevent: boolean = false
-  @Input() extras?: NavigationExtras
+  @Input() extras?: any
   
   constructor(
     @Optional() private root: ElBreadcrumb,
