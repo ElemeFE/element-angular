@@ -32,3 +32,4 @@ export interface UploadResponse<T> {
   error?: any,
   percentage?: number,
 }
+
