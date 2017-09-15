@@ -30,4 +30,5 @@ export interface UploadResponse<T> {
   commonFile: CommonFile,
   response?: HttpResponse<T>,
   error?: any,
+  percentage?: number,
 }

@@ -6,6 +6,9 @@ import { Observable } from 'rxjs/Observable'
 export class ElUploadRequest {
   
   private headers: HttpHeaders
+  private withCredentials: boolean
+  private fileName: string
+  private defaultBody: any
   
   constructor(
     private http: HttpClient,
@@ -13,17 +16,32 @@ export class ElUploadRequest {
   }
 
   upload(path: string, file: File): Observable<any> {
-    const req: HttpRequest<File> = new HttpRequest('POST', path, file, {
+    const req: HttpRequest<{}> = new HttpRequest('POST', path, file, {
       headers: this.headers,
       reportProgress: true,
+      withCredentials: this.withCredentials,
     })
     return this.http.request(req)
   }
   
-  setHeader(headers: any = {}): void {
-    this.headers = new HttpHeaders(Object.assign({
-      'content-type': 'multipart/form-data',
-    }, headers))
+  setHeader(headers: any = {}): ElUploadRequest {
+    this.headers = new HttpHeaders(headers)
+    return this
+  }
+  
+  setCredentials(withCredentials: boolean): ElUploadRequest {
+    this.withCredentials = withCredentials
+    return this
+  }
+  
+  setFileName(name: string): ElUploadRequest {
+    this.fileName = name
+    return this
+  }
+  
+  addExtraData(data: any = {}): ElUploadRequest {
+    this.defaultBody = data
+    return this
   }
   
 }

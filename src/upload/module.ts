@@ -8,10 +8,11 @@ import { ElButtonsModule } from '../button/module'
 import { ElUploadRequest } from './upload.request'
 import { ElUpload } from './upload'
 import { ElUploadList } from './upload.list'
+import { ElUploadDragger } from './upload.dragger'
 
 
 @NgModule({
-  declarations: [ElUpload, ElUploadList],
+  declarations: [ElUpload, ElUploadList, ElUploadDragger],
   exports: [ElUpload],
   imports: [
     CommonModule,
