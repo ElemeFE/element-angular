@@ -36,6 +36,7 @@ import { ElCollapseModule } from './collapse/module'
 import { ElAlertModule } from './alert/module'
 import { ElPaginationModule } from './pagination/module'
 import { ElUploadModule } from './upload/module'
+import { ElTableModule } from './table/module'
 
 export const ElChildModules: any = {
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
@@ -43,7 +44,7 @@ export const ElChildModules: any = {
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
   ElSharedModule, ElNotificationModule, ElCascaderModule, ElBadgesModule, ElCardsModule, ElDropdownModule,
   ElBreadcrumbsModule, ElDateModule, ElSliderModule, ElDialogModule, ElCarouselModule, ElCollapseModule,
-  ElAlertModule, ElPaginationModule, ElUploadModule,
+  ElAlertModule, ElPaginationModule, ElUploadModule, ElTableModule,
 }
 export const ELMODULES_GROUP: any[] = [
   ElButtonsModule, ElIconsModule, ElRadiosModule, ElMenusModule, ElTooltipModule, ElRowModule,
@@ -51,7 +52,7 @@ export const ELMODULES_GROUP: any[] = [
   ElSwitchModule, ElRateModule, ElProgressModule, ElStepsModule, ElLoadingModule, ElMessagesModule,
   ElSharedModule, ElNotificationModule, ElCascaderModule, ElBadgesModule, ElCardsModule, ElDropdownModule,
   ElBreadcrumbsModule, ElDateModule, ElSliderModule, ElDialogModule, ElCarouselModule, ElCollapseModule,
-  ElAlertModule, ElPaginationModule, ElUploadModule,
+  ElAlertModule, ElPaginationModule, ElUploadModule, ElTableModule,
 ]
 
 @NgModule({
@@ -65,7 +66,7 @@ export const ELMODULES_GROUP: any[] = [
     ElCascaderModule.forRoot(), ElBadgesModule.forRoot(), ElCardsModule.forRoot(), ElDropdownModule.forRoot(),
     ElBreadcrumbsModule.forRoot(), ElDateModule.forRoot(), ElSliderModule.forRoot(), ElDialogModule.forRoot(),
     ElCarouselModule.forRoot(), ElCollapseModule.forRoot(), ElAlertModule.forRoot(), ElPaginationModule.forRoot(),
-    ElUploadModule.forRoot(),
+    ElUploadModule.forRoot(), ElTableModule.forRoot(),
   ],
   exports: ELMODULES_GROUP,
 })
@@ -86,8 +87,6 @@ class ElModule {
 }
 
 export {
-  // ElChildModules,
-  // ElRootModule,
   ElModule,
   ElMessageService,
   ElNotificationService,
