@@ -6,6 +6,7 @@ import { ExTagComponent } from './tag/tag.component'
 import { ExProgressComponent } from './progress/progress.component'
 import { ExBadgeComponent } from './badge/badge.component'
 import { ExPaginationComponent } from './pagination/pagination.component'
+import { ExTableComponent } from './table/table.component'
 
 
 export const dataRoutes: Routes = [{
@@ -18,6 +19,8 @@ export const dataRoutes: Routes = [{
     path: 'badge', component: ExBadgeComponent,
   }, {
     path: 'pagination', component: ExPaginationComponent,
+  }, {
+    path: 'table', component: ExTableComponent,
   }],
 }]
 
