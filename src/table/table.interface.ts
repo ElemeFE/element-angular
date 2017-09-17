@@ -36,3 +36,17 @@ export interface expandEvent {
   row: number,
   expanded: any,
 }
+
+export interface TableData {
+  [key: string]: any
+}
+
+export interface TableColumns {
+  modelKey: string,
+  label: string,
+  width: number,
+}
+
+
+
+

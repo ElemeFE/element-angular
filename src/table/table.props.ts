@@ -15,7 +15,7 @@ export class ElTableProps {
   @Input() border: boolean = false
   @Input() fit: boolean = true
   @Input('show-header') showHeader: boolean = true
-  @Input('current-row-key') showHeader: string
+  @Input('current-row-key') currentRowKey: string
   @Input('highlight-current-row') highlightCurrentRow: boolean = false
   @Input('row-class-name') rowClassName: (row: number, index: number) => string
   @Input('row-style') rowStyle: (row: number, index: number) => string | SafeStyle
