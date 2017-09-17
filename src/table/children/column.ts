@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, ElementRef, Input, OnInit } from '@angular/core'
 import { ElTable } from '../table'
-import { TableColumns } from '../table.interface'
+import { TableColumn } from '../table.interface'
 
 @Component({
   selector: 'el-table-column',
@@ -15,17 +15,24 @@ export class ElTableColumn implements OnInit {
   
   constructor(
     private root: ElTable,
+    private el: ElementRef,
   ) {
   }
   
   ngOnInit(): void {
     if (!this.modelKey) return console.warn('ElTableColumn required modelKey props')
-    const tableColumn: TableColumns = {
+    const self: any = this.el.nativeElement
+    const brothers: Element[] = self.parentElement.children
+    const index: number = Array.from(brothers).findIndex((el: Element) => el === self)
+    const tableColumn: TableColumn = {
       modelKey: this.modelKey,
       label: this.label ? this.label : this.modelKey,
       width: this.width,
+      index: index,
     }
     this.root.updateColumns(tableColumn)
+    // last element
+    index === brothers.length - 1 && this.root.transformColumnsData()
   }
   
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { TableColumns } from './table.interface'
+import { TableColumn, TableColumnDataItem } from './table.interface'
 import { ElTableProps } from './table.props'
 
 @Component({
@@ -10,25 +10,21 @@ import { ElTableProps } from './table.props'
       [class.el-table--border]="border" [class.el-table--hidden]="false"
       [class.el-table--fluid-height]="maxHeight" [class.el-table--enable-row-hover]="isComplex"
       (mouseleave)="mouseLeaveHandle($event)">
-      <div class="hidden-columns"><slot></slot></div>
+      <div class="hidden-columns"><ng-content></ng-content></div>
       <div class="el-table__header-wrapper" *ngIf="showHeader">
         <el-table-header [model]="columns" [layout]="layout" [border]="border"
-          [default-sort]="defaultSort" [ngStyle]="{ width: layout.bodyWidth ? layout.bodyWidth + 'px' : '' }">
+          [default-sort]="defaultSort" [ngStyle]="{width: layout.bodyWidth ? layout.bodyWidth + 'px' : ''}">
         </el-table-header>
       </div>
-      <!--<div class="el-table__body-wrapper" style="">-->
-        <!--<table-body [context]="context" [model]="model" [stripe]="stripe"-->
-          <!--[layout]="layout" [row-class-name]="rowClassName" [row-style]="rowStyle"-->
-          <!--[highlight]="highlightCurrentRow" [ngStyle]="{ width: bodyWidth }">-->
-        <!--</table-body>-->
-        <!--<div [ngStyle]="{ width: bodyWidth }" class="el-table__empty-block" *ngIf="!data || data.length === 0">-->
-          <!--<span class="el-table__empty-text">-->
-            <!--<slot name="empty">-->
-              <!--{{ emptyText || t('el.table.emptyText') }}-->
-            <!--</slot>-->
-          <!--</span>-->
-        <!--</div>-->
-      <!--</div>-->
+      <div class="el-table__body-wrapper" style="">
+        <el-table-body [model]="columnsData" [stripe]="stripe" [width]="bodyWidth"
+          [layout]="layout" [row-class-name]="rowClassName" [row-style]="rowStyle"
+          [highlight]="highlightCurrentRow" [ngStyle]="{ width: bodyWidth + 'px' }">
+        </el-table-body>
+        <div [ngStyle]="{width: bodyWidth + 'px'}" class="el-table__empty-block" *ngIf="!model || model.length === 0">
+          <span class="el-table__empty-text">{{placeholder}}</span>
+        </div>
+      </div>
       <!--<div class="el-table__footer-wrapper"*ngIf="showSummary" *ngIf="data && data.length > 0">-->
         <!--<table-footer [model]="model"  [ngStyle]="{ width: layout.bodyWidth ? layout.bodyWidth + 'px' : '' }"-->
           <!--[sum-text]="sumText || t('el.table.sumText')" [summary-method]="summaryMethod"-->
@@ -86,8 +82,10 @@ import { ElTableProps } from './table.props'
 })
 export class ElTable extends ElTableProps {
   
-  columns: TableColumns[] = []
+  columns: TableColumn[] = []
   layout: any = {}
+  bodyWidth: number = 0
+  columnsData: TableColumnDataItem[][]
   
   constructor(
   ) {
@@ -98,9 +96,28 @@ export class ElTable extends ElTableProps {
   
   }
   
-  updateColumns(columns: TableColumns): void {
-    console.log(columns)
+  updateColumns(columns: TableColumn): void {
     this.columns.push(columns)
+  }
+  
+  transformColumnsData(): void {
+    type OrderMap = {
+      [key: string]: number,
+    }
+    type ModelWithIndexDataItem = OrderMap & {
+      value: string | number,
+      index: number,
+    }
+    this.bodyWidth = this.columns.reduce((pre, next) => pre + next.width, 0)
+    const orderMap: OrderMap = this.columns.reduce((pre, next: TableColumn) =>
+      Object.assign(pre, { [next.modelKey]: next.index }), {})
+    
+    const modelWithIndex: ModelWithIndexDataItem[][] =  this.model.map((row: any) =>
+      Object.keys(row || {}).map((v: string | number) =>
+        ({ value: row[v], index: orderMap[v] })))
+    
+    this.columnsData = modelWithIndex.map((row: TableColumnDataItem[]) =>
+      row.sort((pre, next) => pre.index - next.index))
   }
   
   

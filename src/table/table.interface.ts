@@ -41,12 +41,17 @@ export interface TableData {
   [key: string]: any
 }
 
-export interface TableColumns {
+export interface TableColumn {
   modelKey: string,
   label: string,
   width: number,
+  index: number,
 }
 
+export type TableColumnDataItem = {
+  value: string | number,
+  index: number,
+}
 
 
 

@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { ElTableHeader, ElTableColumn } from './children'
+import { ElTableHeader, ElTableColumn, ElTableBody } from './children'
 import { ElTable } from './table'
 
 
@@ -9,6 +9,7 @@ import { ElTable } from './table'
     ElTable,
     ElTableHeader,
     ElTableColumn,
+    ElTableBody,
   ],
   exports: [
     ElTable,
