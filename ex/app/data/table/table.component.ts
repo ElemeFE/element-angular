@@ -18,6 +18,22 @@ export class ExTableDemoComponent {
     date: '2017-08-21',
     address: '上海市普陀区金沙江路 1518 弄',
   }]
+  
+  rowClassNameFilter(row: any[], index: number): string {
+    if (index === 1) {
+      return 'info-row';
+    } else if (index === 3) {
+      return 'positive-row';
+    }
+    return ''
+  }
+  
+  handle(rows: any, index: number): any {
+    // event.rows.shift()
+    rows.splice(index, 1)
+    return true
+  }
+  
 }
 
 @Component({

@@ -119,7 +119,7 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
     this.columns = this.columns.map((column: TableColumn, index: number) => {
       if (!column.slot) return column
       const modelKey: string = ElTable.generateID()
-      this.model = this.model.map((v: any) => Object.assign(v, { [modelKey]: column.slot, }))
+      this.model = this.model.map((v: any) => Object.assign(v, { [modelKey]: column.slot }))
       return Object.assign(column, { modelKey })
     })
     const orderMap: OrderMap = this.columns.reduce((pre, next: TableColumn) =>
@@ -134,7 +134,8 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
         slotClick: orderMap[v].slotClick,
       })
     ))
-    // sort
+    
+    // column sort
     this.columnsData = modelWithIndex.map((row: TableColumnDataItem[]) =>
       row.sort((pre, next) => pre.index - next.index))
   }
