@@ -1,11 +1,12 @@
-import { Component } from '@angular/core'
+import { Component, ElementRef, OnDestroy, OnInit, Renderer2 } from '@angular/core'
 import { TableColumn, TableColumnDataItem } from './table.interface'
 import { ElTableProps } from './table.props'
 
 @Component({
   selector: 'el-table',
   template: `
-    <div class="el-table" [class.el-table--enable-row-transition]="true"
+    <div class="el-table"
+      [class.el-table--enable-row-transition]="true"
       [class.el-table--fit]="fit" [class.el-table--striped]="stripe"
       [class.el-table--border]="border" [class.el-table--hidden]="false"
       [class.el-table--fluid-height]="maxHeight" [class.el-table--enable-row-hover]="isComplex"
@@ -13,15 +14,15 @@ import { ElTableProps } from './table.props'
       <div class="hidden-columns"><ng-content></ng-content></div>
       <div class="el-table__header-wrapper" *ngIf="showHeader">
         <el-table-header [model]="columns" [layout]="layout" [border]="border"
-          [default-sort]="defaultSort" [ngStyle]="{width: layout.bodyWidth ? layout.bodyWidth + 'px' : ''}">
+          [default-sort]="defaultSort">
         </el-table-header>
       </div>
       <div class="el-table__body-wrapper" style="">
-        <el-table-body [model]="columnsData" [stripe]="stripe" [width]="bodyWidth"
+        <el-table-body [model]="columnsData" [stripe]="stripe" [width]="layout.bodyWidth"
           [layout]="layout" [row-class-name]="rowClassName" [row-style]="rowStyle"
-          [highlight]="highlightCurrentRow" [ngStyle]="{ width: bodyWidth + 'px' }">
+          [highlight]="highlightCurrentRow" [ngStyle]="{ width: layout.bodyWidth + 'px' }">
         </el-table-body>
-        <div [ngStyle]="{width: bodyWidth + 'px'}" class="el-table__empty-block" *ngIf="!model || model.length === 0">
+        <div [ngStyle]="{width: layout.bodyWidth + 'px'}" class="el-table__empty-block" *ngIf="!model || model.length === 0">
           <span class="el-table__empty-text">{{placeholder}}</span>
         </div>
       </div>
@@ -80,14 +81,16 @@ import { ElTableProps } from './table.props'
     </div>
   `,
 })
-export class ElTable extends ElTableProps {
+export class ElTable extends ElTableProps implements OnInit, OnDestroy {
   
   columns: TableColumn[] = []
-  layout: any = {}
-  bodyWidth: number = 0
   columnsData: TableColumnDataItem[][]
+  layout: any = {}
+  private globalListenFunc: Function
   
   constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
   ) {
     super()
   }
@@ -100,25 +103,43 @@ export class ElTable extends ElTableProps {
     this.columns.push(columns)
   }
   
+  updateLayout(): void {
+    const elTable: HTMLElement = this.el.nativeElement.children[0]
+    this.layout.bodyWidth = elTable.clientWidth
+  }
+  
   transformColumnsData(): void {
     type OrderMap = {
-      [key: string]: number,
+      [key: string]: any,
     }
     type ModelWithIndexDataItem = OrderMap & {
       value: string | number,
       index: number,
     }
-    this.bodyWidth = this.columns.reduce((pre, next) => pre + next.width, 0)
     const orderMap: OrderMap = this.columns.reduce((pre, next: TableColumn) =>
-      Object.assign(pre, { [next.modelKey]: next.index }), {})
+      Object.assign(pre, { [next.modelKey]: next }), {})
     
     const modelWithIndex: ModelWithIndexDataItem[][] =  this.model.map((row: any) =>
-      Object.keys(row || {}).map((v: string | number) =>
-        ({ value: row[v], index: orderMap[v] })))
+      Object.keys(row || {}).map((v: string | number) => ({
+        value: row[v],
+        index: orderMap[v].index,
+        width: orderMap[v].width,
+      })))
     
     this.columnsData = modelWithIndex.map((row: TableColumnDataItem[]) =>
       row.sort((pre, next) => pre.index - next.index))
+    
   }
   
+  ngOnInit(): void {
+    this.updateLayout()
+    this.globalListenFunc = this.renderer.listen('window', 'resize', () => {
+      this.updateLayout()
+    })
+  }
+  
+  ngOnDestroy(): void {
+    this.globalListenFunc && this.globalListenFunc()
+  }
   
 }

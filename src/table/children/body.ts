@@ -6,14 +6,16 @@ import { TableColumnDataItem } from '../table.interface'
 @Component({
   selector: 'el-table-body',
   template: `
-    <table class="el-table__body" [ngStyle]="{width: width + 'px'}">
+    <table class="el-table__body" [ngStyle]="{width: width + 'px'}"
+      cellspacing="0" cellpadding="0" border="0">
       <tr *ngFor="let tr of model"
-          [class]="makeRowClass()" [style]="makeRowStyle()"
-          (click)="clickHandle()" (doubleClick)="doubleClickHandle()"
-          (mouseenter)="mouseActionHandle(true)" (mouseleave)="mouseActionHandle(false)">
-        <td *ngFor="let td of tr; let i = index" [class]="'el-table_1_column_' + i"
-            (mouseenter)="cellMouseActionHandle(true)"
-            (mouseleave)="cellMouseActionHandle(false)">
+        [class]="makeRowClass()" [style]="makeRowStyle()"
+        (click)="clickHandle()" (doubleClick)="doubleClickHandle()"
+        (mouseenter)="mouseActionHandle(true)" (mouseleave)="mouseActionHandle(false)">
+        <td *ngFor="let td of tr; let i = index" [class]="'el-table_1_column_' + (i + 1)"
+          [ngStyle]="{width: td.width ? td.width + 'px' : 'auto'}"
+          (mouseenter)="cellMouseActionHandle(true)"
+          (mouseleave)="cellMouseActionHandle(false)">
           <div class="cell">{{td.value}}</div>
         </td>
       </tr>

@@ -4,14 +4,15 @@ import { TableColumn } from '../table.interface'
 @Component({
   selector: 'el-table-header',
   template: `
-    <table class="el-table__header"  cellspacing="0" cellpadding="0" border="0">
+    <table class="el-table__header"  cellspacing="0" cellpadding="0" border="0"
+      [ngStyle]="{width: layout.bodyWidth ? layout.bodyWidth + 'px' : ''}">
       <!--<colgroup>-->
         <!--<col name="" width=""/>-->
       <!--</colgroup>-->
       <thead>
       <tr>
         <th *ngFor="let th of model" class="el-table_1_column_1 is-leaf"
-          [ngStyle]="{width: th.width + 'px'}"
+          [ngStyle]="{width: th.width ? th.width + 'px' : 'auto'}"
           colspan="1" rowspan="1">
           <div class="cell">
             {{th.label}}

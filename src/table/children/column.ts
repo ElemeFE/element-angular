@@ -11,7 +11,7 @@ export class ElTableColumn implements OnInit {
   
   @Input('model-key') modelKey: string
   @Input() label: string
-  @Input() width: number = 180
+  @Input() width: number = 0
   
   constructor(
     private root: ElTable,
