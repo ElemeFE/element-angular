@@ -2,7 +2,7 @@ import { EventEmitter, Input, Output } from '@angular/core'
 import { SafeStyle } from '@angular/platform-browser'
 import {
   TableSelectEvent, TableChangeEvent, FilterChangeEvent, RowChangeEvent, TableDragendEvent,
-  expandEvent,
+  expandEvent, TableColumnDataItem,
 } from './table.interface'
 
 export class ElTableProps {
@@ -17,8 +17,8 @@ export class ElTableProps {
   @Input('show-header') showHeader: boolean = true
   @Input('current-row-key') currentRowKey: string
   @Input('highlight-current-row') highlightCurrentRow: boolean = false
-  @Input('row-class-name') rowClassName: (row: number, index: number) => string
-  @Input('row-style') rowStyle: (row: number, index: number) => string | SafeStyle
+  @Input('row-class-name') rowClassName: (userRow: any, index: number) => string
+  @Input('row-style') rowStyle: (userRow: any, index: number) => string | SafeStyle
   @Input('expand-row-keys') expandRowKeys: any[]
   
   @Input('tooltip-effect') tooltipEffect: string

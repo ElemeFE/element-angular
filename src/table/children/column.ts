@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core'
+import { Component, ContentChild, ElementRef, Input, OnInit, TemplateRef } from '@angular/core'
 import { ElTable } from '../table'
 import { TableColumn } from '../table.interface'
 
@@ -9,9 +9,12 @@ import { TableColumn } from '../table.interface'
 })
 export class ElTableColumn implements OnInit {
   
+  @ContentChild('slot') slot: TemplateRef<any>
   @Input('model-key') modelKey: string
   @Input() label: string
   @Input() width: number = 0
+  // slot content click handle
+  @Input('slot-click') slotClick: Function
   
   constructor(
     private root: ElTable,
@@ -20,7 +23,9 @@ export class ElTableColumn implements OnInit {
   }
   
   ngOnInit(): void {
-    if (!this.modelKey) return console.warn('ElTableColumn required modelKey props')
+    if (!this.modelKey && !this.slot) {
+      return console.warn('ElTableColumn required modelKey props')
+    }
     const self: any = this.el.nativeElement
     const brothers: Element[] = self.parentElement.children
     const index: number = Array.from(brothers).findIndex((el: Element) => el === self)
@@ -29,6 +34,8 @@ export class ElTableColumn implements OnInit {
       label: this.label ? this.label : this.modelKey,
       width: this.width,
       index: index,
+      slot: this.slot,
+      slotClick: this.slotClick,
     }
     this.root.updateColumns(tableColumn)
     // last element

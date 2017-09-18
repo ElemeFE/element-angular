@@ -9,8 +9,7 @@ import { ElTableProps } from './table.props'
       [class.el-table--enable-row-transition]="true"
       [class.el-table--fit]="fit" [class.el-table--striped]="stripe"
       [class.el-table--border]="border" [class.el-table--hidden]="false"
-      [class.el-table--fluid-height]="maxHeight" [class.el-table--enable-row-hover]="isComplex"
-      (mouseleave)="mouseLeaveHandle($event)">
+      [class.el-table--fluid-height]="maxHeight" [class.el-table--enable-row-hover]="isComplex">
       <div class="hidden-columns"><ng-content></ng-content></div>
       <div class="el-table__header-wrapper" *ngIf="showHeader">
         <el-table-header [model]="columns" [layout]="layout" [border]="border"
@@ -88,15 +87,15 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
   layout: any = {}
   private globalListenFunc: Function
   
+  static generateID(): string {
+    return Math.random().toString(16).substr(2, 8)
+  }
+  
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
   ) {
     super()
-  }
-  
-  mouseLeaveHandle(): void {
-  
   }
   
   updateColumns(columns: TableColumn): void {
@@ -116,19 +115,28 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
       value: string | number,
       index: number,
     }
+    // distribution template
+    this.columns = this.columns.map((column: TableColumn, index: number) => {
+      if (!column.slot) return column
+      const modelKey: string = ElTable.generateID()
+      this.model = this.model.map((v: any) => Object.assign(v, { [modelKey]: column.slot, }))
+      return Object.assign(column, { modelKey })
+    })
     const orderMap: OrderMap = this.columns.reduce((pre, next: TableColumn) =>
       Object.assign(pre, { [next.modelKey]: next }), {})
     
+    // add index, width, value
     const modelWithIndex: ModelWithIndexDataItem[][] =  this.model.map((row: any) =>
       Object.keys(row || {}).map((v: string | number) => ({
-        value: row[v],
+        value: row[v], [v]: row[v],
         index: orderMap[v].index,
         width: orderMap[v].width,
-      })))
-    
+        slotClick: orderMap[v].slotClick,
+      })
+    ))
+    // sort
     this.columnsData = modelWithIndex.map((row: TableColumnDataItem[]) =>
       row.sort((pre, next) => pre.index - next.index))
-    
   }
   
   ngOnInit(): void {

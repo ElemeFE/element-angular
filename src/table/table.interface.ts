@@ -1,3 +1,4 @@
+import { TemplateRef } from '@angular/core'
 
 export interface TableSelectEvent {
   selection: any,
@@ -37,15 +38,13 @@ export interface expandEvent {
   expanded: any,
 }
 
-export interface TableData {
-  [key: string]: any
-}
-
 export interface TableColumn {
   modelKey: string,
   label: string,
   width: number,
   index: number,
+  slot?: TemplateRef<any>,
+  slotClick?: Function,
 }
 
 export type TableColumnDataItem = {

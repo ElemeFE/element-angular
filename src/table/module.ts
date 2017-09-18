@@ -2,7 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { ElTableHeader, ElTableColumn, ElTableBody } from './children'
 import { ElTable } from './table'
-
+import { ElTableFormat } from './utils/format'
 
 @NgModule({
   declarations: [
@@ -20,6 +20,6 @@ import { ElTable } from './table'
 })
 export class ElTableModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: ElTableModule, providers: [] }
+    return { ngModule: ElTableModule, providers: [ElTableFormat] }
   }
 }
