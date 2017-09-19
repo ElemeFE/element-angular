@@ -38,4 +38,20 @@ template: '<el-button>Hello World</el-button>'
 
 `,
 
+// angular-cli2
+`
+// in /angular-cli.json
+// improve config :
+
+{
+  "app": [{
+    "styles": [
+      "../node_modules/element-theme-default"
+    ],
+    // other configurations...
+  }]
+}
+
+`,
+
 ]
