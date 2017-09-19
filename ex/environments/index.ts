@@ -1,6 +1,7 @@
 declare let __DEBUG__: any
 declare let __CONFIG__: {
   version: string
+  faas: 0,
 }
 
 import * as env from './environment'

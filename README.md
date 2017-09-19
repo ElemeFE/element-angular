@@ -4,7 +4,7 @@
 <img src="https://angular.cn/assets/images/logos/angular/angular.svg" width="90" height="90" align="center">
 </div>
 
-<h2 align="center">Element for Angular</h2>
+<h2 align="center"> Element for Angular </h2>
 
 
 ## Catalog
@@ -18,13 +18,8 @@
 
 ## Documentation
 
-[element-angular](https://eleme.github.io/element-angular/)
+[element-angular](https://element-angular.faas.ele.me)
 
-other frameworks:
-
-[element-vue](http://element.eleme.io/#/zh-CN/component/installation)
-
-[element-react](https://eleme.github.io/element-react/#/zh-CN/quick-start)
 
 
 ## Getting Started
@@ -40,7 +35,7 @@ import { ElModule } from 'element-angular'
 import 'element-theme-default'
 
 ```
-More: [Doc](https://eleme.github.io/element-angular/)
+More: [Doc](https://element-angular.faas.ele.me)
 
 
 

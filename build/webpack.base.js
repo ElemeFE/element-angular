@@ -6,6 +6,7 @@ const helpers = require('./helpers')
 const tslintConfig = require('../tslint.json')
 const pkg = require('../package.json')
 const isDebug = process.env.DEBUG || 'false'
+const publishType = process.env.npm_config_publish_type
 
 module.exports = {
   entry: {
@@ -103,6 +104,7 @@ module.exports = {
       __DEBUG__: isDebug,
       __CONFIG__: {
         version: JSON.stringify(pkg.version),
+        faas: publishType === 'faas' ? 1 : 0,
       },
     }),
   ],
