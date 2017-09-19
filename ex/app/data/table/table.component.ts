@@ -56,8 +56,8 @@ export class ExTableComponent {
   
   private code: string[] = code
   private page: any = {
-    previous: { name: 'Rate 评分', link: '/form/rate' },
-    next: { name: 'Progress 输入框', link: '/data/progress' },
+    previous: { name: 'Pagination 分页', link: '/data/pagination' },
+    next: { name: 'Loading 加载', link: '/notice/loading' },
   }
   private exClass: any = ExTableDemoComponent
   
