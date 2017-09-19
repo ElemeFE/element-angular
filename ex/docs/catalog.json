@@ -21,7 +21,7 @@
   "components": [],
   "children": [],
   "name": "更新日志",
-  "link": "#/guide/log"
+  "link": "/guide/log"
 }, {
   "type": "h1",
   "children": [],
