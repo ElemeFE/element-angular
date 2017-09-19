@@ -1,8 +1,9 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core'
 import { trigger, state, style, animate, transition } from '@angular/animations'
+import { SafeHtml, DomSanitizer } from '@angular/platform-browser'
 import { ActivatedRoute } from '@angular/router'
 import { HighLightPipe } from '../../pipe'
-import { SafeHtml, DomSanitizer } from '@angular/platform-browser'
+import { ElMessageService } from '../../../../../src/index'
 
 @Component({
   selector: 'ex-demo',
@@ -48,12 +49,14 @@ export class ExDemoComponent implements OnInit {
   
   constructor(
     private route: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private messageService: ElMessageService,
   ) {
   }
   
   openDemo(): void {
-    this.link && window.open(this.link)
+    this.messageService.info('在线运行正在开发中')
+    // this.link && window.open(this.link)
   }
   
   showCode(): void {
