@@ -3,13 +3,14 @@ const webpackMerge = require('webpack-merge')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const baseConfig = require('./webpack.base')
 const helpers = require('./helpers')
+const publishType = process.env.npm_config_publish_type
 
 module.exports = webpackMerge(baseConfig, {
   devtool: 'source-map',
   
   output: {
     path: helpers.root('dist'),
-    publicPath: '/element-angular/',
+    publicPath: publishType === 'faas' ? '/' : '/element-angular/',
     filename: '[name].[hash].js',
     chunkFilename: '[id].[hash].chunk.js',
   },

@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  host: '/ex/docs'
+  host: '/ex/docs',
+  faasHost: '/docs',
 }
