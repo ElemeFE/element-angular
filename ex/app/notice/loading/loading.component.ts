@@ -11,7 +11,7 @@ export class ExLoadingComponent {
   
   private code: string[] = code
   private page: any = {
-    previous: { name: 'Check 多选框', link: '/form/checkbox' },
+    previous: { name: 'Table 表格', link: '/data/table' },
     next: { name: 'Message 消息提示', link: '/notice/message' },
   }
   private exClass: new () => {} = class {

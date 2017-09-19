@@ -1,0 +1,44 @@
+<h2>Table 表格</h2>
+<p>用于展示多条结构类似的数据，可对数据进行排序、筛选、对比或其他自定义操作。</p>
+
+<h3>基础的表格展示用法。</h3>
+<ex-demo link="2" [code]="code[0]" [class]="exClass" notes="当 <code>el-table</code>
+元素中注入 <code>model</code> 对象数组后，在 <code>el-table-column</code> 中用 <code>model-key</code>
+属性来对应对象中的键名即可填入数据">
+</ex-demo>
+
+<h3>带斑马纹表格</h3>
+<p>使用带斑马纹的表格，可以更容易区分出不同行的数据。</p>
+<ex-demo link="2" [code]="code[1]" [class]="exClass" notes="可以使用 <code>stripe</code>
+来指定是否开启斑马条纹显示">
+</ex-demo>
+
+
+<h3>带边框表格</h3>
+<ex-demo link="2" [code]="code[2]" [class]="exClass" notes="可以使用 <code>border</code>
+来指定是否开启边框">
+</ex-demo>
+
+<h3>带状态表格</h3>
+<p>可将表格内容 highlight 显示，方便区分「成功、信息、警告、危险」等内容。</p>
+<ex-demo link="2" [code]="code[3]" [class]="exClass" notes="属性 <code>row-class-name</code>
+接受一个函数来标识更多的 css 类名。当然不要忘了为你的自定义类名补充样式。">
+</ex-demo>
+
+<h3>固定表头</h3>
+<p>纵向内容过多时，可选择固定表头。</p>
+<ex-demo link="2" [code]="code[4]" [class]="exClass" notes="指定高度可自动固定表头">
+</ex-demo>
+
+<h3>填充内容</h3>
+<p>可以为列填充固定内容，常用于操作与删除</p>
+<ex-demo link="2" [code]="code[5]" [class]="exClass" notes="在获取填充事件时，如果需要
+组件的上下文，可以用 <code>let</code> 语法将 <code>scope</code> 传入参数。它包含被点击的按钮元素本身，
+点击所在的行，用户数据以及销毁方法等。">
+</ex-demo>
+
+
+<ex-document doc="table"></ex-document>
+<ex-document doc="table-column"></ex-document>
+
+<ex-footer-nav [page]="page"></ex-footer-nav>

@@ -1,0 +1,70 @@
+{
+  "name": "Table Attributes",
+  "attrs": [{
+    "name": "model",
+    "notes": "显示的数据",
+    "type": "Array<any>",
+    "enum": null,
+    "default": null
+  }, {
+    "name": "height",
+    "notes": "Table 的高度，默认为自动高度。如果 height 为 number 类型，单位 px",
+    "type": "string | number",
+    "enum": null,
+    "default": null
+  }, {
+    "name": "placeholder",
+    "notes": "无数据时占位符",
+    "type": "string",
+    "enum": null,
+    "default": "暂无数据"
+  }, {
+    "name": "stripe",
+    "notes": "是否为斑马纹 table",
+    "type": "boolean",
+    "enum": null,
+    "default": false
+  }, {
+    "name": "border",
+    "notes": "是否带有纵向边框",
+    "type": "boolean",
+    "enum": null,
+    "default": false
+  }, {
+    "name": "show-header",
+    "notes": "是否显示表头",
+    "type": "boolean",
+    "enum": null,
+    "default": true
+  }, {
+    "name": "row-class-name",
+    "notes": "行的 className 的回调方法",
+    "type": "(row: any, index: number) => string",
+    "enum": null,
+    "default": null
+  }, {
+    "name": "cell-click",
+    "notes": "表格单元格点击事件",
+    "type": "EventEmitter<Element & { index: number, rowData: any, destroy: Function, event?: Event }>",
+    "enum": null,
+    "default": null
+  }, {
+    "name": "cell-dblclick",
+    "notes": "表格单元格双击事件",
+    "type": "EventEmitter<Element & { index: number, rowData: any, destroy: Function, event?: Event }>",
+    "enum": null,
+    "default": null
+  }, {
+    "name": "cell-mouse-enter",
+    "notes": "表格单元格鼠标事件",
+    "type": "EventEmitter<Event>",
+    "enum": null,
+    "default": null
+  }, {
+    "name": "cell-mouse-leave",
+    "notes": "表格单元格鼠标事件",
+    "type": "EventEmitter<Event>",
+    "enum": null,
+    "default": null
+  }]
+}

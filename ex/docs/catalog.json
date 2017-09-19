@@ -98,6 +98,9 @@
     }, {
       "name": "Pagination 分页",
       "link": "/data/pagination"
+    }, {
+      "name": "Table 表格",
+      "link": "/data/table"
     }]
   }, {
     "name": "Notice",
