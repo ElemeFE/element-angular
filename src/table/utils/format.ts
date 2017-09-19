@@ -4,6 +4,14 @@ import { TableColumnDataItem } from '../table.interface'
 @Injectable()
 export class ElTableFormat {
   
+  static getCSSValue(val: string | number): number {
+    if (val === 'auto') return null
+    if (!Number.isNaN(+val)) return +val
+    if (String(val).endsWith('px')) {
+      return +String(val).split('px')[0]
+    }
+  }
+  
   formatRowData(tableRows: TableColumnDataItem[][]): any {
     const elTableKeys: string[] = ['value', 'width', 'index']
     const tableRowsMap: any = tableRows.map((row, index) => {

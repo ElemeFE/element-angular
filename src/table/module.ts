@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common'
 import { ElTableHeader, ElTableColumn, ElTableBody } from './children'
 import { ElTable } from './table'
 import { ElTableFormat } from './utils/format'
+import { ElCSSValuePipe } from '../shared/pipe'
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { ElTableFormat } from './utils/format'
     ElTableHeader,
     ElTableColumn,
     ElTableBody,
+    ElCSSValuePipe,
   ],
   exports: [
     ElTable,
@@ -20,6 +22,6 @@ import { ElTableFormat } from './utils/format'
 })
 export class ElTableModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: ElTableModule, providers: [ElTableFormat] }
+    return { ngModule: ElTableModule, providers: [ElTableFormat, ElCSSValuePipe] }
   }
 }

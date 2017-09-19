@@ -6,7 +6,7 @@ import { ElTableFormat } from '../utils/format'
 @Component({
   selector: 'el-table-body',
   template: `
-    <table class="el-table__body" [ngStyle]="{width: width + 'px'}"
+    <table class="el-table__body" [ngStyle]="{ width: layout.bodyWidth | cssValue }"
       cellspacing="0" cellpadding="0" border="0">
       <tr *ngFor="let tr of model; let k = index" #tableRow
         [hidden]="tr.hidden"
@@ -17,7 +17,7 @@ import { ElTableFormat } from '../utils/format'
         (click)="clickHandle()" (doubleClick)="doubleClickHandle()"
         (mouseenter)="tableRow.hover = true" (mouseleave)="tableRow.hover = false">
         <td *ngFor="let td of tr; let i = index" [class]="'el-table_1_column_' + (i + 1)"
-          [ngStyle]="{width: td.width ? td.width + 'px' : 'auto'}"
+          [ngStyle]="{ width: td.width | cssValue }"
           (mouseenter)="cellMouseActionHandle(true)"
           (mouseleave)="cellMouseActionHandle(false)"
           (click)="slotClickHandle(k, td)">
@@ -35,7 +35,6 @@ import { ElTableFormat } from '../utils/format'
 export class ElTableBody implements OnChanges {
   
   @Input('model') model: TableColumnDataItem[][]
-  @Input() width: number
   @Input() stripe: boolean = false
   @Input() layout: any
   @Input() highlight: any

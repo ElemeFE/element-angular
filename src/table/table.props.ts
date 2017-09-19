@@ -7,7 +7,7 @@ import {
 
 export class ElTableProps {
   
-  @Input() height: string = 'auto'
+  @Input() height: string | number = 'auto'
   @Input('max-height') maxHeight: string
   @Input() placeholder: string
   

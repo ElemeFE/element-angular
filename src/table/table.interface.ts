@@ -41,7 +41,7 @@ export interface expandEvent {
 export interface TableColumn {
   modelKey: string,
   label: string,
-  width: number,
+  width: string | number,
   index: number,
   slot?: TemplateRef<any>,
   slotClick?: Function,

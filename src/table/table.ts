@@ -1,23 +1,29 @@
-import { Component, ElementRef, OnDestroy, OnInit, Renderer2 } from '@angular/core'
+import {
+  AfterContentInit,
+  AfterViewInit, Component, ComponentRef, ContentChild, ElementRef, OnDestroy, OnInit, Renderer2,
+  ViewChild,
+} from '@angular/core'
 import { TableColumn, TableColumnDataItem } from './table.interface'
 import { ElTableProps } from './table.props'
+import { ElTableFormat } from './utils/format'
 
 @Component({
   selector: 'el-table',
   template: `
     <div class="el-table"
+      [ngStyle]="{ height: height | cssValue }"
       [class.el-table--enable-row-transition]="true"
       [class.el-table--fit]="fit" [class.el-table--striped]="stripe"
       [class.el-table--border]="border" [class.el-table--hidden]="false"
       [class.el-table--fluid-height]="maxHeight" [class.el-table--enable-row-hover]="isComplex">
       <div class="hidden-columns"><ng-content></ng-content></div>
-      <div class="el-table__header-wrapper" *ngIf="showHeader">
-        <el-table-header [model]="columns" [layout]="layout" [border]="border"
-          [default-sort]="defaultSort">
+      <div class="el-table__header-wrapper" [hidden]="!showHeader" #headerRef>
+        <el-table-header [model]="columns" [layout]="layout"
+          [border]="border" [height]="height" [default-sort]="defaultSort">
         </el-table-header>
       </div>
-      <div class="el-table__body-wrapper" style="">
-        <el-table-body [model]="columnsData" [stripe]="stripe" [width]="layout.bodyWidth"
+      <div class="el-table__body-wrapper" [ngStyle]="{ height: layout.bodyHeight | cssValue }">
+        <el-table-body [model]="columnsData" [stripe]="stripe"
           [layout]="layout" [row-class-name]="rowClassName" [row-style]="rowStyle"
           [highlight]="highlightCurrentRow" [ngStyle]="{ width: layout.bodyWidth + 'px' }">
         </el-table-body>
@@ -82,9 +88,11 @@ import { ElTableProps } from './table.props'
 })
 export class ElTable extends ElTableProps implements OnInit, OnDestroy {
   
+  @ViewChild('headerRef') headerRef: ElementRef
+  
   columns: TableColumn[] = []
   columnsData: TableColumnDataItem[][]
-  layout: any = {}
+  layout: any = { headerHeight: 40, bodyHeight: 'auto', bodyWidth: 'auto' }
   private globalListenFunc: Function
   
   static generateID(): string {
@@ -100,6 +108,21 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
   
   updateColumns(columns: TableColumn): void {
     this.columns.push(columns)
+  }
+  
+  updateBodyHeight(): void {
+    const height: number = ElTableFormat.getCSSValue(this.height)
+    const header: HTMLElement = this.headerRef.nativeElement
+    if (!header || !height) return
+    
+    const timer: any = setTimeout(() => {
+      const headerHeight: number = header.offsetHeight
+      if (headerHeight) {
+        this.layout.headerHeight = headerHeight
+        this.layout.bodyHeight = height - this.layout.headerHeight
+      }
+      clearTimeout(timer)
+    }, 0)
   }
   
   updateLayout(): void {
@@ -138,10 +161,13 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
     // column sort
     this.columnsData = modelWithIndex.map((row: TableColumnDataItem[]) =>
       row.sort((pre, next) => pre.index - next.index))
+  
+    this.updateBodyHeight()
   }
   
   ngOnInit(): void {
     this.updateLayout()
+    this.updateBodyHeight()
     this.globalListenFunc = this.renderer.listen('window', 'resize', () => {
       this.updateLayout()
     })

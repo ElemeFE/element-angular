@@ -1,31 +1,19 @@
 import { Component, Input } from '@angular/core'
-import { TableColumn } from '../table.interface'
+import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 
 @Component({
   selector: 'el-table-header',
   template: `
     <table class="el-table__header"  cellspacing="0" cellpadding="0" border="0"
       [ngStyle]="{width: layout.bodyWidth ? layout.bodyWidth + 'px' : ''}">
-      <!--<colgroup>-->
-        <!--<col name="" width=""/>-->
-      <!--</colgroup>-->
       <thead>
       <tr>
-        <th *ngFor="let th of model" class="el-table_1_column_1 is-leaf"
-          [ngStyle]="{width: th.width ? th.width + 'px' : 'auto'}"
+        <th *ngFor="let th of model" [class]="makeClasses()"
+          [style]="makeStyles(th)"
           colspan="1" rowspan="1">
           <div class="cell">
             {{th.label}}
           </div>
-        <!--<div class="">-->
-          <!--<span class="caret-wrapper">-->
-        <!--&lt;!&ndash;<i class="sort-caret ascending"></i>&ndash;&gt;-->
-            <!--&lt;!&ndash;<i class="sort-caret descending"></i>&ndash;&gt;-->
-        <!--</span>-->
-          <!--<span class="el-table__column-filter-trigger">-->
-            <!--<i class=""></i>-->
-          <!--</span>-->
-        <!--</div>-->
         </th>
       </tr>
       </thead>
@@ -37,11 +25,23 @@ export class ElTableHeader {
   @Input() model: any[] = []
   @Input() layout: any
   @Input() border: boolean = false
+  @Input() height: string | number
   @Input('default-sort') defaultSort: any
   
-  
-  constructor() {
+  constructor(
+    private sanitizer: DomSanitizer,
+  ) {
   }
   
+  makeClasses(): string {
+    return this.height === 'auto' ? 'el-table_1_column_1 is-leaf' : 'gutter'
+  }
+  
+  makeStyles(th: any): SafeStyle {
+    const styles: string = this.height === 'auto'
+      ? `width: ${th.width ? th.width : 'auto'}`
+      : `width: 100%`
+    return this.sanitizer.bypassSecurityTrustStyle(styles)
+  }
   
 }

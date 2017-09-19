@@ -12,7 +12,7 @@ export class ElTableColumn implements OnInit {
   @ContentChild('slot') slot: TemplateRef<any>
   @Input('model-key') modelKey: string
   @Input() label: string
-  @Input() width: number = 0
+  @Input() width: string | number = 'auto'
   // slot content click handle
   @Input('slot-click') slotClick: Function
   
