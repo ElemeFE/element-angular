@@ -4,11 +4,13 @@ const root = require('app-root-path').path
 const pkg = require(`${root}/package.json`)
 const npmMessage = process.env.npm_config_message
 
-if (!npmMessage || npmMessage === '%s') return console.log('need commit message! [--m=""]')
-const message = `publish: v${pkg.version} ${npmMessage}`
+if (!npmMessage || npmMessage === '%s') {
+  console.warn('not commit msg')
+}
+const message = `Publish: v${pkg.version} ${npmMessage}`
 
 console.log('project publishing...')
-console.log(`commit message: ${message}`)
+console.log(`commit msg: ${message}`)
 ghpages.clean()
 ghpages.publish(path.join(__dirname, '../dist'), { message },
-    err => console.log(`publish ${!err ? 'success' : 'failed' + err}`))
+    err => console.log(`Publish ${!err ? 'success' : 'failed' + err}`))
