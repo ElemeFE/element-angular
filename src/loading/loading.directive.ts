@@ -1,14 +1,8 @@
 import {
   Input, Directive, OnInit, ElementRef, Renderer2,
-  Injectable, OnChanges, SimpleChanges,
+  OnChanges, SimpleChanges,
 } from '@angular/core'
-
-@Injectable()
-export class DocumentWrapper extends Document {
-}
-@Injectable()
-export class WindowWrapper extends Window {
-}
+import { DocumentWrapper, WindowWrapper } from '../shared/services'
 
 @Directive({
   selector: '[el-loading]',
@@ -30,7 +24,6 @@ export class ElLoadingDirective implements OnInit, OnChanges {
     private document: DocumentWrapper,
     private window: WindowWrapper,
   ) {
-  
   }
   
   toggleLock(status: boolean = false): void {

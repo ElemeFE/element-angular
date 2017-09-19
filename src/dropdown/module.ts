@@ -1,21 +1,18 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { ElSharedModule } from '../shared/module'
 import { ElButtonsModule } from '../button/module'
-import { ElDropdown } from './dropdown'
 import { ElDropdownItem } from './dropdown.item'
-import { DocumentWrapper } from '../shared/services'
-export function getDocument(): any { return document }
+import { ElDropdown } from './dropdown'
 
 @NgModule({
   declarations: [ElDropdown, ElDropdownItem],
   exports: [ElDropdown, ElDropdownItem],
-  imports: [CommonModule, ElButtonsModule],
+  imports: [CommonModule, ElButtonsModule, ElSharedModule],
   entryComponents: [ElDropdown],
 })
 export class ElDropdownModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: ElDropdownModule, providers: [
-      { provide: DocumentWrapper, useFactory: getDocument },
-    ] }
+    return { ngModule: ElDropdownModule, providers: [] }
   }
 }
