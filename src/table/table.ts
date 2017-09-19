@@ -15,7 +15,7 @@ import { ElTableFormat } from './utils/format'
       [class.el-table--enable-row-transition]="true"
       [class.el-table--fit]="fit" [class.el-table--striped]="stripe"
       [class.el-table--border]="border" [class.el-table--hidden]="false"
-      [class.el-table--fluid-height]="maxHeight" [class.el-table--enable-row-hover]="isComplex">
+      [class.el-table--enable-row-hover]="isComplex">
       <div class="hidden-columns"><ng-content></ng-content></div>
       <div class="el-table__header-wrapper" [hidden]="!showHeader" #headerRef>
         <el-table-header [model]="columns" [layout]="layout"
@@ -24,8 +24,8 @@ import { ElTableFormat } from './utils/format'
       </div>
       <div class="el-table__body-wrapper" [ngStyle]="{ height: layout.bodyHeight | cssValue }">
         <el-table-body [model]="columnsData" [stripe]="stripe"
-          [layout]="layout" [row-class-name]="rowClassName" [row-style]="rowStyle"
-          [highlight]="highlightCurrentRow" [ngStyle]="{ width: layout.bodyWidth + 'px' }">
+          [layout]="layout" [row-class-name]="rowClassName"
+          [ngStyle]="{ width: layout.bodyWidth + 'px' }">
         </el-table-body>
         <div [ngStyle]="{width: layout.bodyWidth + 'px'}" class="el-table__empty-block" *ngIf="!model || model.length === 0">
           <span class="el-table__empty-text">{{placeholder}}</span>

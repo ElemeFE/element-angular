@@ -39,9 +39,7 @@ export class ElTableBody implements OnChanges {
   @Input('model') model: TableColumnDataItem[][]
   @Input() stripe: boolean = false
   @Input() layout: any
-  @Input() highlight: any
   @Input('row-class-name') rowClassName: (userRow: any, index: number) => string
-  @Input('row-style') rowStyle: any
   @Output('cell-click') cellClick: EventEmitter<ElTableSlotEvent> = new EventEmitter<ElTableSlotEvent>()
   @Output('cell-dblclick') cellDblClick: EventEmitter<ElTableSlotEvent> = new EventEmitter<ElTableSlotEvent>()
   @Output('cell-mouse-enter') cellMouseEnter: EventEmitter<Event> = new EventEmitter<Event>()
