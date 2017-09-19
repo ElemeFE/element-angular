@@ -97,6 +97,14 @@
       }, {
         "description": "增加 Upload 组件与文档"
       }]
+    },
+    {
+      "version": "0.0.4-beta.0",
+      "date": "2017-09-19",
+      "link": null,
+      "events": [{
+        "description": "增加 Table 组件与文档"
+      }]
     }
   ]
 }

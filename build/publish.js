@@ -5,9 +5,9 @@ const pkg = require(`${root}/package.json`)
 const npmMessage = process.env.npm_config_message
 
 if (!npmMessage || npmMessage === '%s') {
-  console.warn('not commit msg')
+  return console.warn('add commit msg: --m=""')
 }
-const message = `Publish: v${pkg.version} ${npmMessage}`
+const message = `Doc: publish - v${pkg.version} ${npmMessage}`
 
 console.log('project publishing...')
 console.log(`commit msg: ${message}`)
