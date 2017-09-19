@@ -152,6 +152,7 @@ export class ElSliderButton implements OnInit, OnChanges {
     if (next === null) return
     const checkedNext: number = next < 0 ? 0 : next > 100 ? 100 : next
     const val: number = checkedNext * (this.max - this.min) * 0.01 + this.min
+    if (Number.isNaN(val)) return
     this.model = Math.round(val)
     this.modelChange.emit(this.model)
     this.updateWrapperStyle()

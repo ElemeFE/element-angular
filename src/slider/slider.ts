@@ -56,7 +56,7 @@ export class ElSlider extends ElSliderProps implements OnInit, AfterViewInit {
     this.resetSize()
     const val: number = this.vertical ? event.clientY : event.clientX
     const { left, bottom } = this.runwayElement.nativeElement.getBoundingClientRect()
-    const offset: number = val - (this.vertical ? bottom : left)
+    const offset: number = Math.abs(val - (this.vertical ? bottom : left))
     // update value
     this.model = Math.round((offset / this.size) * (this.max - this.min)) + this.min
     this.makeBarStyle()
