@@ -1,9 +1,5 @@
 import { EventEmitter, Input, Output } from '@angular/core'
-import { SafeStyle } from '@angular/platform-browser'
-import {
-  TableSelectEvent, TableChangeEvent, FilterChangeEvent, RowChangeEvent, TableDragendEvent,
-  expandEvent, ElTableSlotEvent,
-} from './table.interface'
+import { TableSelectEvent, ElTableSlotEvent } from './table.interface'
 
 export class ElTableProps {
   
@@ -13,7 +9,6 @@ export class ElTableProps {
   
   @Input() stripe: boolean = false
   @Input() border: boolean = false
-  @Input() fit: boolean = true
   @Input('show-header') showHeader: boolean = true
   @Input('row-class-name') rowClassName: (userRow: any, index: number) => string
   

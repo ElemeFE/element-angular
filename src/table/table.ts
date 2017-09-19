@@ -10,16 +10,16 @@ import { ElTableFormat } from './utils/format'
 @Component({
   selector: 'el-table',
   template: `
-    <div class="el-table"
+    <div class="el-table" #tableRef
       [ngStyle]="{ height: height | cssValue }"
       [class.el-table--enable-row-transition]="true"
-      [class.el-table--fit]="fit" [class.el-table--striped]="stripe"
-      [class.el-table--border]="border" [class.el-table--hidden]="false"
-      [class.el-table--enable-row-hover]="isComplex">
+      [class.el-table--striped]="stripe"
+      [class.el-table--border]="border"
+      [class.el-table--hidden]="false">
       <div class="hidden-columns"><ng-content></ng-content></div>
       <div class="el-table__header-wrapper" [hidden]="!showHeader" #headerRef>
         <el-table-header [model]="columns" [layout]="layout"
-          [border]="border" [height]="height" [default-sort]="defaultSort">
+          [border]="border" [height]="height">
         </el-table-header>
       </div>
       <div class="el-table__body-wrapper" [ngStyle]="{ height: layout.bodyHeight | cssValue }">

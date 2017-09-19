@@ -33,7 +33,7 @@ export interface TableDragendEvent {
   event: Event,
 }
 
-export interface expandEvent {
+export interface ExpandEvent {
   row: number,
   expanded: any,
 }

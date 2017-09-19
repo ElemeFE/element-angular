@@ -23,7 +23,6 @@ export class ElTableHeader {
   @Input() layout: any
   @Input() border: boolean = false
   @Input() height: string | number
-  @Input('default-sort') defaultSort: any
   
   makeClasses(): string {
     return this.height === 'auto' ? 'el-table_1_column_1 is-leaf' : 'gutter'
