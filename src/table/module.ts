@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common'
 import { ElTableHeader, ElTableColumn, ElTableBody } from './children'
 import { ElTable } from './table'
 import { ElTableFormat } from './utils/format'
-import { ElCSSValuePipe } from '../shared/pipe'
+import { ElSharedModule } from '../shared/module'
 
 @NgModule({
   declarations: [
@@ -11,17 +11,16 @@ import { ElCSSValuePipe } from '../shared/pipe'
     ElTableHeader,
     ElTableColumn,
     ElTableBody,
-    ElCSSValuePipe,
   ],
   exports: [
     ElTable,
     ElTableColumn,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, ElSharedModule],
   entryComponents: [ElTable],
 })
 export class ElTableModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: ElTableModule, providers: [ElTableFormat, ElCSSValuePipe] }
+    return { ngModule: ElTableModule, providers: [ElTableFormat] }
   }
 }

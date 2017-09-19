@@ -52,5 +52,11 @@ export type TableColumnDataItem = {
   index: number,
 }
 
+export type ElTableSlotEvent = Element & {
+  index: number,
+  rowData: any,
+  destroy: () => void,
+  event?: Event,
+}
 
 

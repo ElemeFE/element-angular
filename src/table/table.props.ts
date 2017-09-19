@@ -2,7 +2,7 @@ import { EventEmitter, Input, Output } from '@angular/core'
 import { SafeStyle } from '@angular/platform-browser'
 import {
   TableSelectEvent, TableChangeEvent, FilterChangeEvent, RowChangeEvent, TableDragendEvent,
-  expandEvent, TableColumnDataItem,
+  expandEvent, TableColumnDataItem, ElTableSlotEvent,
 } from './table.interface'
 
 export class ElTableProps {
@@ -34,10 +34,11 @@ export class ElTableProps {
   @Output('select-all') selectAll: EventEmitter<TableSelectEvent> = new EventEmitter<TableSelectEvent>()
   @Output('selection-change') selectionChange: EventEmitter<TableSelectEvent> = new EventEmitter<TableSelectEvent>()
   
-  @Output('cell-mouse-enter') cellMouseEnter: EventEmitter<TableChangeEvent> = new EventEmitter<TableChangeEvent>()
-  @Output('cell-mouse-leave') cellMouseLeave: EventEmitter<TableChangeEvent> = new EventEmitter<TableChangeEvent>()
-  @Output('cell-click') cellClick: EventEmitter<TableChangeEvent> = new EventEmitter<TableChangeEvent>()
-  @Output('cell-dblclick') cellDblclick: EventEmitter<TableChangeEvent> = new EventEmitter<TableChangeEvent>()
+  @Output('cell-mouse-enter') cellMouseEnter: EventEmitter<Event> = new EventEmitter<Event>()
+  @Output('cell-mouse-leave') cellMouseLeave: EventEmitter<Event> = new EventEmitter<Event>()
+  @Output('cell-click') cellClick: EventEmitter<ElTableSlotEvent> = new EventEmitter<ElTableSlotEvent>()
+  @Output('cell-dblclick') cellDblclick: EventEmitter<ElTableSlotEvent> = new EventEmitter<ElTableSlotEvent>()
+  
   @Output('row-click') rowClick: EventEmitter<TableChangeEvent> = new EventEmitter<TableChangeEvent>()
   @Output('row-contextmenu') rowContextmenu: EventEmitter<TableChangeEvent> = new EventEmitter<TableChangeEvent>()
   @Output('row-dblclick') rowDblclick: EventEmitter<TableChangeEvent> = new EventEmitter<TableChangeEvent>()

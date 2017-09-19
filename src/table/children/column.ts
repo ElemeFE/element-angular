@@ -13,8 +13,6 @@ export class ElTableColumn implements OnInit {
   @Input('model-key') modelKey: string
   @Input() label: string
   @Input() width: string | number = 'auto'
-  // slot content click handle
-  @Input('slot-click') slotClick: Function
   
   constructor(
     private root: ElTable,
@@ -35,7 +33,6 @@ export class ElTableColumn implements OnInit {
       width: this.width,
       index: index,
       slot: this.slot,
-      slotClick: this.slotClick,
     }
     this.root.updateColumns(tableColumn)
     // last element

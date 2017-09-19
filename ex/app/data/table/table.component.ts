@@ -6,20 +6,29 @@ import code from './code'
 })
 export class ExTableDemoComponent {
   private tableData: any[] = [{
-    name: '水爷',
+    name: '火锅',
     date: '2017-08-19',
     address: '上海市普陀区金沙江路 1518 弄',
   }, {
-    name: '水爷',
+    name: '重庆小面',
     date: '2017-08-20',
     address: '上海市普陀区金沙江路 1518 弄',
   }, {
-    name: '水爷',
+    name: '海蛎煎',
     date: '2017-08-21',
     address: '上海市普陀区金沙江路 1518 弄',
+  }, {
+    name: '榴莲酥',
+    date: '2017-08-22',
+    address: '上海市普陀区金沙江路 1510 弄',
   }]
+  private tableDataMore: any[] = []
   
-  rowClassNameFilter(row: any[], index: number): string {
+  constructor() {
+    this.tableDataMore = this.tableData.concat(this.tableData)
+  }
+  
+  rowClassNameFilter(row: any, index: number): string {
     if (index === 1) {
       return 'info-row';
     } else if (index === 3) {
@@ -28,10 +37,11 @@ export class ExTableDemoComponent {
     return ''
   }
   
-  handle(rows: any, index: number): any {
-    // event.rows.shift()
-    rows.splice(index, 1)
-    return true
+  handle(ref: any): any {
+    // console.log(ref.index)
+    // console.log(ref.rowData)
+    // console.log(ref.innerHTML)
+    ref.destroy()
   }
   
 }

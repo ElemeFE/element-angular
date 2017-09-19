@@ -8,6 +8,10 @@ export class DocumentWrapper extends Document {
 }
 
 @Injectable()
+export class WindowWrapper extends Window {
+}
+
+@Injectable()
 export class ExDynamicService {
   
   constructor(
