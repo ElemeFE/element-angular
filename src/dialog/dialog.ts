@@ -1,18 +1,11 @@
 import {
-  Component, ContentChild, ElementRef, Injectable, Input, OnChanges, OnDestroy,
+  Component, ContentChild, Input, OnChanges, OnDestroy,
   OnInit, Renderer2, SimpleChanges, TemplateRef,
 } from '@angular/core'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
+import { DocumentWrapper, WindowWrapper } from '../shared/services'
 import { ElDialogProps } from './dialog.props'
 import { dialogFadeAnimation } from '../shared/animation'
-
-@Injectable()
-export class DocumentWrapper extends Document {
-}
-@Injectable()
-export class WindowWrapper extends Window {
-}
-
 
 @Component({
   selector: 'el-dialog',
