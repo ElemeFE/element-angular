@@ -12,6 +12,9 @@ export interface TableColumn {
   index: number,
   slot?: TemplateRef<any>,
   slotClick?: Function,
+  deep: number,
+  level: number,
+  childCount: number,
 }
 
 export type TableColumnDataItem = {
