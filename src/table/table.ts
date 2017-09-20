@@ -18,7 +18,7 @@ import { ElTableFormat } from './utils/format'
       [class.el-table--hidden]="false">
       <div class="hidden-columns"><ng-content></ng-content></div>
       <div class="el-table__header-wrapper" [hidden]="!showHeader" #headerRef>
-        <el-table-header [model]="columnsWithLevel" [layout]="layout" [width-group]="widthGroup"
+        <el-table-header [model]="columnsWithLevel" [layout]="layout"
           [border]="border" [height]="height">
         </el-table-header>
       </div>
@@ -39,16 +39,13 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
   @ViewChild('headerRef') headerRef: ElementRef
   
   columnsData: TableColumnDataItem[][]
-  widthGroup: any[] = []
+  columnsWithLevel: any[] = []
   layout: any = {
     headerHeight: 40,
     bodyHeight: 'auto',
     bodyWidth: 'auto',
     scrollBarWidth: 0,
   }
-  // order by deep
-  columnsWithLevel: TableColumn[][] = []
-  columnsWithDeep: TableColumn[][] = []
   private columns: TableColumn[] = []
   private globalListenFunc: Function
   
@@ -69,19 +66,6 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
     this.columns.push(columns)
   }
   
-  updateWidthGroup(columnsWithLevel: TableColumn[][]): void {
-    const widthGroup: any = []
-    columnsWithLevel.forEach((columns: TableColumn[]) => {
-      columns.forEach((column: TableColumn) => {
-        if (widthGroup.indexOf(column.width) > -1) return
-        widthGroup.push({
-          width: column.width,
-          id: ElTable.generateID(),
-        })
-      })
-    })
-    this.widthGroup = widthGroup
-  }
   
   updateBodyHeight(): void {
     const height: number = ElTableFormat.getCSSValue(this.height)
@@ -104,35 +88,6 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
     this.layout.bodyWidth = elTable.clientWidth
   }
   
-  improveTableWidth(columnsWithLevel: TableColumn[][]): TableColumn[][] {
-    let widthWithDeep: any = []
-    columnsWithLevel.forEach((columns: TableColumn[]) => {
-      columns.forEach((column: TableColumn) => {
-        if (!widthWithDeep[column.deep]) {
-          widthWithDeep[column.deep] = { total: 0 , count: 0, pass: 0 }
-        }
-        if (!Number.isNaN(+column.width)) {
-          widthWithDeep[column.deep].total += column.width
-          widthWithDeep[column.deep].pass ++
-        }
-        widthWithDeep[column.deep].count ++
-      })
-    })
-    widthWithDeep = widthWithDeep.map((value: any) => {
-      const average: number = (this.layout.bodyWidth - value.total) / (value.count - value.pass)
-      return { average }
-    })
-    
-    return columnsWithLevel.map((columns: TableColumn[]) => {
-      return columns.map((column: TableColumn) => {
-        if (Number.isNaN(+column.width)) {
-          return Object.assign(column, { width: widthWithDeep[column.deep].average })
-        }
-        return column
-      })
-    })
-  }
-  
   transformColumnsData(): void {
     type OrderMap = {
       [key: string]: any,
@@ -152,8 +107,6 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
       return null
     }).filter(r => r)
     this.columnsWithLevel.reverse()
-    this.columnsWithLevel = this.improveTableWidth(this.columnsWithLevel)
-    this.updateWidthGroup(this.columnsWithLevel)
   
     // distribution template
     this.columns = this.columns.map((column: TableColumn) => {
@@ -186,7 +139,6 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
     this.updateBodyHeight()
     this.globalListenFunc = this.renderer.listen('window', 'resize', () => {
       this.updateLayout()
-      this.updateWidthGroup(this.columnsWithLevel)
     })
   }
   

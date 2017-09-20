@@ -15,9 +15,6 @@ export class ElTableColumn implements OnInit {
   @Input() label: string
   @Input() width: string | number = 'auto'
   
-  private deep: number
-  private level: number
-  
   constructor(
     private root: ElTable,
     private el: ElementRef,
@@ -73,7 +70,6 @@ export class ElTableColumn implements OnInit {
       deep, level, childCount,
     }
     this.root.updateColumns(tableColumn)
-    // this.root.updateWidthGroup(String(this.width))
     // last element
     if (deep === 0 && index === brothers.length - 1) {
       this.root.transformColumnsData()
