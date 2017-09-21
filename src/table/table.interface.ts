@@ -9,9 +9,12 @@ export interface TableColumn {
   modelKey: string,
   label: string,
   width: string | number,
-  index: number,
-  slot?: TemplateRef<any>,
   slotClick?: Function,
+  deep: number,
+  level: number,
+  childCount: number,
+  index?: number,
+  slot?: TemplateRef<any>,
 }
 
 export type TableColumnDataItem = {
@@ -24,6 +27,20 @@ export type ElTableSlotEvent = Element & {
   rowData: any,
   destroy: () => void,
   event?: Event,
+}
+
+
+export type OrderMap = {
+  [key: string]: any,
+}
+export type ModelWithIndexDataItem = OrderMap & {
+  value: string | number,
+  index: number,
+}
+
+export type WidthItem = {
+  auto: boolean,
+  width: number
 }
 
 
