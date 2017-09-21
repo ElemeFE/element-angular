@@ -7,8 +7,8 @@ import { ExSharedModule } from '../shared/module'
 
 import { ExNoticeMainComponent } from './main/main.component'
 import { ExLoadingComponent } from './loading/loading.component'
-import { ExMessageComponent } from './message/message.component'
-import { ExNotificationComponent } from './notification/notification.component'
+import { ExMessageComponent, ExMessageDemoComponent } from './message/message.component'
+import { ExNotificationComponent, ExNotificationDemoComponent } from './notification/notification.component'
 import { ExAlertComponent } from './alert/alert.component'
 
 @NgModule({
@@ -16,7 +16,9 @@ import { ExAlertComponent } from './alert/alert.component'
     ExNoticeMainComponent,
     ExLoadingComponent,
     ExMessageComponent,
+    ExMessageDemoComponent,
     ExNotificationComponent,
+    ExNotificationDemoComponent,
     ExAlertComponent,
   ],
   imports: [

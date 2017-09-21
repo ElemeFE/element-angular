@@ -3,7 +3,10 @@ import { ElMessageService } from '../../../../src/index'
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
 import code from './code'
 
-@Component({ selector: 'ex-upload-demo' })
+@Component({
+  selector: 'ex-upload-demo',
+  template: ` `,
+})
 export class ExUploadDemoComponent {
   
   private fileList: any[] = [{

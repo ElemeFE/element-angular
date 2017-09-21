@@ -10,7 +10,7 @@ import { ExTagComponent } from './tag/tag.component'
 import { ExProgressComponent } from './progress/progress.component'
 import { ExBadgeComponent } from './badge/badge.component'
 import { ExPaginationComponent } from './pagination/pagination.component'
-import { ExTableComponent } from './table/table.component'
+import { ExTableComponent, ExTableDemoComponent } from './table/table.component'
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { ExTableComponent } from './table/table.component'
     ExBadgeComponent,
     ExPaginationComponent,
     ExTableComponent,
+    ExTableDemoComponent,
   ],
   imports: [
     CommonModule,

@@ -3,6 +3,8 @@ import code from './code'
 
 @Component({
   selector: 'ex-table-demo',
+  template: `
+  `,
 })
 export class ExTableDemoComponent {
   private tableData: any[] = [{

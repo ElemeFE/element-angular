@@ -13,10 +13,10 @@ import { ExInputNumberComponent } from './input-number/input-number.component'
 import { ExSelectComponent } from './select/select.component'
 import { ExSwitchComponent } from './switch/switch.component'
 import { ExRateComponent } from './rate/rate.component'
-import { ExCascaderComponent } from './cascader/cascader.component'
+import { ExCascaderComponent, ExCascaderDemoComponent } from './cascader/cascader.component'
 import { ExDatePickerComponent } from './date-picker/date-picker.component'
 import { ExSliderComponent } from './slider/slider.component'
-import { ExUploadComponent } from './upload/upload.component'
+import { ExUploadComponent, ExUploadDemoComponent } from './upload/upload.component'
 
 @NgModule({
   declarations: [
@@ -29,9 +29,11 @@ import { ExUploadComponent } from './upload/upload.component'
     ExSwitchComponent,
     ExRateComponent,
     ExCascaderComponent,
+    ExCascaderDemoComponent,
     ExDatePickerComponent,
     ExSliderComponent,
     ExUploadComponent,
+    ExUploadDemoComponent,
   ],
   imports: [
     CommonModule,
