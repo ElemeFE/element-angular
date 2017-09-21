@@ -15,6 +15,8 @@ export class ElTableColumn implements OnInit {
   @Input() label: string
   @Input() width: string | number = 'auto'
   
+  private maxDeep: number = 10
+  
   constructor(
     private root: ElTable,
     private el: ElementRef,
@@ -39,9 +41,8 @@ export class ElTableColumn implements OnInit {
   }
   
   findDeep(self: Element): number {
-    const MaxDeep: number = 10
     let deep: number = 0
-    Array.from(new Array(MaxDeep)).every(() => {
+    Array.from(new Array(this.maxDeep)).every(() => {
       const children = self.children
       if (!children || !children.length) return false
       if (children[0].tagName.toUpperCase() !== 'EL-TABLE-COLUMN') {
@@ -53,19 +54,37 @@ export class ElTableColumn implements OnInit {
     return deep
   }
   
+  isLastElement(deep: number, self: Element): boolean {
+    if (deep !== 0) return false
+    let isLast = true
+    Array.from(new Array(this.maxDeep)).every(() => {
+      const parent: Element = self.parentElement
+      if (!parent) return false
+      if (self !== parent.children[parent.children.length - 1]) {
+        isLast = false
+        return false
+      }
+      if (parent.tagName.toUpperCase() !== 'EL-TABLE-COLUMN') {
+        return false
+      }
+      self = parent
+      return true
+    })
+    return isLast
+  }
+  
   ngOnInit(): void {
     const self: any = this.el.nativeElement
     const brothers: Element[] = self.parentElement.children
     const deep: number = this.findDeep(self)
     const level: number = deep === 0 && brothers.length > 1 ? this.findLevel(self) : deep
+    
     const childCount: number = this.findChild(self)
   
-    const index: number = Array.from(brothers).findIndex((el: Element) => el === self)
     const tableColumn: TableColumn = {
       modelKey: this.modelKey,
       label: this.label ? this.label : this.modelKey,
       width: this.width,
-      index: index,
       slot: this.slot,
       deep, level, childCount,
     }
@@ -75,7 +94,7 @@ export class ElTableColumn implements OnInit {
     }
     
     // last element
-    if (deep === 0 && index === brothers.length - 1) {
+    if (this.isLastElement(deep, self)) {
       this.root.transformColumnsData()
     }
   }

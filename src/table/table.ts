@@ -63,8 +63,9 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
     super()
   }
   
-  updateColumns(columns: TableColumn): void {
-    this.columns.push(columns)
+  updateColumns(column: TableColumn): void {
+    const next: TableColumn = Object.assign(column, { index: this.columns.length })
+    this.columns.push(next)
   }
   
   updateBodyHeight(): void {

@@ -9,12 +9,12 @@ export interface TableColumn {
   modelKey: string,
   label: string,
   width: string | number,
-  index: number,
-  slot?: TemplateRef<any>,
   slotClick?: Function,
   deep: number,
   level: number,
   childCount: number,
+  index?: number,
+  slot?: TemplateRef<any>,
 }
 
 export type TableColumnDataItem = {
