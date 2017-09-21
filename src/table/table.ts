@@ -3,7 +3,7 @@ import {
   ViewChild,
 } from '@angular/core'
 import { DocumentWrapper, WindowWrapper } from '../shared/services'
-import { TableColumn, TableColumnDataItem } from './table.interface'
+import { ModelWithIndexDataItem, OrderMap, TableColumn, TableColumnDataItem, WidthItem } from './table.interface'
 import { ElTableProps } from './table.props'
 import { ElTableFormat } from './utils/format'
 
@@ -18,7 +18,7 @@ import { ElTableFormat } from './utils/format'
       [class.el-table--hidden]="false">
       <div class="hidden-columns"><ng-content></ng-content></div>
       <div class="el-table__header-wrapper" [hidden]="!showHeader" #headerRef>
-        <el-table-header [model]="columnsWithLevel" [layout]="layout"
+        <el-table-header [model]="columnsWithLevel" [layout]="layout" [columns-width]="columnsWidth"
           [border]="border" [height]="height">
         </el-table-header>
       </div>
@@ -46,6 +46,7 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
     bodyWidth: 'auto',
     scrollBarWidth: 0,
   }
+  columnsWidth: WidthItem[] = []
   private columns: TableColumn[] = []
   private globalListenFunc: Function
   
@@ -65,7 +66,6 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
   updateColumns(columns: TableColumn): void {
     this.columns.push(columns)
   }
-  
   
   updateBodyHeight(): void {
     const height: number = ElTableFormat.getCSSValue(this.height)
@@ -88,16 +88,29 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
     this.layout.bodyWidth = elTable.clientWidth
   }
   
+  updateColumnsWidth(widthItem: WidthItem): void {
+    this.columnsWidth.push(widthItem)
+  }
+  
+  computeColumnsWidth(columnsWidth: WidthItem[]): WidthItem[] {
+    let auto: number = 0, count: number= 0
+    columnsWidth.forEach((item: WidthItem) => {
+      if (item.auto) {
+        return auto ++
+      }
+      if (Number.isNaN(item.width)) {         // cannot parse values
+        item.auto = true
+        return auto ++
+      }
+      count += item.width
+    })
+    const average: number = (this.layout.bodyWidth - count) / auto
+    return columnsWidth.map((item: WidthItem) =>
+      item.auto ? Object.assign(item, { width: average }) : item)
+  }
+  
   transformColumnsData(): void {
-    type OrderMap = {
-      [key: string]: any,
-    }
-    type ModelWithIndexDataItem = OrderMap & {
-      value: string | number,
-      index: number,
-    }
     // order by deep
-    // body show deep 0, header show level array
     this.columns = this.columns.map((column: TableColumn) => {
       if (!Array.isArray(this.columnsWithLevel[column.level])) {
         this.columnsWithLevel[column.level] = []
@@ -107,6 +120,7 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
       return null
     }).filter(r => r)
     this.columnsWithLevel.reverse()
+    this.columnsWidth = this.computeColumnsWidth(this.columnsWidth)
   
     // distribution template
     this.columns = this.columns.map((column: TableColumn) => {
@@ -139,6 +153,7 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
     this.updateBodyHeight()
     this.globalListenFunc = this.renderer.listen('window', 'resize', () => {
       this.updateLayout()
+      this.columnsWidth = this.computeColumnsWidth(this.columnsWidth)
     })
   }
   

@@ -30,3 +30,17 @@ export type ElTableSlotEvent = Element & {
 }
 
 
+export type OrderMap = {
+  [key: string]: any,
+}
+export type ModelWithIndexDataItem = OrderMap & {
+  value: string | number,
+  index: number,
+}
+
+export type WidthItem = {
+  auto: boolean,
+  width: number
+}
+
+

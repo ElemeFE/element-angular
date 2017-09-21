@@ -38,7 +38,7 @@ export class ElTableColumn implements OnInit {
     return maxDeep
   }
   
-  findDeep(self: Element, depth: boolean = false): number {
+  findDeep(self: Element): number {
     const MaxDeep: number = 10
     let deep: number = 0
     Array.from(new Array(MaxDeep)).every(() => {
@@ -70,6 +70,10 @@ export class ElTableColumn implements OnInit {
       deep, level, childCount,
     }
     this.root.updateColumns(tableColumn)
+    if (deep === 0) {
+      this.root.updateColumnsWidth({ auto: false, width: +this.width })
+    }
+    
     // last element
     if (deep === 0 && index === brothers.length - 1) {
       this.root.transformColumnsData()
