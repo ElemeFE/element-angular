@@ -138,4 +138,21 @@ handle(ref: any): void {
 </script>
 
 `,
+
+// 多级表头
+`
+
+<el-table [model]="tableDataMore" [border]="true">
+  <el-table-column model-key="name" label="姓名" width="150">
+  </el-table-column>
+  
+  <el-table-column label="其他信息">
+    <el-table-column model-key="date" label="日期" width="150"></el-table-column>
+    <el-table-column model-key="address" label="地址"></el-table-column>
+  </el-table-column>
+  
+</el-table>
+
+`,
+
 ]
