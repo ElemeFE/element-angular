@@ -6,7 +6,6 @@ const helpers = require('./helpers')
 const publishType = process.env.npm_config_publish_type
 
 module.exports = webpackMerge(baseConfig, {
-  devtool: 'source-map',
   
   output: {
     path: helpers.root('dist'),
@@ -20,6 +19,7 @@ module.exports = webpackMerge(baseConfig, {
     // https://github.com/angular/angular/issues/10618
     new webpack.optimize.UglifyJsPlugin({
       mangle: { keep_fnames: true },
+      sourceMap: false,
     }),
     new ExtractTextPlugin('[name].[hash].css'),
     
