@@ -33,14 +33,11 @@ gulp.task('lint', () => gulp.src(PATHS.spec)
     summarizeFailureOutput: true,
   })))
 
-gulp.task('compile', gulp.series('lint', done => {
-  exec(`${compilePath} -p ./tsconfig.json`, err => {
-    err && console.log(err)
-    done()
-  })
+gulp.task('compile', done => {
+  exec(`${compilePath} -p ./tsconfig.json`, err => err ? console.log(err) : done())
     .stdout
     .on('data', data => console.log(data))
-}))
+})
 
 gulp.task('bundle', done => {
   webpack({
@@ -62,9 +59,8 @@ gulp.task('bundle', done => {
 gulp.task('clean', () => del([PATHS.release, PATHS.temp, PATHS.bundle]))
 gulp.task('clean:ex', () => del([PATHS.publish]))
 
-gulp.task('build', gulp.series('clean', 'compile', 'bundle'))
-gulp.task('build:watch', () => gulp.watch([PATHS.src],
-  gulp.series('compile', 'bundle')))
+gulp.task('build', gulp.series('clean', 'lint', 'compile', 'bundle'))
+gulp.task('build:watch', () => gulp.watch([PATHS.src], gulp.series('compile', 'bundle')))
 
 gulp.task('default', gulp.series('build'))
 

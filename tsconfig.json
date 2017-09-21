@@ -18,7 +18,7 @@
   ],
   "compileOnSave": false,
   "angularCompilerOptions": {
-    "strictMetadataEmit": true,
+    "skipMetadataEmit": true,
     "genDir": "./temp/"
   },
   "exclude": [
