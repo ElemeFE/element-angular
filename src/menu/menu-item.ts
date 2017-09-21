@@ -11,9 +11,7 @@ import { removeNgTag } from '../shared/utils'
       [ngStyle]="paddingStyle()"
       [class.is-active]="rootMenu.model === index"
       [class.is-disabled]="disabled">
-      <!--<ng-container *ngIf="!isGroup">-->
-        <!--<ng-content></ng-content>-->
-      <!--</ng-container>-->
+      <ng-content></ng-content>
     </li>
   `,
 })
