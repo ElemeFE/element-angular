@@ -21,7 +21,7 @@
   }, {
     "name": "width",
     "notes": "当前列的宽度",
-    "type": "string | number",
+    "type": "number",
     "enum": null,
     "default": null
   }]
