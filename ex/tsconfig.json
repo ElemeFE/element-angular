@@ -12,5 +12,8 @@
   },
   "typeRoots": [
     "../node_modules/@types"
+  ],
+  "plugins": [
+    { "name": "@angular/language-service" }
   ]
 }
