@@ -1,6 +1,6 @@
 {
   "name": "element-angular",
-  "version": "0.0.4-beta.0",
+  "version": "0.0.4-beta.1",
   "description": "element ui for angular",
   "main": "./index.ts",
   "unpkg": "bundle/element-angular.js",

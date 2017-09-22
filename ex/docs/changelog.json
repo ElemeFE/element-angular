@@ -105,6 +105,20 @@
       "events": [{
         "description": "增加 Table 组件与文档"
       }]
+    },
+    {
+      "version": "0.0.4-beta.1",
+      "date": "2017-09-22",
+      "link": null,
+      "events": [{
+        "description": "修复 NavTab 无子选项的错误",
+        "issues": [194]
+      }, {
+        "description": "Table 组件增加多级 Head",
+        "pull-requests": [193]
+      }, {
+        "description": "优化组件文档"
+      }]
     }
   ]
 }
