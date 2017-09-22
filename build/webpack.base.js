@@ -69,6 +69,10 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.(xmb|xlf)$/,
+        loader: 'raw-loader',
+      },
     ],
     // clear critical dependency warning
     exprContextCritical: false,
