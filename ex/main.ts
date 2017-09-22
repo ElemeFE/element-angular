@@ -1,12 +1,12 @@
 declare let __DEBUG__: any
-declare let require: any
+declare function require(string: string): string
 
 import { enableProdMode, TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID } from '@angular/core'
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 import { AppModule } from './app/app.module'
-import TRANSLATION from './messages.xmb'
 
-console.log(TRANSLATION)
+const TRANSLATION: string = require('./locale/en-US/messages.en-US.xmb')
+
 if (!__DEBUG__) {
   enableProdMode()
 }

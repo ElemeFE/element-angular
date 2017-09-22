@@ -26,7 +26,7 @@
     ],
     "no-any": false,
     "no-non-null-assertion": true,
-    "no-var-requires": true,
+    "no-var-requires": false,
     "only-arrow-functions": [
       true,
       "allow-declarations"

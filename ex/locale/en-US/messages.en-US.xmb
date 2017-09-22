@@ -21,5 +21,7 @@
 <!ELEMENT ex (#PCDATA)>
 ]>
 <messagebundle>
-  <msg id="install-h2-1"><source>app/components/guide/install/install.component.ts:1</source>安装</msg>
+  <msg id="header-nav-item1"><source>app/components/header/header.component.ts:16</source>开发指南</msg>
+  <msg id="header-nav-item2"><source>app/components/header/header.component.ts:19</source>组件</msg>
+  <msg id="header-nav-item3"><source>app/components/header/header.component.ts:22</source>GIT</msg>
 </messagebundle>
