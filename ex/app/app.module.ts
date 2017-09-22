@@ -25,7 +25,10 @@ import { DocsService } from './shared/services/docs/docs.service'
     AppRoutingModule,
     ExComponentModule,
   ],
-  providers: [DocsService],
+  providers: [
+    DocsService,
+    { provide: 'WindowLocation', useValue: location },
+  ],
   bootstrap: [ExAppComponent],
 })
 export class AppModule {

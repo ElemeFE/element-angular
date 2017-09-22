@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core'
 import { Router, NavigationEnd } from '@angular/router'
 
 @Component({
@@ -12,12 +12,24 @@ export class ExAppComponent implements OnInit {
   title: string = 'Element Angular'
   private lastRouteUrl: string[] = []
   
+  static getTargetPathName(search: string): string {
+    if (!search || !search.includes('=')) {
+      return
+    }
+    return  search.split('=')[1]
+  }
+  
   constructor(
     private router: Router,
+    @Inject('WindowLocation') private location: Location,
   ) {
   }
   
   ngOnInit(): void {
+    const search: string = this.location.search
+    const pathname: string = ExAppComponent.getTargetPathName(search)
+    pathname && this.router.navigate([pathname])
+    
     this.router.events.subscribe((ev) => {
       const len = this.lastRouteUrl.length
       if (ev instanceof NavigationEnd) {

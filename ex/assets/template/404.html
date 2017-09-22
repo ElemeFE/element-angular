@@ -2,10 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>404</title>
+  <title>404 - Angular Element Ex</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+    .code {
+      position: relative;
+      font-size: 14px;
+      line-height: 20px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      background-color: #f8f8f8;
+      color: #55606f;
+      padding: 25px;
+      margin: 100px auto;
+      width: 50vw;
+      min-width: 400px;
+      font-family: monospace,monospace;
+      border-radius: 4px;
+      -webkit-transition: all .25s;
+      -moz-transition: all .25s;
+      transition: all .25s;
+    }
+    .code:hover {
+      background-color: #f1f1f1;
+    }
+    .code:hover .back {
+      top: 0;
+      opacity: 1;
+    }
+    .back {
+      position: absolute;
+      right: 0;
+      top: -10px;
+      opacity: 0;
+      margin: 10px 15px;
+      cursor: pointer;
+      color: #7ca7c7;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-transition: all .25s ease-in-out;
+      -moz-transition: all .25s ease-in-out;
+      transition: all .25s ease-in-out;
+    }
+  </style>
 </head>
 <body>
-
+<div class="code">{
+  name: 'Element Angular Ex',
+  message: 'sorry, not found this page',
+  suggest: 'try go back home page',
+}<span class="back">Home Page</span>
+</div>
+<script>
+window.onload = _ => ((d, w) => {
+  d.querySelector('.back').addEventListener('click', _ => {
+    w.location.href = w.location.origin
+  })
+})(document, window)
+</script>
 </body>
 </html>
 

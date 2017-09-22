@@ -3,7 +3,7 @@
     <el-button class="fr">
       <a [href]="makeSafeUrl(logs['releases-link'])" target="_blank">NPM Releases</a>
     </el-button>
-    更新日志
+    <span i18n="@@log-span-1">更新日志</span>
   </div>
   <ul class="timeline" ref="timeline">
     <li *ngFor="let release of logs.releases">
