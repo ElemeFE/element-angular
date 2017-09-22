@@ -1,4 +1,4 @@
-import { Component, ContentChild, Host, Input, OnChanges, OnInit, TemplateRef } from '@angular/core'
+import { Component, ContentChild, Host, Input, OnInit, TemplateRef } from '@angular/core'
 import { DomSanitizer } from '@angular/platform-browser'
 import { dropAnimation } from '../shared/animation'
 import { ElMenu } from './menu'

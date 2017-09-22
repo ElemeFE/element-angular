@@ -1,6 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core'
 import { removeNgTag } from '../../shared/utils'
-import { count } from 'rxjs/operator/count'
 
 @Component({
   selector: 'el-pagination-pager',

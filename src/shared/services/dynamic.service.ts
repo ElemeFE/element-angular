@@ -1,6 +1,6 @@
 
 import {
-  Injectable, ComponentRef, ComponentFactoryResolver, Injector, ApplicationRef, Component,
+  Injectable, ComponentRef, ComponentFactoryResolver, Injector, ApplicationRef,
 } from '@angular/core'
 
 @Injectable()

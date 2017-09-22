@@ -1,4 +1,4 @@
-import { Component, ElementRef, forwardRef, Inject, Input, OnInit, Optional } from '@angular/core'
+import { Component, ElementRef, forwardRef, Inject, Input, OnInit } from '@angular/core'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 import { ElCarousel } from './carousel'
 import { fadeAnimation } from '../shared/animation'

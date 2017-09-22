@@ -1,5 +1,5 @@
 import {
-  Component, Input, ViewChild, AfterContentInit, Output, EventEmitter, Optional,
+  Component, Input, ViewChild, Output, EventEmitter, Optional,
   ElementRef, AfterViewInit,
 } from '@angular/core'
 import { ElRadioGroup } from './radio-group'

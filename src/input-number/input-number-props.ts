@@ -1,4 +1,4 @@
-import { EventEmitter, Input, Output } from '@angular/core'
+import { EventEmitter, Input } from '@angular/core'
 
 export class ElInputNumberPoprs {
   

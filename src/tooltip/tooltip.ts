@@ -1,13 +1,11 @@
 import {
-  AfterContentInit, Component, ContentChild, ElementRef, Inject, Injectable, Input,
+  AfterContentInit, Component, ContentChild, ElementRef, Input,
   Renderer2, TemplateRef, ViewChild,
 } from '@angular/core'
 import { fadeAnimation } from '../shared/animation'
+import { WindowWrapper } from '../shared/services'
 import { getRealShape, getPositionForDir } from '../shared/utils'
 
-@Injectable()
-export class WindowWrapper extends Window {
-}
 export type Shape = { width: number, height: number }
 
 @Component({
@@ -15,13 +13,10 @@ export type Shape = { width: number, height: number }
   template: `
     <div style="position: relative; display: inline-block;">
       <div [class]="'el-tooltip__popper is-' + effect + ' ' + popperClass"
-           style="left: -20000px; top: 0; position: absolute;"
-           [@fadeAnimation]="!showPopper"
-           [attr.x-placement]="xPlacement"
-           #popperContent>
+        style="left: -20000px; top: 0; position: absolute;"
+        [@fadeAnimation]="!showPopper" [attr.x-placement]="xPlacement" #popperContent>
         <div x-arrow class="popper__arrow" [hidden]="!visibleArrow"></div>
-        <ng-template [ngTemplateOutlet]="tip">
-        </ng-template>
+        <ng-template [ngTemplateOutlet]="tip"></ng-template>
       </div>
       <ng-content></ng-content>
     </div>

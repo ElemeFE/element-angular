@@ -1,6 +1,6 @@
 import {
   Input, Directive, OnInit, Compiler, Component,
-  ModuleWithComponentFactories, NgModule, ReflectiveInjector, ViewContainerRef, ComponentRef, ClassDefinition,
+  ModuleWithComponentFactories, NgModule, ReflectiveInjector, ViewContainerRef, ComponentRef,
 } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
