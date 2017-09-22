@@ -16,7 +16,7 @@ module.exports = {
   },
   
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js', '.xmb'],
   },
   
   module: {
@@ -68,6 +68,10 @@ module.exports = {
           'raw-loader',
           'sass-loader',
         ],
+      },
+      {
+        test: /\.xmb$/,
+        loader: 'raw-loader',
       },
     ],
     // clear critical dependency warning
