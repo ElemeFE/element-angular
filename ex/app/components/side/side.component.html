@@ -1,5 +1,5 @@
 <div class="side-nav" *ngIf="catalog">
-  <span class="version">版本: {{version}}</span>
+  <span class="version"><span i18n="@@side-span-1">版本</span>: {{version}}</span>
   <ul *ngFor="let item of catalog">
     <li class="nav-item">
       <!--<span *ngIf="!item.link">{{ item.name }}</span>-->
