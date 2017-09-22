@@ -15,7 +15,7 @@
     "ex": "env DEBUG=true webpack-dev-server --config build/webpack.dev.js --inline --progress --port 1338",
     "ex:build": "gulp clean:ex && webpack --config build/webpack.prod.js",
     "ex:publish": "node build/publish.js",
-    "i18n": "./node_modules/.bin/ng-xi18n -p ./ex --i18nFormat=xmb",
+    "i18n": "./node_modules/.bin/ng-xi18n -p ./ex --i18nFormat=xlf --locale=en-US",
     "faas": "npm run ex:build --publish_type=faas && faas deploy alpha",
     "clean": "gulp clean && gulp clean:ex"
   },
