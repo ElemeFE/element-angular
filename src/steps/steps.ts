@@ -1,5 +1,5 @@
 import {
-  Component, Input, AfterContentInit, ElementRef, Renderer2, OnInit, OnChanges,
+  Component, Input, ElementRef, Renderer2, OnInit, OnChanges,
   SimpleChanges,
 } from '@angular/core'
 

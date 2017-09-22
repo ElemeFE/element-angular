@@ -1,19 +1,18 @@
-import { NgModule, ModuleWithProviders, Injectable } from '@angular/core'
+import { NgModule, ModuleWithProviders } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { ElTooltip, WindowWrapper } from './tooltip'
+import { ElTooltip } from './tooltip'
+import { ElSharedModule } from '../shared/module'
 
 export function getWindow(): any { return window }
 
 @NgModule({
   declarations: [ElTooltip],
   exports: [ElTooltip],
-  imports: [CommonModule],
+  imports: [CommonModule, ElSharedModule],
   entryComponents: [ElTooltip],
 })
 export class ElTooltipModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: ElTooltipModule, providers: [{
-      provide: WindowWrapper, useFactory: getWindow,
-    }]}
+    return { ngModule: ElTooltipModule, providers: []}
   }
 }

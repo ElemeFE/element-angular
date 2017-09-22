@@ -1,5 +1,5 @@
 import {
-  AfterContentInit, AfterViewInit, Component, ContentChild, ElementRef, OnInit, TemplateRef,
+  AfterViewInit, Component, ContentChild, OnInit, TemplateRef,
   ViewChild,
 } from '@angular/core'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
