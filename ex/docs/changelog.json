@@ -119,6 +119,14 @@
       }, {
         "description": "优化组件文档"
       }]
+    },
+    {
+      "version": "0.0.4-beta.2",
+      "date": "2017-09-22",
+      "link": null,
+      "events": [{
+        "description": "修复 Module 引入的错误"
+      }]
     }
   ]
 }
