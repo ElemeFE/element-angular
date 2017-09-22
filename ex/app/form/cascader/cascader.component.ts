@@ -1,7 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core'
 import code from './code'
 
-@Component({ selector: 'ex-cascader-demo' })
+@Component({
+  selector: 'ex-cascader-demo',
+  template: ` `,
+})
 export class ExCascaderDemoComponent {
   private options: any[] = [{
     value: 'zhinan',

@@ -2,7 +2,10 @@ import { Component, forwardRef, Inject, ViewEncapsulation } from '@angular/core'
 import { ElNotificationService } from '../../../../src/index'
 import code from './code'
 
-@Component({ selector: 'ex-notification-demo' })
+@Component({
+  selector: 'ex-notification-demo',
+  template: ` `,
+})
 export class ExNotificationDemoComponent {
   
   constructor(

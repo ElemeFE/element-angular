@@ -2,7 +2,10 @@ import { Component, forwardRef, Inject, ViewEncapsulation } from '@angular/core'
 import { ElMessageService } from '../../../../src/index'
 import code from './code'
 
-@Component({ selector: 'ex-message-demo' })
+@Component({
+  selector: 'ex-message-demo',
+  template: ` `,
+})
 export class ExMessageDemoComponent {
   
   constructor(

@@ -97,6 +97,13 @@ module.exports = {
         force: true,
         toType: 'dir',
         ignore: ['.*']
+      },
+      {
+        from: helpers.root('ex/assets/template'),
+        to: helpers.root('dist'),
+        force: true,
+        toType: 'dir',
+        ignore: ['.*']
       }
     ]),
   

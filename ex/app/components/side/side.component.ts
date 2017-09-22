@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { DocsService } from '../../shared/services/docs/docs.service'
 import { SafeStyle, DomSanitizer, SafeUrl } from '@angular/platform-browser'
+import { NavigationStart, Router } from '@angular/router'
 
 @Component({
   selector: 'ex-side',
@@ -11,10 +12,12 @@ export class ExSideComponent implements OnInit {
   
   private catalog: JSON
   private version: string
+  private currentLink: string
   
   constructor(
     private docsService: DocsService,
     private sanitizer: DomSanitizer,
+    private router: Router,
   ) {
   }
   
@@ -33,5 +36,12 @@ export class ExSideComponent implements OnInit {
       .subscribe(json => this.catalog = json)
     this.docsService.getVersion()
       .subscribe((v: string) => this.version = v)
+  
+    this.router.events
+      .subscribe(event => {
+        if(event instanceof NavigationStart) {
+          this.currentLink = event.url
+        }
+      })
   }
 }
