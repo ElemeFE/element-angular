@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Inject, OnInit, LOCALE_ID, forwardRef } from '@angular/core'
 import { NavigationStart, Router } from '@angular/router'
 
 @Component({
@@ -12,7 +12,14 @@ export class ExHeaderComponent implements OnInit {
   
   constructor(
     private router: Router,
+    @Inject(forwardRef(() => LOCALE_ID)) private locale: string,
   ) {
+  }
+  
+  changeLang(lange: string): void {
+    const win: any = (<any>window)
+    win.localStorage.setItem('LOCALE', lange)
+    win.location.href = win.location.origin
   }
   
   ngOnInit(): void {

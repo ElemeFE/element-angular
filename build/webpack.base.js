@@ -16,7 +16,7 @@ module.exports = {
   },
   
   resolve: {
-    extensions: ['.ts', '.js', '.xmb'],
+    extensions: ['.ts', '.js'],
   },
   
   module: {
@@ -70,7 +70,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.xmb$/,
+        test: /\.(xmb|xlf)$/,
         loader: 'raw-loader',
       },
     ],
