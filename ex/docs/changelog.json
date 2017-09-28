@@ -127,6 +127,15 @@
       "events": [{
         "description": "修复 Module 引入的错误"
       }]
+    },
+    {
+      "version": "0.0.4-beta.3",
+      "date": "2017-09-28",
+      "link": null,
+      "events": [{
+        "description": "修复 Table 不能正确处理更新后数据问题",
+        "issues": [205]
+      }]
     }
   ]
 }
