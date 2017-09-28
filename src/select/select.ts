@@ -81,7 +81,7 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy {
     setTimeout(() => {
       this.selfWidth = this.el.nativeElement.getBoundingClientRect().width
     }, 0)
-    this.globalListener = this.renderer.listen('document', 'click', event => {
+    this.globalListener = this.renderer.listen('document', 'click', () => {
       this.dropdownActive && this.toggleHandle()
     })
   }
