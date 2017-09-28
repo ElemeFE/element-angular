@@ -49,6 +49,7 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
   columnsWidth: WidthItem[] = []
   private columns: TableColumn[] = []
   private globalListenFunc: Function
+  private orderMap: OrderMap
   
   static generateID(): string {
     return Math.random().toString(16).substr(2, 8)
@@ -130,18 +131,23 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
       this.model = this.model.map((v: any) => Object.assign(v, { [modelKey]: column.slot }))
       return Object.assign(column, { modelKey })
     })
-    const orderMap: OrderMap = this.columns.reduce((pre, next: TableColumn) =>
+    this.orderMap = this.columns.reduce((pre, next: TableColumn) =>
       Object.assign(pre, { [next.modelKey]: next }), {})
     
+    this.transformModelData()
+  }
+  
+  transformModelData(): void {
+    const orderMap: OrderMap = this.orderMap
     // add index, width, value
     const modelWithIndex: ModelWithIndexDataItem[][] =  this.model.map((row: any) =>
       Object.keys(row || {}).map((v: string | number) => ({
-        value: row[v], [v]: row[v],
-        index: orderMap[v].index,
-        width: orderMap[v].width,
-      })
-    ))
-    
+          value: row[v], [v]: row[v],
+          index: orderMap[v].index,
+          width: orderMap[v].width,
+        })
+      ))
+  
     // column sort
     this.columnsData = modelWithIndex.map((row: TableColumnDataItem[]) =>
       row.sort((pre, next) => pre.index - next.index))
@@ -165,7 +171,7 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
     if (!changes.model.previousValue) return
     
     this.model = changes.model.currentValue
-    this.transformColumnsData()
+    this.transformModelData()
   }
   
   ngOnDestroy(): void {
