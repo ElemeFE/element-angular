@@ -1,5 +1,5 @@
 import {
-  Component, ElementRef, OnDestroy, OnInit, Renderer2,
+  Component, ElementRef, OnChanges, OnDestroy, OnInit, Renderer2, SimpleChanges,
   ViewChild,
 } from '@angular/core'
 import { DocumentWrapper, WindowWrapper } from '../shared/services'
@@ -34,7 +34,7 @@ import { ElTableFormat } from './utils/format'
     </div>
   `,
 })
-export class ElTable extends ElTableProps implements OnInit, OnDestroy {
+export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChanges {
   
   @ViewChild('headerRef') headerRef: ElementRef
   
@@ -156,6 +156,16 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy {
       this.updateLayout()
       this.columnsWidth = this.computeColumnsWidth(this.columnsWidth)
     })
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    // not include model
+    if (!changes || !changes.model) return
+    // first change
+    if (!changes.model.previousValue) return
+    
+    this.model = changes.model.currentValue
+    this.transformColumnsData()
   }
   
   ngOnDestroy(): void {
