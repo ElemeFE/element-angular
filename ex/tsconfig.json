@@ -15,8 +15,5 @@
   ],
   "plugins": [
     { "name": "@angular/language-service" }
-  ],
-  "angularCompilerOptions": {
-    "genDir": "./locale"
-  }
+  ]
 }
