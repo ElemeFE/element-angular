@@ -17,7 +17,10 @@
     "ex:publish": "node build/publish.js",
     "i18n": "./node_modules/.bin/ng-xi18n -p ./ex --i18nFormat=xlf --locale=en-US",
     "faas": "npm run ex:build --publish_type=faas && faas deploy alpha",
-    "clean": "gulp clean && gulp clean:ex"
+    "clean": "gulp clean && gulp clean:ex",
+    "locale:update": "node build/bin/update.locale",
+    "locale:upload": "node build/bin/upload.locale",
+    "locale:login": "node build/bin/login.locale"
   },
   "faas": {
     "domain": "element-angular",
@@ -82,8 +85,10 @@
     "html-loader": "^0.5.0",
     "html-webpack-plugin": "^2.30.1",
     "i": "^0.3.5",
+    "jsdom": "^11.2.0",
     "node-sass": "^4.5.3",
     "raw-loader": "^0.5.1",
+    "request-promise-native": "^1.0.5",
     "rxjs": "^5.2.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
@@ -94,6 +99,7 @@
     "webpack": "^3.4.1",
     "webpack-dev-server": "^2.6.1",
     "webpack-merge": "^4.1.0",
+    "xml2js": "^0.4.19",
     "yargs": "^8.0.2",
     "zone.js": "^0.8.16"
   },

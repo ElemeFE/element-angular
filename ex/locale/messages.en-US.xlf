@@ -1,30 +1,520 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" original="ng2.template">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="header-nav-item1" datatype="html">
         <source>开发指南</source>
-        <target>Development</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/header/header.component.ts</context>
           <context context-type="linenumber">16</context>
         </context-group>
+        <target>Development</target>
       </trans-unit>
       <trans-unit id="header-nav-item2" datatype="html">
         <source>组件</source>
-        <target>Component</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/header/header.component.ts</context>
           <context context-type="linenumber">19</context>
         </context-group>
+        <target>组件</target>
       </trans-unit>
       <trans-unit id="header-nav-item3" datatype="html">
         <source>项目</source>
-        <target>GIT</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/header/header.component.ts</context>
           <context context-type="linenumber">22</context>
         </context-group>
+        <target>项目</target>
+      </trans-unit>
+      <trans-unit id="side-span-1" datatype="html">
+        <source>版本</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/side/side.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <target>版本</target>
+      </trans-unit>
+      <trans-unit id="footer-a-1" datatype="html">
+        <source>反馈建议</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/footer/footer.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <target>反馈建议</target>
+      </trans-unit>
+      <trans-unit id="footer-a-2" datatype="html">
+        <source>贡献指南</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/footer/footer.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <target>贡献指南</target>
+      </trans-unit>
+      <trans-unit id="install-h2-1" datatype="html">
+        <source>安装</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>安装</target>
+      </trans-unit>
+      <trans-unit id="install-h3-1" datatype="html">
+        <source>npm 安装</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <target>npm 安装</target>
+      </trans-unit>
+      <trans-unit id="install-p-1" datatype="html">
+        <source>
+          推荐使用 npm 的方式安装，它能更好地和 webpack 打包工具配合使用。
+          <x id="START_LINK" ctype="x-a"/>
+          <x id="CLOSE_LINK" ctype="x-a"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <target>
+          推荐使用 npm 的方式安装，它能更好地和 webpack 打包工具配合使用。
+          <x id="START_LINK" ctype="x-a"/>
+          <x id="CLOSE_LINK" ctype="x-a"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="install-p-2" datatype="html">
+        <source>引入模块后，我们能轻易地构建一个简易页面</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <target>引入模块后，我们能轻易地构建一个简易页面</target>
+      </trans-unit>
+      <trans-unit id="install-p-3" datatype="html">
+        <source>
+           element-theme-default  样式库是 Element Angular 的依赖，无需再次安装。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <target>
+           element-theme-default  样式库是 Element Angular 的依赖，无需再次安装。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="install-p-4" datatype="html">
+        <source>使用 webpack 的引入方式：</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <target>使用 webpack 的引入方式：</target>
+      </trans-unit>
+      <trans-unit id="install-p-5" datatype="html">
+        <source>
+          如果你使用 angular-cli，你需要样式文件在 /src/styles 引入：
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <target>
+          如果你使用 angular-cli，你需要样式文件在 /src/styles 引入：
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="install-p-6" datatype="html">
+        <source>如果你自定义了一些样式编译方案，可能上述引入样式文件方式无法完成编译，请参考如下：</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <target>如果你自定义了一些样式编译方案，可能上述引入样式文件方式无法完成编译，请参考如下：</target>
+      </trans-unit>
+      <trans-unit id="install-p-7" datatype="html">
+        <source>如果你希望能够通过模块、异步模块、子模块来引入 element-angular，请参阅下一章</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <target>如果你希望能够通过模块、异步模块、子模块来引入 element-angular，请参阅下一章</target>
+      </trans-unit>
+      <trans-unit id="start-h2-1" datatype="html">
+        <source>快速上手</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>快速上手</target>
+      </trans-unit>
+      <trans-unit id="start-p-1" datatype="html">
+        <source>本节将介绍如何在项目中使用 Element-angular。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <target>本节将介绍如何在项目中使用 Element-angular。</target>
+      </trans-unit>
+      <trans-unit id="start-h3-1" datatype="html">
+        <source>创建项目</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <target>创建项目</target>
+      </trans-unit>
+      <trans-unit id="start-p-2" datatype="html">
+        <source>
+          如果你还没有一个 Angular 项目，可以考虑使用 cli 快速安装。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <target>
+          如果你还没有一个 Angular 项目，可以考虑使用 cli 快速安装。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="start-h3-2" datatype="html">
+        <source>根模块引入</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <target>根模块引入</target>
+      </trans-unit>
+      <trans-unit id="start-p-3" datatype="html">
+        <source>
+          将 element-angular 引入根模块后，可以在任意组件中使用。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <target>
+          将 element-angular 引入根模块后，可以在任意组件中使用。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="start-h3-3" datatype="html">
+        <source>引入单个组件</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <target>引入单个组件</target>
+      </trans-unit>
+      <trans-unit id="start-p-4" datatype="html">
+        <source>
+          附: 即便是引入整个库，Angular 在 Build 时也会去除未使用的代码，
+  请参考 Tree shaking
+          <x id="START_LINK" ctype="x-a"/>
+          <x id="CLOSE_LINK" ctype="x-a"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <target>
+          附: 即便是引入整个库，Angular 在 Build 时也会去除未使用的代码，
+  请参考 Tree shaking
+          <x id="START_LINK" ctype="x-a"/>
+          <x id="CLOSE_LINK" ctype="x-a"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="language-h2-1" datatype="html">
+        <source>国际化</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/language/language.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>国际化</target>
+      </trans-unit>
+      <trans-unit id="language-p-1" datatype="html">
+        <source>Element Angular 组件内部默认使用中文，若希望使用其他语言，则需要进行多语言设置。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/language/language.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <target>Element Angular 组件内部默认使用中文，若希望使用其他语言，则需要进行多语言设置。</target>
+      </trans-unit>
+      <trans-unit id="theme-h2-1" datatype="html">
+        <source>自定义主题</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>自定义主题</target>
+      </trans-unit>
+      <trans-unit id="theme-p-1" datatype="html">
+        <source>Element-Angular 默认提供一套主题，CSS 命名采用 BEM 的风格方便使用者覆盖样式。如果你想完全替换主题色或者部分样式，可以使用下面的方法。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <target>Element-Angular 默认提供一套主题，CSS 命名采用 BEM 的风格方便使用者覆盖样式。如果你想完全替换主题色或者部分样式，可以使用下面的方法。</target>
+      </trans-unit>
+      <trans-unit id="theme-h2-2" datatype="html">
+        <source>仅替换主题色</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <target>仅替换主题色</target>
+      </trans-unit>
+      <trans-unit id="theme-p-2" datatype="html">
+        <source>
+          如果仅希望更换 Element 的主题色，推荐使用在线主题生成工具。
+          <x id="START_LINK" ctype="x-a"/>
+          <x id="CLOSE_LINK" ctype="x-a"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <target>
+          如果仅希望更换 Element 的主题色，推荐使用在线主题生成工具。
+          <x id="START_LINK" ctype="x-a"/>
+          <x id="CLOSE_LINK" ctype="x-a"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="theme-p-3" datatype="html">
+        <source>Element-Angular 默认的主题色是鲜艳、友好的蓝色。通过替换主题色，能够让 Element-Angular 的视觉更加符合具体项目的定位。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <target>Element-Angular 默认的主题色是鲜艳、友好的蓝色。通过替换主题色，能够让 Element-Angular 的视觉更加符合具体项目的定位。</target>
+      </trans-unit>
+      <trans-unit id="theme-p-4" datatype="html">
+        <source>使用上述工具，可以很方便地实时预览主题色改变之后的视觉，同时它还可以基于新的主题色生成完整的样式文件包，供直接下载使用（关于如何使用下载的主题包，请参考本节「引入自定义主题」和「搭配插件按需引入组件主题」部分）。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <target>使用上述工具，可以很方便地实时预览主题色改变之后的视觉，同时它还可以基于新的主题色生成完整的样式文件包，供直接下载使用（关于如何使用下载的主题包，请参考本节「引入自定义主题」和「搭配插件按需引入组件主题」部分）。</target>
+      </trans-unit>
+      <trans-unit id="theme-p-5" datatype="html">
+        <source>如果希望进行除主题色之外的样式定制，请继续阅读。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <target>如果希望进行除主题色之外的样式定制，请继续阅读。</target>
+      </trans-unit>
+      <trans-unit id="theme-h2-3" datatype="html">
+        <source>深层次的定制</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <target>深层次的定制</target>
+      </trans-unit>
+      <trans-unit id="theme-p-6" datatype="html">
+        <source>如果仅仅改变主题色不能满足你的需求，请按以下步骤进行更深层次的主题定制：</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <target>如果仅仅改变主题色不能满足你的需求，请按以下步骤进行更深层次的主题定制：</target>
+      </trans-unit>
+      <trans-unit id="theme-h3-1" datatype="html">
+        <source>安装工具</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <target>安装工具</target>
+      </trans-unit>
+      <trans-unit id="theme-p-7" datatype="html">
+        <source>首先安装「主题生成工具」，可以全局安装或者安装在当前项目下，推荐安装在项目里，方便别人 clone 项目时能直接安装依赖并启动，这里以全局安装做演示。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <target>首先安装「主题生成工具」，可以全局安装或者安装在当前项目下，推荐安装在项目里，方便别人 clone 项目时能直接安装依赖并启动，这里以全局安装做演示。</target>
+      </trans-unit>
+      <trans-unit id="theme-h3-2" datatype="html">
+        <source>初始化变量文件</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <target>初始化变量文件</target>
+      </trans-unit>
+      <trans-unit id="theme-p-8" datatype="html">
+        <source>
+          主题生成工具安装成功后，如果全局安装可以在命令行里通过 et 调用工具，如果安装在当前目录下，
+  需要通过 node_modules/.bin/et 访问到命令。执行 -i 初始化变量文件。
+  默认输出到 element-variables.css，当然你可以传参数指定文件输出目录。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <target>
+          主题生成工具安装成功后，如果全局安装可以在命令行里通过 et 调用工具，如果安装在当前目录下，
+  需要通过 node_modules/.bin/et 访问到命令。执行 -i 初始化变量文件。
+  默认输出到 element-variables.css，当然你可以传参数指定文件输出目录。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="theme-p-9" datatype="html">
+        <source>
+          如果使用默认配置，执行后当前目录会有一个 element-variables.css 文件。
+  内部包含了主题所用到的所有变量，它们使用 CSS4 的风格定义。大致结构如下
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <target>
+          如果使用默认配置，执行后当前目录会有一个 element-variables.css 文件。
+  内部包含了主题所用到的所有变量，它们使用 CSS4 的风格定义。大致结构如下
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="theme-h3-3" datatype="html">
+        <source>修改变量</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <target>修改变量</target>
+      </trans-unit>
+      <trans-unit id="theme-p-10" datatype="html">
+        <source>
+          直接编辑 element-variables.css 文件，例如修改主题色为红色。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <target>
+          直接编辑 element-variables.css 文件，例如修改主题色为红色。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="theme-h3-4" datatype="html">
+        <source>编译主题</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <target>编译主题</target>
+      </trans-unit>
+      <trans-unit id="theme-p-11" datatype="html">
+        <source>
+          保存文件后，到命令行里执行 et 编译主题，如果你想启用 watch 模式，
+  实时编译主题，增加 -w 参数；
+  如果你在初始化时指定了自定义变量文件，则需要增加 -c 参数，并带上你的变量文件名
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <target>
+          保存文件后，到命令行里执行 et 编译主题，如果你想启用 watch 模式，
+  实时编译主题，增加 -w 参数；
+  如果你在初始化时指定了自定义变量文件，则需要增加 -c 参数，并带上你的变量文件名
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="theme-h3-5" datatype="html">
+        <source>引入自定义主题</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <target>引入自定义主题</target>
+      </trans-unit>
+      <trans-unit id="theme-p-12" datatype="html">
+        <source>
+          默认情况下编译的主题目录是放在 ./theme 下，你可以通过 -o 参数指定打包目录。
+  像引入默认主题一样，在代码里直接引用 theme/index.css 文件即可。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <target>
+          默认情况下编译的主题目录是放在 ./theme 下，你可以通过 -o 参数指定打包目录。
+  像引入默认主题一样，在代码里直接引用 theme/index.css 文件即可。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="log-span-1" datatype="html">
+        <source>更新日志</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/log/log.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <target>更新日志</target>
       </trans-unit>
     </body>
   </file>
