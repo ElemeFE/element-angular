@@ -7,10 +7,10 @@ const writeFile = util.promisify(fs.writeFile)
 const xml2js = require('xml2js')
 const xmlParser = new xml2js.Parser({ explicitArray: false, ignoreAttrs: false })
 const parseString = util.promisify(xmlParser.parseString)
-const jsonBuilder = new xml2js.Builder({ rootName:'bean', xmldec: {
-    version:'1.0',
-    'encoding': 'utf-8',
-    'standalone': false,
+const jsonBuilder = new xml2js.Builder({ xmldec: {
+  version:'1.0',
+  'encoding': 'utf-8',
+  'standalone': false,
 }})
 
 const findToken = async() => {
@@ -31,9 +31,8 @@ const findToken = async() => {
     const units = result.xliff.file.body['trans-unit']
     result.xliff.file.body['trans-unit'] = units.map(unit => {
       const id = unit['$']['id']
-      const nextUnit = next.find(u => u.unit_id === id)
-      const target = nextUnit.target ? nextUnit.target : unit.source
-      return Object.assign({}, unit, { target })
+      const nextUnit = next.find(u => u.unit_id === id) || { target: unit.source }
+      return Object.assign({}, unit, { target: nextUnit.target })
     })
     const xml = jsonBuilder.buildObject(result)
     await writeFile(`${__dirname}/../../ex/locale/messages.en-US.xlf`, xml, 'utf-8')
@@ -51,7 +50,10 @@ const findToken = async() => {
   })
   .then(units => {
     const next = JSON.parse(units || '[]')
-    saveUnits(next).then(() => console.log('updated'))
+    if (!next || !next.length) {
+      return console.log('completed.')
+    }
+    saveUnits(JSON.parse(units)).then(() => console.log('updated'))
   })
   .catch(e => {
     console.log(e)
