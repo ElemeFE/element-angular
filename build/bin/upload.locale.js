@@ -35,7 +35,7 @@ const findToken = async() => {
   }
   const token = await findToken()
   request({
-    uri: 'http://127.0.0.1:3000/elements',
+    uri: 'http://api.wittsay.cc/v1/elements',
     method: 'POST',
     headers: {
       'User-Agent': 'request',
