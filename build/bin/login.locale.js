@@ -26,7 +26,7 @@ if (!email || !password) {
   }
   
   request({
-    uri: 'http://127.0.0.1:3000/sessions',
+    uri: 'http://api.wittsay.cc/v1/sessions',
     method: 'POST',
     headers: {
       'User-Agent': 'request',
