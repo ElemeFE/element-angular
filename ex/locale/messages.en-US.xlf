@@ -80,7 +80,7 @@
           <context context-type="sourcefile">app/shared/components/document/document.component.ts</context>
           <context context-type="linenumber">8</context>
         </context-group>
-        <target>Desc</target>
+        <target>Description</target>
       </trans-unit>
       <trans-unit id="shared-document-p-3" datatype="html">
         <source>类型</source>
