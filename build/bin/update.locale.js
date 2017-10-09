@@ -43,7 +43,7 @@ const findToken = async() => {
     method: 'GET',
     headers: {
       'User-Agent': 'request',
-      'per_page': '100000',
+      'per-page': '100000',
       'Content-Type': 'application/json',
       'authorization': `Token token=${token}`,
     },
