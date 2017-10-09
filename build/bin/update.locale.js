@@ -8,9 +8,9 @@ const xml2js = require('xml2js')
 const xmlParser = new xml2js.Parser({ explicitArray: false, ignoreAttrs: false })
 const parseString = util.promisify(xmlParser.parseString)
 const jsonBuilder = new xml2js.Builder({ xmldec: {
-  version:'1.0',
-  'encoding': 'utf-8',
-  'standalone': false,
+  version: '1.0',
+  encoding: 'utf-8',
+  standalone: false,
 }})
 
 const findToken = async() => {
@@ -43,7 +43,7 @@ const findToken = async() => {
     method: 'GET',
     headers: {
       'User-Agent': 'request',
-      'per_page': '100000',
+      'per-page': '100000',
       'Content-Type': 'application/json',
       'authorization': `Token token=${token}`,
     },

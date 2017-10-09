@@ -12,7 +12,7 @@
       <ng-container *ngIf="link">
         <button type="button" class="el-button el-tooltip el-button--primary el-button--small"
           (click)="openDemo()">
-          <span>在线运行</span>
+          <span i18n="@@shared-demo-p-1">在线运行</span>
         </button>
       </ng-container>
     </div>
@@ -29,6 +29,6 @@
   <div class="demo-block-control" (click)="showCode()">
     <i [class]="'el-icon-caret-' + (isExpanded ? 'top' : 'bottom')"
       [class.hovering]="hovering"></i>
-    <span [@state]="hovering" >显示代码</span>
+    <span [@state]="hovering" i18n="@@shared-demo-p-2">显示代码</span>
   </div>
 </div>
