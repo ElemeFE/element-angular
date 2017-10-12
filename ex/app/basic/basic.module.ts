@@ -11,6 +11,7 @@ import { ExIconComponent } from './icon/icon.component'
 import { ExLayoutComponent } from './layout/layout.component'
 import { ExColorComponent } from './color/color.component'
 import { ExFontComponent } from './font/font.component'
+import { ExContainerComponent } from './container/container.component'
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ExFontComponent } from './font/font.component'
     ExLayoutComponent,
     ExColorComponent,
     ExFontComponent,
+    ExContainerComponent,
   ],
   imports: [
     CommonModule,

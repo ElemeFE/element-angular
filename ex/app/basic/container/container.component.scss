@@ -1,0 +1,35 @@
+.demo-box {
+  margin-bottom: 25px;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.el-header, .el-footer {
+  background-color: #B3C0D1;
+  color: #333;
+  line-height: 60px;
+}
+
+.el-aside {
+  color: #333;
+}
+
+.el-header, .el-footer {
+  text-align: center;
+}
+
+.el-aside {
+  background-color: #D3DCE6;
+  text-align: center;
+  line-height: 200px;
+}
+
+.el-main {
+  background-color: #E9EEF3;
+  color: #333;
+  text-align: center;
+  line-height: 160px;
+}
+
