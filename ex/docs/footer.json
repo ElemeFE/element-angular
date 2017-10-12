@@ -1,0 +1,12 @@
+{
+  "name": "Footer Attributes",
+  "attrs": [
+    {
+      "name": "height",
+      "notes": "底栏高度 ",
+      "type": "string",
+      "enum": null,
+      "default": "60px"
+    }
+  ]
+}
