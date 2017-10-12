@@ -7,7 +7,7 @@ import { removeNgTag } from '../../shared/utils/host'
   selector: 'el-footer',
   styles: [footer],
   template: `
-    <footer class="el-footer" [ngStyle]="{height: height}">
+    <footer [class]="'el-footer ' + class" [ngStyle]="{height: height}">
       <ng-content></ng-content>
     </footer>
   `,
@@ -15,6 +15,7 @@ import { removeNgTag } from '../../shared/utils/host'
 export class ElFooter {
   
   @Input() height: string = '60px'
+  @Input() class: string
   
   constructor(
     private root: ElContainer,

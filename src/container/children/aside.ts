@@ -6,7 +6,7 @@ import { aside } from '../style'
   selector: 'el-aside',
   styles: [aside],
   template: `
-    <aside class="el-aside" [ngStyle]="{width: width}">
+    <aside [class]="'el-aside ' + class" [ngStyle]="{width: width}">
       <ng-content></ng-content>
     </aside>
   `,
@@ -14,6 +14,7 @@ import { aside } from '../style'
 export class ElAside implements OnInit {
   
   @Input() width: string = '300px'
+  @Input() class: string
   
   constructor(
     private el: ElementRef,

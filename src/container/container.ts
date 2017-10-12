@@ -6,7 +6,7 @@ import { removeNgTag } from '../shared/utils/host'
   selector: 'el-container',
   styles: [container],
   template: `
-    <section class="el-container" [class.is-vertical]="isVertical">
+    <section [class]="'el-container ' + class" [class.is-vertical]="isVertical">
       <ng-content></ng-content>
     </section>
   `,
@@ -14,6 +14,7 @@ import { removeNgTag } from '../shared/utils/host'
 export class ElContainer implements OnInit {
   
   @Input() direction: string = ''
+  @Input() class: string
   isVertical: boolean = false
   
   constructor(

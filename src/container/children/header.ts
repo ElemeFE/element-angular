@@ -7,7 +7,7 @@ import { removeNgTag } from '../../shared/utils/host'
   selector: 'el-header',
   styles: [header],
   template: `
-    <header class="el-header" [ngStyle]="{height: height}">
+    <header [class]="'el-header ' + class" [ngStyle]="{height: height}">
       <ng-content></ng-content>
     </header>
   `,
@@ -15,6 +15,7 @@ import { removeNgTag } from '../../shared/utils/host'
 export class ElHeader implements OnInit {
   
   @Input() height: string = '60px'
+  @Input() class: string
   
   constructor(
     private root: ElContainer,
