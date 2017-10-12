@@ -1,3 +1,11 @@
+.demo-box {
+  margin-bottom: 25px;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
 .el-header, .el-footer {
   background-color: #B3C0D1;
   color: #333;
