@@ -1,0 +1,75 @@
+<h2>Container 布局容器</h2>
+<p>用于布局的容器组件，方便快速搭建页面的基本结构：</p>
+<p> <code>el-container</code>：外层容器。当子元素中包含 <code>el-header</code> 或 <code>el-footer</code> 时，
+  全部子元素会垂直上下排列，否则会水平左右排列。</p>
+<p><code>el-header</code> 顶栏容器。</p>
+<p><code>el-aside</code> 侧边栏容器。</p>
+<p><code>el-main</code> 主要区域容器。</p>
+<p><code>el-footer</code> 底栏容器。</p>
+
+<div class="tip">
+  <p>以上组件采用了 flex 布局，使用前请确定目标浏览器是否兼容。
+    此外，子元素只能是后四者，后四者的父元素也只能是 <code>el-container</code>。</p>
+</div>
+
+<h3>常见页面布局</h3>
+
+<el-container>
+  <el-header>Header</el-header>
+  <el-main>Main</el-main>
+</el-container>
+
+<el-container>
+  <el-header>Header</el-header>
+  <el-main>Main</el-main>
+  <el-footer>Footer</el-footer>
+</el-container>
+
+<el-container>
+  <el-aside width="200px">Aside</el-aside>
+  <el-main>Main</el-main>
+</el-container>
+
+<el-container>
+  <el-header>Header</el-header>
+  <el-container>
+    <el-aside width="200px">Aside</el-aside>
+    <el-main>Main</el-main>
+  </el-container>
+</el-container>
+
+<el-container>
+  <el-header>Header</el-header>
+  <el-container>
+    <el-aside width="200px">Aside</el-aside>
+    <el-container>
+      <el-main>Main</el-main>
+      <el-footer>Footer</el-footer>
+    </el-container>
+  </el-container>
+</el-container>
+
+<el-container>
+  <el-aside width="200px">Aside</el-aside>
+  <el-container>
+    <el-header>Header</el-header>
+    <el-main>Main</el-main>
+  </el-container>
+</el-container>
+
+<el-container>
+  <el-aside width="200px">Aside</el-aside>
+  <el-container>
+    <el-header>Header</el-header>
+    <el-main>Main</el-main>
+    <el-footer>Footer</el-footer>
+  </el-container>
+</el-container>
+
+
+
+<!--<ex-document doc="col"></ex-document>-->
+
+<ex-footer-nav [page]="page"></ex-footer-nav>
+
+
