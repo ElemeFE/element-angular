@@ -1,5 +1,5 @@
 {
-  "name": "Radio-group Attributes",
+  "name": "Radio-button Attributes",
   "attrs": [{
     "name": "label",
     "notes": "Radio 的 value",

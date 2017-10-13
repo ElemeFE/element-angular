@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
@@ -631,12 +631,8 @@
           <context context-type="sourcefile">app/basic/container/container.component.ts</context>
           <context context-type="linenumber">11</context>
         </context-group>
-        <target>
-          以上组件采用了 flex 布局，使用前请确定目标浏览器是否兼容。
-    此外，子元素只能是后四者，后四者的父元素也只能是 el-container。
-          <x id="START_TAG_CODE" ctype="x-code"/>
-          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
-        </target>
+        <target>以上组件采用了 flex 布局，使用前请确定目标浏览器是否兼容。
+    此外，子元素只能是后四者，后四者的父元素也只能是 <x id="START_TAG_CODE" ctype="x-code"></x>el-container<x id="CLOSE_TAG_CODE" ctype="x-code"></x>。</target>
       </trans-unit>
       <trans-unit id="container-h3-1" datatype="html">
         <source>常见页面布局</source>
@@ -838,7 +834,7 @@
           <context context-type="sourcefile">app/components/guide/language/language.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>国际化</target>
+        <target>Internationalization</target>
       </trans-unit>
       <trans-unit id="language-p-1" datatype="html">
         <source>Element Angular 组件内部默认使用中文，若希望使用其他语言，则需要进行多语言设置。</source>

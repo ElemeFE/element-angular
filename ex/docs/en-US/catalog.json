@@ -36,6 +36,7 @@
   "link": null,
   "components": [{
     "name": "Basic",
+    "name-en": "Basic",
     "link": null,
     "children": [{
       "name": "Layout 布局",
@@ -64,6 +65,7 @@
     }]
   }, {
     "name": "Form",
+    "name-en": "Form",
     "link": null,
     "children": [{
       "name": "Radio 单选框",
@@ -112,6 +114,7 @@
     }]
   }, {
     "name": "Data",
+    "name-en": "Data",
     "link": null,
     "children": [{
       "name": "Tag 标签",
@@ -136,6 +139,7 @@
     }]
   }, {
     "name": "Notice",
+    "name-en": "Notice",
     "link": null,
     "children": [{
       "name": "Loading 加载",
@@ -156,6 +160,7 @@
     }]
   }, {
     "name": "Navigation",
+    "name-en": "Navigation",
     "link": null,
     "children": [{
       "name": "NavMenu 导航菜单",
@@ -176,6 +181,7 @@
     }]
   }, {
     "name": "Others",
+    "name-en": "Others",
     "link": null,
     "children": [{
       "name": "Tooltip 文字提示",
