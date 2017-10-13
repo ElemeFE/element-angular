@@ -18,9 +18,11 @@
     "i18n": "./node_modules/.bin/ng-xi18n -p ./ex --i18nFormat=xlf --locale=en-US",
     "faas": "npm run ex:build --publish_type=faas && faas deploy alpha",
     "clean": "gulp clean && gulp clean:ex",
-    "locale:update": "node build/bin/update.locale",
-    "locale:upload": "node build/bin/upload.locale",
-    "locale:login": "node build/bin/login.locale"
+    "elements:upload": "node build/bin/elements-upload.locale",
+    "elements:update": "node build/bin/elements-update.locale",
+    "docs:upload": "node build/bin/docs-upload.locale",
+    "docs:update": "node build/bin/docs-update.locale",
+    "login": "node build/bin/login.locale"
   },
   "faas": {
     "domain": "element-angular",
