@@ -1,0 +1,47 @@
+{
+  "name": "Alert Attributes",
+  "attrs": [
+    {
+      "name": "type",
+      "notes": "主题",
+      "type": "string",
+      "enum": "success / warning / info / error",
+      "default": "info"
+    },
+    {
+      "name": "description",
+      "notes": "辅助性文字。也可通过默认 ng-template 传入",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "closable",
+      "notes": "是否可关闭",
+      "type": "boolean",
+      "enum": null,
+      "default": true
+    },
+    {
+      "name": "close-text",
+      "notes": "关闭按钮自定义文本",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "show-icon",
+      "notes": "是否显示图标",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "close",
+      "notes": "关闭alert时触发的事件，使用 <code>(close)</code> 属性来捕获",
+      "type": "EventEmitter",
+      "enum": null,
+      "default": null
+    }
+  ]
+}

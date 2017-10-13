@@ -1,0 +1,12 @@
+{
+  "name": "Header Attributes",
+  "attrs": [
+    {
+      "name": "height",
+      "notes": "顶栏高度 ",
+      "type": "string",
+      "enum": null,
+      "default": "60px"
+    }
+  ]
+}

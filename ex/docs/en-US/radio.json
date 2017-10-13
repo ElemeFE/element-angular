@@ -1,0 +1,22 @@
+{
+  "name": "Radio Attributes",
+    "attrs": [{
+    "name": "label",
+    "notes": "Radio 的 value",
+    "type": "string,number,boolean",
+    "enum": null,
+    "default": null
+  },{
+    "name": "disabled",
+    "notes": "是否禁用",
+    "type": "boolean",
+    "enum": null,
+    "default": false
+  },{
+    "name": "name",
+    "notes": "原生 name 属性",
+    "type": "string",
+    "enum": null,
+    "default": null
+  }]
+}

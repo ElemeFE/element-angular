@@ -1,0 +1,26 @@
+{
+  "name": "Breadcrumb Attributes",
+  "attrs": [
+    {
+      "name": "separator",
+      "notes": "间隔符号",
+      "type": "string",
+      "enum": null,
+      "default": "/"
+    },
+    {
+      "name": "prevent",
+      "notes": "阻止面包屑组件所有的跳转",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "next",
+      "notes": "事件，每次点击导航栏文字触发，参数为导航链接",
+      "type": "EventEmitter<string>",
+      "enum": null,
+      "default": null
+    }
+  ]
+}

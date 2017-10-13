@@ -1,0 +1,153 @@
+{
+  "releases-link": "https://www.npmjs.com/package/element-angular",
+  "releases": [
+    {
+      "version": "0.0.1",
+      "date": "2017-08-06",
+      "link": null,
+      "events": [{ "description": "创建项目" }]
+    },
+    {
+      "version": "0.0.3-alpha.2",
+      "date": "2017-08-30",
+      "link": null,
+      "events": [{ "description": "完成主要组件。补充组件文档以及安装引导。" }]
+    },
+    {
+      "version": "0.0.3-alpha.3",
+      "date": "2017-09-02",
+      "link": null,
+      "events": [{
+        "description": "修复 Aot 编译警告"
+      }, {
+        "description": "增加 Notification / message 组件"
+      }]
+    },
+    {
+      "version": "0.0.4-alpha.0",
+      "date": "2017-09-03",
+      "link": null,
+      "events": [{
+      }, {
+        "description": "增加 Cascader / Card / Badge / Dropdown 组件与文档"
+      }, {
+        "description": "修复 Input / Button 组件的继承样式问题"
+      }]
+    },
+    {
+      "version": "0.0.4-alpha.1",
+      "date": "2017-09-06",
+      "link": null,
+      "events": [{
+        "description": "增加 DatePicker / Breadcrumb 组件与文档"
+      }, {
+        "description": "增加 Input 图标事件与文档",
+        "issues": []
+      }, {
+        "description": "增加 Dropdown 自动改变方向",
+        "issues": [143]
+      }, {
+        "description": "修复 Select 禁用仍旧可以选中",
+        "issues": [136]
+      }]
+    },
+    {
+      "version": "0.0.4-alpha.2",
+      "date": "2017-09-08",
+      "link": null,
+      "events": [{
+        "description": "增加 Dialog / Carousel / Collapse / Slider 组件与文档"
+      }, {
+        "description": "增加 Progress 自定义颜色",
+        "issues": [140]
+      }, {
+        "description": "修复 Select 清除后未更新列表激活项",
+        "issues": [135]
+      }, {
+        "description": "修复 Tag 文档缺失",
+        "issues": [139]
+      }]
+    },
+    {
+      "version": "0.0.4-alpha.3",
+      "date": "2017-09-12",
+      "link": null,
+      "events": [{
+        "description": "增加 Alert / Menu / Pagination 组件与文档"
+      }]
+    },
+    {
+      "version": "0.0.4-alpha.4",
+      "date": "2017-09-14",
+      "link": null,
+      "events": [{
+        "description": "修复 Module build 的错误",
+        "issues": [178]
+      }, {
+        "description": "争对 Angular Cli 项目完善文档"
+      }]
+    },
+    {
+      "version": "0.0.4-alpha.5",
+      "date": "2017-09-15",
+      "link": null,
+      "events": [{
+        "description": "修复 AOT 编译警告的问题",
+        "issues": [181]
+      }, {
+        "description": "增加 Upload 组件与文档"
+      }]
+    },
+    {
+      "version": "0.0.4-beta.0",
+      "date": "2017-09-19",
+      "link": null,
+      "events": [{
+        "description": "增加 Table 组件与文档"
+      }]
+    },
+    {
+      "version": "0.0.4-beta.1",
+      "date": "2017-09-22",
+      "link": null,
+      "events": [{
+        "description": "修复 NavTab 无子选项的错误",
+        "issues": [194]
+      }, {
+        "description": "Table 组件增加多级 Head",
+        "pull-requests": [193]
+      }, {
+        "description": "优化组件文档"
+      }]
+    },
+    {
+      "version": "0.0.4-beta.2",
+      "date": "2017-09-22",
+      "link": null,
+      "events": [{
+        "description": "修复 Module 引入的错误"
+      }]
+    },
+    {
+      "version": "0.0.4-beta.3",
+      "date": "2017-09-28",
+      "link": null,
+      "events": [{
+        "description": "修复 Table 不能正确处理更新后数据问题",
+        "issues": [205]
+      }]
+    },
+    {
+      "version": "0.0.5",
+      "date": "2017-10-13",
+      "link": null,
+      "events": [{
+        "description": "增加 Container 等相关组件与文档"
+      }]
+    }
+  ]
+}
+
+
+
+

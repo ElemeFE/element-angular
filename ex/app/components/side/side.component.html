@@ -2,15 +2,15 @@
   <span class="version"><span i18n="@@side-span-1">版本</span>: {{version}}</span>
   <ul *ngFor="let item of catalog">
     <li class="nav-item">
-      <!--<span *ngIf="!item.link">{{ item.name }}</span>-->
+      <!--<span *ngIf="!item.link">{{ showName(item) }}</span>-->
       <a [class.active]="currentLink === item.link" [routerLink]="item.link"
-        [style]="cursorSylte(item.link)">{{ item.name }}</a>
+        [style]="cursorSylte(item.link)">{{ showName(item) }}</a>
 
       <ng-container *ngIf="item.children && item.children.length > 0">
         <ul class="pure-menu-list sub-nav">
           <li class="nav-item" *ngFor="let children of item.children">
             <a routerLinkActive="active" [routerLink]="children.link">
-              {{ children.name }}
+              {{ showName(children) }}
             </a>
           </li>
         </ul>
@@ -21,10 +21,10 @@
     <ng-container *ngIf="item.components && item.components.length > 0">
       <li class="nav-item" *ngFor="let component of item.components">
         <div class="nav-group" >
-          <div class="nav-group__title">{{ component.name }}</div>
+          <div class="nav-group__title">{{ showName(component) }}</div>
           <ul class="pure-menu-list" *ngFor="let children of component.children">
             <li class="nav-item">
-              <a routerLinkActive="active" [routerLink]="[children.link]">{{ children.name }}</a>
+              <a routerLinkActive="active" [routerLink]="[children.link]">{{ showName(children) }}</a>
             </li>
           </ul>
         </div>

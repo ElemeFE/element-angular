@@ -1,0 +1,33 @@
+{
+  "name": "Checkbox Attributes",
+  "attrs": [
+    {
+      "name": "label",
+      "notes": "选中状态的值（只有在`checkbox-group`或者绑定对象类型为`array`时有效）",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "name",
+      "notes": "原生 name 属性",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "disabled",
+      "notes": "按钮禁用",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "checked",
+      "notes": "当前是否勾选",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    }
+  ]
+}

@@ -29,10 +29,8 @@ const jsonBuilder = new xml2js.Builder({ xmldec: {
   request({ uri: apis.elements, method: 'GET', headers: await apis.makeHeader() })
   .then(units => {
     const next = JSON.parse(units || '[]')
-    if (!next || !next.length) {
-      return console.log('Completed. Nothing has changed.')
-    }
-    saveUnits(JSON.parse(units)).then(() => console.log('Updated.'))
+    if (!next || !next.length) return utils.exit('Done. Nothing has changed.')
+    saveUnits(next).then(() => utils.exit('Done.'))
   })
   .catch(e => apis.catch(e))
   
