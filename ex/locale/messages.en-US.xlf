@@ -546,6 +546,106 @@
         </context-group>
         <target>辅助文字</target>
       </trans-unit>
+      <trans-unit id="container-h2-1" datatype="html">
+        <source>Container 布局容器</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>Container 布局容器</target>
+      </trans-unit>
+      <trans-unit id="container-p-1" datatype="html">
+        <source>用于布局的容器组件，方便快速搭建页面的基本结构：</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <target>用于布局的容器组件，方便快速搭建页面的基本结构：</target>
+      </trans-unit>
+      <trans-unit id="container-p-2" datatype="html">
+        <source>
+           el-container：外层容器。当子元素中包含 el-header 或 el-footer 时，
+  全部子元素会垂直上下排列，否则会水平左右排列。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <target>
+           el-container：外层容器。当子元素中包含 el-header 或 el-footer 时，
+  全部子元素会垂直上下排列，否则会水平左右排列。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="container-span-1" datatype="html">
+        <source>顶栏容器。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <target>顶栏容器。</target>
+      </trans-unit>
+      <trans-unit id="container-span-2" datatype="html">
+        <source>侧边栏容器。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <target>侧边栏容器。</target>
+      </trans-unit>
+      <trans-unit id="container-span-3" datatype="html">
+        <source>主要区域容器。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <target>主要区域容器。</target>
+      </trans-unit>
+      <trans-unit id="container-span-4" datatype="html">
+        <source>底栏容器。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <target>底栏容器。</target>
+      </trans-unit>
+      <trans-unit id="container-p-3" datatype="html">
+        <source>
+          以上组件采用了 flex 布局，使用前请确定目标浏览器是否兼容。
+    此外，子元素只能是后四者，后四者的父元素也只能是 el-container。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <target>
+          以上组件采用了 flex 布局，使用前请确定目标浏览器是否兼容。
+    此外，子元素只能是后四者，后四者的父元素也只能是 el-container。
+          <x id="START_TAG_CODE" ctype="x-code"/>
+          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="container-h3-1" datatype="html">
+        <source>常见页面布局</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <target>常见页面布局</target>
+      </trans-unit>
       <trans-unit id="install-h2-1" datatype="html">
         <source>安装</source>
         <context-group purpose="location">
