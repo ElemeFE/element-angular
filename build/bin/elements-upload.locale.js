@@ -21,7 +21,7 @@ const isChecked = units => {
     }
   })
   if (!isChecked(units)) {
-    return console.log('Failed. the locale serial number of the duplicate')
+    return utils.exit('Failed. the locale serial number of the duplicate')
   }
   request({
     uri: apis.elements,
@@ -29,7 +29,7 @@ const isChecked = units => {
     headers: await apis.makeHeader(),
     json: { units: units },
   })
-  .then(() => console.log('Uploaded locale keys!'))
+  .then(() => utils.exit('Done.'))
   .catch(e => apis.catch(e))
   
 })()

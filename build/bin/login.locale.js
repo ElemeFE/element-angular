@@ -2,11 +2,11 @@ const { utils, request, gitFolderPath, apis } = require('./base')
 const npmConfigArgv = JSON.parse(process.env.npm_config_argv).remain
 
 if (!npmConfigArgv) {
-  return console.warn('Failed. the email or password is required.')
+  return utils.exit('Failed. the email or password is required.')
 }
 const [email, password] = npmConfigArgv
 if (!email || !password) {
-  return console.warn('Failed. the email or password is required.')
+  return utils.exit('Failed. the email or password is required.')
 }
 
 const saveToken = async(token) => {
@@ -18,7 +18,7 @@ const saveToken = async(token) => {
 
 (async () => {
   const gitFolderIsExist = await utils.exists(gitFolderPath)
-  if (!gitFolderIsExist) return console.warn('Failed. git folder not found.')
+  if (!gitFolderIsExist) return utils.exit('Failed. git folder not found.')
   request({
     uri: apis.sessions,
     method: 'POST',
@@ -27,7 +27,7 @@ const saveToken = async(token) => {
   })
   .then(({ authentication_token }) => {
     saveToken(authentication_token)
-    .then(() => console.log('Authentication succeeded. token saved.'))
+    .then(() => utils.exit('Authentication succeeded. token saved.'))
   })
   .catch(e => apis.catch(e))
 })()
