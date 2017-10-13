@@ -1,0 +1,12 @@
+{
+  "name": "Aside Attributes",
+  "attrs": [
+    {
+      "name": "width",
+      "notes": "侧边栏宽度 ",
+      "type": "string",
+      "enum": null,
+      "default": "300px"
+    }
+  ]
+}

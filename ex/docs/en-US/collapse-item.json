@@ -1,0 +1,19 @@
+{
+  "name": "Collapse Item Attributes",
+  "attrs": [
+    {
+      "name": "value",
+      "notes": "唯一标志符 ",
+      "type": "string | number",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "label",
+      "notes": "面板标题栏显示文字",
+      "type": "string",
+      "enum": null,
+      "default": null
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Menu Attributes",
+  "attrs": [
+    {
+      "name": "mode",
+      "notes": "模式",
+      "type": "string",
+      "enum": "horizontal / vertical",
+      "default": "vertical"
+    },
+    {
+      "name": "theme",
+      "notes": "主题色",
+      "type": "string",
+      "enum": "light / dark",
+      "default": "light"
+    },
+    {
+      "name": "model",
+      "notes": "当前激活菜单的 index，双向绑定值",
+      "type": "string | number",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "menu-trigger",
+      "notes": "子菜单打开的触发方式(只在 mode 为 horizontal 时有效)",
+      "type": "string",
+      "enum": "hover / click",
+      "default": "hover"
+    }
+  ]
+}

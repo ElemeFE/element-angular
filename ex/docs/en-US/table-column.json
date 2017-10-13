@@ -1,0 +1,28 @@
+{
+  "name": "Table Column Attributes",
+  "attrs": [{
+    "name": "model-key",
+    "notes": "指定当前列显示 <code>[model]</code> 属性中的属性名",
+    "type": "string",
+    "enum": null,
+    "default": null
+  }, {
+    "name": "slot",
+    "notes": "模板标记",
+    "type": "ng-template",
+    "enum": null,
+    "default": null
+  }, {
+    "name": "label",
+    "notes": "当前列的表头显示名称",
+    "type": "string",
+    "enum": null,
+    "default": null
+  }, {
+    "name": "width",
+    "notes": "当前列的宽度",
+    "type": "number",
+    "enum": null,
+    "default": null
+  }]
+}
