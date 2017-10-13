@@ -1,12 +1,18 @@
 const { utils, request, apis } = require('./base')
 const xml2js = require('xml2js')
-const xmlParser = new xml2js.Parser({ explicitArray: false, ignoreAttrs: false })
+const xmlParser = new xml2js.Parser({
+  explicitArray: false,
+  ignoreAttrs: false,
+})
 const parseString = utils.promisify(xmlParser.parseString)
-const jsonBuilder = new xml2js.Builder({ xmldec: {
-  version: '1.0',
-  encoding: 'utf-8',
-  standalone: false,
-}})
+const jsonBuilder = new xml2js.Builder({
+  xmldec: {
+    encoding: 'utf-8',
+    standalone: true,
+  },
+  allowSurrogateChars: true,
+  cdata: true,
+})
 
 ;(async() => {
   console.log('Making messages.xlf...')
@@ -23,6 +29,9 @@ const jsonBuilder = new xml2js.Builder({ xmldec: {
       return Object.assign({}, unit, { target: nextUnit.target })
     })
     const xml = jsonBuilder.buildObject(result)
+      .replace(/\<\!\[CDATA\[/g, '')
+      .replace(/\]\]\>/g, '')
+  
     await utils.writeFile(`${__dirname}/../../ex/locale/messages.en-US.xlf`, xml, 'utf-8')
   }
  
