@@ -21,18 +21,14 @@
 [element-angular](https://element-angular.faas.ele.me)
 
 
-
 ## Getting Started
 
 ```bash
 # install
 npm i --save element-angular
 
-# improt
+# improt module
 import { ElModule } from 'element-angular'
-
-# import style
-import 'element-theme-default'
 
 ```
 More: [Doc](https://element-angular.faas.ele.me)
