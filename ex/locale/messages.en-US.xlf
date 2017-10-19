@@ -40,7 +40,7 @@
           <context context-type="sourcefile">app/components/footer/footer.component.ts</context>
           <context context-type="linenumber">6</context>
         </context-group>
-        <target>反馈建议</target>
+        <target>Feedback and Suggestions </target>
       </trans-unit>
       <trans-unit id="footer-a-2" datatype="html">
         <source>贡献指南</source>
@@ -208,7 +208,7 @@
           <context context-type="sourcefile">app/basic/button/button.component.ts</context>
           <context context-type="linenumber">34</context>
         </context-group>
-        <target>加载中</target>
+        <target>Loading</target>
       </trans-unit>
       <trans-unit id="basic-button-p-7" datatype="html">
         <source>点击按钮后进行数据加载操作，在按钮上显示加载状态。</source>
@@ -842,7 +842,7 @@
           <context context-type="sourcefile">app/components/guide/language/language.component.ts</context>
           <context context-type="linenumber">2</context>
         </context-group>
-        <target>Element Angular 组件内部默认使用中文，若希望使用其他语言，则需要进行多语言设置。</target>
+        <target>Components inside Element Angular use Chinese as default. If you wish to use other languages, you will need to change the language settings.</target>
       </trans-unit>
       <trans-unit id="theme-h2-1" datatype="html">
         <source>自定义主题</source>
@@ -850,7 +850,7 @@
           <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>自定义主题</target>
+        <target>Custom theme</target>
       </trans-unit>
       <trans-unit id="theme-p-1" datatype="html">
         <source>Element-Angular 默认提供一套主题，CSS 命名采用 BEM 的风格方便使用者覆盖样式。如果你想完全替换主题色或者部分样式，可以使用下面的方法。</source>
@@ -866,7 +866,7 @@
           <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
           <context context-type="linenumber">4</context>
         </context-group>
-        <target>仅替换主题色</target>
+        <target>Only changing theme color</target>
       </trans-unit>
       <trans-unit id="theme-p-2" datatype="html">
         <source>
@@ -878,11 +878,7 @@
           <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
           <context context-type="linenumber">5</context>
         </context-group>
-        <target>
-          如果仅希望更换 Element 的主题色，推荐使用在线主题生成工具。
-          <x id="START_LINK" ctype="x-a"/>
-          <x id="CLOSE_LINK" ctype="x-a"/>
-        </target>
+        <target>If you wish to change theme colors for Element, <x id="START_LINK" ctype="x-a"></x>在线主题生成工具<x id="CLOSE_LINK" ctype="x-a"></x>. </target>
       </trans-unit>
       <trans-unit id="theme-p-3" datatype="html">
         <source>Element-Angular 默认的主题色是鲜艳、友好的蓝色。通过替换主题色，能够让 Element-Angular 的视觉更加符合具体项目的定位。</source>
@@ -890,7 +886,7 @@
           <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
           <context context-type="linenumber">6</context>
         </context-group>
-        <target>Element-Angular 默认的主题色是鲜艳、友好的蓝色。通过替换主题色，能够让 Element-Angular 的视觉更加符合具体项目的定位。</target>
+        <target>The default theme color in Element-Angular is the friendly and luminous blue. However, changing theme colors can make visual experience in Element-Angular more relevant to your project. </target>
       </trans-unit>
       <trans-unit id="theme-p-4" datatype="html">
         <source>使用上述工具，可以很方便地实时预览主题色改变之后的视觉，同时它还可以基于新的主题色生成完整的样式文件包，供直接下载使用（关于如何使用下载的主题包，请参考本节「引入自定义主题」和「搭配插件按需引入组件主题」部分）。</source>
@@ -898,7 +894,7 @@
           <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
           <context context-type="linenumber">7</context>
         </context-group>
-        <target>使用上述工具，可以很方便地实时预览主题色改变之后的视觉，同时它还可以基于新的主题色生成完整的样式文件包，供直接下载使用（关于如何使用下载的主题包，请参考本节「引入自定义主题」和「搭配插件按需引入组件主题」部分）。</target>
+        <target>The tool described above not only enables one to preview theme color changes in real time, but also provides downloadable file packages generated according to the new theme color setting. (Please refer to the 'Importing custom theme' and 'Selectively importing custom theme using add-ons' part in this chapter.)</target>
       </trans-unit>
       <trans-unit id="theme-p-5" datatype="html">
         <source>如果希望进行除主题色之外的样式定制，请继续阅读。</source>
@@ -906,7 +902,7 @@
           <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
           <context context-type="linenumber">8</context>
         </context-group>
-        <target>如果希望进行除主题色之外的样式定制，请继续阅读。</target>
+        <target>If you would like further customization other than theme color setting, please proceed to read. </target>
       </trans-unit>
       <trans-unit id="theme-h2-3" datatype="html">
         <source>深层次的定制</source>
@@ -914,7 +910,7 @@
           <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
           <context context-type="linenumber">10</context>
         </context-group>
-        <target>深层次的定制</target>
+        <target>advanced customization</target>
       </trans-unit>
       <trans-unit id="theme-p-6" datatype="html">
         <source>如果仅仅改变主题色不能满足你的需求，请按以下步骤进行更深层次的主题定制：</source>
@@ -930,7 +926,7 @@
           <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
           <context context-type="linenumber">13</context>
         </context-group>
-        <target>安装工具</target>
+        <target>Installation tool</target>
       </trans-unit>
       <trans-unit id="theme-p-7" datatype="html">
         <source>首先安装「主题生成工具」，可以全局安装或者安装在当前项目下，推荐安装在项目里，方便别人 clone 项目时能直接安装依赖并启动，这里以全局安装做演示。</source>
@@ -1004,7 +1000,7 @@
           <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
           <context context-type="linenumber">33</context>
         </context-group>
-        <target>修改变量</target>
+        <target>Changing a variable</target>
       </trans-unit>
       <trans-unit id="theme-p-10" datatype="html">
         <source>
