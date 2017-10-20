@@ -49,6 +49,13 @@
       "type": "string",
       "enum": "年 <code>yyyy</code>，月 <code>MM</code>，日 <code>dd</code>",
       "default": "'yyyy-MM-dd'"
+    },
+    {
+      "name": "hidden-day",
+      "notes": "以月为基本单位，隐藏日期",
+      "type": "boolean",
+      "enum": null,
+      "default": null
     }
   ]
 }
