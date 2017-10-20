@@ -14,6 +14,7 @@ export class ElDatePickerProps {
   @Input() type : string = 'date'                // enum: year/month/date/week/datetime/datetimerange/daterange
   @Input() placeholder: string = '选择日期'
   @Input() format: string = 'yyyy-MM-dd'
+  @Input('hidden-day') hiddenDay: boolean = false
   
   // @Input() disabledDateFilter: Function
   
