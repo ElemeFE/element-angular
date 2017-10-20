@@ -144,6 +144,17 @@
       "events": [{
         "description": "增加 Container 等相关组件与文档"
       }]
+    },
+    {
+      "version": "0.1.0",
+      "date": "2017-10-20",
+      "link": null,
+      "events": [{
+        "description": "修复文档错误，完善英文文档"
+      }, {
+        "description": "为 Date Picker 组件增加月的基本单位",
+        "issues": [219]
+      }]
     }
   ]
 }

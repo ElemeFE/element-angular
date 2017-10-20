@@ -28,6 +28,16 @@ handle(time: number): void {
 
 `,
 
+// 隐藏日期
+`
+
+<el-date-picker (modelChange)="handle($event)"
+  [format]="'yyyy - MM'" [hidden-day]="true">
+</el-date-picker>
+
+
+`,
+
 // 禁用
 `
 

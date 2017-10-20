@@ -21,6 +21,7 @@ import { DateFormat } from './utils/format'
       </el-input>
       <el-data-picker-panel [show]="showPanelPicker"
         [model]="value"
+        [hidden-day]="hiddenDay"
         (modelChange)="dateChangeHandle($event)">
       </el-data-picker-panel>
     </div>

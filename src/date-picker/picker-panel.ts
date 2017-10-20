@@ -56,7 +56,7 @@ export type DateModelItem = {
           </div>
 
           <div class="el-picker-panel__content">
-            <el-date-table *ngIf="currentView === 'date'"
+            <el-date-table *ngIf="currentView === 'date' && !hiddenDay"
               (modelChange)="datePickChangeHandle($event)"
               [model]="model">
             </el-date-table>
@@ -87,6 +87,7 @@ export class ElDatePickerPanel implements OnInit, OnChanges {
   @Input() show: boolean = false
   @Input() width: number = 254
   @Input() model: number
+  @Input('hidden-day') hiddenDay: boolean = false
   @Output() modelChange: EventEmitter<number> = new EventEmitter<number>()
   
   shortcuts: boolean = false
@@ -121,7 +122,12 @@ export class ElDatePickerPanel implements OnInit, OnChanges {
   
   monthPickChangeHandle(time: number): void {
     this.model = time
-    this.currentView = 'date'
+    // hidden day, only show month
+    if (this.hiddenDay) {
+      this.modelChange.emit(time)
+    } else {
+      this.currentView = 'date'
+    }
     this.updateDate()
   }
   
@@ -150,6 +156,8 @@ export class ElDatePickerPanel implements OnInit, OnChanges {
   }
   
   ngOnInit(): void {
+    // hidden day
+    this.currentView = this.hiddenDay ? 'month' : 'date'
     this.model = this.model || Date.now()
     this.updateDate()
   }
