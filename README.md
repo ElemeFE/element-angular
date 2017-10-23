@@ -6,6 +6,9 @@
 
 <h2 align="center"> Element for Angular </h2>
 
+[![npm version](https://badge.fury.io/js/element-angular.svg)](https://badge.fury.io/js/element-angular)
+[![devDependency Status](https://david-dm.org/eleme/element-angular/dev-status.svg?branch=master)](https://david-dm.org/eleme/element-angular#info=devDependencies)
+[![Join the chat at https://gitter.im/element-angular/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/element-angular/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Catalog
 
