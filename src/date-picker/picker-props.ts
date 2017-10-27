@@ -20,5 +20,7 @@ export class ElDatePickerProps {
   
   @Input() model: string
   @Output() modelChange: EventEmitter<string> = new EventEmitter<string>()
+  @Output('clear-click') clearClick: EventEmitter<Event> = new EventEmitter<Event>()
+  @Output('icon-click') iconClick: EventEmitter<Event> = new EventEmitter<Event>()
   
 }
