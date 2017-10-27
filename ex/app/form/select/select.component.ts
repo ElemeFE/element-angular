@@ -8,6 +8,11 @@ import code from './code'
 })
 export class ExSelectComponent {
   
+  private exClass: any = class {
+    handle(event: any):void {
+      console.log(event)
+    }
+  }
   private code: string[] = code
   private page: any = {
     previous: { name: 'InputNumber 计数器', link: '/form/input-number' },
