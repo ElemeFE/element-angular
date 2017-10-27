@@ -19,6 +19,9 @@ export class ExDatePickerComponent {
       // date style follow format props
       console.log(time)
     }
+    clearClickHandle(e: Event): void {
+      console.log('clear', e)
+    }
   }
   
 }

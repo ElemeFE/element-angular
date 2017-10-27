@@ -13,7 +13,7 @@ import { DateFormat } from './utils/format'
         [size]="size" [placeholder]="placeholder"
         [icon]="iconShowClose ? 'close' : 'date'"
         [model]="model"
-        (icon-click)="iconClickHandle()"
+        (icon-click)="iconClickHandle($event)"
         (modelChange)="changeHandle($event)"
         (icon-mouseenter)="iconMouseActionHandle(true)"
         (icon-mouseleave)="iconMouseActionHandle(false)"
@@ -48,10 +48,12 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
   }
   
   
-  iconClickHandle(): void {
+  iconClickHandle(e: Event): void {
+    this.iconClick.emit(e)
     if (this.disabled) return
     // use close action
     if (this.iconShowClose) {
+      this.clearClick.emit(e)
       this.model = null
       this.value = Date.now()
       this.showPanelPicker = false

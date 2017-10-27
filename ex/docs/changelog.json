@@ -155,6 +155,15 @@
         "description": "为 Date Picker 组件增加月的基本单位",
         "issues": [219]
       }]
+    },
+    {
+      "version": "0.1.1",
+      "date": "2017-10-27",
+      "link": null,
+      "events": [{
+        "description": "为 Date Picker 增加按钮点击事件与文档",
+        "issues": [224]
+      }]
     }
   ]
 }

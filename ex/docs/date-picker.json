@@ -23,6 +23,20 @@
       "default": true
     },
     {
+      "name": "clear-click",
+      "notes": "清除按钮点击事件",
+      "type": "EventEmitter",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "icon-click",
+      "notes": "右侧图标按钮点击事件",
+      "type": "EventEmitter",
+      "enum": null,
+      "default": null
+    },
+    {
       "name": "size",
       "notes": "输入框尺寸",
       "type": "string",

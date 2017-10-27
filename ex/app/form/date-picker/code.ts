@@ -2,7 +2,8 @@ export default [
 // 基础用法
 `
 
-<el-date-picker (modelChange)="handle($event)">
+<el-date-picker (modelChange)="handle($event)"
+  (clear-click)="clearClickHandle($event)">
 </el-date-picker>
 
 <script type="text">
