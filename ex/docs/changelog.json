@@ -172,6 +172,26 @@
       "events": [{
         "description": "增加 [el-class] 指令与文档"
       }]
+    },
+    {
+      "version": "0.2.1",
+      "date": "2017-10-30",
+      "link": null,
+      "events": [{
+        "description": "修复 Select 不能正确同步数据的问题",
+        "pull-requests": [237]
+      }, {
+        "description": "修复 Nav Menu 垂直模式时会自动关闭的错误",
+        "pull-requests": [237]
+      }, {
+        "description": "为 Date Picker 增加绝对定位的选项",
+        "pull-requests": [238],
+        "issues": [234]
+      }, {
+        "description": "完善 Select 的文档",
+        "pull-requests": [239],
+        "issues": [233]
+      }]
     }
   ]
 }

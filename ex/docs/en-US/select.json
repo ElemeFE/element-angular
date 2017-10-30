@@ -2,6 +2,20 @@
   "name": "Select Attributes",
   "attrs": [
     {
+      "name": "model",
+      "notes": "默认选中的 value",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "modelChange",
+      "notes": "选中选项时触发的事件，参数为选中的值",
+      "type": "EventEmitter",
+      "enum": null,
+      "default": null
+    },
+    {
       "name": "disabled",
       "notes": "禁用所有选择与选项框",
       "type": "boolean",
