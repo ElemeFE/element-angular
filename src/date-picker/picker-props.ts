@@ -16,6 +16,9 @@ export class ElDatePickerProps {
   @Input() format: string = 'yyyy-MM-dd'
   @Input('hidden-day') hiddenDay: boolean = false
   
+  @Input('panel-absolute') panelAbsolute: boolean = true
+  @Input('panel-index') panelIndex: number = 200
+  
   // @Input() disabledDateFilter: Function
   
   @Input() model: string

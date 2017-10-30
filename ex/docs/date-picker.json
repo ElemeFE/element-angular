@@ -58,6 +58,20 @@
       "default": "选择日期"
     },
     {
+      "name": "panel-absolute",
+      "notes": "日期选择下拉框使用绝对定位",
+      "type": "boolean",
+      "enum": null,
+      "default": true
+    },
+    {
+      "name": "panel-index",
+      "notes": "日期选择下拉框的 z-index 值",
+      "type": "number",
+      "enum": null,
+      "default": 200
+    },
+    {
       "name": "format",
       "notes": "日期格式化样本",
       "type": "string",
