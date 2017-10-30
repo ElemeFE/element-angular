@@ -6,6 +6,7 @@ import { ExStartComponent } from './start/start.component'
 import { ExLanguageComponent } from './language/language.component'
 import { ExThemeComponent } from './theme/theme.component'
 import { ExLogComponent } from './log/log.component'
+import { ExDirectivesComponent } from './directives/directives.component'
 
 export const guideRoutes: Routes = [{
   path: '', component: ExGuideMainComponent,
@@ -13,6 +14,8 @@ export const guideRoutes: Routes = [{
     path: 'install', component: ExInstallComponent,
   }, {
     path: 'start', component: ExStartComponent,
+  }, {
+    path: 'directives', component: ExDirectivesComponent,
   }, {
     path: 'i18n', component: ExLanguageComponent,
   }, {

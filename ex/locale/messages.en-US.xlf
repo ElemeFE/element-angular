@@ -878,7 +878,7 @@
           <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
           <context context-type="linenumber">5</context>
         </context-group>
-        <target>If you wish to change theme colors for Element, <x id="START_LINK" ctype="x-a"></x>在线主题生成工具<x id="CLOSE_LINK" ctype="x-a"></x>. </target>
+        <target>If you wish to change theme colors for Element, <x id="START_LINK" ctype="x-a"></x>Online Tool<x id="CLOSE_LINK" ctype="x-a"></x>. </target>
       </trans-unit>
       <trans-unit id="theme-p-3" datatype="html">
         <source>Element-Angular 默认的主题色是鲜艳、友好的蓝色。通过替换主题色，能够让 Element-Angular 的视觉更加符合具体项目的定位。</source>
@@ -942,7 +942,7 @@
           <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
           <context context-type="linenumber">20</context>
         </context-group>
-        <target>初始化变量文件</target>
+        <target>Initializing variable files </target>
       </trans-unit>
       <trans-unit id="theme-p-8" datatype="html">
         <source>
@@ -1024,7 +1024,7 @@
           <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
           <context context-type="linenumber">39</context>
         </context-group>
-        <target>编译主题</target>
+        <target>Compiling theme</target>
       </trans-unit>
       <trans-unit id="theme-p-11" datatype="html">
         <source>
@@ -1064,7 +1064,7 @@
           <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
           <context context-type="linenumber">47</context>
         </context-group>
-        <target>引入自定义主题</target>
+        <target>Importing custom theme</target>
       </trans-unit>
       <trans-unit id="theme-p-12" datatype="html">
         <source>
@@ -1099,6 +1099,38 @@
           <context context-type="linenumber">6</context>
         </context-group>
         <target>更新日志</target>
+      </trans-unit>
+      <trans-unit id="directives-h2-1" datatype="html">
+        <source>指令与服务</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/directives/directives.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>指令与服务</target>
+      </trans-unit>
+      <trans-unit id="directives-p-1" datatype="html">
+        <source>Element Angular 内部携带了一些功能性的指令与服务，你可以直接使用它们。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/directives/directives.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <target>Element Angular 内部携带了一些功能性的指令与服务，你可以直接使用它们。</target>
+      </trans-unit>
+      <trans-unit id="directives-p-2" datatype="html">
+        <source>[el-class] 可以在任何 Element Angular 组件上使用，它接受一个字符串参数，帮助你在组件上增加一个自定义的样式类。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/directives/directives.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <target>[el-class] 可以在任何 Element Angular 组件上使用，它接受一个字符串参数，帮助你在组件上增加一个自定义的样式类。</target>
+      </trans-unit>
+      <trans-unit id="directives-p-3" datatype="html">
+        <source>下面的示例就是如何使用 [el-class] 来为组件添加自己需要的 class 类名：</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/directives/directives.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <target>下面的示例就是如何使用 [el-class] 来为组件添加自己需要的 class 类名：</target>
       </trans-unit>
       <trans-unit id="tag-h2-1" datatype="html">
         <source>Tag 标签</source>
@@ -2232,11 +2264,27 @@
         </context-group>
         <target>预定义日期格式</target>
       </trans-unit>
+      <trans-unit id="datePicker-h3-4" datatype="html">
+        <source>以月为单位</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/date-picker/date-picker.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <target>以月为单位</target>
+      </trans-unit>
+      <trans-unit id="datePicker-p-5" datatype="html">
+        <source>隐藏日期，以月为单位选择</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/date-picker/date-picker.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <target>隐藏日期，以月为单位选择</target>
+      </trans-unit>
       <trans-unit id="datePicker-h3-3" datatype="html">
         <source>禁用</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form/date-picker/date-picker.component.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">22</context>
         </context-group>
         <target>禁用</target>
       </trans-unit>
@@ -2244,7 +2292,7 @@
         <source>禁用整个日期组件</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form/date-picker/date-picker.component.ts</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">23</context>
         </context-group>
         <target>禁用整个日期组件</target>
       </trans-unit>
