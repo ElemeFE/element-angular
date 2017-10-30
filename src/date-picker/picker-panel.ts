@@ -11,11 +11,13 @@ export type DateModelItem = {
 @Component({
   selector: 'el-data-picker-panel',
   animations: [dropAnimation],
+  styles: [' .el-picker-panel-absolute { position: absolute; } '],
   template: `
     <div [@dropAnimation]="show"
-      [ngStyle]="{width: width + 'px'}"
-      [class]="'el-picker-panel ' + 'el-date-picker '"
-      [class.has-time]="showTime">
+      [ngStyle]="{width: width + 'px', 'z-index': panelIndex}"
+      [class]="'el-picker-panel el-date-picker '"
+      [class.has-time]="showTime"
+      [class.el-picker-panel-absolute]="panelAbsolute">
       <div class="el-picker-panel__body-wrapper">
         <!--<div class="el-picker-panel__sidebar" *ngIf="shortcuts">-->
           <!--<button type="button" class="el-picker-panel__shortcut"-->
@@ -88,6 +90,8 @@ export class ElDatePickerPanel implements OnInit, OnChanges {
   @Input() width: number = 254
   @Input() model: number
   @Input('hidden-day') hiddenDay: boolean = false
+  @Input('panel-absolute') panelAbsolute: boolean = true
+  @Input('panel-index') panelIndex: number = 200
   @Output() modelChange: EventEmitter<number> = new EventEmitter<number>()
   
   shortcuts: boolean = false

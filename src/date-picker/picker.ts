@@ -19,10 +19,9 @@ import { DateFormat } from './utils/format'
         (icon-mouseleave)="iconMouseActionHandle(false)"
         (focus)="focusHandle()">
       </el-input>
-      <el-data-picker-panel [show]="showPanelPicker"
-        [model]="value"
-        [hidden-day]="hiddenDay"
-        (modelChange)="dateChangeHandle($event)">
+      <el-data-picker-panel [show]="showPanelPicker"  [hidden-day]="hiddenDay"
+        [panel-absolute]="panelAbsolute" [panel-index]="panelIndex"
+        [model]="value" (modelChange)="dateChangeHandle($event)">
       </el-data-picker-panel>
     </div>
   `,
