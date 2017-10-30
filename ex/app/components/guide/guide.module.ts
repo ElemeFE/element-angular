@@ -11,6 +11,7 @@ import { ExStartComponent } from './start/start.component'
 import { ExLanguageComponent } from './language/language.component'
 import { ExThemeComponent } from './theme/theme.component'
 import { ExLogComponent } from './log/log.component'
+import { ExDirectivesComponent } from './directives/directives.component'
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ExLogComponent } from './log/log.component'
     ExLanguageComponent,
     ExThemeComponent,
     ExLogComponent,
+    ExDirectivesComponent,
   ],
   imports: [
     CommonModule,
