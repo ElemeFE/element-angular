@@ -1,4 +1,6 @@
-import { Component, OnInit, ElementRef, Renderer2, OnDestroy } from '@angular/core'
+import {
+  Component, OnInit, ElementRef, Renderer2, OnDestroy, OnChanges, SimpleChanges,
+} from '@angular/core'
 import { ElSelectPoprs } from './select-props'
 
 @Component({
@@ -20,7 +22,8 @@ import { ElSelectPoprs } from './select-props'
     </div>
   `,
 })
-export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy {
+export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChanges {
+  
   
   selfWidth: string
   subscriber: Function[] = []
@@ -29,7 +32,6 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy {
   selectedLabel: string | number
   iconClass: string = 'caret-top'
   globalListener: Function
-  
   
   constructor(
     private el: ElementRef,
@@ -70,7 +72,7 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy {
     this.dropdownActive && this.toggleHandle()
     // only update label
     this.selectedLabel = nextLabel
-    if (!nextValue) return
+    if (!nextValue || this.model === nextValue) return
     
     this.model = nextValue
     this.modelChange.emit(nextValue)
@@ -78,12 +80,19 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy {
   }
   
   ngOnInit(): void {
-    setTimeout(() => {
+    const timer: any = setTimeout(() => {
       this.selfWidth = this.el.nativeElement.getBoundingClientRect().width
+      clearTimeout(timer)
     }, 0)
     this.globalListener = this.renderer.listen('document', 'click', () => {
       this.dropdownActive && this.toggleHandle()
     })
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    // not include model
+    if (!changes || !changes.model) return
+    this.subscriber.forEach(sub => sub())
   }
   
   ngOnDestroy(): void {
