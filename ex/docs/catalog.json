@@ -10,6 +10,10 @@
     "name-en": "Quick Start",
     "link": "/guide/start"
   }, {
+    "name": "指令与服务",
+    "name-en": "Directive & Service",
+    "link": "/guide/directives"
+  }, {
     "name": "国际化",
     "name-en": "Internationalization",
     "link": "/guide/i18n"

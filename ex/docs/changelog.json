@@ -164,6 +164,14 @@
         "description": "为 Date Picker 增加按钮点击事件与文档",
         "issues": [224]
       }]
+    },
+    {
+      "version": "0.2.0",
+      "date": "2017-10-30",
+      "link": null,
+      "events": [{
+        "description": "增加 [el-class] 指令与文档"
+      }]
     }
   ]
 }
