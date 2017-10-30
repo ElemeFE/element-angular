@@ -11,7 +11,7 @@ export class ExStartComponent {
   private code: string[] = code
   private page: any = {
     previous: { name: '安装', link: '/guide/install' },
-    next: { name: '国际化', link: '/guide/i18n' },
+    next: { name: '指令与服务', link: '/guide/directives' },
   }
   
 }
