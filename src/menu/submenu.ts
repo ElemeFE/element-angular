@@ -72,7 +72,7 @@ export class ElSubmenu implements OnInit {
   selectHandle(path: string): void {
     this.rootMenu.selectHandle(this.index, path)
     // selected and close list
-    this.rootMenu.closeMenu(this.index)
+    // this.rootMenu.closeMenu(this.index)
     this.updateOpened()
   }
   
