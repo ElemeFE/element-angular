@@ -41,7 +41,7 @@ export type DateModelItem = {
               (click)="showPicker('year')">{{dateShowModels.year}} 年</span>
             <!--year range label-->
             <span class="el-date-picker__header-label" *ngIf="currentView === 'year'">
-              {{dateShowModels.yearRange[0]}} 年 - {{dateShowModels.yearRange[1]}}年
+              {{dateShowModels.yearRange[0]}} 年 - {{dateShowModels.yearRange[1]}} 年
             </span>
             
             <span class="el-date-picker__header-label"
