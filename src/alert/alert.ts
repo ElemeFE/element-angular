@@ -52,7 +52,6 @@ export class ElAlert {
   visible: boolean = true
   
   constructor() {
-  
   }
   
   makeIconClass(): string {
