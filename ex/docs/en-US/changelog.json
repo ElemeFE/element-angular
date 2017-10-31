@@ -192,6 +192,15 @@
         "pull-requests": [239],
         "issues": [233]
       }]
+    },
+    {
+      "version": "0.2.2",
+      "date": "2017-10-31",
+      "link": null,
+      "events": [{
+        "description": "修复 Table 数据源更新表格内容不变的问题",
+        "issues": [242]
+      }]
     }
   ]
 }
