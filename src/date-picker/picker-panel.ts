@@ -14,7 +14,7 @@ export type DateModelItem = {
   styles: [' .el-picker-panel-absolute { position: absolute; } '],
   template: `
     <div [@dropAnimation]="show"
-      [ngStyle]="{width: width + 'px', 'z-index': panelIndex}"
+      [ngStyle]="{ width: width ? width + 'px' : 'auto', 'z-index': panelIndex}"
       [class]="'el-picker-panel el-date-picker '"
       [class.has-time]="showTime"
       [class.el-picker-panel-absolute]="panelAbsolute">
@@ -87,7 +87,7 @@ export type DateModelItem = {
 export class ElDatePickerPanel implements OnInit, OnChanges {
   
   @Input() show: boolean = false
-  @Input() width: number = 254
+  @Input() width: number
   @Input() model: number
   @Input('hidden-day') hiddenDay: boolean = false
   @Input('panel-absolute') panelAbsolute: boolean = true

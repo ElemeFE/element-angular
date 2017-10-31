@@ -20,7 +20,7 @@ import { DateFormat } from './utils/format'
         (focus)="focusHandle()">
       </el-input>
       <el-data-picker-panel [show]="showPanelPicker"  [hidden-day]="hiddenDay"
-        [panel-absolute]="panelAbsolute" [panel-index]="panelIndex"
+        [panel-absolute]="panelAbsolute" [panel-index]="panelIndex" [width]="panelWidth"
         [model]="value" (modelChange)="dateChangeHandle($event)">
       </el-data-picker-panel>
     </div>
