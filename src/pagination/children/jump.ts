@@ -5,7 +5,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
   template: `
     <span class="el-pagination__jump">
       前往
-    <input class="el-pagination__editor" type="number"
+    <input class="el-el-input__inner" type="number"
       #input
       [min]="1" [max]="max"
       [ngModel]="model"
