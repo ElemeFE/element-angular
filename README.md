@@ -26,15 +26,35 @@
 
 
 ## Getting Started
-
+1. Install:
 ```bash
 # install
 npm i --save element-angular
-
-# improt module
+```
+2. Usage:
+```typescript
+// improt module
 import { ElModule } from 'element-angular'
 
+// import styles
+// if you use webpack, in app.module.ts:
+import 'element-theme-default'
+
+// or anglar-cli, in /angular-cli.json:
+{
+  "app": [{
+    "styles": [
+      "../node_modules/element-theme-default"
+    ],
+    // other configurations...
+  }]
+}
+
+// or other, in /src/styles.css:
+@import "~element-theme-default";
+
 ```
+
 More: [Doc](https://element-angular.faas.ele.me)
 
 
