@@ -1,6 +1,5 @@
 import {
-  Component, Input, ViewChild, Output, EventEmitter, ElementRef, Optional, OnInit,
-  AfterViewInit,
+  Component, Input, Output, EventEmitter, ElementRef, Optional, OnInit,
 } from '@angular/core'
 import { ElRadioGroup } from './radio-group'
 import { isParentTag, removeNgTag } from '../shared/utils'
@@ -8,8 +7,9 @@ import { isParentTag, removeNgTag } from '../shared/utils'
 @Component({
   selector: 'el-radio',
   template: `
-    <label class="el-radio">
+    <label class="el-radio" role="radio" tabindex="0">
       <span class="el-radio__input"
+        style="float: left;"
         [class.is-disabled]="disabled"
         [class.is-checked]="model === label"
         [class.is-focus]="isFocus">
@@ -19,18 +19,11 @@ import { isParentTag, removeNgTag } from '../shared/utils'
           (focus)="isFocus = true" (blur)="isFocus = false"
           [ngModel]="model" (ngModelChange)="changeHandle()">
       </span>
-      <span class="el-radio__label">
-        <span *ngIf="showLabel">{{label}}</span>
-        <span *ngIf="!showLabel" #content>
-          <ng-content></ng-content>
-        </span>
-      </span>
+      <span class="el-radio__label"><ng-content></ng-content></span>
     </label>
   `,
 })
-export class ElRadio implements OnInit, AfterViewInit {
-  
-  @ViewChild('content') content: ElementRef
+export class ElRadio implements OnInit {
   
   @Input() disabled: boolean = false
   @Input() label: string | number = ''
@@ -39,7 +32,6 @@ export class ElRadio implements OnInit, AfterViewInit {
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
   isFocus: boolean = false
-  showLabel: boolean = false
   parentIsGroup: boolean = false
   
   constructor(
@@ -53,13 +45,6 @@ export class ElRadio implements OnInit, AfterViewInit {
       return this.rootGroup.changeHandle(this.label)
     }
     this.modelChange.emit(this.label)
-  }
-  
-  ngAfterViewInit(): void {
-    const contentText = this.content && this.content.nativeElement.innerText
-    setTimeout(() => {
-      this.showLabel = !contentText || contentText.length < 1
-    }, 0)
   }
   
   ngOnInit(): void {

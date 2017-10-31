@@ -1,6 +1,5 @@
 import {
-  Component, Input, ViewChild, Output, EventEmitter, Optional,
-  ElementRef, AfterViewInit,
+  Component, Input, Output, EventEmitter, Optional, ElementRef,
 } from '@angular/core'
 import { ElRadioGroup } from './radio-group'
 import { isParentTag, removeNgTag } from '../shared/utils'
@@ -15,17 +14,12 @@ import { isParentTag, removeNgTag } from '../shared/utils'
         [value]="label" [name]="nativeName" [disabled]="disabled"
         [ngModel]="model" (ngModelChange)="changeHandle()">
       <span class="el-radio-button__inner" [ngStyle]="model === label && activeStyles">
-        <span *ngIf="showLabel">{{label}}</span>
-        <span *ngIf="!showLabel" #content>
-          <ng-content></ng-content>
-        </span>
+        <ng-content></ng-content>
       </span>
     </label>
   `,
 })
-export class ElRadioButton implements AfterViewInit {
-  
-  @ViewChild('content') content: any
+export class ElRadioButton {
   
   @Input() disabled: boolean = false
   @Input() label: string | number
@@ -49,14 +43,6 @@ export class ElRadioButton implements AfterViewInit {
       return this.rootGroup.changeHandle(this.label)
     }
     this.modelChange.emit(this.label)
-  }
-  
-  
-  ngAfterViewInit(): void {
-    const contentText = this.content && this.content.nativeElement.innerText
-    setTimeout(() => {
-      this.showLabel = !contentText || contentText.length < 1
-    }, 0)
   }
   
   ngOnInit(): void {
