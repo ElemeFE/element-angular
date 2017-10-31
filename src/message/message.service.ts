@@ -8,6 +8,7 @@ export interface Options {
   customClass?: string
   duration?: number
   showClose?: boolean
+  center?: boolean
   zIndex?: number
   onClose?: Function
 }

@@ -6,16 +6,17 @@ import { slideAnimation } from '../shared/animation'
 @Component({
   selector: 'el-message-container',
   template: `
-    <div [class]="'el-message ' + customClass"
-      style="display: none;"
+    <div [class]="'el-message ' + customClass + (type && !iconClass ? ' el-message--' + type : '')"
+      [class.is-center]="center"
+      style="visibility: hidden;" role="alertdialog"
       [ngStyle]="{ 'z-index': zIndex }"
       (mouseenter)="clearTimer()" (mouseleave)="startTimer()"
       [@slideAnimation]="showBox">
-      <img class="el-message__img" [src]="makeLink()" *ngIf="!iconClass">
-      <div class="el-message__group" [ngClass]="{'is-with-icon': !!iconClass}">
-        <p><i class="el-message__icon" [class]="iconClass" *ngIf="iconClass"></i>{{ message }}</p>
-        <div *ngIf="showClose" class="el-message__closeBtn el-icon-close" (click)="close()"></div>
-      </div>
+      <i [class]="iconClass" *ngIf="iconClass"></i>
+      <i [class]="makeTypeClass()" *ngIf="!iconClass"></i>
+      
+      <p class="el-message__content" tabindex="0">{{ message }}</p>
+      <div *ngIf="showClose" class="el-message__closeBtn el-icon-close" (click)="close()" role="button"></div>
     </div>
   `,
   animations: [slideAnimation]
@@ -27,7 +28,8 @@ export class ElMessageContainer {
   
   showClose: boolean = false
   type: string = 'info'
-  duration: number = 3000
+  center: boolean = false
+  duration: number = 30000
   // user setting
   iconClass: string = ''
   customClass: string = ''
@@ -43,6 +45,10 @@ export class ElMessageContainer {
   constructor(
     private sanitizer: DomSanitizer,
   ) {
+  }
+  
+  makeTypeClass(): string {
+    return this.type && !this.iconClass ? `el-message__icon el-icon-${this.type}` : ''
   }
   
   makeLink(): SafeUrl {
