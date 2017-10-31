@@ -32,4 +32,16 @@ handle(path: string): void {
 </script>
 `,
 
+// 基础用法
+`
+
+<el-breadcrumb separator-class="el-icon-arrow-right">
+  <el-breadcrumb-item to="">首页</el-breadcrumb-item>
+  <el-breadcrumb-item to="">活动管理</el-breadcrumb-item>
+  <el-breadcrumb-item to="">活动列表</el-breadcrumb-item>
+  <el-breadcrumb-item to="/nav/breadcrumb">面包屑导航</el-breadcrumb-item>
+</el-breadcrumb>
+
+`,
+
 ]
