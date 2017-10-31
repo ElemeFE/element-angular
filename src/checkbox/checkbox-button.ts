@@ -10,6 +10,7 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
   selector: 'el-checkbox-button',
   template: `
     <label [class]="'el-checkbox-button' + (size ? ' el-checkbox-button--' + size : '') "
+      role="checkbox"
       [class.is-disabled]="disabled" [class.is-focus]="isFocus"
       [class.is-indeterminate]="indeterminate" [class.is-checked]="checked">
       <input class="el-checkbox-button__original" type="checkbox"
@@ -25,7 +26,6 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
       </span>
     </label>
   `,
-  styles: ['.el-checkbox-button, .el-checkbox-button__inner { display: table-cell; }'],
   encapsulation: ViewEncapsulation.None,
 })
 export class ElCheckboxButton implements OnInit, AfterViewInit {
@@ -60,7 +60,7 @@ export class ElCheckboxButton implements OnInit, AfterViewInit {
     const styles: string = `backgroundColor: ${this.hostGroup.fill};` +
       `borderColor: ${this.hostGroup.fill};color: ${this.hostGroup.textColor};` +
       `box-shadow: -1px 0 0 0 ${this.hostGroup.fill};`
-    return this.domSanitizer.bypassSecurityTrustStyle(this.checked ? styles : 'display: block')
+    return this.domSanitizer.bypassSecurityTrustStyle(this.checked && !this.disabled ? styles : '')
   }
   
   isChecked(): boolean {
