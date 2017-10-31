@@ -23,12 +23,16 @@ import { getTextareaHeight } from './help'
           </ng-template>
         </div>
         
-        <i [class]="'el-input__icon ' + ('el-icon-' + icon) + (iconClick ? ' is-clickable ' : ' ')
-        + (iconClass ? iconClass : '')"
-          [attr.disabled]="disabled"
-          [class.icon-disabled]="disabled"
-          *ngIf="icon" (click)="iconClick.emit($event)"
-          (mouseenter)="iconMouseEnter.emit($event)" (mouseleave)="iconMouseLeave.emit($event)"></i>
+        <span class="el-input__suffix" *ngIf="icon">
+          <span class="el-input__suffix-inner">
+            <i [class]="'el-input__icon ' + ('el-icon-' + icon) + (iconClick ? ' is-clickable ' : ' ')
+              + (iconClass ? iconClass : '')"
+               [attr.disabled]="disabled"
+               [class.icon-disabled]="disabled"
+               *ngIf="icon" (click)="iconClick.emit($event)"
+               (mouseenter)="iconMouseEnter.emit($event)" (mouseleave)="iconMouseLeave.emit($event)"></i>
+          </span>
+        </span>
         <input class="el-input__inner"
           [autocomplete]="autoComplete" [value]="value" [name]="name"
           [placeholder]="placeholder" [autofocus]="autofocus"
