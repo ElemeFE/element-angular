@@ -49,7 +49,7 @@ export class ElYearTable implements OnInit, OnChanges {
     // not include model
     if (!changes || !changes.model) return
     // first change
-    if (!changes.model.previousValue) return
+    if (changes.model.isFirstChange()) return
   
     this.model = changes.model.currentValue
     this.date = new Date(this.model)

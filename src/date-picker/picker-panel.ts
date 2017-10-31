@@ -170,7 +170,7 @@ export class ElDatePickerPanel implements OnInit, OnChanges {
     // not include model
     if (!changes || !changes.model) return
     // first change
-    if (!changes.model.previousValue) return
+    if (changes.model.isFirstChange()) return
   
     this.model = changes.model.currentValue
     this.model = this.model || Date.now()
