@@ -1,6 +1,5 @@
 import {
-  SimpleChanges, Component, Input, OnChanges, KeyValueDiffers, KeyValueDiffer,
-  EventEmitter, Output,
+  SimpleChanges, Component, Input, OnChanges, EventEmitter, Output,
 } from '@angular/core'
 import { ElTableSlotEvent, TableColumnDataItem } from '../table.interface'
 import { ElTableFormat } from '../utils/format'
@@ -46,13 +45,10 @@ export class ElTableBody implements OnChanges {
   @Output('cell-mouse-leave') cellMouseLeave: EventEmitter<Event> = new EventEmitter<Event>()
   
   formatModel: any[] = []
-  private _differ: KeyValueDiffer<any, any>
   
   constructor(
     public tableFormat: ElTableFormat,
-    private differs: KeyValueDiffers,
   ) {
-    this._differ = this.differs.find(this.formatModel).create(null)
   }
   
   isTemplateRef(content: any): boolean {
