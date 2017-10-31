@@ -2,12 +2,13 @@ import {
   Component, Input, ChangeDetectionStrategy, Output, EventEmitter,
   ContentChild, TemplateRef,
 } from '@angular/core'
-import { fadeAnimation } from '../shared/animation'
+import { fadeAnimation } from './animation'
 
 export const ICON_CLASS_MAP: { [key: string]: string } = {
-  'success': 'el-icon-circle-check',
+  'success': 'el-icon-success',
   'warning': 'el-icon-warning',
-  'error': 'el-icon-circle-cross',
+  'error': 'el-icon-error',
+  'info': 'el-icon-info',
 }
 
 @Component({
@@ -15,18 +16,15 @@ export const ICON_CLASS_MAP: { [key: string]: string } = {
   animations: [fadeAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div [class]="'el-alert el-alert--' + type" [@fadeAnimation]="!visible">
+    <div [class]="'el-alert el-alert--' + type" [@fadeAnimation]="!visible"
+      [class.is-center]="center" role="alert">
       <i [class]="'el-alert__icon ' + makeIconClass()" *ngIf="showIcon"></i>
       <div class="el-alert__content">
         <span [class]="'el-alert__title ' + makeTitleClass()">
           <ng-content></ng-content>
         </span>
-        <p class="el-alert__description" *ngIf="description && !descriptionTmp">
-          {{description}}
-        </p>
-        <p class="el-alert__description" *ngIf="descriptionTmp">
-          <ng-template [ngTemplateOutlet]="descriptionTmp"></ng-template>
-        </p>
+        <p class="el-alert__description" *ngIf="description && !descriptionTmp">{{description}}</p>
+        <p class="el-alert__description" *ngIf="descriptionTmp"><ng-template [ngTemplateOutlet]="descriptionTmp"></ng-template></p>
         <i class="el-alert__closebtn"
           *ngIf="closable"
           [class.is-customed]="closeText !== ''"
@@ -43,6 +41,7 @@ export class ElAlert {
   @ContentChild('description') descriptionTmp: TemplateRef<any>
   
   @Input() type: string = 'info'
+  @Input() center: boolean = false
   @Input() description: string
   @Input() closable: boolean = true
   @Input('close-text') closeText: string = ''
@@ -55,7 +54,7 @@ export class ElAlert {
   }
   
   makeIconClass(): string {
-    const base: string = ICON_CLASS_MAP[this.type] || 'el-icon-information'
+    const base: string = ICON_CLASS_MAP[this.type] || 'el-icon-info'
     const isBig: string = this.description || this.descriptionTmp ? ' is-big' : ''
     return base + isBig
   }
