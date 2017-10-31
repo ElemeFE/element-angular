@@ -1,5 +1,6 @@
 import {
-  Component, ElementRef, OnChanges, OnDestroy, OnInit, Renderer2, SimpleChanges,
+  Component, DoCheck, ElementRef, KeyValueDiffer, KeyValueDiffers, OnChanges, OnDestroy, OnInit, Renderer2,
+  SimpleChanges,
   ViewChild,
 } from '@angular/core'
 import { DocumentWrapper, WindowWrapper } from '../shared/services'
@@ -34,7 +35,9 @@ import { ElTableFormat } from './utils/format'
     </div>
   `,
 })
-export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChanges {
+export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChanges, DoCheck {
+  
+  static TEMPLATE_KEY: string = '__template__'
   
   @ViewChild('headerRef') headerRef: ElementRef
   
@@ -50,18 +53,18 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
   private columns: TableColumn[] = []
   private globalListenFunc: Function
   private orderMap: OrderMap
-  
-  static generateID(): string {
-    return Math.random().toString(16).substr(2, 8)
-  }
+  private modelStorge: any
+  private differ: KeyValueDiffer<any, any>
   
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
     private document: DocumentWrapper,
     private window: WindowWrapper,
+    private differs: KeyValueDiffers,
   ) {
     super()
+    this.differ = this.differs.find([]).create(null)
   }
   
   updateColumns(column: TableColumn): void {
@@ -127,9 +130,8 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
     // distribution template
     this.columns = this.columns.map((column: TableColumn) => {
       if (!column.slot) return column
-      const modelKey: string = ElTable.generateID()
-      this.model = this.model.map((v: any) => Object.assign(v, { [modelKey]: column.slot }))
-      return Object.assign(column, { modelKey })
+      this.modelStorge = this.model.map((v: any) => Object.assign(v, { [ElTable.TEMPLATE_KEY]: column.slot }))
+      return Object.assign(column, { modelKey: ElTable.TEMPLATE_KEY })
     })
     this.orderMap = this.columns.reduce((pre, next: TableColumn) =>
       Object.assign(pre, { [next.modelKey]: next }), {})
@@ -140,7 +142,10 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
   transformModelData(): void {
     const orderMap: OrderMap = this.orderMap
     // add index, width, value
-    const modelWithIndex: ModelWithIndexDataItem[][] =  this.model.map((row: any) =>
+    if (!this.modelStorge) {
+      this.modelStorge = this.model
+    }
+    const modelWithIndex: ModelWithIndexDataItem[][] =  this.modelStorge.map((row: any) =>
       Object.keys(row || {}).map((v: string | number) => ({
           value: row[v], [v]: row[v],
           index: orderMap[v].index,
@@ -168,9 +173,23 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
     // not include model
     if (!changes || !changes.model) return
     // first change
-    if (!changes.model.previousValue) return
-    
+    if (changes.model.isFirstChange()) return
     this.model = changes.model.currentValue
+    this.transformModelData()
+  }
+  
+  ngDoCheck(): void {
+    const change = this.differ.diff(this.model)
+    if (!change || !this.orderMap) return
+  
+    // distribution template
+    const nextColumns: TableColumn[] = this.columns.map((column: TableColumn) => {
+      if (!column.slot) return column
+      this.modelStorge = this.model.map((v: any) => Object.assign(v, { [ElTable.TEMPLATE_KEY]: column.slot }))
+      return Object.assign(column, { modelKey: ElTable.TEMPLATE_KEY })
+    })
+    this.orderMap = nextColumns.reduce((pre, next: TableColumn) =>
+      Object.assign(pre, { [next.modelKey]: next }), {})
     this.transformModelData()
   }
   
