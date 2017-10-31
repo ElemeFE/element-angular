@@ -8,10 +8,11 @@ import { removeNgTag } from '../shared/utils'
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <span class="el-breadcrumb__item">
-      <span class="el-breadcrumb__item__inner" (click)="clickHandle($event)">
+      <span class="el-breadcrumb__inner" (click)="clickHandle($event)" ref="link" role="link">
         <ng-content></ng-content>
       </span>
-      <span class="el-breadcrumb__separator">{{root.separator}}</span>
+      <i *ngIf="root.separatorClass" [class]="'el-breadcrumb__separator ' + root.separatorClass"></i>
+      <span *ngIf="!root.separatorClass" class="el-breadcrumb__separator">{{root.separator}}</span>
     </span>
   `,
 })
