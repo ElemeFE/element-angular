@@ -13,6 +13,11 @@ export class ExMessageDemoComponent {
   ) {
   }
   
+  center(): void {
+    this.message.setOptions({ center: true })
+    this.message.info('一段居中显示的文字。')
+  }
+  
   handle(type: string = 'show'): void {
     this.message[type]('这是一条消息提示' + type)
   }

@@ -66,4 +66,17 @@ constructor(
 
 `,
 
+// 居中
+`
+<el-button [plain]="true" (click)="center()">居中</el-button>
+
+<!--组件中使用: -->
+<script type="text">
+  
+  handle(type: string): void {
+    this.message[type]('这是一条消息提示: ' + type)
+  }
+</script>
+`,
+
 ]
