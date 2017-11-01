@@ -72,6 +72,13 @@
       "default": 200
     },
     {
+      "name": "panel-width",
+      "notes": "日期选择下拉框的 宽度",
+      "type": "number",
+      "enum": null,
+      "default": null
+    },
+    {
       "name": "format",
       "notes": "日期格式化样本",
       "type": "string",

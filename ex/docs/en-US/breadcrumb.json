@@ -9,6 +9,13 @@
       "default": "/"
     },
     {
+      "name": "separator-class",
+      "notes": "图标分隔符 class",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
       "name": "prevent",
       "notes": "阻止面包屑组件所有的跳转",
       "type": "boolean",
