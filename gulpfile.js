@@ -40,8 +40,8 @@ gulp.task('compile', done => {
 })
 
 gulp.task('styles', done => {
-  const source = path.join(__dirname, './node_modules/element-ui/lib/theme-chalk')
-  const target = path.join(__dirname, './release')
+  const source = path.join(__dirname, './node_modules/element-ui/lib/theme-chalk/')
+  const target = path.join(__dirname, './theme/')
   exec(`cp -R  ${source} ${target}`, err => err ? console.log(err) : done())
     .stdout
     .on('data', data => console.log(data))
