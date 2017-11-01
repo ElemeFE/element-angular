@@ -5,7 +5,7 @@ import {
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 import { Value } from './dropdown.item'
 import { ElDropdownProps } from './dropdown.props'
-import { dropAnimation } from '../shared/animation'
+import { dropAnimation } from './animation'
 import { DocumentWrapper } from '../shared/services'
 
 @Component({
@@ -38,6 +38,7 @@ import { DocumentWrapper } from '../shared/services'
     </div>
   `,
   animations: [dropAnimation],
+  styles: ['.el-dropdown-menu { overflow: hidden; }'],
 })
 export class ElDropdown extends ElDropdownProps implements OnDestroy, AfterViewInit {
   
