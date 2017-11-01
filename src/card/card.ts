@@ -5,7 +5,7 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
   selector: 'el-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div [class]="'el-card ' + nativeClass">
+    <div class="el-card">
       <div class="el-card__header" *ngIf="header || headerStr">
         <ng-container *ngIf="header">
           <ng-template [ngTemplateOutlet]="header">
@@ -26,7 +26,6 @@ export class ElCard {
   @ContentChild('header') header: TemplateRef<any>
   @Input('header') headerStr: string
   @Input('body-style') bodyStyle: string = ''
-  @Input('class') nativeClass: string = ''
   
   constructor(
     private sanitizer: DomSanitizer,
