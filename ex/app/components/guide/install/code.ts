@@ -11,7 +11,7 @@ export default [
 import { ElModule } from 'element-angular'
 
 // if you use webpack, import style
-import 'element-angular/release/theme-chalk/index.css'
+import 'element-angular/theme/index.css'
 
 @NgModule({
   imports: [
@@ -33,7 +33,7 @@ template: '<el-button>Hello World</el-button>'
 // add code:
 
 /* You can add global styles to this file, and also import other style files */
-@import "~element-angular/release/theme-chalk/index.css";
+@import "~element-angular/theme/index.css";
 
 
 `,
@@ -46,7 +46,7 @@ template: '<el-button>Hello World</el-button>'
 {
   "app": [{
     "styles": [
-      "../node_modules/element-angular/release/theme-chalk/index.css"
+      "../node_modules/element-angular/theme/index.css"
     ],
     // other configurations...
   }]
