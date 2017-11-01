@@ -682,31 +682,11 @@
         </context-group>
         <target>引入模块后，我们能轻易地构建一个简易页面</target>
       </trans-unit>
-      <trans-unit id="install-p-3" datatype="html">
-        <source>
-           element-theme-default  样式库是 Element Angular 的依赖，无需再次安装。
-          <x id="START_TAG_CODE" ctype="x-code"/>
-          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
-          <x id="START_TAG_CODE" ctype="x-code"/>
-          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
-        </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-        <target>
-           element-theme-default  样式库是 Element Angular 的依赖，无需再次安装。
-          <x id="START_TAG_CODE" ctype="x-code"/>
-          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
-          <x id="START_TAG_CODE" ctype="x-code"/>
-          <x id="CLOSE_TAG_CODE" ctype="x-code"/>
-        </target>
-      </trans-unit>
       <trans-unit id="install-p-4" datatype="html">
         <source>使用 webpack 的引入方式：</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">12</context>
         </context-group>
         <target>使用 webpack 的引入方式：</target>
       </trans-unit>
@@ -718,7 +698,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">18</context>
         </context-group>
         <target>
           如果你使用 angular-cli，你需要样式文件在 /src/styles 引入：
@@ -730,7 +710,7 @@
         <source>如果你自定义了一些样式编译方案，可能上述引入样式文件方式无法完成编译，请参考如下：</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">23</context>
         </context-group>
         <target>如果你自定义了一些样式编译方案，可能上述引入样式文件方式无法完成编译，请参考如下：</target>
       </trans-unit>
@@ -738,7 +718,7 @@
         <source>如果你希望能够通过模块、异步模块、子模块来引入 element-angular，请参阅下一章</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">28</context>
         </context-group>
         <target>If you wish to introduce element-angular by using modules, asynchronos modules, sub modules, please proceed to the next chapter. </target>
       </trans-unit>
@@ -2048,6 +2028,14 @@
         </context-group>
         <target>自定义图标名</target>
       </trans-unit>
+      <trans-unit id="switch-h3-4" datatype="html">
+        <source>自定义文字</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/switch/switch.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <target>自定义文字</target>
+      </trans-unit>
       <trans-unit id="rate-h2-1" datatype="html">
         <source>Rate 评分</source>
         <context-group purpose="location">
@@ -2592,6 +2580,22 @@
         </context-group>
         <target>竖直方向的步骤条。</target>
       </trans-unit>
+      <trans-unit id="steps-h3-6" datatype="html">
+        <source>简洁风格的步骤条</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <target>简洁风格的步骤条</target>
+      </trans-unit>
+      <trans-unit id="steps-p-7" datatype="html">
+        <source>设置 simple 可应用简洁风格，该条件下 align-center / description / direction / space 都将失效。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <target>设置 simple 可应用简洁风格，该条件下 align-center / description / direction / space 都将失效。</target>
+      </trans-unit>
       <trans-unit id="dropdown-h2-1" datatype="html">
         <source>Dropdown 下拉菜单</source>
         <context-group purpose="location">
@@ -2727,6 +2731,14 @@
           <context context-type="linenumber">10</context>
         </context-group>
         <target>关闭组件的自动跳转从而手动设置路由，这是复杂的应用常见的需求。</target>
+      </trans-unit>
+      <trans-unit id="breadcrumb-h3-3" datatype="html">
+        <source>图标分隔符</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/breadcrumb/breadcrumb.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <target>图标分隔符</target>
       </trans-unit>
       <trans-unit id="loading-h2-1" datatype="html">
         <source>Loading 加载</source>
@@ -2872,11 +2884,19 @@
         </context-group>
         <target>可以添加关闭按钮。</target>
       </trans-unit>
+      <trans-unit id="message-h3-5" datatype="html">
+        <source>居中</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/message/message.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <target>居中</target>
+      </trans-unit>
       <trans-unit id="message-h3-4" datatype="html">
         <source>引用说明</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/notice/message/message.component.ts</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">27</context>
         </context-group>
         <target>引用说明</target>
       </trans-unit>
@@ -2884,7 +2904,7 @@
         <source>你只需要在合适的地方加上：</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/notice/message/message.component.ts</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">28</context>
         </context-group>
         <target>你只需要在合适的地方加上：</target>
       </trans-unit>
@@ -2898,7 +2918,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/notice/message/message.component.ts</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">33</context>
         </context-group>
         <target>
           即可使用，无需 在任何地方额外声明 providers依赖。
@@ -2912,7 +2932,7 @@
         <source>同时触发多个消息提示会自动往上叠加，每个消息是相互独立的，同时它们在结束时都会自动销毁。</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/notice/message/message.component.ts</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">34</context>
         </context-group>
         <target>同时触发多个消息提示会自动往上叠加，每个消息是相互独立的，同时它们在结束时都会自动销毁。</target>
       </trans-unit>

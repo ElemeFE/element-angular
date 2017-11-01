@@ -25,6 +25,12 @@
     "enum": null,
     "default": null
   }, {
+    "name": "offset",
+    "notes": "组件的偏移量",
+    "type": "number",
+    "enum": null,
+    "default": 15
+  }, {
     "name": "zIndex",
     "notes": "提示框 z-index，setOptions(config: {}) 的参数",
     "type": "number",

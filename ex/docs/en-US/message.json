@@ -37,6 +37,12 @@
     "enum": null,
     "default": 1000
   }, {
+    "name": "center",
+    "notes": "文字居中显示",
+    "type": "boolean",
+    "enum": null,
+    "default": false
+  }, {
     "name": "onClose",
     "notes": "关闭时的回调函数，setOptions(config: {}) 的参数",
     "type": "function",
