@@ -5,6 +5,7 @@ import { ElSelectPoprs } from './select-props'
 
 @Component({
   selector: 'el-select',
+  styles: ['.el-select-dropdown__list { overflow: hidden; }'],
   template: `
     <div class="el-select" (click)="toggleHandle($event)">
       <el-input [model]="selectedLabel" [placeholder]="placeholder" [icon]="iconClass"
@@ -48,7 +49,6 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   
   toggleHandle(event?: Event): void {
     if (this.disabled) return
-    console.log(123)
     event && event.stopPropagation()
     this.dropdownActive = !this.dropdownActive
     const nextClass = 'arrow-up' + (this.dropdownActive ? ' is-reverse' : '')
