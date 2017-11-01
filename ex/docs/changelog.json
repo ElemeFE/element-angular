@@ -201,6 +201,28 @@
         "description": "修复 Table 数据源更新表格内容不变的问题",
         "issues": [242]
       }]
+    },
+    {
+      "version": "0.3.0",
+      "date": "2017-11-01",
+      "link": null,
+      "events": [{
+        "description": "同步 Element UI 至 2.0 版本"
+      }, {
+        "description": "优化 Select / Cascader 动画效果",
+        "issues": [251]
+      }, {
+        "description": "修复 Checkbox 错误问题",
+        "issues": [250]
+      }, {
+        "description": "调整样式引入方式，移除不必要的依赖库"
+      }, {
+        "description": "Switch 组件多个属性命名发生变化"
+      }, {
+        "description": "Breadcrumb 组件增加 [separator-class] 属性"
+      }, {
+        "description": "Steps 组件增加 [simple] 属性"
+      }]
     }
   ]
 }
