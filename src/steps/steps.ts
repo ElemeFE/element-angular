@@ -1,22 +1,20 @@
-import {
-  Component, Input, ElementRef, Renderer2, OnInit, OnChanges,
-  SimpleChanges,
-} from '@angular/core'
+import { Component, Input, ElementRef, Renderer2, OnInit } from '@angular/core'
 
 @Component({
   selector: 'el-steps',
   template: `
-    <div [class]="'el-steps is-' + direction + (center ? ' is-center' : '')">
+    <div [class]="'el-steps ' + (!simple ? 'el-steps--' + direction : '')"
+      [class.el-steps--simple]="simple">
       <ng-content></ng-content>
     </div>
   `,
 })
-export class ElSteps implements OnInit, OnChanges {
+export class ElSteps implements OnInit {
   
-  @Input() space: string                        //  ex: 10px, 50%
+  @Input() space: string | number                       //  ex: 10px, 50%
   @Input() direction: string = 'horizontal'     // enum: vertical/horizontal
   @Input() active: number = 0
-  @Input() center: boolean = false
+  @Input() simple: boolean = false
   @Input('process-status') processStatus: string = 'process'
   @Input('finish-status') finishStatus: string = 'finish'     // enum: wait/process/finish/error/success
   @Input('align-center') alignCenter: boolean = false
@@ -40,8 +38,5 @@ export class ElSteps implements OnInit, OnChanges {
     })
     this.stepsLength = children.length
     // this.offset = children[this.stepsLength - 1].getBoundingClientRect().width / (this.stepsLength - 1)
-  }
-  
-  ngOnChanges(changes: SimpleChanges): void {
   }
 }
