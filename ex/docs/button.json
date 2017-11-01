@@ -23,6 +23,13 @@
       "default": false
     },
     {
+      "name": "round",
+      "notes": "是否圆形按钮",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
       "name": "loading",
       "notes": "是否加载中状态",
       "type": "boolean",

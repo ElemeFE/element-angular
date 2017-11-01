@@ -26,7 +26,7 @@ import { AppComponent } from './app.component'
 
 import { ElModule } from 'element-angular'
 // import style
-import 'element-theme-default'
+import 'element-angular/release/theme-chalk/index.css'
 
 @NgModule({
   declarations: [

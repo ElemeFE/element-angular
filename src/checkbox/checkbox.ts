@@ -18,12 +18,12 @@ import { isParentTag, removeNgTag } from '../shared/utils'
         [ngModel]="model" (ngModelChange)="changeHandle($event)"
         (focus)="isFocus = true" (blur)="isFocus = false">
     </span>
-      <span class="el-checkbox__label">
-        <ng-container *ngIf="showLabel">{{label}}</ng-container>
-        <span *ngIf="!showLabel" #content>
-          <ng-content></ng-content>
-        </span>
+    <span class="el-checkbox__label" style="padding-left: 6px;">
+      <ng-container *ngIf="showLabel">{{label}}</ng-container>
+      <span *ngIf="!showLabel" #content>
+        <ng-content></ng-content>
       </span>
+    </span>
     </label>
   `,
 })

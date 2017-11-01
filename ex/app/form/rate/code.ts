@@ -29,9 +29,9 @@ export default [
 // 其他icon
 `
 
-<el-rate [model]="4"
-  [icon-classes]="['el-icon-information', 'el-icon-information', 'el-icon-information']"
-  [void-icon-class]="'el-icon-information'"
+<el-rate [model]="1"
+  [icon-classes]="['el-icon-circle-check', 'el-icon-circle-check', 'el-icon-circle-check']"
+  [void-icon-class]="'el-icon-circle-check'"
   [colors]="['#FF9900', '#FF9900', '#FF9900']">
 </el-rate>
 

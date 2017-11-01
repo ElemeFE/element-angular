@@ -13,7 +13,7 @@ export type RateMap = {
 @Component({
   selector: 'el-rate',
   template: `
-    <div class="el-rate">
+    <div class="el-rate" role="slider">
       <span *ngFor="let s of scores; let i = index" class="el-rate__item"
         [ngStyle]="{cursor: disabled ? 'auto' : 'pointer'}"
         (mousemove)="hoverToggle($event, i)"

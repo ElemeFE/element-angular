@@ -15,6 +15,7 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
     [class.is-disabled]="disabled"
     [class.is-loading]="loading"
     [class.is-plain]="plain"
+    [class.is-round]="round"
     [disabled]="disabled"
     [type]="nativeType"
     [style]="extendStyles()"
@@ -34,6 +35,7 @@ export class ElButton implements OnInit {
   @Input() disabled: boolean = false
   @Input() loading: boolean = false
   @Input() plain: boolean = false
+  @Input() round: boolean = false
   @Input() autofocus: boolean = false
   @Input() style: string = ''
   @Input('class') nativeClass: string = ''

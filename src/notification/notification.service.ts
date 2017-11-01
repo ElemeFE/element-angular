@@ -4,6 +4,8 @@ import { ExDynamicService } from '../shared/services'
 
 export interface Options {
   type?: string
+  offset?: number
+  position?: string
   iconClass?: string
   customClass?: string
   duration?: number
@@ -39,7 +41,7 @@ export class ElNotificationService {
     // init current component
     if (currentLen > 1) {
       const lastInstance = this.components[currentLen - 2].instance
-      current.instance.top = lastInstance.height + lastInstance.top + 15
+      current.instance.offset = lastInstance.height + lastInstance.offset + 15
     }
     
     current.instance.onDestroy = () => {
@@ -48,7 +50,7 @@ export class ElNotificationService {
       // reflow top style
       this.components.forEach((com, i) => {
         if (i <= index) return
-        com.instance.top = com.instance.top - current.instance.height - 15
+        com.instance.offset = com.instance.offset - current.instance.height - 15
       })
       // component detach and remove element
       this.dynamic.destroy(current.copy)

@@ -11,39 +11,39 @@
     "notes": "switch 的宽度（像素",
     "type": "number",
     "enum": null,
-    "default": "58（有文字）/ 46（无文字"
+    "default": "40"
   },{
-    "name": "on-icon-class",
+    "name": "active-icon-class",
     "notes": " switch 打开时所显示图标的类名，设置此项会忽略 <code>on-text</code>",
     "type": "string",
     "enum": null,
     "default": null
   },{
-    "name": "off-icon-class",
+    "name": "inactive-icon-class",
     "notes": "switch 关闭时所显示图标的类名，设置此项会忽略 <code>off-text</code>",
     "type": "string",
     "enum": null,
     "default": null
   },{
-    "name": "on-text",
+    "name": "active-text",
     "notes": "switch 打开时的文字",
     "type": "string",
     "enum": null,
-    "default": "ON"
+    "default": null
   },{
-    "name": "off-text",
+    "name": "inactive-text",
     "notes": "switch 关闭时的文字",
     "type": "string",
     "enum": null,
-    "default": "OFF"
+    "default": null
   },{
-    "name": "on-color",
+    "name": "active-color",
     "notes": "switch 打开时的背景色",
     "type": "string",
     "enum": null,
-    "default": "#20A0FF"
+    "default": "#409EFF"
   },{
-    "name": "off-color",
+    "name": "inactive-color",
     "notes": "switch 关闭时的背景色",
     "type": "string",
     "enum": null,

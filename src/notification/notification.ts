@@ -1,49 +1,52 @@
-import { Component, ElementRef } from '@angular/core'
+import { Component, ElementRef, OnInit } from '@angular/core'
 import { notifyAnimation } from '../shared/animation'
 
 export const typeMap: any = {
-  success: 'circle-check',
-  info: 'information',
+  success: 'success',
+  info: 'info',
   warning: 'warning',
-  error: 'circle-cross',
+  error: 'error',
 }
 
 @Component({
   selector: 'el-notification-container',
   template: `
-    <div [class]="'el-notification ' + customClass"
+    <div [class]="'el-notification ' + horizontalDirection + ' ' + customClass"
+      [@notifyAnimation]="showBox"
+      [ngStyle]="{top: (offset ? offset + 'px' : 'auto'), 'z-index': zIndex}"
       style="visibility: hidden;"
-      [@notifyAnimation]="showBox" [ngStyle]="{top: (top ? top + 'px' : 'auto'), 'z-index': zIndex}"
       (mouseenter)="clearTimer()" (mouseleave)="startTimer()">
-      <i [class]="makeClass() + ' el-notification__icon ' + iconClass"
+      <i [class]="'el-notification__icon ' + makeClass() + ' ' + iconClass"
         *ngIf="type || iconClass"></i>
-      <div [class]="((makeClass() || iconClass) ? 'is-with-icon' : '') + ' el-notification__group'">
+      <div class="el-notification__group" [class.is-with-icon]="makeClass() || iconClass">
         <h2 class="el-notification__title" *ngIf="title">{{title}}</h2>
-        <div class="el-notification__content">{{message}}</div>
+        <div class="el-notification__content"><p>{{message}}</p></div>
         <div class="el-notification__closeBtn el-icon-close" (click)="close()"></div>
       </div>
     </div>
   `,
   animations: [notifyAnimation]
 })
-export class ElNotificationContainer {
+export class ElNotificationContainer implements OnInit {
   
   // element id, for destroy com
   id: string
-  top: number = 15
   height: number = 0
   
   // user setting
-  type: string = 'info'
+  offset: number = 15
+  type: string = ''
   duration: number = 3000
   iconClass: string = ''
   customClass: string = ''
   zIndex: number = 1000
+  position: string = 'top-right'
   
   title: string = ''
   message: string = ''
   showBox: boolean = false
   timer: any
+  horizontalDirection: string = 'right'
   
   onClose: Function = () => {}
   onDestroy: Function = () => {}
@@ -88,6 +91,10 @@ export class ElNotificationContainer {
   
   clearTimer(): void {
     this.timer && clearTimeout(this.timer)
+  }
+  
+  ngOnInit(): void {
+    this.horizontalDirection = this.position.includes('right') ? 'right' : 'left'
   }
   
 }

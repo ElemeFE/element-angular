@@ -7,11 +7,11 @@ export type Option = {
 @Component({
   selector: 'el-pagination-size',
   template: `
-    <el-select [model]="model" (modelChange)="modelChange.emit($event)">
+    <el-select [model]="model" (modelChange)="modelChange.emit($event)"
+      popper-class="is-arrow-fixed">
       <el-option *ngFor="let item of options"
         [label]="item.label"
-        [value]="item.value">
-      </el-option>
+        [value]="item.value"></el-option>
     </el-select>
   `,
 })

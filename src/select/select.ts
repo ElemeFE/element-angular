@@ -5,9 +5,11 @@ import { ElSelectPoprs } from './select-props'
 
 @Component({
   selector: 'el-select',
+  styles: ['.el-select-dropdown__list { overflow: hidden; }'],
   template: `
     <div class="el-select" (click)="toggleHandle($event)">
       <el-input [model]="selectedLabel" [placeholder]="placeholder" [icon]="iconClass"
+        iconClass="el-select__caret"
         [name]="name" [size]="size" [disabled]="disabled"
         (mouseenter)="mouseHandle(true)" (mouseleave)="mouseHandle(false)"
         (icon-click)="clearSelected($event)">
@@ -30,7 +32,7 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   
   dropdownActive: boolean = false
   selectedLabel: string | number
-  iconClass: string = 'caret-top'
+  iconClass: string = 'arrow-up'
   globalListener: Function
   
   constructor(
@@ -42,14 +44,14 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   
   mouseHandle(isEnter: boolean = false): void {
     if (!this.clearable || !this.model) return
-    this.iconClass = `${isEnter ? 'circle-close is-show-close' : 'caret-top'}`
+    this.iconClass = `${isEnter ? 'circle-close is-reverse' : 'arrow-up'}`
   }
   
   toggleHandle(event?: Event): void {
     if (this.disabled) return
     event && event.stopPropagation()
     this.dropdownActive = !this.dropdownActive
-    const nextClass = 'caret-top' + (this.dropdownActive ? ' is-reverse' : '')
+    const nextClass = 'arrow-up' + (this.dropdownActive ? ' is-reverse' : '')
     this.iconClass = !this.clearable ? nextClass : this.iconClass
   }
   

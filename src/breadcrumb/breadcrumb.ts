@@ -4,7 +4,7 @@ import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter } from 
   selector: 'el-breadcrumb',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="el-breadcrumb">
+    <div class="el-breadcrumb" aria-label="Breadcrumb" role="navigation">
       <ng-content></ng-content>
     </div>
   `,
@@ -12,6 +12,7 @@ import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter } from 
 export class ElBreadcrumb {
   
   @Input() separator: string = '/'
+  @Input('separator-class') separatorClass: string
   @Input() prevent: boolean = false
   @Output('next') next: EventEmitter<string> = new EventEmitter<string>()
   

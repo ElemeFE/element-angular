@@ -3,7 +3,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core'
 @Component({
   selector: 'el-checkbox-group',
   template: `
-    <div class="el-checkbox-group">
+    <div class="el-checkbox-group" role="group" aria-label="checkbox-group">
       <ng-content></ng-content>
     </div>
   `,

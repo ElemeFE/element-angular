@@ -4,7 +4,7 @@ export type ModelValue = string | number
 @Component({
   selector: 'el-collapse',
   template: `
-    <div class="el-collapse">
+    <div class="el-collapse" role="tablist" aria-multiselectable="true">
       <ng-content></ng-content>
     </div>
   `,
@@ -16,7 +16,6 @@ export class ElCollapse {
   @Output() modelChange: EventEmitter<ModelValue[]> = new EventEmitter<ModelValue[]>()
   
   constructor() {
-  
   }
   
   updateModel(value: ModelValue): void {

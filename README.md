@@ -38,20 +38,20 @@ import { ElModule } from 'element-angular'
 
 // import styles
 // if you use webpack, in app.module.ts:
-import 'element-theme-default'
+import 'element-angular/release/theme-chalk/index.css'
 
 // or anglar-cli, in /angular-cli.json:
 {
   "app": [{
     "styles": [
-      "../node_modules/element-theme-default"
+      "../node_modules/element-angular/release/theme-chalk/index.css"
     ],
     // other configurations...
   }]
 }
 
 // or other, in /src/styles.css:
-@import "~element-theme-default";
+@import "~element-angular/release/theme-chalk/index.css";
 
 ```
 

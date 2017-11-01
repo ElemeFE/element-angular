@@ -18,6 +18,7 @@ export class ElDatePickerProps {
   
   @Input('panel-absolute') panelAbsolute: boolean = true
   @Input('panel-index') panelIndex: number = 200
+  @Input('panel-width') panelWidth: number
   
   // @Input() disabledDateFilter: Function
   

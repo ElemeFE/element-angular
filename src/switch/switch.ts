@@ -13,18 +13,20 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
         [name]="name" [disabled]="disabled"
         [ngModel]="model" (ngModelChange)="changeHandle($event)">
       
+      <div class="el-switch__label el-switch__label--left" [class.is-active]="!model"
+        *ngIf="inactiveText || inactiveIconClass">
+        <i [class]="inactiveIconClass" *ngIf="inactiveIconClass"></i>
+        <span *ngIf="!inactiveIconClass">{{ inactiveText }}</span>
+      </div>
+
       <span class="el-switch__core" [style]="coreStyles">
         <span class="el-switch__button" [style]="iconTransform"></span>
       </span>
-      
-      <div class="el-switch__label el-switch__label--left" *ngIf="model" [style]="labelStyles">
-        <i [class]="onIconClass" *ngIf="onIconClass"></i>
-        <span *ngIf="!onIconClass && onText">{{ onText }}</span>
-      </div>
-      
-      <div class="el-switch__label el-switch__label--right" *ngIf="!model" [style]="labelStyles">
-        <i [class]="offIconClass" *ngIf="offIconClass"></i>
-        <span *ngIf="!offIconClass && offText">{{ offText }}</span>
+
+      <div class="el-switch__label el-switch__label--right" [class.is-active]="model"
+           *ngIf="activeText || activeIconClass">
+        <i [class]="activeIconClass" *ngIf="activeIconClass"></i>
+        <span *ngIf="!activeIconClass">{{ activeText }}</span>
       </div>
     </label>
   `,
@@ -34,12 +36,12 @@ export class ElSwitch implements OnInit {
   @Input() name: string
   @Input() disabled: boolean = false
   @Input() width: number
-  @Input('on-icon-class') onIconClass: string
-  @Input('off-icon-class') offIconClass: string
-  @Input('on-text') onText: string = 'ON'
-  @Input('off-text') offText: string = 'OFF'
-  @Input('on-color') onColor: string
-  @Input('off-color') offColor: string
+  @Input('active-icon-class') activeIconClass: string
+  @Input('inactive-icon-class') inactiveIconClass: string
+  @Input('active-text') activeText: string
+  @Input('inactive-text') inactiveText: string
+  @Input('active-color') activeColor: string = '#409EFF'
+  @Input('inactive-color') inactiveColor: string = '#C0CCDA'
   
   // bind value
   @Input() model: boolean = false
@@ -47,7 +49,6 @@ export class ElSwitch implements OnInit {
   
   hasText: boolean = false
   realWidth: number
-  labelStyles: SafeStyle
   coreStyles: SafeStyle
   iconTransform: SafeStyle
   
@@ -64,21 +65,19 @@ export class ElSwitch implements OnInit {
   
   updateStyles(): void {
     let baseStyle = `width: ${this.realWidth}px;`
-    const translate = this.model ? `translate(${this.realWidth - 20}px, 2px)` : 'translate(2px, 2px)'
-    const color = this.model ? this.onColor : this.offColor;
+    const translate = this.model ? `translate3d(${this.realWidth - 20}px, 0, 0)` : ''
+    const color = this.model ? this.activeColor : this.inactiveColor;
     const colorStyles = `border-color: ${color}; background-color: ${color};`
     
-    this.labelStyles = this.sanitizer.bypassSecurityTrustStyle(baseStyle)
     this.iconTransform = this.sanitizer.bypassSecurityTrustStyle(`transform: ${translate}`)
-    if (this.onColor && this.offColor) {
+    if (this.activeColor && this.inactiveColor) {
       baseStyle += colorStyles
     }
     this.coreStyles = this.sanitizer.bypassSecurityTrustStyle(baseStyle)
   }
   
   ngOnInit(): void {
-    this.hasText = !!this.onText || !!this.offText
-    this.realWidth = this.width ? this.width : (this.hasText ? 58 : 46)
+    this.realWidth = this.width ? this.width : 40
     this.updateStyles()
   }
   

@@ -8,4 +8,4 @@ import 'rxjs'
 
 import 'highlight.js/styles/github.css'
 import './assets/styles/example.css'
-import 'element-theme-default'
+import '../release/theme-chalk/index.css'
