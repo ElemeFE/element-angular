@@ -223,6 +223,14 @@
       }, {
         "description": "Steps 组件增加 [simple] 属性"
       }]
+    },
+    {
+      "version": "0.3.1",
+      "date": "2017-10-31",
+      "link": null,
+      "events": [{
+        "description": "优化样式模块的引入方式"
+      }]
     }
   ]
 }
