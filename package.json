@@ -108,8 +108,8 @@
     "zone.js": "^0.8.16"
   },
   "peerDependencies": {
-    "@angular/core": "^4.0.0",
-    "@angular/animations": "^4.0.0"
+    "@angular/core": ">=4.0.0",
+    "@angular/animations": ">=4.0.0"
   },
   "dependencies": {}
 }
