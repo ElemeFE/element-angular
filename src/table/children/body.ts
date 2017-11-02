@@ -15,17 +15,19 @@ import { ElTableFormat } from '../utils/format'
         [class.hover-row]="tableRow.hover"
         [class.el-table__row--striped]="stripe && k % 2 === 1"
         (mouseenter)="tableRow.hover = true" (mouseleave)="tableRow.hover = false">
-        <td *ngFor="let td of tr; let i = index" [class]="'el-table_1_column_' + (i + 1)"
+        <td *ngFor="let td of tr; let i = index;"
           [ngStyle]="{ width: td.width | cssValue }" #tdRef
-          (mouseenter)="cellMouseActionHandle($event, true); tdRef.index = k;
-          tdRef.rowData = getFormatModel(k); tdRef.destroy = destroyRowFunc(k);"
+          [class]="'el-table_1_column_' + (i + 1)"
+          (mouseenter)="cellMouseActionHandle($event, true);tdRef.destroy = destroyRowFunc(k);"
           (mouseleave)="cellMouseActionHandle($event, false)"
           (click)="clickHandle($event, tdRef)"
           (dblclick)="doubleClickHandle($event, tdRef)">
           <div class="cell">
             <ng-container *ngIf="!isTemplateRef(td.value)">{{td.value}}</ng-container>
             <ng-container *ngIf="isTemplateRef(td.value)">
-              <ng-template [ngTemplateOutlet]="td.value" [ngTemplateOutletContext]="{ scope: tdRef }"></ng-template>
+              <ng-template [ngTemplateOutlet]="td.value" [ngTemplateOutletContext]="{
+                scope: merge(tdRef, {rowData: getFormatModel(k), index: k})
+              }"></ng-template>
             </ng-container>
           </div>
         </td>
@@ -49,6 +51,10 @@ export class ElTableBody implements OnChanges {
   constructor(
     public tableFormat: ElTableFormat,
   ) {
+  }
+  
+  merge(domHandle: any, next: any): any {
+    return Object.assign(domHandle, next)
   }
   
   isTemplateRef(content: any): boolean {
