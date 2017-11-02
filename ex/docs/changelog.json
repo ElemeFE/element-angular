@@ -251,6 +251,16 @@
         "description": "优化 DatePicker 组件的事件方式",
         "issues": [255]
       }]
+    },
+    {
+      "version": "0.4.1",
+      "date": "2017-11-02",
+      "link": null,
+      "events": [{
+        "description": "修复在 @angular/cli@1.5 中出现的 Module 引入错误"
+      }, {
+        "description": "修复在 Angular5 中出现的 KeyValueDiffers 警告 "
+      }]
     }
   ]
 }

@@ -64,7 +64,7 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
     private differs: KeyValueDiffers,
   ) {
     super()
-    this.differ = this.differs.find([]).create(null)
+    this.differ = this.differs.find([]).create()
   }
   
   updateColumns(column: TableColumn): void {
