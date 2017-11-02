@@ -1,13 +1,12 @@
 {
   "name": "element-angular",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "element ui for angular",
   "main": "./release/index.js",
   "unpkg": "bundle/element-angular.js",
   "files": [
     "release",
     "theme",
-    "index.ts",
     "bundle"
   ],
   "scripts": {
