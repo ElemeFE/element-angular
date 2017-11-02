@@ -74,8 +74,17 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
     this.value = time
   }
   
+  // try update input value
+  // always trigger emit
+  tryUpdateText(): void {
+    const modelTime: number = new Date(this.model).getTime()
+    const time: number = this.dateFormat.getTime(this.value)
+    this.dateChangeHandle(time ? this.value : modelTime)
+  }
+  
   dateChangeHandle(time: number): void {
     this.model = DateFormat.moment(time, this.format)
+    this.value = new Date(this.model).getTime()
     this.modelChange.emit(this.model)
     this.showPanelPicker = false
   }
@@ -89,6 +98,9 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
         this.showPanelPicker = false
         this.globalKeydownListener && this.globalKeydownListener()
       }
+      if (event.keyCode === 13) {
+        this.tryUpdateText()
+      }
     })
   }
   
@@ -98,6 +110,8 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
     'document', 'click', () => {
       if (!this.showPanelPicker) return
       this.showPanelPicker = false
+    
+      this.tryUpdateText()
     })
     // init value
     const time: number = this.dateFormat.getTime(this.model)
