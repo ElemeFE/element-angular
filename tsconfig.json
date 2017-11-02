@@ -8,7 +8,7 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "stripInternal": true,
-    "outDir": "release/",
+    "outDir": "temp/release/",
     "sourceMap": true,
     "inlineSources": true,
     "skipLibCheck": true

@@ -231,6 +231,26 @@
       "events": [{
         "description": "优化样式模块的引入方式"
       }]
+    },
+    {
+      "version": "0.4.0",
+      "date": "2017-11-02",
+      "link": null,
+      "events": [{
+        "description": "全面支持 Angular 5.0",
+        "pull-requests": [258]
+      }, {
+        "description": "优化依赖版本与模块导出方式"
+      }, {
+        "description": "修复 Pagination 组件 Jump 模块样式丢失问题",
+        "issues": [257]
+      }, {
+        "description": "优化 Table 中的 ng-template 性能",
+        "issues": [256]
+      }, {
+        "description": "优化 DatePicker 组件的事件方式",
+        "issues": [255]
+      }]
     }
   ]
 }
