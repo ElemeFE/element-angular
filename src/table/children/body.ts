@@ -25,7 +25,7 @@ import { ElTableFormat } from '../utils/format'
           <div class="cell">
             <ng-container *ngIf="!isTemplateRef(td.value)">{{td.value}}</ng-container>
             <ng-container *ngIf="isTemplateRef(td.value)">
-              <ng-template [ngTemplateOutlet]="td.value" [ngOutletContext]="{ scope: tdRef }"></ng-template>
+              <ng-template [ngTemplateOutlet]="td.value" [ngTemplateOutletContext]="{ scope: tdRef }"></ng-template>
             </ng-container>
           </div>
         </td>
