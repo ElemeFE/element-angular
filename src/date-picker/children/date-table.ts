@@ -26,7 +26,9 @@ export type DateRow = DateRowItem[]
           [class.today]="isToday(item)"
           [class.current]="isTargetDay(item)"
           (click)="clickHandle(item)">
-          {{isToday(item) ? '今天' : item.day}}
+          <div>
+            <span>{{item.day}}</span>
+          </div>
         </td>
       </tr>
       </tbody>
@@ -86,7 +88,7 @@ export class ElDateTable implements OnInit, OnChanges {
   getRows(): void {
     const date = this.date
     this.targetDay = date.getDate()
-    this.today = Date.now()
+    this.today = new Date().getDate()
     this.currentMonthOffset = DateFormat.getCurrentMonthOffset(date)
   
     const lastMonth: number = date.getMonth() - 1
