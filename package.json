@@ -2,7 +2,7 @@
   "name": "element-angular",
   "version": "0.3.1",
   "description": "element ui for angular",
-  "main": "./index.ts",
+  "main": "./release/index.js",
   "unpkg": "bundle/element-angular.js",
   "files": [
     "release",
