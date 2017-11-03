@@ -44,6 +44,13 @@
       "default": true
     },
     {
+      "name": "center",
+      "notes": "居中显示(不包括内容)",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
       "name": "custom-class",
       "notes": "Dialog 的自定义类名",
       "type": "string",

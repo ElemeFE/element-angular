@@ -46,7 +46,7 @@ export default [
 `,
 
 // 基础用法
-`
+  `
 
 <div class="box-card" #card>
   <el-button (click)="card.toggle = true">回调函数</el-button>
@@ -54,6 +54,21 @@ export default [
   <el-dialog [title]="'扬州'" [(visible)]="card.toggle"
     [before-close]="handle">
     <span>一个平均寿命很高的城市。</span>
+  </el-dialog>
+  
+</div>
+
+`,
+
+// 居中
+`
+
+<div class="box-card" #card>
+  <el-button (click)="card.toggle = true">居中显示</el-button>
+  
+  <el-dialog [title]="'一位扬州的长者'" [(visible)]="card.toggle"
+    [center]="true">
+    <span>他为我们朗诵了葛底斯堡演讲。</span>
   </el-dialog>
   
 </div>

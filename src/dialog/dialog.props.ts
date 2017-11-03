@@ -4,6 +4,7 @@ export class ElDialogProps {
 
   @Input() title: string
   @Input() size: string = 'small'             // tiny/small/large/full
+  @Input() center: boolean = false
   
   @Input() top: string = '15%'                // css value
   @Input('close-on-click-modal') closeOnClickModal: boolean = true
