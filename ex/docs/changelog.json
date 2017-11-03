@@ -261,6 +261,18 @@
       }, {
         "description": "修复在 Angular5 中出现的 KeyValueDiffers 警告 "
       }]
+    },
+    {
+      "version": "0.4.2",
+      "date": "2017-11-03",
+      "link": null,
+      "events": [{
+        "description": "修复 InputNumber 中 disabled 属性失效问题",
+        "issues": [266]
+      }, {
+        "description": "修复在 InputNumber 中 modelChange 事件无法触发问题",
+        "issues": [265]
+      }]
     }
   ]
 }
