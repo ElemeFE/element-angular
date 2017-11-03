@@ -29,7 +29,7 @@ export class ElMessageContainer {
   showClose: boolean = false
   type: string = 'info'
   center: boolean = false
-  duration: number = 30000
+  duration: number = 3000
   // user setting
   iconClass: string = ''
   customClass: string = ''
