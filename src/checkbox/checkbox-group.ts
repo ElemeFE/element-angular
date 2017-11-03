@@ -17,6 +17,7 @@ export class ElCheckboxGroup implements OnChanges {
   @Input() min: number = 0
   @Input() max: number = 1000
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
+  
   // children update handle
   subscriber: Function[] = []
   
