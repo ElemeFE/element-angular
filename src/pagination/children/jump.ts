@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
       前往
     <div class="el-input el-pagination__editor is-in-pagination">
       <input class="el-input__inner" type="number" #input
+        autocomplete="off" rows="2"
         [min]="1" [max]="max" [ngModel]="model"
         (keyup.enter)="changeHandle(input.value)" (blur)="changeHandle(input.value)"/>
     </div>
