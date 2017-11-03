@@ -273,6 +273,21 @@
         "description": "修复在 InputNumber 中 modelChange 事件无法触发问题",
         "issues": [265]
       }]
+    },
+    {
+      "version": "0.4.3",
+      "date": "2017-11-03",
+      "link": null,
+      "events": [{
+        "description": "修复 Message 组件 durtion 属性的初始值",
+        "issues": [270]
+      }, {
+        "description": "修复 Checout 组件 modelChange 事件无法触发问题",
+        "issues": [275]
+      }, {
+        "description": "Dialog 组件新增 center 属性",
+        "pull-requests": [276]
+      }]
     }
   ]
 }
