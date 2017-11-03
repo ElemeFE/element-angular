@@ -3,7 +3,7 @@ export default [
 `
 
 <!--你可以通过 [(model)] 进行双向绑定-->
-<el-input-number [model]="5" [min]="1" [max]="10"></el-input-number>
+<el-input-number [model]="val" (modelChange)="changeHandle($event)" [min]="1" [max]="10"></el-input-number>
 
 `,
 
