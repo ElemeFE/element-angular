@@ -51,7 +51,7 @@ import 'element-angular/theme/index.css'
 }
 
 // or other, in /src/styles.css:
-@import "~element-angular/theme/index.css";
+@import "~element-angular/theme/index.css"
 
 ```
 
