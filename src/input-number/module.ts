@@ -1,13 +1,13 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { ElInputsModule } from '../input/module'
+import { FormsModule } from '@angular/forms'
 import { ElInputNumber } from './input-number'
 
 
 @NgModule({
   declarations: [ElInputNumber],
   exports: [ElInputNumber],
-  imports: [CommonModule, ElInputsModule],
+  imports: [CommonModule, FormsModule],
   entryComponents: [ElInputNumber],
 })
 export class ElInputNumberModule {

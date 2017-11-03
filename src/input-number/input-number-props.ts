@@ -1,4 +1,4 @@
-import { EventEmitter, Input } from '@angular/core'
+import { EventEmitter, Input, Output } from '@angular/core'
 
 export class ElInputNumberPoprs {
   
@@ -12,6 +12,6 @@ export class ElInputNumberPoprs {
   
   // bind value
   @Input() model: any = ''
-  protected modelChange: EventEmitter<any> = new EventEmitter<any> ()
+  @Output() modelChange: EventEmitter<number> = new EventEmitter<number> ()
   
 }

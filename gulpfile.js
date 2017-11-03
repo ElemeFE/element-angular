@@ -63,8 +63,9 @@ gulp.task('bundle', done => {
 
 gulp.task('clean', () => del(['./release/', './temp/', './bundle/']))
 gulp.task('clean:ex', () => del(['dist/']))
+gulp.task('clean:temp', () => del(['./temp/']))
 
-gulp.task('build', gulp.series('clean', 'lint', 'compile', 'bundle', 'release', 'styles'))
+gulp.task('build', gulp.series('clean', 'lint', 'compile', 'bundle', 'release', 'styles', 'clean:temp'))
 gulp.task('build:watch', () => gulp.watch([
   'src/**/*.ts',
   '!src/**/*.spec.ts',
