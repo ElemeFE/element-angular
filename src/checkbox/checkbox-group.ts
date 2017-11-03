@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core'
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core'
 
 @Component({
   selector: 'el-checkbox-group',
@@ -8,7 +8,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core'
     </div>
   `,
 })
-export class ElCheckboxGroup implements OnInit {
+export class ElCheckboxGroup implements OnChanges {
   
   @Input() model: any[] = []
   @Input() size: string
@@ -17,6 +17,7 @@ export class ElCheckboxGroup implements OnInit {
   @Input() min: number = 0
   @Input() max: number = 1000
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
+  
   // children update handle
   subscriber: Function[] = []
   
@@ -47,6 +48,9 @@ export class ElCheckboxGroup implements OnInit {
     this.changeModel(this.model)
   }
   
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes || !changes.model) return
+    if (changes.model.isFirstChange()) return
+    this.changeModel(changes.model.currentValue)
   }
 }

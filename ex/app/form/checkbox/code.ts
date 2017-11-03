@@ -2,7 +2,7 @@ export default [
 // 基础用法
 `
 <!-- 'checked' 为 true 或 false -->
-<el-checkbox [(model)]="checked" >备选项</el-checkbox>
+<el-checkbox [model]="val" (modelChange)="handle($event)">备选项</el-checkbox>
 
 `,
 
@@ -18,7 +18,7 @@ export default [
 `
 
 <!--当组件中无值时，label 属性的值也会用于显示-->
-<el-checkbox-group [model]="['复选框 B', '选中且禁用']">
+<el-checkbox-group [model]="['复选框 B', '选中且禁用']" (modelChange)="handle($event)">
   <el-checkbox label="复选框 A"></el-checkbox>
   <el-checkbox label="复选框 B">复选框 F</el-checkbox>
   <el-checkbox label="复选框 C"></el-checkbox>
