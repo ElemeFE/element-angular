@@ -15,6 +15,7 @@ import { dialogFadeAnimation } from '../shared/animation'
       [ngStyle]="{'z-index': dialogZindex}"
       (click)="wrapperClickHandle()">
       <div [class]="'el-dialog ' + 'el-dialog--' + size + ' ' + customClass"
+        [class.el-dialog--center]="center"
         [style]="makeDialogStyles()"
         (click)="$event.stopPropagation()">
         <div class="el-dialog__header">
