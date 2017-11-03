@@ -1,6 +1,6 @@
 import {
   Component, Input, Output, EventEmitter, OnInit,
-  ElementRef, Optional, AfterViewInit, ViewChild,
+  ElementRef, Optional, AfterViewInit, ViewChild, OnChanges, SimpleChanges,
 } from '@angular/core'
 import { ElCheckboxGroup } from './checkbox-group'
 import { isParentTag, removeNgTag } from '../shared/utils'
@@ -27,7 +27,7 @@ import { isParentTag, removeNgTag } from '../shared/utils'
     </label>
   `,
 })
-export class ElCheckbox implements OnInit, AfterViewInit {
+export class ElCheckbox implements OnInit, AfterViewInit, OnChanges {
   
   @ViewChild('content') content: any
   
@@ -59,9 +59,12 @@ export class ElCheckbox implements OnInit, AfterViewInit {
   }
   
   changeHandle(t: boolean): void {
-    this.parentIsGroup && this.hostGroup.updateModelFromChildren(t, this.label)
+    if (this.parentIsGroup) {
+      return this.hostGroup.updateModelFromChildren(t, this.label)
+    }
     this.model = t
     this.checked = this.isChecked()
+    this.modelChange.emit(this.model)
   }
   
   ngOnInit(): void {
@@ -73,9 +76,18 @@ export class ElCheckbox implements OnInit, AfterViewInit {
       this.labels = this.hostGroup.model
       this.model = this.isChecked()
       // update handle
-      this.hostGroup.subscriber.push(() => this.model = this.isChecked())
+      this.hostGroup.subscriber.push(() => {
+        this.model = this.isChecked()
+        this.checked = this.isChecked()
+      })
     }
     this.checked = this.isChecked()
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes || !changes.model) return
+    if (changes.model.isFirstChange()) return
+    this.changeHandle(this.model)
   }
   
   ngAfterViewInit(): void {
