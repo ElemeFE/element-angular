@@ -3360,6 +3360,22 @@
         </context-group>
         <target>回调函数能够帮助你更细腻的定义何时关闭对话框。</target>
       </trans-unit>
+      <trans-unit id="dialog-h3-4" datatype="html">
+        <source>居中显示</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/dialog/dialog.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <target>居中显示</target>
+      </trans-unit>
+      <trans-unit id="dialog-p-5" datatype="html">
+        <source>居中属性不会影响内容。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/dialog/dialog.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <target>居中属性不会影响内容。</target>
+      </trans-unit>
       <trans-unit id="carousel-h2-1" datatype="html">
         <source>Carousel 走马灯</source>
         <context-group purpose="location">
