@@ -37,8 +37,6 @@ import { ElTableFormat } from './utils/format'
 })
 export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChanges, DoCheck {
   
-  static TEMPLATE_KEY: string = '__template__'
-  
   @ViewChild('headerRef') headerRef: ElementRef
   
   columnsData: TableColumnDataItem[][]
@@ -55,6 +53,10 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
   private orderMap: OrderMap
   private modelStorge: any
   private differ: KeyValueDiffer<any, any>
+  
+  static GEN_TEMPLATE_KEY(): string {
+    return Math.random().toString(16).substr(2, 8)
+  }
   
   constructor(
     private el: ElementRef,
@@ -100,9 +102,7 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
   computeColumnsWidth(columnsWidth: WidthItem[]): WidthItem[] {
     let auto: number = 0, count: number= 0
     columnsWidth.forEach((item: WidthItem) => {
-      if (item.auto) {
-        return auto ++
-      }
+      if (item.auto) return auto ++
       if (Number.isNaN(item.width)) {         // cannot parse values
         item.auto = true
         return auto ++
@@ -130,12 +130,13 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
     // distribution template
     this.columns = this.columns.map((column: TableColumn) => {
       if (!column.slot) return column
-      this.modelStorge = this.model.map((v: any) => Object.assign(v, { [ElTable.TEMPLATE_KEY]: column.slot }))
-      return Object.assign(column, { modelKey: ElTable.TEMPLATE_KEY })
+      const TEMPLATE_KEY: string = ElTable.GEN_TEMPLATE_KEY()
+      this.modelStorge = this.model.map((v: any) => Object.assign(v, { [TEMPLATE_KEY]: column.slot }))
+      return Object.assign(column, { modelKey: TEMPLATE_KEY })
     })
+    
     this.orderMap = this.columns.reduce((pre, next: TableColumn) =>
       Object.assign(pre, { [next.modelKey]: next }), {})
-    
     this.transformModelData()
   }
   
@@ -145,14 +146,18 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
     if (!this.modelStorge) {
       this.modelStorge = this.model
     }
-    const modelWithIndex: ModelWithIndexDataItem[][] =  this.modelStorge.map((row: any) =>
-      Object.keys(row || {}).map((v: string | number) => ({
-          value: row[v], [v]: row[v],
-          index: orderMap[v].index,
-          width: orderMap[v].width,
+    const modelWithIndex: ModelWithIndexDataItem[][] = this.modelStorge.map((row: any) =>
+      Object.keys(row || {})
+        .map((v: string | number) => {
+          if (!orderMap[v]) return null           // only template column
+          return {
+            value: row[v], [v]: row[v],
+            index: orderMap[v].index,
+            width: orderMap[v].width,
+          }
         })
-      ))
-  
+        .filter((r: any) => !!r)
+    )
     // column sort
     this.columnsData = modelWithIndex.map((row: TableColumnDataItem[]) =>
       row.sort((pre, next) => pre.index - next.index))
@@ -185,8 +190,9 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
     // distribution template
     const nextColumns: TableColumn[] = this.columns.map((column: TableColumn) => {
       if (!column.slot) return column
-      this.modelStorge = this.model.map((v: any) => Object.assign(v, { [ElTable.TEMPLATE_KEY]: column.slot }))
-      return Object.assign(column, { modelKey: ElTable.TEMPLATE_KEY })
+      const TEMPLATE_KEY: string = ElTable.GEN_TEMPLATE_KEY()
+      this.modelStorge = this.model.map((v: any) => Object.assign(v, { [TEMPLATE_KEY]: column.slot }))
+      return Object.assign(column, { modelKey: TEMPLATE_KEY })
     })
     this.orderMap = nextColumns.reduce((pre, next: TableColumn) =>
       Object.assign(pre, { [next.modelKey]: next }), {})
