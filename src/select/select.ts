@@ -94,6 +94,14 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   ngOnChanges(changes: SimpleChanges): void {
     // not include model
     if (!changes || !changes.model) return
+    if (changes.model.isFirstChange()) return
+    
+    // reset model
+    if (!changes.model.currentValue) {
+      this.selectedLabel = changes.model.currentValue
+      this.model = changes.model.currentValue
+      this.modelChange.emit(changes.model.currentValue)
+    }
     this.subscriber.forEach(sub => sub())
   }
   
