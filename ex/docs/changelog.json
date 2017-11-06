@@ -297,6 +297,15 @@
         "description": "Select 组件增加清除逻辑，空值也会触发 changeEvent",
         "issues": [281]
       }]
+    },
+    {
+      "version": "0.4.5",
+      "date": "2017-11-06",
+      "link": null,
+      "events": [{
+        "description": "修复 Table 中不能同时渲染多个模板的问题",
+        "issues": [283]
+      }]
     }
   ]
 }
