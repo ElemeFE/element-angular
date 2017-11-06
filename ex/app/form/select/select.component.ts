@@ -19,6 +19,10 @@ export class ExSelectComponent {
     handle(event: any):void {
       console.log(event, this.value)
     }
+  
+    clear(): void {
+      this.value = null
+    }
   }
   private code: string[] = code
   private page: any = {

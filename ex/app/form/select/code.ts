@@ -9,7 +9,16 @@ export default [
     [value]="item.value">
   </el-option>
 </el-select>
+<el-button (click)="clear()">clear</el-button>
 
+<script type="text">
+
+// in component
+clear(): void {
+  this.value = null
+}
+
+</script>
 `,
 
 // 有禁用选项

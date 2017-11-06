@@ -288,6 +288,15 @@
         "description": "Dialog 组件新增 center 属性",
         "pull-requests": [276]
       }]
+    },
+    {
+      "version": "0.4.4",
+      "date": "2017-11-06",
+      "link": null,
+      "events": [{
+        "description": "Select 组件增加清除逻辑，空值也会触发 changeEvent",
+        "issues": [281]
+      }]
     }
   ]
 }
