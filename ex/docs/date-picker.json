@@ -23,6 +23,13 @@
       "default": true
     },
     {
+      "name": "change-on-blur",
+      "notes": "失焦关闭时立即触发一次更新",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
       "name": "clear-click",
       "notes": "清除按钮点击事件",
       "type": "EventEmitter",
