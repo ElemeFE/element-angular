@@ -8,6 +8,7 @@ export class ElDatePickerProps {
   @Input() disabled: boolean = false
   @Input() editable: boolean = true
   @Input() clearable: boolean = true
+  @Input('change-on-blur') changeOnBlur: boolean = false
   
   @Input() size: string                 // enum: large, small, mini
   @Input() align: string = 'left'                // enum: left, center, right

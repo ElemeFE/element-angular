@@ -111,7 +111,7 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
       if (!this.showPanelPicker) return
       this.showPanelPicker = false
     
-      this.tryUpdateText()
+      this.changeOnBlur && this.tryUpdateText()
     })
     // init value
     const time: number = this.dateFormat.getTime(this.model)
