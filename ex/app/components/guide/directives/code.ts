@@ -6,6 +6,7 @@ export default [
 
 // in Component style:
 <script type="text/scss">
+
 .myClass {
   >div {
     color: #ccc;
