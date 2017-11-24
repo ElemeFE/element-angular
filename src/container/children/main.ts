@@ -1,10 +1,8 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core'
-import { main } from '../style'
 import { removeNgTag } from '../../shared/utils/host'
 
 @Component({
   selector: 'el-main',
-  styles: [main],
   template: `
     <main [class]="'el-main ' + class">
       <ng-content></ng-content>

@@ -1,10 +1,8 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core'
 import { removeNgTag } from '../../shared/utils'
-import { aside } from '../style'
 
 @Component({
   selector: 'el-aside',
-  styles: [aside],
   template: `
     <aside [class]="'el-aside ' + class" [ngStyle]="{width: width}">
       <ng-content></ng-content>
