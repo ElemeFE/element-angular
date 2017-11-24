@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { BasicRoutingModule } from './basic.routing'
-import { ElModule } from '../../../src/index'
+import { ElModule } from '../../../src/element-angular.module'
 import { ExSharedModule } from '../shared/module'
 
 import { ExBasicMainComponent } from './main/main.component'
