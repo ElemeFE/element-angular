@@ -306,6 +306,16 @@
         "description": "修复 Table 中不能同时渲染多个模板的问题",
         "issues": [283]
       }]
+    },
+    {
+      "version": "0.4.6",
+      "date": "2017-11-24",
+      "link": null,
+      "events": [{
+        "description": "修复引入模块可能出现的路径错误"
+      }, {
+        "description": "移除重复样式"
+      }]
     }
   ]
 }

@@ -13,14 +13,6 @@
     "name": "指令与服务",
     "name-en": "Directive & Service",
     "link": "/guide/directives"
-  }, {
-    "name": "国际化",
-    "name-en": "Internationalization",
-    "link": "/guide/i18n"
-  }, {
-    "name": "自定义主题",
-    "name-en": "Custom Theme",
-    "link": "/guide/theme"
   }],
   "name": "开发指南",
   "name-en": "Development",

@@ -11,7 +11,7 @@ export class ExDirectivesComponent {
   private code: string[] = code
   private page: any = {
     previous: { name: '快速上手', link: '/guide/start' },
-    next: { name: '国际化', link: '/guide/i18n' },
+    next: { name: '更新日志', link: '/guide/log' },
   }
   
 }

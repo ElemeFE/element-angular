@@ -738,11 +738,19 @@
         </context-group>
         <target>This module will introduce you to the usage of Element-angular in a project.</target>
       </trans-unit>
+      <trans-unit id="start-blockquote-1" datatype="html">
+        <source>对样式引入有疑问可以返回阅读上一章节。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <target>对样式引入有疑问可以返回阅读上一章节。</target>
+      </trans-unit>
       <trans-unit id="start-h3-1" datatype="html">
         <source>创建项目</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">5</context>
         </context-group>
         <target>Create a project</target>
       </trans-unit>
@@ -754,7 +762,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
-          <context context-type="linenumber">5</context>
+          <context context-type="linenumber">6</context>
         </context-group>
         <target>If you do not have an Angular project, you may use cli to install one.</target>
       </trans-unit>
@@ -762,7 +770,7 @@
         <source>根模块引入</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
-          <context context-type="linenumber">10</context>
+          <context context-type="linenumber">11</context>
         </context-group>
         <target>Root module introduction </target>
       </trans-unit>
@@ -774,7 +782,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">12</context>
         </context-group>
         <target>
           将 element-angular 引入根模块后，可以在任意组件中使用。
@@ -786,23 +794,23 @@
         <source>引入单个组件</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">17</context>
         </context-group>
         <target>引入单个组件</target>
       </trans-unit>
       <trans-unit id="start-p-4" datatype="html">
         <source>
-          附: 即便是引入整个库，Angular 在 Build 时也会去除未使用的代码，
+          附: 即便是引入整个库，Angular 在 Build 时也可以去除未使用的代码，
   请参考 Tree shaking
           <x id="START_LINK" ctype="x-a"/>
           <x id="CLOSE_LINK" ctype="x-a"/>
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">18</context>
         </context-group>
         <target>
-          附: 即便是引入整个库，Angular 在 Build 时也会去除未使用的代码，
+          附: 即便是引入整个库，Angular 在 Build 时也可以去除未使用的代码，
   请参考 Tree shaking
           <x id="START_LINK" ctype="x-a"/>
           <x id="CLOSE_LINK" ctype="x-a"/>
