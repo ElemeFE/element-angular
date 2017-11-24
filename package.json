@@ -1,8 +1,8 @@
 {
   "name": "element-angular",
-  "version": "0.4.6",
+  "version": "0.4.7-beta.1",
   "description": "element ui for angular",
-  "main": "./release/index.js",
+  "main": "./release/element-angular.module.js",
   "unpkg": "bundle/element-angular.js",
   "files": [
     "release",
