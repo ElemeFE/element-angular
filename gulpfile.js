@@ -49,7 +49,7 @@ gulp.task('bundle', done => {
   webpack({
     devtool: 'source-map',
     resolve: { extensions: ['.js'] },
-    entry: path.join(__dirname, './release/', 'index.js'),
+    entry: path.join(__dirname, './release/', 'element-angular.module.js'),
     output: {
       path: path.join(__dirname, 'bundle/'),
       filename: 'element-angular.js',
