@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ElMessageService } from './message/message.service'
 import { ElNotificationService } from './notification/notification.service'
 
@@ -58,7 +57,6 @@ export const ELMODULES_GROUP: any[] = [
 
 @NgModule({
   imports: [
-    BrowserAnimationsModule,
     ElButtonsModule.forRoot(), ElIconsModule.forRoot(), ElRadiosModule.forRoot(), ElMenusModule.forRoot(),
     ElTooltipModule.forRoot(), ElRowModule.forRoot(), ElColModule.forRoot(), ElCheckboxsModule.forRoot(),
     ElInputsModule.forRoot(), ElInputNumberModule.forRoot(), ElTagsModule.forRoot(), ElSelectModule.forRoot(),
@@ -71,21 +69,15 @@ export const ELMODULES_GROUP: any[] = [
   ],
   exports: ELMODULES_GROUP,
 })
-export class ElRootModule {
-}
-
-@NgModule({
-  imports: ELMODULES_GROUP,
-  exports: ELMODULES_GROUP,
-})
 class ElModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: ElRootModule,
+      ngModule: ElModule,
       providers: [],
     }
   }
 }
+
 
 export {
   ElModule,
