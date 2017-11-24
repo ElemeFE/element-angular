@@ -7,6 +7,8 @@ export default [
 
 // 引入 webpack
 `
+import { BrowserModule } from '@angular/platform-browser'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 // import module
 import { ElModule } from 'element-angular'
 
@@ -15,6 +17,8 @@ import 'element-angular/theme/index.css'
 
 @NgModule({
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     ElModule.forRoot(),
     ...
   ],
