@@ -5,10 +5,11 @@ import { HttpModule } from '@angular/http'
 import { AppRoutingModule } from './app.routing'
 import { ExComponentModule } from './components/module'
 
-import { ElModule } from '../../src/index'
+import { ElModule } from '../../src/element-angular.module'
 import { ExAppComponent } from './app.component'
 import { ExSharedModule } from './shared/module'
 import { DocsService } from './shared/services/docs/docs.service'
+import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { DocsService } from './shared/services/docs/docs.service'
   ],
   imports: [
     BrowserModule,
+    NoopAnimationsModule,
     RouterModule,
     HttpModule,
     ElModule.forRoot(),

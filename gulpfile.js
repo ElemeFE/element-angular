@@ -22,6 +22,7 @@ gulp.task('lint', () => gulp.src(['src/**/*.ts', 'test/{util,mock}/*.ts'])
     summarizeFailureOutput: true,
   })))
 
+
 gulp.task('compile', done => {
   exec(`${compilePath} -p ./tsconfig.json`, err => err ? console.log(err) : done())
     .stdout
@@ -48,7 +49,7 @@ gulp.task('bundle', done => {
   webpack({
     devtool: 'source-map',
     resolve: { extensions: ['.js'] },
-    entry: path.join(__dirname, './temp/release/', 'index.js'),
+    entry: path.join(__dirname, './release/', 'index.js'),
     output: {
       path: path.join(__dirname, 'bundle/'),
       filename: 'element-angular.js',
@@ -61,11 +62,10 @@ gulp.task('bundle', done => {
   })
 })
 
-gulp.task('clean', () => del(['./release/', './temp/', './bundle/']))
+gulp.task('clean', () => del(['./release/', './bundle/']))
 gulp.task('clean:ex', () => del(['dist/']))
-gulp.task('clean:temp', () => del(['./temp/']))
 
-gulp.task('build', gulp.series('clean', 'lint', 'compile', 'bundle', 'release', 'styles', 'clean:temp'))
+gulp.task('build', gulp.series('clean', 'lint', 'compile', 'bundle', 'styles'))
 gulp.task('build:watch', () => gulp.watch([
   'src/**/*.ts',
   '!src/**/*.spec.ts',

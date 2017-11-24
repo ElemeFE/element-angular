@@ -1,1 +1,1 @@
-export * from './release/index'
+export * from './release/element-angular.module'

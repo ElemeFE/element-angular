@@ -21,12 +21,11 @@ ng server
 `
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { RouterModule } from '@angular/router'
 import { AppComponent } from './app.component'
 
 import { ElModule } from 'element-angular'
-// import style
-import 'element-angular/theme/index.css'
 
 @NgModule({
   declarations: [
@@ -34,6 +33,7 @@ import 'element-angular/theme/index.css'
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     ElModule.forRoot(),
   ],
   providers: [],

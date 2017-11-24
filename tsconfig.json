@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "lib": ["es2015", "dom"],
     "module": "es2015",
     "moduleResolution": "node",
@@ -8,18 +8,20 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "stripInternal": true,
-    "outDir": "temp/release/",
+    "outDir": "release/",
     "sourceMap": true,
     "inlineSources": true,
     "skipLibCheck": true
   },
   "files": [
-    "src/index.ts"
+    "src/element-angular.module.ts"
   ],
   "compileOnSave": false,
   "angularCompilerOptions": {
     "strictMetadataEmit": true,
-    "genDir": "./temp/"
+    "annotateForClosureCompiler": true,
+    "flatModuleId": "element-angular",
+    "skipTemplateCodegen": true
   },
   "exclude": [
     "ex",

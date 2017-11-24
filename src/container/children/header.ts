@@ -1,11 +1,9 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core'
 import { ElContainer } from '../container'
-import { header } from '../style'
 import { removeNgTag } from '../../shared/utils/host'
 
 @Component({
   selector: 'el-header',
-  styles: [header],
   template: `
     <header [class]="'el-header ' + class" [ngStyle]="{height: height}">
       <ng-content></ng-content>

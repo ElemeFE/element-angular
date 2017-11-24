@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
 
 // Rendering ElComponent dependence
-import { ElModule } from '../../../../../src/index'
+import { ElModule } from '../../../../../src/element-angular.module'
 
 @Directive({
   selector: '[ex-dynamic]',

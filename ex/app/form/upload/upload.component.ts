@@ -1,5 +1,5 @@
 import { Component, forwardRef, Inject, ViewEncapsulation } from '@angular/core'
-import { ElMessageService } from '../../../../src/index'
+import { ElMessageService } from '../../../../src/element-angular.module'
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
 import code from './code'
 
