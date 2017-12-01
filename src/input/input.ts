@@ -1,14 +1,20 @@
 import {
-  AfterViewInit, Component, ContentChild, OnInit, TemplateRef,
+  AfterViewInit, Component, ContentChild, forwardRef, OnInit, TemplateRef,
   ViewChild,
 } from '@angular/core'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 import { ElInputPoprs } from './input-props'
 import { getTextareaHeight } from './help'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
   selector: 'el-input',
   styles: ['.icon-disabled {cursor: not-allowed;} .icon-disabled:before {cursor: not-allowed;}'],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => ElInput),
+    multi: true
+  }],
   template: `
     <div [class]="(type === 'text' ? 'el-input' : 'el-textarea') +
     (size ? ' el-input--' + size : '') + ' ' + parentClass"
@@ -61,13 +67,15 @@ import { getTextareaHeight } from './help'
     </div>
   `,
 })
-export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit {
+export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit, ControlValueAccessor {
   
   @ContentChild('prepend') prepend: TemplateRef<any>
   @ContentChild('append') append: TemplateRef<any>
   @ViewChild('textarea') textarea: any
-  
   textareaStyles: SafeStyle
+  
+  private controlChange: Function
+  private controlTouch: Function
   
   constructor(
     private sanitizer: DomSanitizer,
@@ -85,6 +93,7 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit {
   handleInput(val: string): void {
     this.model = val
     this.modelChange.emit(val)
+    this.controlChange(val)
     const timer: any = setTimeout(() => {
       this.makeTextareaStyles()
       clearTimeout(timer)
@@ -104,5 +113,17 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit {
         this.makeTextareaStyles()
       }, 0)
     }
+  }
+  
+  writeValue(value: any): void {
+    this.model = value
+  }
+  
+  registerOnChange(fn: Function): void {
+    this.controlChange = fn
+  }
+  
+  registerOnTouched(fn: Function): void {
+    this.controlTouch = fn
   }
 }
