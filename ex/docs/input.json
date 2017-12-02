@@ -37,6 +37,13 @@
       "default": null
     },
     {
+      "name": "native-type",
+      "notes": "输入框原生属性，如 'password'",
+      "type": "string",
+      "enum": null,
+      "default": "text"
+    },
+    {
       "name": "disabled",
       "notes": "禁用",
       "type": "boolean",
