@@ -1,11 +1,13 @@
 import {
-  AfterViewInit, Component, ContentChild, forwardRef, OnInit, TemplateRef,
+  AfterViewInit, Component, ContentChild, ElementRef, forwardRef, OnInit, TemplateRef,
   ViewChild,
 } from '@angular/core'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 import { ElInputPoprs } from './input-props'
 import { getTextareaHeight } from './help'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
+import { isParentTag } from '../shared/utils'
+import { ElFormItem } from '../form/form-item'
 
 @Component({
   selector: 'el-input',
@@ -79,6 +81,8 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit, Cont
   
   constructor(
     private sanitizer: DomSanitizer,
+    private el: ElementRef,
+    private form: ElFormItem,
   ) {
     super()
   }
@@ -101,6 +105,18 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit, Cont
   }
   
   ngOnInit(): void {
+    // auto follow form status
+    const parentIsForm: boolean = isParentTag(this.el.nativeElement, 'el-form-item')
+    if (parentIsForm) {
+      const iconStatus = {
+        error: 'circle-close', success: 'circle-check', validating: 'circle-validating',
+      }
+      this.iconClass = 'el-input__validateIcon'
+      this.form.statusSubscriber.push((status: string) => {
+        this.icon = iconStatus[status] || ''
+      })
+    }
+    
     if (this.value && !this.model) {
       this.model = this.value
     }
