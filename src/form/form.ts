@@ -5,7 +5,7 @@ import { ElFormProps } from './form.props'
   selector: 'el-form',
   template: `
     <form [class]="'el-form ' + (labelPosition ? 'el-form--label-' + labelPosition : '')
-      + inline ? ' el-form--inline' : ''">
+      + (inline ? ' el-form--inline' : '')">
      <ng-content></ng-content>
     </form>
   `,
