@@ -1,12 +1,18 @@
 import {
   Component, Input, Output, EventEmitter, OnInit,
-  ElementRef, Optional, AfterViewInit, ViewChild, OnChanges, SimpleChanges,
+  ElementRef, Optional, AfterViewInit, ViewChild, OnChanges, SimpleChanges, forwardRef,
 } from '@angular/core'
 import { ElCheckboxGroup } from './checkbox-group'
 import { isParentTag, removeNgTag } from '../shared/utils'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
   selector: 'el-checkbox',
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => ElCheckbox),
+    multi: true
+  }],
   template: `
     <label class="el-checkbox">
     <span class="el-checkbox__input"
@@ -27,7 +33,7 @@ import { isParentTag, removeNgTag } from '../shared/utils'
     </label>
   `,
 })
-export class ElCheckbox implements OnInit, AfterViewInit, OnChanges {
+export class ElCheckbox implements OnInit, AfterViewInit, OnChanges, ControlValueAccessor {
   
   @ViewChild('content') content: any
   
@@ -44,6 +50,9 @@ export class ElCheckbox implements OnInit, AfterViewInit, OnChanges {
   parentIsGroup: boolean = false
   isFocus: boolean = false
   showLabel: boolean = false
+  
+  private controlChange: Function
+  private controlTouch: Function
   
   constructor(
     @Optional() private hostGroup: ElCheckboxGroup,
@@ -65,6 +74,7 @@ export class ElCheckbox implements OnInit, AfterViewInit, OnChanges {
     this.model = t
     this.checked = this.isChecked()
     this.modelChange.emit(this.model)
+    this.controlChange(this.model)
   }
   
   ngOnInit(): void {
@@ -95,5 +105,17 @@ export class ElCheckbox implements OnInit, AfterViewInit, OnChanges {
     setTimeout(() => {
       this.showLabel = !contentText || contentText.length < 1
     }, 0)
+  }
+  
+  writeValue(value: any): void {
+    this.model = value
+  }
+  
+  registerOnChange(fn: Function): void {
+    this.controlChange = fn
+  }
+  
+  registerOnTouched(fn: Function): void {
+    this.controlTouch = fn
   }
 }
