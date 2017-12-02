@@ -1,10 +1,16 @@
 import {
-  Component, OnInit, ElementRef, Renderer2, OnDestroy, OnChanges, SimpleChanges,
+  Component, OnInit, ElementRef, Renderer2, OnDestroy, OnChanges, SimpleChanges, forwardRef,
 } from '@angular/core'
 import { ElSelectPoprs } from './select-props'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
   selector: 'el-select',
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => ElSelect),
+    multi: true
+  }],
   styles: ['.el-select-dropdown__list { overflow: hidden; }'],
   template: `
     <div class="el-select" (click)="toggleHandle($event)">
@@ -24,7 +30,7 @@ import { ElSelectPoprs } from './select-props'
     </div>
   `,
 })
-export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChanges {
+export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChanges, ControlValueAccessor {
   
   
   selfWidth: string
@@ -34,6 +40,9 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   selectedLabel: string | number
   iconClass: string = 'arrow-up'
   globalListener: Function
+  
+  private controlChange: Function
+  private controlTouch: Function
   
   constructor(
     private el: ElementRef,
@@ -78,6 +87,7 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
     
     this.model = nextValue
     this.modelChange.emit(nextValue)
+    this.controlChange(nextValue)
     this.subscriber.forEach(sub => sub())
   }
   
@@ -101,12 +111,25 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
       this.selectedLabel = changes.model.currentValue
       this.model = changes.model.currentValue
       this.modelChange.emit(changes.model.currentValue)
+      this.controlChange(this.model)
     }
     this.subscriber.forEach(sub => sub())
   }
   
   ngOnDestroy(): void {
     this.globalListener && this.globalListener()
+  }
+  
+  writeValue(value: any): void {
+    this.model = value
+  }
+  
+  registerOnChange(fn: Function): void {
+    this.controlChange = fn
+  }
+  
+  registerOnTouched(fn: Function): void {
+    this.controlTouch = fn
   }
   
 }
