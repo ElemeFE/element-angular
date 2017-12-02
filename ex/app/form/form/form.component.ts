@@ -14,6 +14,10 @@ export class ExFormComponentDemo implements OnInit {
   ) {
   }
   
+  submit(): void {
+    this.validateForm.reset()
+  }
+  
   ngOnInit(): void {
     this.validateForm = this.formBuilder.group({
       city: ['', Validators.required],
