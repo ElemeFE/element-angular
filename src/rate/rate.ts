@@ -1,6 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild, Renderer2 } from '@angular/core'
+import { Component, ElementRef, OnInit, ViewChild, Renderer2, forwardRef } from '@angular/core'
 import { ElRateProps } from './rate.props'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 export type RateMapItem = { color: string, class: string }
 export type RateMap = {
   low: RateMapItem,
@@ -12,6 +13,11 @@ export type RateMap = {
 
 @Component({
   selector: 'el-rate',
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => ElRate),
+    multi: true
+  }],
   template: `
     <div class="el-rate" role="slider">
       <span *ngFor="let s of scores; let i = index" class="el-rate__item"
@@ -30,12 +36,15 @@ export type RateMap = {
     </div>
   `,
 })
-export class ElRate extends ElRateProps implements OnInit {
+export class ElRate extends ElRateProps implements OnInit, ControlValueAccessor {
   
   @ViewChild('rateIcon') rateIcon: ElementRef
   scores: boolean[] = []
   rateMap: RateMap
   backupModel: number
+  
+  private controlChange: Function
+  private controlTouch: Function
   
   constructor(
     private sanitizer: DomSanitizer,
@@ -61,6 +70,7 @@ export class ElRate extends ElRateProps implements OnInit {
     if (this.disabled) return
     this.model = this.backupModel = index
     this.modelChange.emit(index)
+    this.controlChange(index)
   }
   
   makeIconClasses(index: number): string {
@@ -94,6 +104,18 @@ export class ElRate extends ElRateProps implements OnInit {
       void: { color: this.voidColor, class: this.voidIconClass },
       disabled: { color: this.disabledVoidColor, class: this.disabledVoidIconClass },
     }
+  }
+  
+  writeValue(value: any): void {
+    this.model = value
+  }
+  
+  registerOnChange(fn: Function): void {
+    this.controlChange = fn
+  }
+  
+  registerOnTouched(fn: Function): void {
+    this.controlTouch = fn
   }
   
 }
