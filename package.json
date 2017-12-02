@@ -78,7 +78,7 @@
     "core-js": "^2.4.1",
     "css-loader": "^0.28.4",
     "del": "^3.0.0",
-    "element-ui": "^2.0.1",
+    "element-ui": "^2.0.7",
     "extract-text-webpack-plugin": "^3.0.0",
     "gh-pages": "^1.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
