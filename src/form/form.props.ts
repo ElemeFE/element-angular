@@ -12,6 +12,6 @@ export class ElFormProps {
   // right / left / top
   @Input('label-position') labelPosition: string = 'right'
   @Input('label-width') labelWidth: string
-  
+  @Input('label-suffix') labelSuffix: string
   
 }

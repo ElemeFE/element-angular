@@ -1,4 +1,4 @@
-import { Component, Input, Optional } from '@angular/core'
+import { Component, Input, OnChanges, Optional, SimpleChanges } from '@angular/core'
 import { ElForm } from './form'
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser'
 
@@ -24,7 +24,7 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser'
   </div>
   `,
 })
-export class ElFormItem {
+export class ElFormItem implements OnChanges {
   // error / success / validating
   @Input() status: string
   @Input() error: string
@@ -34,6 +34,8 @@ export class ElFormItem {
   @Input('label-width') labelWidth: string
   @Input('show-message') showMessage: boolean = true
   @Input('inline-message') inlineMessage: boolean
+  
+  statusSubscriber: Array<(status: string) => void> = []
   
   constructor(
     @Optional() public root: ElForm,
@@ -71,5 +73,12 @@ export class ElFormItem {
     return this.sanitizer.bypassSecurityTrustStyle(styles)
   }
   
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!this.root.showIcon) return
+    if (!changes || !changes.status) return
+    this.statusSubscriber.forEach(sub => {
+      sub(changes.status.currentValue)
+    })
+  }
 
 }
