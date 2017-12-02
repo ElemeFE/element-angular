@@ -1,0 +1,14 @@
+.form-demo {
+  form {
+    width: 460px;
+
+    el-input .el-input {
+      margin-right: 10px;
+      width: 270px;
+      vertical-align: top;
+    }
+    el-cascader .el-input {
+      width: 150px;
+    }
+  }
+}
