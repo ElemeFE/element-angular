@@ -42,7 +42,7 @@ import { ElFormItem } from '../form/form-item'
           </span>
         </span>
         <input class="el-input__inner"
-          [autocomplete]="autoComplete" [value]="value" [name]="name"
+          [autocomplete]="autoComplete" [value]="value" [name]="name" [type]="nativeType"
           [placeholder]="placeholder" [autofocus]="autofocus"
           [disabled]="disabled" [readonly]="readonly"
           [maxlength]="maxlength" [minlength]="minlength"

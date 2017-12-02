@@ -19,6 +19,7 @@ export class ElInputPoprs {
   // native attrs
   @Input('auto-complete') autoComplete: string = 'off'     // only type === 'text'
   @Input() name: string
+  @Input('native-type') nativeType: string
   @Input() readonly: boolean = false
   // @Input() step: any
   @Input() autofocus: boolean = false
