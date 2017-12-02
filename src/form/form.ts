@@ -11,5 +11,7 @@ import { ElFormProps } from './form.props'
   `,
 })
 export class ElForm extends ElFormProps {
-
+  constructor() {
+    super()
+  }
 }
