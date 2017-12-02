@@ -1,10 +1,15 @@
-import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core'
+import { Component, forwardRef, OnDestroy, OnInit, Renderer2 } from '@angular/core'
 import { ElDatePickerProps } from './picker-props'
 import { DateFormat } from './utils/format'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
   selector: 'el-date-picker',
-  providers: [DateFormat],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => ElDataPicker),
+    multi: true
+  }, DateFormat],
   template: `
     <div (click)="propagationHandle($event)">
       <el-input [class]="'el-date-editor ' + 'el-date-editor--' + type"
@@ -26,13 +31,16 @@ import { DateFormat } from './utils/format'
     </div>
   `,
 })
-export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy {
+export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy, ControlValueAccessor {
   
   showPanelPicker: boolean = false
   value: number
   globalClickListener: Function
   globalKeydownListener: Function
   iconShowClose: boolean = false
+  
+  private controlChange: Function
+  private controlTouch: Function
   
   constructor(
     private dateFormat: DateFormat,
@@ -86,6 +94,7 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
     this.model = DateFormat.moment(time, this.format)
     this.value = new Date(this.model).getTime()
     this.modelChange.emit(this.model)
+    this.controlChange(this.model)
     this.showPanelPicker = false
   }
   
@@ -125,4 +134,15 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
     this.globalKeydownListener && this.globalKeydownListener()
   }
   
+  writeValue(value: any): void {
+    this.model = value
+  }
+  
+  registerOnChange(fn: Function): void {
+    this.controlChange = fn
+  }
+  
+  registerOnTouched(fn: Function): void {
+    this.controlTouch = fn
+  }
 }
