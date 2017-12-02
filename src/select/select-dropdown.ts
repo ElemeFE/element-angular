@@ -40,14 +40,16 @@ export class ElSelectDropdown implements OnInit {
     @Optional() private rootSelect: ElSelect,
     private sanitizer: DomSanitizer
   ) {
-    this.dropdownStyles = this.sanitizer.bypassSecurityTrustStyle('display: none; opacity: 0; height: 0')
   }
   
   ngOnInit(): void {
+    let firstStyle: string = 'display: none; opacity: 0; height: 0;'
+    this.dropdownStyles = this.sanitizer.bypassSecurityTrustStyle(firstStyle)
     setTimeout(() => {
-      const styles = `min-width: ${this.rootSelect.selfWidth}px;`
+      const styles = `min-width: ${this.rootSelect.selfWidth}px; ${firstStyle || ''}`
       this.dropdownStyles = this.sanitizer.bypassSecurityTrustStyle(styles)
       this.popperClass = this.rootSelect.popperClass
+      firstStyle = ''
     }, 0)
   }
   
