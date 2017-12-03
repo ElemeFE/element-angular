@@ -1,14 +1,22 @@
 import {
-  AfterViewInit, Component, ContentChild, OnInit, TemplateRef,
+  AfterViewInit, Component, ContentChild, ElementRef, forwardRef, OnInit, TemplateRef,
   ViewChild,
 } from '@angular/core'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 import { ElInputPoprs } from './input-props'
 import { getTextareaHeight } from './help'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
+import { isParentTag } from '../shared/utils'
+import { ElFormItem } from '../form/form-item'
 
 @Component({
   selector: 'el-input',
   styles: ['.icon-disabled {cursor: not-allowed;} .icon-disabled:before {cursor: not-allowed;}'],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => ElInput),
+    multi: true
+  }],
   template: `
     <div [class]="(type === 'text' ? 'el-input' : 'el-textarea') +
     (size ? ' el-input--' + size : '') + ' ' + parentClass"
@@ -34,7 +42,7 @@ import { getTextareaHeight } from './help'
           </span>
         </span>
         <input class="el-input__inner"
-          [autocomplete]="autoComplete" [value]="value" [name]="name"
+          [autocomplete]="autoComplete" [value]="value" [name]="name" [type]="nativeType"
           [placeholder]="placeholder" [autofocus]="autofocus"
           [disabled]="disabled" [readonly]="readonly"
           [maxlength]="maxlength" [minlength]="minlength"
@@ -61,16 +69,17 @@ import { getTextareaHeight } from './help'
     </div>
   `,
 })
-export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit {
+export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit, ControlValueAccessor {
   
   @ContentChild('prepend') prepend: TemplateRef<any>
   @ContentChild('append') append: TemplateRef<any>
   @ViewChild('textarea') textarea: any
-  
   textareaStyles: SafeStyle
   
   constructor(
     private sanitizer: DomSanitizer,
+    private el: ElementRef,
+    private form: ElFormItem,
   ) {
     super()
   }
@@ -85,6 +94,7 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit {
   handleInput(val: string): void {
     this.model = val
     this.modelChange.emit(val)
+    this.controlChange(val)
     const timer: any = setTimeout(() => {
       this.makeTextareaStyles()
       clearTimeout(timer)
@@ -92,6 +102,18 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit {
   }
   
   ngOnInit(): void {
+    // auto follow form status
+    const parentIsForm: boolean = isParentTag(this.el.nativeElement, 'el-form-item')
+    if (parentIsForm) {
+      const iconStatus = {
+        error: 'circle-close', success: 'circle-check', validating: 'circle-validating',
+      }
+      this.iconClass = 'el-input__validateIcon'
+      this.form.statusSubscriber.push((status: string) => {
+        this.icon = iconStatus[status] || ''
+      })
+    }
+    
     if (this.value && !this.model) {
       this.model = this.value
     }
@@ -105,4 +127,19 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit {
       }, 0)
     }
   }
+  
+  writeValue(value: any): void {
+    this.model = value
+  }
+  
+  registerOnChange(fn: Function): void {
+    this.controlChange = fn
+  }
+  
+  registerOnTouched(fn: Function): void {
+    this.controlTouch = fn
+  }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
 }

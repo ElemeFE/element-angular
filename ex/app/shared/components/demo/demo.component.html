@@ -5,15 +5,9 @@
     <ng-container [ex-dynamic]="code" [class]="parentClass"></ng-container>
   </div>
   <div class="meta" [@expand]="isExpanded" style="height: 0;">
-    <div class="description">
-      <ng-container *ngIf="notes">
+    <div class="description" *ngIf="notes">
+      <ng-container>
         <div [innerHTML]="safeNotes"></div>
-      </ng-container>
-      <ng-container *ngIf="link">
-        <button type="button" class="el-button el-tooltip el-button--primary el-button--small"
-          (click)="openDemo()">
-          <span i18n="@@shared-demo-p-1">在线运行</span>
-        </button>
       </ng-container>
     </div>
 

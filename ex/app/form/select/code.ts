@@ -14,6 +14,12 @@ export default [
 <script type="text">
 
 // in component
+
+handle(event: any):void {
+  this.value = event
+  console.log(event, this.value)
+}
+
 clear(): void {
   this.value = null
 }
@@ -23,7 +29,6 @@ clear(): void {
 
 // 有禁用选项
 `
-
 <el-select [(model)]="value" placeholder="请选择">
   <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
       { value: '选项2', label: '双皮奶' },
@@ -35,24 +40,20 @@ clear(): void {
     [value]="item.value">
   </el-option>
 </el-select>
-
 `,
 
 // 禁用 select
 `
-
 <el-select [model]="'选项2'" [disabled]="true">
   <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' }]"
     [label]="item.label"
     [value]="item.value">
   </el-option>
 </el-select>
-
 `,
 
 // 默认选中
 `
-
 <el-select [model]="'选项2'">
   <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
       { value: '选项2', label: '双皮奶' },
@@ -63,12 +64,10 @@ clear(): void {
     [value]="item.value">
   </el-option>
 </el-select>
-
 `,
 
 // 有清空按钮
 `
-
 <el-select [(model)]="value" [clearable]="true">
   <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
       { value: '选项2', label: '双皮奶' },
@@ -79,6 +78,5 @@ clear(): void {
     [value]="item.value">
   </el-option>
 </el-select>
-
 `,
 ]

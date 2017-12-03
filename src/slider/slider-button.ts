@@ -100,8 +100,12 @@ export class ElSliderButton implements OnInit, OnChanges {
     event.preventDefault()
     this.onDragStart(event)
     this.globalListenFunc.push(...[
-      this.renderer.listen('window', 'mousemove', (e: Event) => this.draggingHandle(e)),
-      this.renderer.listen('window', 'mouseup', () => this.dragEndHandle())
+      this.renderer.listen('window', 'mousemove', (e: Event) => {
+        this.draggingHandle(e)
+      }),
+      this.renderer.listen('window', 'mouseup', () => {
+        this.dragEndHandle()
+      })
     ])
     
   }

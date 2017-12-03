@@ -1,10 +1,15 @@
-import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core'
+import { Component, forwardRef, OnDestroy, OnInit, Renderer2 } from '@angular/core'
 import { ElDatePickerProps } from './picker-props'
 import { DateFormat } from './utils/format'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
   selector: 'el-date-picker',
-  providers: [DateFormat],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => ElDataPicker),
+    multi: true
+  }, DateFormat],
   template: `
     <div (click)="propagationHandle($event)">
       <el-input [class]="'el-date-editor ' + 'el-date-editor--' + type"
@@ -26,7 +31,7 @@ import { DateFormat } from './utils/format'
     </div>
   `,
 })
-export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy {
+export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy, ControlValueAccessor {
   
   showPanelPicker: boolean = false
   value: number
@@ -70,13 +75,20 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
   // text to time
   changeHandle(input: string): void {
     const time: number = this.dateFormat.getTime(input)
-    if (!time) return
+    // if (!time) return
     this.value = time
   }
   
   // try update input value
   // always trigger emit
   tryUpdateText(): void {
+    if (!this.value) {
+      this.model = null
+      this.modelChange.emit(null)
+      this.controlChange(null)
+      this.showPanelPicker = false
+      return
+    }
     const modelTime: number = new Date(this.model).getTime()
     const time: number = this.dateFormat.getTime(this.value)
     this.dateChangeHandle(time ? this.value : modelTime)
@@ -86,6 +98,7 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
     this.model = DateFormat.moment(time, this.format)
     this.value = new Date(this.model).getTime()
     this.modelChange.emit(this.model)
+    this.controlChange(this.model)
     this.showPanelPicker = false
   }
   
@@ -118,6 +131,7 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
     if (!time) return
     this.model = DateFormat.moment(time, this.format)
     this.value = time
+  
   }
   
   ngOnDestroy(): void {
@@ -125,4 +139,18 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
     this.globalKeydownListener && this.globalKeydownListener()
   }
   
+  writeValue(value: any): void {
+    this.model = value
+  }
+  
+  registerOnChange(fn: Function): void {
+    this.controlChange = fn
+  }
+  
+  registerOnTouched(fn: Function): void {
+    this.controlTouch = fn
+  }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
 }

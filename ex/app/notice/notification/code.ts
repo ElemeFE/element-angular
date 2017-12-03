@@ -1,7 +1,6 @@
 export default [
 // 基础用法
 `
-
 <el-button [plain]="true" (click)="handle()">
   尝试
 </el-button>
@@ -22,12 +21,10 @@ export default [
     this.notify.show('这是一条消息提示')
   }
 </script>
-
 `,
   
   // 基础用法
-  `
-
+`
 <el-button [plain]="true" (click)="handle2()">
   尝试
 </el-button>
@@ -40,11 +37,10 @@ export default [
     this.notify.show('这是一条消息提示', '消息标题')
   }
 </script>
-
 `,
   
-  // 不同类型
-  `
+// 不同类型
+`
 <el-button [plain]="true" (click)="handle3('success')">成功</el-button>
 <el-button [plain]="true" (click)="handle3('warning')">警告</el-button>
 <el-button [plain]="true" (click)="handle3('info')">消息</el-button>

@@ -11,11 +11,9 @@ export default [
 
 // 加载文字
 `
-
 <div class="demo" [el-loading]="true" [text]="'拼命加载中'">
   <el-tag>加载中..</el-tag>
 </div>
-
 `,
 
 // 全局加载
@@ -27,7 +25,6 @@ export default [
   [full-screen]="true">
   显示整页加载，3 秒后消失
 </el-button>
-
 `,
 
 ]

@@ -27,7 +27,6 @@ limit500(file: File): boolean {
 `,
 
 `
-
 <el-upload class="avatar-uploader"
   action="https://jsonplaceholder.typicode.com/posts/"
   [show-file-list]="false"
@@ -52,12 +51,10 @@ errorHandle(err: any): void {
 }
 
 </script>
-
 `,
 
 // 照片墙
 `
-
 <el-upload action="https://jsonplaceholder.typicode.com/posts/"
   list-type="picture-card"
   (preview)="previewHandle($event)"
@@ -70,12 +67,10 @@ errorHandle(err: any): void {
 <el-dialog [(visible)]="showDialog" size="tiny">
   <img width="100%" [src]="dialogImageUrl" alt="">
 </el-dialog>
-
 `,
 
 // 缩略图
 `
-
 <el-upload class="avatar-uploader"
   [file-list]="fileList"
   action="https://jsonplaceholder.typicode.com/posts/"
@@ -84,12 +79,10 @@ errorHandle(err: any): void {
     <el-button size="small" type="primary">点击上传</el-button>
   </ng-template>
 </el-upload>
-
 `,
 
 // 拖拽上传
 `
-
 <el-upload class="upload-demo"
   action="https://jsonplaceholder.typicode.com/posts/"
   [drag]="true"
@@ -101,6 +94,5 @@ errorHandle(err: any): void {
     </div>
   </ng-template>
 </el-upload>
-
 `,
 ]

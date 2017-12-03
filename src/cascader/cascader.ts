@@ -1,8 +1,14 @@
-import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core'
+import { Component, forwardRef, OnDestroy, OnInit, Renderer2 } from '@angular/core'
 import { ElCascaderPoprs, Option } from './cascader-props'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
   selector: 'el-cascader',
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => ElCascader),
+    multi: true
+  }],
   template: `
     <span [class]="'el-cascader ' +  (menuVisible ? 'is-opened ' : '') + (disabled ? 'is-disabled ' : '')
       + (size ? 'el-cascader--' + size : '')"
@@ -31,7 +37,7 @@ import { ElCascaderPoprs, Option } from './cascader-props'
   </span>
   `,
 })
-export class ElCascader extends ElCascaderPoprs implements OnInit, OnDestroy {
+export class ElCascader extends ElCascaderPoprs implements OnInit, OnDestroy, ControlValueAccessor {
   
   steps: any[] = []
   menuVisible: boolean = false
@@ -54,9 +60,9 @@ export class ElCascader extends ElCascaderPoprs implements OnInit, OnDestroy {
     
     if (this.menuVisible) {
       this.globalListenFunc = this.renderer.listen(
-        'document',
-        'click',
-        () => (this.menuVisible = false)
+        'document', 'click', () => {
+          this.menuVisible = false
+        }
       )
     } else {
       this.globalListenFunc && this.globalListenFunc()
@@ -70,10 +76,10 @@ export class ElCascader extends ElCascaderPoprs implements OnInit, OnDestroy {
       nextValue.push(steps[0])
     })
     this.currentLabels = nextValue
-    this.modelChange.emit({
-      value: nextValue[nextValue.length - 1].value,
-      path: nextValue.map((item: Option) => item.value),
-    })
+    const next = nextValue.map((item: Option) => item.value)
+    this.model = next
+    this.modelChange.emit(next)
+    this.controlChange(next)
   }
   
   clearValue(event?: Event): void {
@@ -134,5 +140,20 @@ export class ElCascader extends ElCascaderPoprs implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.globalListenFunc && this.globalListenFunc()
   }
+  
+  writeValue(value: any): void {
+    this.model = value
+  }
+  
+  registerOnChange(fn: Function): void {
+    this.controlChange = fn
+  }
+  
+  registerOnTouched(fn: Function): void {
+    this.controlTouch = fn
+  }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
   
 }

@@ -17,6 +17,7 @@ export class ExSelectComponent {
       { value: '选项5', label: '北京烤鸭' }]
     
     handle(event: any):void {
+      this.value = event
       console.log(event, this.value)
     }
   

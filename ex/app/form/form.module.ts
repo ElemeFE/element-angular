@@ -17,6 +17,7 @@ import { ExCascaderComponent, ExCascaderDemoComponent } from './cascader/cascade
 import { ExDatePickerComponent } from './date-picker/date-picker.component'
 import { ExSliderComponent } from './slider/slider.component'
 import { ExUploadComponent, ExUploadDemoComponent } from './upload/upload.component'
+import { ExFormComponent } from './form/form.component'
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ExUploadComponent, ExUploadDemoComponent } from './upload/upload.compon
     ExSliderComponent,
     ExUploadComponent,
     ExUploadDemoComponent,
+    ExFormComponent,
   ],
   imports: [
     CommonModule,

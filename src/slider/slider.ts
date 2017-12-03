@@ -1,9 +1,15 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core'
+import { AfterViewInit, Component, ElementRef, forwardRef, OnInit, ViewChild } from '@angular/core'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 import { ElSliderProps } from './slider.props'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
   selector: 'el-slider',
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => ElSlider),
+    multi: true
+  }],
   template: `
     <div class="el-slider" [class.is-vertical]="vertical">
       <div class="el-slider__runway" [class.disabled]="disabled"
@@ -20,7 +26,7 @@ import { ElSliderProps } from './slider.props'
     </div>
   `,
 })
-export class ElSlider extends ElSliderProps implements OnInit, AfterViewInit {
+export class ElSlider extends ElSliderProps implements OnInit, AfterViewInit, ControlValueAccessor {
   
   @ViewChild('runway') runwayElement: ElementRef
   size: number
@@ -65,6 +71,7 @@ export class ElSlider extends ElSliderProps implements OnInit, AfterViewInit {
   moveChange(nextValue: number): void {
     this.model = nextValue
     this.modelChange.emit(nextValue)
+    this.controlChange(nextValue)
   }
   
   ngOnInit(): void {
@@ -76,5 +83,20 @@ export class ElSlider extends ElSliderProps implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.resetSize()
   }
+  
+  writeValue(value: any): void {
+    this.model = value
+  }
+  
+  registerOnChange(fn: Function): void {
+    this.controlChange = fn
+  }
+  
+  registerOnTouched(fn: Function): void {
+    this.controlTouch = fn
+  }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
   
 }

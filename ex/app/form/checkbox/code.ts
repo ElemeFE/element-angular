@@ -8,15 +8,12 @@ export default [
 
 // 禁用
 `
-
 <el-checkbox [model]="checked1" [disabled]="true">备选项1</el-checkbox>
 <el-checkbox [model]="checked2" [disabled]="true">备选项2</el-checkbox>
-
 `,
 
 // 多选框组
 `
-
 <!--当组件中无值时，label 属性的值也会用于显示-->
 <el-checkbox-group [model]="['复选框 B', '选中且禁用']" (modelChange)="handle($event)">
   <el-checkbox label="复选框 A"></el-checkbox>
@@ -25,7 +22,6 @@ export default [
   <el-checkbox label="禁用" [disabled]="true"></el-checkbox>
   <el-checkbox label="选中且禁用" [disabled]="true"></el-checkbox>
 </el-checkbox-group>
-
 `,
 
 // 限制数量

@@ -1,8 +1,14 @@
-import { Component } from '@angular/core'
+import { Component, forwardRef } from '@angular/core'
 import { ElInputNumberPoprs } from './input-number-props'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
   selector: 'el-input-number',
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => ElInputNumber),
+    multi: true
+  }],
   template: `
     <div [class]="'el-input-number' + (size ? ' el-input-number--' + size : '')"
       [class.is-disabled]="disabled" [class.is-without-controls]="!controls">
@@ -24,7 +30,7 @@ import { ElInputNumberPoprs } from './input-number-props'
     </div>
   `,
 })
-export class ElInputNumber extends ElInputNumberPoprs {
+export class ElInputNumber extends ElInputNumberPoprs implements ControlValueAccessor {
   
   minDisabled: boolean = false
   maxDisabled: boolean = false
@@ -67,7 +73,23 @@ export class ElInputNumber extends ElInputNumberPoprs {
     if (!this.maxDisabled && !this.minDisabled) {
       this.model = val
       this.modelChange.emit(this.model)
+      this.controlChange(this.model)
     }
   }
+  
+  writeValue(value: any): void {
+    this.model = value
+  }
+  
+  registerOnChange(fn: Function): void {
+    this.controlChange = fn
+  }
+  
+  registerOnTouched(fn: Function): void {
+    this.controlTouch = fn
+  }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
   
 }

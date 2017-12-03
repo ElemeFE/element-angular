@@ -9,24 +9,20 @@ export default [
 
 // 禁用状态
 `
-
 <el-input placeholder="请输入内容"
   [model]="input1"
   [disabled]="true">
 </el-input>
-
 `,
 
 // 图标
 
 `
-
 <!--你可以使用 (icon-click)=Function 来得到图标点击的事件-->
 <el-input placeholder="请选择日期"
   icon="search"
   [model]="input2">
 </el-input>
-
 `,
 
 // 文本域

@@ -316,6 +316,26 @@
       }, {
         "description": "移除重复样式"
       }]
+    },
+    {
+      "version": "0.5.0-beta.1",
+      "date": "2017-12-03",
+      "link": null,
+      "events": [{
+        "issues": [302],
+        "description": "新增 Form 模块与文档"
+      }, {
+        "issues": [294],
+        "description": "为所有表单元素增加响应式模式支持"
+      }, {
+        "description": "修复 Windows 下的入口引入错误问题"
+      }, {
+        "description": "修复部分文档样式错位问题"
+      }, {
+        "description": "修复 Date Picker 中造成的事件失效错误"
+      }, {
+        "description": "Input 组件增加 native-type 属性"
+      }]
     }
   ]
 }

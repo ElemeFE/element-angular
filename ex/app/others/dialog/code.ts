@@ -1,7 +1,6 @@
 export default [
 // 基础用法
 `
-
 <div class="box-card" #card>
   <p el-row>点击按钮显示提示</p>
   <el-button (click)="card.toggle = true">扬州</el-button>
@@ -14,12 +13,10 @@ export default [
     <span>我选择在夏威夷演讲。</span>
   </el-dialog>
 </div>
-
 `,
 
 // 自定义内容
 `
-
 <div class="box-card" #card>
 
   <el-button (click)="card.toggle = true">自定义标题</el-button>
@@ -46,8 +43,7 @@ export default [
 `,
 
 // 基础用法
-  `
-
+`
 <div class="box-card" #card>
   <el-button (click)="card.toggle = true">回调函数</el-button>
   
@@ -57,12 +53,10 @@ export default [
   </el-dialog>
   
 </div>
-
 `,
 
 // 居中
 `
-
 <div class="box-card" #card>
   <el-button (click)="card.toggle = true">居中显示</el-button>
   
@@ -72,6 +66,5 @@ export default [
   </el-dialog>
   
 </div>
-
 `,
 ]

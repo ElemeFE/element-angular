@@ -1,29 +1,27 @@
 export default [
 // 基础用法
 `
-
-<div class="block">
-  <span class="demonstration">页数较少时的效果</span>
-  <el-pagination [total]="50"
-  [layout]="['prev', 'pager', 'next']">
-  </el-pagination>
+<div class="pagination-demo">
+  <div class="block">
+    <span class="demonstration">页数较少时的效果</span>
+    <el-pagination [total]="50"
+    [layout]="['prev', 'pager', 'next']">
+    </el-pagination>
+  </div>
+  <div class="block">
+    <span class="demonstration">大于 7 页时的效果</span>
+    <el-pagination [total]="200"
+    [layout]="['prev', 'pager', 'next']">
+    </el-pagination>
+  </div>
 </div>
-<div class="block">
-  <span class="demonstration">大于 7 页时的效果</span>
-  <el-pagination [total]="200"
-  [layout]="['prev', 'pager', 'next']">
-  </el-pagination>
-</div>
-
 `,
 
 // 小型
 `
-
 <el-pagination [total]="50"
   [small]="true">
 </el-pagination>
-
 `,
 
 // 附加功能

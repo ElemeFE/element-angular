@@ -1,0 +1,54 @@
+{
+  "name": "Form Item Attributes",
+  "attrs": [
+    {
+      "name": "status",
+      "notes": "当前表单项状态",
+      "type": "string",
+      "enum": "error / success / validating",
+      "default": null
+    },
+    {
+      "name": "label",
+      "notes": "label 文字描述",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "error",
+      "notes": "校验错误信息",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "show-message",
+      "notes": "是否显示错误提示信息 (仅对单个表单项设置)",
+      "type": "boolean",
+      "enum": null,
+      "default": true
+    },
+    {
+      "name": "inline-message",
+      "notes": "行内展示校验错误信息",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "label-width",
+      "notes": "label 宽度 (仅对单个表单项设置)",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "required",
+      "notes": "表单项是否为必填 (UI 辅助标注为必填)",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    }
+  ]
+}

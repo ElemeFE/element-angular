@@ -80,9 +80,9 @@ export class ElDropdown extends ElDropdownProps implements OnDestroy, AfterViewI
     this.showMenu = !this.showMenu
     this.visibleChange.emit()
     this.globalListenFunc = this.renderer.listen(
-      'document',
-      'click',
-      () => this.closeMenu()
+      'document', 'click', () => {
+        this.closeMenu()
+      }
     )
   }
   

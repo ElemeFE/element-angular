@@ -36,7 +36,6 @@ import { ElMessageService } from '../../../../../src/element-angular.module'
 })
 export class ExDemoComponent implements OnInit {
   
-  @Input() link: string
   @Input() notes: string
   @Input() code: string
   @Input('class') parentClass: new ([string]?: any) => {} = class {}

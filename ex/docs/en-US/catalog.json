@@ -107,6 +107,10 @@
       "name": "Upload 上传",
       "name-en": "Upload",
       "link": "/form/upload"
+    }, {
+      "name": "Form 表单",
+      "name-en": "Form",
+      "link": "/form/form"
     }]
   }, {
     "name": "Data",

@@ -1,11 +1,17 @@
 import {
-  Component, Input, Output, EventEmitter, ElementRef, Optional, OnInit,
+  Component, Input, Output, EventEmitter, ElementRef, Optional, OnInit, forwardRef,
 } from '@angular/core'
 import { ElRadioGroup } from './radio-group'
 import { isParentTag, removeNgTag } from '../shared/utils'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
   selector: 'el-radio',
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => ElRadio),
+    multi: true
+  }],
   template: `
     <label class="el-radio" role="radio" tabindex="0">
       <span class="el-radio__input"
@@ -23,7 +29,7 @@ import { isParentTag, removeNgTag } from '../shared/utils'
     </label>
   `,
 })
-export class ElRadio implements OnInit {
+export class ElRadio implements OnInit, ControlValueAccessor {
   
   @Input() disabled: boolean = false
   @Input() label: string | number = ''
@@ -44,7 +50,9 @@ export class ElRadio implements OnInit {
     if (this.parentIsGroup) {
       return this.rootGroup.changeHandle(this.label)
     }
+    this.model = this.label
     this.modelChange.emit(this.label)
+    this.controlChange(this.label)
   }
   
   ngOnInit(): void {
@@ -61,4 +69,20 @@ export class ElRadio implements OnInit {
       this.rootGroup.subscriber.push(update)
     }
   }
+  
+  writeValue(value: any): void {
+    this.model = value
+  }
+  
+  registerOnChange(fn: Function): void {
+    this.controlChange = fn
+  }
+  
+  registerOnTouched(fn: Function): void {
+    this.controlTouch = fn
+  }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
+  
 }

@@ -1,8 +1,14 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core'
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
   selector: 'el-switch',
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => ElSwitch),
+    multi: true
+  }],
   template: `
     <label class="el-switch"
       [class.is-disabled]="disabled"
@@ -31,7 +37,7 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
     </label>
   `,
 })
-export class ElSwitch implements OnInit {
+export class ElSwitch implements OnInit, ControlValueAccessor {
   
   @Input() name: string
   @Input() disabled: boolean = false
@@ -60,6 +66,7 @@ export class ElSwitch implements OnInit {
   changeHandle(nextValue: boolean): void {
     this.model = nextValue
     this.modelChange.emit(nextValue)
+    this.controlChange(nextValue)
     this.updateStyles()
   }
   
@@ -80,5 +87,20 @@ export class ElSwitch implements OnInit {
     this.realWidth = this.width ? this.width : 40
     this.updateStyles()
   }
+  
+  writeValue(value: any): void {
+    this.model = value
+  }
+  
+  registerOnChange(fn: Function): void {
+    this.controlChange = fn
+  }
+  
+  registerOnTouched(fn: Function): void {
+    this.controlTouch = fn
+  }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
   
 }

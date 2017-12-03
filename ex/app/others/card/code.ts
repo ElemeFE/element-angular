@@ -1,7 +1,6 @@
 export default [
 // 基础用法
 `
-
 <el-card class="box-card">
   <ng-template #header>
     <div class="clearfix">
@@ -13,13 +12,10 @@ export default [
     {{'列表内容 ' + item }}
   </div>
 </el-card>
-
 `,
 
 // 简单卡片
-
 `
-
 <el-card class="box-card">
   <div *ngFor="let item of [0, 1, 2, 4]" class="text item">
     {{'列表内容 ' + item }}
@@ -30,7 +26,6 @@ export default [
 
 // 带图片
 `
-
 <div el-row>
   <div el-col span="8" *ngFor="let item of [0, 1]" [offset]="item > 0 ? 2 : 0">
     <el-card body-style="padding: 0px">
@@ -45,6 +40,5 @@ export default [
     </el-card>
   </div>
 </div>
-
 `,
 ]
