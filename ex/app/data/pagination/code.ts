@@ -1,7 +1,6 @@
 export default [
 // 基础用法
 `
-
 <div class="block">
   <span class="demonstration">页数较少时的效果</span>
   <el-pagination [total]="50"
@@ -14,16 +13,13 @@ export default [
   [layout]="['prev', 'pager', 'next']">
   </el-pagination>
 </div>
-
 `,
 
 // 小型
 `
-
 <el-pagination [total]="50"
   [small]="true">
 </el-pagination>
-
 `,
 
 // 附加功能

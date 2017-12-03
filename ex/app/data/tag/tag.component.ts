@@ -12,7 +12,7 @@ export class ExTagComponent {
   private code: string[] = code
   private tags: string[] = ['123', '234234', '0011']
   private page: any = {
-    previous: { name: 'Rate 评分', link: '/form/rate' },
+    previous: { name: 'Form 表单', link: '/form/form' },
     next: { name: 'Progress 输入框', link: '/data/progress' },
   }
   

@@ -60,9 +60,7 @@ export default [
 
 // 加载中
 `
-
 <el-button type="primary" [loading]="true">加载中</el-button>
-
 `,
 
 // 不同尺寸

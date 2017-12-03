@@ -1,7 +1,6 @@
 export default [
 // 基础用法
 `
-
 <el-dropdown [model]="data">
   下拉菜单
 </el-dropdown>
@@ -18,13 +17,11 @@ private data: any[] = [{
   value: 'luosifen',
   label: '螺蛳粉',
 }]
-
 </script>
 `,
 
 // 触发方式
 `
-
 <div el-row class="block-col-2">
   <div el-col span="12">
     <span class="demonstration">hover 激活</span>
@@ -40,12 +37,10 @@ private data: any[] = [{
     </el-dropdown>
   </div>
 </div>
-
 `,
 
 // 禁用
 `
-
 <el-dropdown [model]="data2">
   下拉菜单
 </el-dropdown>
@@ -69,7 +64,6 @@ private data2: any[] = [{
 
 // 分割线
 `
-
 <el-dropdown [model]="data3">
   下拉菜单
 </el-dropdown>
@@ -88,17 +82,14 @@ private data3: any[] = [{
   label: '螺蛳粉',
 }]
 </script>
-
 `,
 
 // 按钮
 `
-
 <el-dropdown [model]="data3"
   [split-button]="true"
   type="primary">
   下拉菜单
 </el-dropdown>
-
 `,
 ]

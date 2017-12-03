@@ -1,7 +1,6 @@
 export default [
 // 基础用法
 `
-
 <el-menu theme="dark" [model]="0" class="el-menu-demo" mode="horizontal">
   <el-menu-item index="1">处理中心</el-menu-item>
   <el-submenu index="2" title="我的工作台">
@@ -21,11 +20,9 @@ export default [
   </el-submenu>
   <el-menu-item index="3"><a href="https://github.com/eleme/element-angular" target="_blank">GITHUB</a></el-menu-item>
 </el-menu>
-
 `,
   
 `
-
 <div el-row class="tac">
   <div el-col span="8">
     <h5>带 icon</h5>
@@ -82,9 +79,6 @@ export default [
     </el-menu>
   </div>
 </div>
-
 `,
-
-
 
 ]

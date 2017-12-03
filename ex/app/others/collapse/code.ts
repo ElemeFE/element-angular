@@ -27,7 +27,6 @@ export default [
 
 // 手风琴
 `
-
 <el-collapse [model]="[1]" [accordion]="true">
   <el-collapse-item label="一致性 Consistency" value="1">
     <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
@@ -47,12 +46,10 @@ export default [
     <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
   </el-collapse-item>
 </el-collapse>
-
 `,
 
 // 基础用法
 `
-
 <el-collapse [model]="[1]">
   <el-collapse-item label="一致性 Consistency" value="1">
   
@@ -77,8 +74,5 @@ export default [
     <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
   </el-collapse-item>
 </el-collapse>
-
 `,
-
-
 ]

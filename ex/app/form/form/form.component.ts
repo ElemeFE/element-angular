@@ -148,8 +148,8 @@ export class ExFormComponent {
   
   private code: string[] = code
   private page: any = {
-    previous: { name: 'Switch 开关', link: '/form/switch' },
-    next: { name: 'Slider 滑块', link: '/form/slider' },
+    previous: { name: 'Upload 上传', link: '/form/upload' },
+    next: { name: 'Tag 标签', link: '/data/tag' },
   }
   private exClass: any = ExFormComponentDemo
   

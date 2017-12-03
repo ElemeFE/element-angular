@@ -73,7 +73,6 @@ export default [
 
 // 禁用
 `
-
 <el-cascader [options]="disabledOptions">
 </el-cascader>
 
@@ -92,7 +91,6 @@ export default [
 
 // 仅展示最后一级
 `
-
 <el-cascader [options]="options"
   [all-levels]="false"
   (modelChange)="changeHandle($event)">
@@ -104,28 +102,23 @@ export default [
     console.log(event)
   }
 </script>
-
 `,
 
 // 默认值
 `
-
 <!--增加默认值需要输入每一层选项的 value-->
 <el-cascader [options]="options"
   [model]="['zujian', 'layout']"
   (modelChange)="changeHandle($event)">
 </el-cascader>
-
 `,
 
 // 选择即改变
 `
-
 <el-cascader [options]="options"
   [change-on-select]="true"
   (modelChange)="changeHandle($event)">
 </el-cascader>
-
 `,
 
 ]

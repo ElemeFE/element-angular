@@ -15,18 +15,15 @@ export default [
 
 // 指示器
 `
-
 <el-carousel height="300px" indicator-position="outside">
   <el-carousel-item *ngFor="let item of ['第一个', '第二个', '第三个']">
     <h3>{{item}}</h3>
   </el-carousel-item>
 </el-carousel>
-
 `,
 
 // 切换箭头
 `
-
 <el-carousel height="150px" arrow="always">
   <el-carousel-item *ngFor="let item of ['第一个', '第二个', '第三个']">
     <div class="small">
@@ -34,12 +31,10 @@ export default [
     </div>
   </el-carousel-item>
 </el-carousel>
-
 `,
 
 // 标签
 `
-
 <el-carousel height="150px">
   <el-carousel-item *ngFor="let item of ['第一个', '第二个', '第三个']; let i = index"
     [label]="'label' + i">
@@ -48,7 +43,6 @@ export default [
     </div>
   </el-carousel-item>
 </el-carousel>
-
 `,
 
 ]

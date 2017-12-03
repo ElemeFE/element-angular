@@ -1,7 +1,6 @@
 export default [
 // 安装
 `
-
 <el-alert [el-class]="'myClass'">text</el-alert>
 
 // in Component style:
@@ -14,8 +13,5 @@ export default [
 }
 
 </script>
-
 `,
-
-
 ]

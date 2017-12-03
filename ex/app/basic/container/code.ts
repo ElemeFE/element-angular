@@ -1,7 +1,6 @@
 export default [
 // 基础的栅格布局
 `
-
 <el-container class="demo-box">
   <el-header>Header</el-header>
   <el-main>Main</el-main>
@@ -49,6 +48,5 @@ export default [
     <el-footer>Footer</el-footer>
   </el-container>
 </el-container>
-
 `,
 ]
