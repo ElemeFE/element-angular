@@ -25,9 +25,6 @@ export class ElRadioGroup implements ControlValueAccessor {
   
   subscriber: Function[] = []
   
-  private controlChange: Function
-  private controlTouch: Function
-  
   changeHandle(nextValue: string | number): void {
     setTimeout(() => {
       this.model = nextValue
@@ -48,5 +45,8 @@ export class ElRadioGroup implements ControlValueAccessor {
   registerOnTouched(fn: Function): void {
     this.controlTouch = fn
   }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
   
 }

@@ -35,9 +35,6 @@ export class ElInputNumber extends ElInputNumberPoprs implements ControlValueAcc
   minDisabled: boolean = false
   maxDisabled: boolean = false
   
-  private controlChange: Function
-  private controlTouch: Function
-  
   constructor(
   ) {
     super()
@@ -91,4 +88,8 @@ export class ElInputNumber extends ElInputNumberPoprs implements ControlValueAcc
   registerOnTouched(fn: Function): void {
     this.controlTouch = fn
   }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
+  
 }

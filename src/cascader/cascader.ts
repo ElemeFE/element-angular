@@ -45,9 +45,6 @@ export class ElCascader extends ElCascaderPoprs implements OnInit, OnDestroy, Co
   currentLabels: Option[] = []
   globalListenFunc: Function
   
-  private controlChange: Function
-  private controlTouch: Function
-  
   constructor(
     private renderer: Renderer2,
   ) {
@@ -155,5 +152,8 @@ export class ElCascader extends ElCascaderPoprs implements OnInit, OnDestroy, Co
   registerOnTouched(fn: Function): void {
     this.controlTouch = fn
   }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
   
 }

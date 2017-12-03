@@ -39,8 +39,6 @@ export class ElRadio implements OnInit, ControlValueAccessor {
   
   isFocus: boolean = false
   parentIsGroup: boolean = false
-  private controlChange: Function
-  private controlTouch: Function
   
   constructor(
     @Optional() private rootGroup: ElRadioGroup,
@@ -83,4 +81,8 @@ export class ElRadio implements OnInit, ControlValueAccessor {
   registerOnTouched(fn: Function): void {
     this.controlTouch = fn
   }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
+  
 }

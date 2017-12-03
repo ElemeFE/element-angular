@@ -27,9 +27,6 @@ export class ElCheckboxGroup implements OnChanges, ControlValueAccessor {
   // children update handle
   subscriber: Function[] = []
   
-  private controlChange: Function
-  private controlTouch: Function
-  
   constructor() {
   }
   
@@ -75,4 +72,8 @@ export class ElCheckboxGroup implements OnChanges, ControlValueAccessor {
   registerOnTouched(fn: Function): void {
     this.controlTouch = fn
   }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
+  
 }

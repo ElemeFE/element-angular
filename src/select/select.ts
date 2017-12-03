@@ -41,9 +41,6 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   iconClass: string = 'arrow-up'
   globalListener: Function
   
-  private controlChange: Function
-  private controlTouch: Function
-  
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
@@ -131,5 +128,8 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   registerOnTouched(fn: Function): void {
     this.controlTouch = fn
   }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
   
 }

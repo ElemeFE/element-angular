@@ -34,9 +34,6 @@ export class ElSlider extends ElSliderProps implements OnInit, AfterViewInit, Co
   start: number = 0
   isDragging: boolean = false
   
-  private controlChange: Function
-  private controlTouch: Function
-  
   constructor(
     private sanitizer: DomSanitizer,
   ) {
@@ -98,5 +95,8 @@ export class ElSlider extends ElSliderProps implements OnInit, AfterViewInit, Co
   registerOnTouched(fn: Function): void {
     this.controlTouch = fn
   }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
   
 }

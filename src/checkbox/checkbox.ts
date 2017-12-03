@@ -51,9 +51,6 @@ export class ElCheckbox implements OnInit, AfterViewInit, OnChanges, ControlValu
   isFocus: boolean = false
   showLabel: boolean = false
   
-  private controlChange: Function
-  private controlTouch: Function
-  
   constructor(
     @Optional() private hostGroup: ElCheckboxGroup,
     private el: ElementRef,
@@ -118,4 +115,8 @@ export class ElCheckbox implements OnInit, AfterViewInit, OnChanges, ControlValu
   registerOnTouched(fn: Function): void {
     this.controlTouch = fn
   }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
+  
 }

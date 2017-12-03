@@ -58,9 +58,6 @@ export class ElSwitch implements OnInit, ControlValueAccessor {
   coreStyles: SafeStyle
   iconTransform: SafeStyle
   
-  private controlChange: Function
-  private controlTouch: Function
-  
   constructor(
     private sanitizer: DomSanitizer,
   ) {
@@ -102,5 +99,8 @@ export class ElSwitch implements OnInit, ControlValueAccessor {
   registerOnTouched(fn: Function): void {
     this.controlTouch = fn
   }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
   
 }

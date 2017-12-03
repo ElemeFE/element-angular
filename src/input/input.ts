@@ -76,9 +76,6 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit, Cont
   @ViewChild('textarea') textarea: any
   textareaStyles: SafeStyle
   
-  private controlChange: Function
-  private controlTouch: Function
-  
   constructor(
     private sanitizer: DomSanitizer,
     private el: ElementRef,
@@ -142,4 +139,7 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit, Cont
   registerOnTouched(fn: Function): void {
     this.controlTouch = fn
   }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
 }

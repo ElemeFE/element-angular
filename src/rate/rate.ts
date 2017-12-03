@@ -43,9 +43,6 @@ export class ElRate extends ElRateProps implements OnInit, ControlValueAccessor 
   rateMap: RateMap
   backupModel: number
   
-  private controlChange: Function
-  private controlTouch: Function
-  
   constructor(
     private sanitizer: DomSanitizer,
     private renderer: Renderer2
@@ -70,7 +67,7 @@ export class ElRate extends ElRateProps implements OnInit, ControlValueAccessor 
     if (this.disabled) return
     this.model = this.backupModel = index
     this.modelChange.emit(index)
-    this.controlChange(index)
+    this.controlChange
   }
   
   makeIconClasses(index: number): string {
@@ -117,5 +114,8 @@ export class ElRate extends ElRateProps implements OnInit, ControlValueAccessor 
   registerOnTouched(fn: Function): void {
     this.controlTouch = fn
   }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
   
 }
