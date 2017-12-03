@@ -71,6 +71,7 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
     // reset model
     this.model = null
     this.modelChange.emit(this.model)
+    this.controlChange(this.model)
     this.subscriber.forEach(sub => sub())
     // close dropdown menu
     this.dropdownActive = false
