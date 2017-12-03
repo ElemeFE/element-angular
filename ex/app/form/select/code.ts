@@ -14,6 +14,12 @@ export default [
 <script type="text">
 
 // in component
+
+handle(event: any):void {
+  this.value = event
+  console.log(event, this.value)
+}
+
 clear(): void {
   this.value = null
 }
