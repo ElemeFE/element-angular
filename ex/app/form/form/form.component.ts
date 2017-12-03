@@ -13,8 +13,9 @@ type validateResult = {
 })
 export class ExFormComponentDemo implements OnInit {
   
-  private validateForm: FormGroup
-  private options: any[] = [{
+  labelPosition: string = 'left'
+  validateForm: FormGroup
+  options: any[] = [{
     value: 'mike',
     label: '加奶油',
     children: [{
@@ -55,9 +56,9 @@ export class ExFormComponentDemo implements OnInit {
   }
   
   submit(): void {
-    console.log(this.validateForm.controls['mail'])
     console.log(this.validateForm.value)
   }
+  
   reset(): void {
     this.validateForm.reset()
   }
@@ -82,14 +83,14 @@ export class ExFormComponentDemo implements OnInit {
     this.validateForm = this.formBuilder.group({
       password: [ '', [this.passwordValidator] ],
       mail: [ '', [this.emailValidator] ],
-      city: [ '' ],
+      city: [ '', [this.cityValidator] ],
       express: [ '' ],
       invoice: [ '' ],
       discount: [ [] ],
-      time: [ '' ],
+      time: [ '', [this.timeValidator] ],
       num: [ 1 ],
       spec: [ '' ],
-      date: [ '', this.passwordValidator ],
+      date: [ '', [this.dateValidator] ],
     })
   }
   
@@ -107,6 +108,30 @@ export class ExFormComponentDemo implements OnInit {
     }
     if (control.value.length < 6) {
       return { status: 'error', message: '密码长度必须大于 6 位' }
+    }
+    return { status: 'success' }
+  }
+  
+  private timeValidator = (control: FormControl): validateResult => {
+    if (!control.value) {
+      return { status: 'error', message: '必须选择配送时间' }
+    }
+    return { status: 'success' }
+  }
+  
+  private dateValidator = (control: FormControl): validateResult => {
+    if (!control.value) {
+      return { status: 'error', message: '必须选择配送日期' }
+    }
+    return { status: 'success' }
+  }
+  
+  private cityValidator = (control: FormControl): validateResult => {
+    if (!control.value) {
+      return { status: 'error', message: '必须填写城市名' }
+    }
+    if (!/[\u4e00-\u9fa5]/.test(control.value)) {
+      return { status: 'error', message: '城市名必须是中文' }
     }
     return { status: 'success' }
   }

@@ -39,9 +39,6 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
   globalKeydownListener: Function
   iconShowClose: boolean = false
   
-  private controlChange: Function
-  private controlTouch: Function
-  
   constructor(
     private dateFormat: DateFormat,
     private renderer: Renderer2,
@@ -78,13 +75,20 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
   // text to time
   changeHandle(input: string): void {
     const time: number = this.dateFormat.getTime(input)
-    if (!time) return
+    // if (!time) return
     this.value = time
   }
   
   // try update input value
   // always trigger emit
   tryUpdateText(): void {
+    if (!this.value) {
+      this.model = null
+      this.modelChange.emit(null)
+      this.controlChange(null)
+      this.showPanelPicker = false
+      return
+    }
     const modelTime: number = new Date(this.model).getTime()
     const time: number = this.dateFormat.getTime(this.value)
     this.dateChangeHandle(time ? this.value : modelTime)
@@ -127,6 +131,7 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
     if (!time) return
     this.model = DateFormat.moment(time, this.format)
     this.value = time
+  
   }
   
   ngOnDestroy(): void {
@@ -145,4 +150,7 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
   registerOnTouched(fn: Function): void {
     this.controlTouch = fn
   }
+  
+  private controlChange: Function = () => {}
+  private controlTouch: Function = () => {}
 }

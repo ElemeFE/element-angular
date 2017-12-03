@@ -15,27 +15,29 @@
     padding: 24px;
   }
   .meta {
-    background-color: #f9fafc;
-    border-top: solid 1px #eaeefb;
-    clear: both;
+    background-color: #fafafa;
+    border-top: 1px solid #eaeefb;
     overflow: hidden;
     height: auto;
     transition: height .2s;
+    display: flex;
+    flex-direction: column;
   }
   .description {
-    padding: 16px 12px;
-    width: 40%;
+    display: flex;
+    padding: 20px;
     box-sizing: border-box;
-    border-left: solid 1px #eaeefb;
-    margin-left: -1px;
-    float: right;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
     font-size: 14px;
-    line-height: 1.8;
-    color: #5e6d82;
+    line-height: 22px;
+    color: #666;
     word-break: break-word;
+    margin: 10px;
+    background-color: #fff;
     p {
-      margin: 0 0 12px;
-      line-height: 1.8;
+      margin: 0;
+      line-height: 26px;
     }
     code {
       color: #5e6d82;
@@ -53,28 +55,20 @@
     }
   }
   .highlight {
-    width: 60%;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    border-right: solid 1px #eaeefb;
+
     pre {
-      margin: 0;
       display: flex;
       flex-direction: column;
       flex: 1;
+      margin: 0;
     }
     code.hljs {
-      display: flow-root;
-      flex: 1;
       margin: 0;
       border: none;
-      max-height: none;
+      padding: 20px 15px;
       border-radius: 0;
-      &::before {
-        content: none;
-      }
     }
   }
   .demo-block-control {
