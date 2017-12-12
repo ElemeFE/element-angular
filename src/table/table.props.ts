@@ -9,7 +9,9 @@ export class ElTableProps {
   
   @Input() stripe: boolean = false
   @Input() border: boolean = false
+  @Input('scroll-x') scrollX: boolean = false
   @Input('show-header') showHeader: boolean = true
+  @Input('center') center: string = ''
   @Input('row-class-name') rowClassName: (userRow: any, index: number) => string
   
   // bind value

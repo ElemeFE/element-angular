@@ -1,12 +1,22 @@
 export default [
 // 基础用法
 `
-<el-table [model]="tableData">
+<el-table [model]="tableData" [scroll-x]="true" center="all">
   <el-table-column model-key="name" label="姓名" width="140">
   </el-table-column>
   <el-table-column model-key="date" label="日期" width="140">
   </el-table-column>
-  <el-table-column model-key="address" label="地址">
+  <el-table-column model-key="address" label="地址" width="140">
+  </el-table-column>
+   <el-table-column label="操作" width="120">
+    <ng-template #slot let-scope="scope">
+      <el-button type="text" size="small" (click)="handle(scope)">删除</el-button>
+    </ng-template>
+  </el-table-column>
+   <el-table-column label="操作" width="120">
+    <ng-template #slot let-scope="scope">
+      <el-button type="text" size="small" (click)="handle(scope)">删除</el-button>
+    </ng-template>
   </el-table-column>
 </el-table>
 
