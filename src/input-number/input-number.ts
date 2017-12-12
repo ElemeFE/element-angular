@@ -9,6 +9,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
     useExisting: forwardRef(() => ElInputNumber),
     multi: true
   }],
+  styles: [`.el-input-spin-button::-webkit-inner-spin-button { visibility: hidden; }`],
   template: `
     <div [class]="'el-input-number' + (size ? ' el-input-number--' + size : '')"
       [class.is-disabled]="disabled" [class.is-without-controls]="!controls">
@@ -21,8 +22,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
         <i class="el-icon-plus"></i>
       </span>
 
-      <div [class]="'el-input' + (size ? ' el-input--' + size : '')" [class.is-disabled]="disabled">
-        <input class="el-input__inner" autocomplete="off" role="spinbutton"
+      <div [class]="'el-input ' + (size ? ' el-input--' + size : '')" [class.is-disabled]="disabled">
+        <input class="el-input__inner el-input-spin-button  " autocomplete="off" role="spinbutton"
           [attr.max]="max" [attr.min]="min" [attr.aria-valuemax]="max" [attr.aria-valuemin]="min"
           [disabled]="disabled" [value]="model" [ngModel]="model" (ngModelChange)="changeHandle($event)"
           type="number" rows="2" aria-valuenow="1" [attr.aria-disabled]="disabled">
