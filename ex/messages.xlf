@@ -1,0 +1,2804 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="header-nav-item1" datatype="html">
+        <source>开发指南</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/header/header.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header-nav-item2" datatype="html">
+        <source>组件</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/header/header.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header-nav-item3" datatype="html">
+        <source>项目</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/header/header.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="side-span-1" datatype="html">
+        <source>版本</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/side/side.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="footer-a-1" datatype="html">
+        <source>反馈建议</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/footer/footer.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="footer-a-2" datatype="html">
+        <source>贡献指南</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/footer/footer.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shared-demo-p-1" datatype="html">
+        <source>在线运行</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/demo/demo.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shared-demo-p-2" datatype="html">
+        <source>显示代码</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/demo/demo.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shared-document-p-1" datatype="html">
+        <source>参数</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/document/document.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shared-document-p-2" datatype="html">
+        <source>说明</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/document/document.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shared-document-p-3" datatype="html">
+        <source>类型</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/document/document.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shared-document-p-4" datatype="html">
+        <source>可选值</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/document/document.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shared-document-p-5" datatype="html">
+        <source>默认值</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/document/document.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-h2-1" datatype="html">
+        <source>Button 按钮</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-p-1" datatype="html">
+        <source>常用的操作按钮。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-p-2" datatype="html">
+        <source>基础的按钮用法。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-h3-2" datatype="html">
+        <source>禁用状态</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-p-3" datatype="html">
+        <source>按钮不可用状态。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-h3-3" datatype="html">
+        <source>有颜色倾向</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-p-4" datatype="html">
+        <source>不同的颜色倾向代表不同的提示</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-h3-4" datatype="html">
+        <source>图标按钮</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-p-5" datatype="html">
+        <source>带图标的按钮可增强辨识度(有文字)或节省空间(无文字)。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-h3-5" datatype="html">
+        <source>按钮组</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-p-6" datatype="html">
+        <source>以按钮组的方式出现，常用于多项类似操作。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-h3-6" datatype="html">
+        <source>加载中</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-p-7" datatype="html">
+        <source>点击按钮后进行数据加载操作，在按钮上显示加载状态。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-h3-7" datatype="html">
+        <source>不同尺寸</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-button-p-8" datatype="html">
+        <source>Button 组件提供除了默认值以外的三种尺寸，可以在不同场景下选择合适的按钮尺寸。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/button/button.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="icon-h2-1" datatype="html">
+        <source>Icon 图标</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/icon/icon.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="icon-h3-1" datatype="html">
+        <source>使用方法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/icon/icon.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="icon-p-1" datatype="html">
+        <source>直接通过设置类名为 <x id="START_TAG_CODE" ctype="x-code"/>el-icon-iconName<x id="CLOSE_TAG_CODE" ctype="x-code"/> 来使用即可。例如：</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/icon/icon.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="icon-h3-2" datatype="html">
+        <source>图标集合</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/icon/icon.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout-h2-1" datatype="html">
+        <source>Layout 布局 </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/layout/layout.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout-p-1" datatype="html">
+        <source>这是一个 <x id="START_LINK" ctype="x-a"/>属性型指令<x id="CLOSE_LINK" ctype="x-a"/>，它可以被用在任何元素上。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/layout/layout.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout-p-2" datatype="html">
+        <source>通过基础的 24 分栏，迅速简便地创建布局。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/layout/layout.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout-h3-1" datatype="html">
+        <source>基础布局</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/layout/layout.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout-p-3" datatype="html">
+        <source>使用单一分栏创建基础的栅格布局。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/layout/layout.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout-h3-2" datatype="html">
+        <source>分栏间隔</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/layout/layout.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout-p-4" datatype="html">
+        <source>分栏之间存在间隔。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/layout/layout.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout-h3-3" datatype="html">
+        <source>混合布局</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/layout/layout.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout-p-5" datatype="html">
+        <source>通过基础的 1/24 分栏任意扩展组合形成较为复杂的混合布局。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/layout/layout.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout-h3-4" datatype="html">
+        <source>对齐方式</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/layout/layout.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-color-h2-1" datatype="html">
+        <source>Color 色彩</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/color/color.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-color-p-1" datatype="html">
+        <source>
+  Element 为了避免视觉传达差异，使用一套特定的调色板来规定颜色，为你所搭建的产品提供一致的外观视觉感受。
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/color/color.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-color-h3-1" datatype="html">
+        <source>主色</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/color/color.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-color-p-2" datatype="html">
+        <source>Element 主要品牌颜色是鲜艳、友好的蓝色。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/color/color.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-color-h3-2" datatype="html">
+        <source>辅助色</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/color/color.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-color-p-3" datatype="html">
+        <source>除了主色外的场景色，需要在不同的场景中使用（例如危险色表示危险的操作）。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/color/color.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-color-h3-3" datatype="html">
+        <source>中性色</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/color/color.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-color-p-4" datatype="html">
+        <source>中性色用于文本、背景和边框颜色。通过运用不同的中性色，来表现层次结构。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/color/color.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-font-h2-1" datatype="html">
+        <source>Typography 字体</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-font-h3-1" datatype="html">
+        <source>中文字体</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-font-h3-2" datatype="html">
+        <source>英文／数字字体</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-font-h3-3" datatype="html">
+        <source>Font-family 代码</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-font-h3-4" datatype="html">
+        <source>字体使用规范</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-font-size-title-1" datatype="html">
+        <source>主标题</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-font-size-content-2" datatype="html">
+        <source>用 Element 快速搭建页面</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-font-size-title-2" datatype="html">
+        <source>标题</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-font-size-title-3" datatype="html">
+        <source>小标题</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-font-size-title-4" datatype="html">
+        <source>正文</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-font-size-title-5" datatype="html">
+        <source>正文（小）</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basic-font-size-title-6" datatype="html">
+        <source>辅助文字</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/font/font.component.ts</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="container-h2-1" datatype="html">
+        <source>Container 布局容器</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="container-p-1" datatype="html">
+        <source>用于布局的容器组件，方便快速搭建页面的基本结构：</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="container-p-2" datatype="html">
+        <source> <x id="START_TAG_CODE" ctype="x-code"/>el-container<x id="CLOSE_TAG_CODE" ctype="x-code"/>：外层容器。当子元素中包含 <x id="START_TAG_CODE" ctype="x-code"/>el-header<x id="CLOSE_TAG_CODE" ctype="x-code"/> 或 <x id="START_TAG_CODE" ctype="x-code"/>el-footer<x id="CLOSE_TAG_CODE" ctype="x-code"/> 时，
+  全部子元素会垂直上下排列，否则会水平左右排列。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="container-span-1" datatype="html">
+        <source>顶栏容器。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="container-span-2" datatype="html">
+        <source>侧边栏容器。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="container-span-3" datatype="html">
+        <source>主要区域容器。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="container-span-4" datatype="html">
+        <source>底栏容器。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="container-p-3" datatype="html">
+        <source>以上组件采用了 flex 布局，使用前请确定目标浏览器是否兼容。
+    此外，子元素只能是后四者，后四者的父元素也只能是 <x id="START_TAG_CODE" ctype="x-code"/>el-container<x id="CLOSE_TAG_CODE" ctype="x-code"/>。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="container-h3-1" datatype="html">
+        <source>常见页面布局</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/basic/container/container.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="install-h2-1" datatype="html">
+        <source>安装</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="install-h3-1" datatype="html">
+        <source>npm 安装</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="install-p-1" datatype="html">
+        <source>推荐使用 npm 的方式安装，它能更好地和 <x id="START_LINK" ctype="x-a"/>webpack<x id="CLOSE_LINK" ctype="x-a"/> 打包工具配合使用。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="install-p-2" datatype="html">
+        <source>引入模块后，我们能轻易地构建一个简易页面</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="install-p-4" datatype="html">
+        <source>使用 webpack 的引入方式：</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="install-p-5" datatype="html">
+        <source>如果你使用 angular-cli，你需要样式文件在 <x id="START_TAG_CODE" ctype="x-code"/>/src/styles<x id="CLOSE_TAG_CODE" ctype="x-code"/> 引入：</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="install-p-6" datatype="html">
+        <source>如果你自定义了一些样式编译方案，可能上述引入样式文件方式无法完成编译，请参考如下：</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="install-p-7" datatype="html">
+        <source>如果你希望能够通过模块、异步模块、子模块来引入 element-angular，请参阅下一章</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/install/install.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="start-h2-1" datatype="html">
+        <source>快速上手</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="start-p-1" datatype="html">
+        <source>本节将介绍如何在项目中使用 Element-angular。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="start-blockquote-1" datatype="html">
+        <source>对样式引入有疑问可以返回阅读上一章节。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="start-h3-1" datatype="html">
+        <source>创建项目</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="start-p-2" datatype="html">
+        <source>如果你还没有一个 <x id="START_TAG_CODE" ctype="x-code"/>Angular<x id="CLOSE_TAG_CODE" ctype="x-code"/> 项目，可以考虑使用 cli 快速安装。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="start-h3-2" datatype="html">
+        <source>根模块引入</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="start-p-3" datatype="html">
+        <source>将 <x id="START_TAG_CODE" ctype="x-code"/>element-angular<x id="CLOSE_TAG_CODE" ctype="x-code"/> 引入根模块后，可以在任意组件中使用。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="start-h3-3" datatype="html">
+        <source>引入单个组件</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="start-p-4" datatype="html">
+        <source>附: 即便是引入整个库，Angular 在 Build 时也可以去除未使用的代码，
+  请参考 <x id="START_LINK" ctype="x-a"/>Tree shaking<x id="CLOSE_LINK" ctype="x-a"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/start/start.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="language-h2-1" datatype="html">
+        <source>国际化</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/language/language.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="language-p-1" datatype="html">
+        <source>Element Angular 组件内部默认使用中文，若希望使用其他语言，则需要进行多语言设置。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/language/language.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-h2-1" datatype="html">
+        <source>自定义主题</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-p-1" datatype="html">
+        <source>Element-Angular 默认提供一套主题，CSS 命名采用 BEM 的风格方便使用者覆盖样式。如果你想完全替换主题色或者部分样式，可以使用下面的方法。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-h2-2" datatype="html">
+        <source>仅替换主题色</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-p-2" datatype="html">
+        <source>如果仅希望更换 Element 的主题色，推荐使用<x id="START_LINK" ctype="x-a"/>在线主题生成工具<x id="CLOSE_LINK" ctype="x-a"/>。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-p-3" datatype="html">
+        <source>Element-Angular 默认的主题色是鲜艳、友好的蓝色。通过替换主题色，能够让 Element-Angular 的视觉更加符合具体项目的定位。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-p-4" datatype="html">
+        <source>使用上述工具，可以很方便地实时预览主题色改变之后的视觉，同时它还可以基于新的主题色生成完整的样式文件包，供直接下载使用（关于如何使用下载的主题包，请参考本节「引入自定义主题」和「搭配插件按需引入组件主题」部分）。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-p-5" datatype="html">
+        <source>如果希望进行除主题色之外的样式定制，请继续阅读。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-h2-3" datatype="html">
+        <source>深层次的定制</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-p-6" datatype="html">
+        <source>如果仅仅改变主题色不能满足你的需求，请按以下步骤进行更深层次的主题定制：</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-h3-1" datatype="html">
+        <source>安装工具</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-p-7" datatype="html">
+        <source>首先安装「主题生成工具」，可以全局安装或者安装在当前项目下，推荐安装在项目里，方便别人 clone 项目时能直接安装依赖并启动，这里以全局安装做演示。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-h3-2" datatype="html">
+        <source>初始化变量文件</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-p-8" datatype="html">
+        <source>主题生成工具安装成功后，如果全局安装可以在命令行里通过 <x id="START_TAG_CODE" ctype="x-code"/>et<x id="CLOSE_TAG_CODE" ctype="x-code"/> 调用工具，如果安装在当前目录下，
+  需要通过 <x id="START_TAG_CODE" ctype="x-code"/>node_modules/.bin/et<x id="CLOSE_TAG_CODE" ctype="x-code"/> 访问到命令。执行 <x id="START_TAG_CODE" ctype="x-code"/>-i<x id="CLOSE_TAG_CODE" ctype="x-code"/> 初始化变量文件。
+  默认输出到 <x id="START_TAG_CODE" ctype="x-code"/>element-variables.css<x id="CLOSE_TAG_CODE" ctype="x-code"/>，当然你可以传参数指定文件输出目录。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-p-9" datatype="html">
+        <source>如果使用默认配置，执行后当前目录会有一个 <x id="START_TAG_CODE" ctype="x-code"/>element-variables.css<x id="CLOSE_TAG_CODE" ctype="x-code"/> 文件。
+  内部包含了主题所用到的所有变量，它们使用 CSS4 的风格定义。大致结构如下</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-h3-3" datatype="html">
+        <source>修改变量</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-p-10" datatype="html">
+        <source>直接编辑 <x id="START_TAG_CODE" ctype="x-code"/>element-variables.css<x id="CLOSE_TAG_CODE" ctype="x-code"/> 文件，例如修改主题色为红色。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-h3-4" datatype="html">
+        <source>编译主题</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-p-11" datatype="html">
+        <source>保存文件后，到命令行里执行 <x id="START_TAG_CODE" ctype="x-code"/>et<x id="CLOSE_TAG_CODE" ctype="x-code"/> 编译主题，如果你想启用 <x id="START_TAG_CODE" ctype="x-code"/>watch<x id="CLOSE_TAG_CODE" ctype="x-code"/> 模式，
+  实时编译主题，增加 <x id="START_TAG_CODE" ctype="x-code"/>-w<x id="CLOSE_TAG_CODE" ctype="x-code"/> 参数；
+  如果你在初始化时指定了自定义变量文件，则需要增加 <x id="START_TAG_CODE" ctype="x-code"/>-c<x id="CLOSE_TAG_CODE" ctype="x-code"/> 参数，并带上你的变量文件名</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-h3-5" datatype="html">
+        <source>引入自定义主题</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="theme-p-12" datatype="html">
+        <source>默认情况下编译的主题目录是放在 <x id="START_TAG_CODE" ctype="x-code"/>./theme<x id="CLOSE_TAG_CODE" ctype="x-code"/> 下，你可以通过 <x id="START_TAG_CODE" ctype="x-code"/>-o<x id="CLOSE_TAG_CODE" ctype="x-code"/> 参数指定打包目录。
+  像引入默认主题一样，在代码里直接引用 <x id="START_TAG_CODE" ctype="x-code"/>theme/index.css<x id="CLOSE_TAG_CODE" ctype="x-code"/> 文件即可。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/theme/theme.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="log-span-1" datatype="html">
+        <source>更新日志</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/log/log.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="directives-h2-1" datatype="html">
+        <source>指令与服务</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/directives/directives.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="directives-p-1" datatype="html">
+        <source>Element Angular 内部携带了一些功能性的指令与服务，你可以直接使用它们。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/directives/directives.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="directives-p-2" datatype="html">
+        <source>[el-class] 可以在任何 Element Angular 组件上使用，它接受一个字符串参数，帮助你在组件上增加一个自定义的样式类。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/directives/directives.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="directives-p-3" datatype="html">
+        <source>下面的示例就是如何使用 [el-class] 来为组件添加自己需要的 class 类名：</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/guide/directives/directives.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tag-h2-1" datatype="html">
+        <source>Tag 标签</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/tag/tag.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tag-p-1" datatype="html">
+        <source>用于标记和选择。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/tag/tag.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tag-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/tag/tag.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tag-h3-2" datatype="html">
+        <source>可移除标签</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/tag/tag.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="progress-h2-1" datatype="html">
+        <source>Progress 进度条</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/progress/progress.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="progress-h3-1" datatype="html">
+        <source>线形进度条 — 百分比外显</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/progress/progress.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="progress-h3-2" datatype="html">
+        <source>线形进度条 — 百分比内显</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/progress/progress.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="progress-p-1" datatype="html">
+        <source>百分比不占用额外控件，适用于文件上传等场景。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/progress/progress.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="progress-h3-3" datatype="html">
+        <source>环形进度条</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/progress/progress.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="badge-h2-1" datatype="html">
+        <source>Badge 标记</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/badge/badge.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="badge-p-1" datatype="html">
+        <source>出现在按钮、图标旁的数字或状态标记。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/badge/badge.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="badge-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/badge/badge.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="badge-p-2" datatype="html">
+        <source>展示新消息数量。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/badge/badge.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="badge-h3-2" datatype="html">
+        <source>最大值</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/badge/badge.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="badge-p-3" datatype="html">
+        <source>可自定义最大值。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/badge/badge.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="badge-h3-3" datatype="html">
+        <source>自定义内容</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/badge/badge.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="badge-p-4" datatype="html">
+        <source>可以显示数字以外的文本内容。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/badge/badge.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="badge-h3-4" datatype="html">
+        <source>小红点</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/badge/badge.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="badge-p-5" datatype="html">
+        <source>以红点的形式标注需要关注的内容。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/badge/badge.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination-h2-1" datatype="html">
+        <source>Pagination 分页</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/pagination/pagination.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/pagination/pagination.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination-p-1" datatype="html">
+        <source>属性 <x id="START_TAG_CODE" ctype="x-code"/>layout<x id="CLOSE_TAG_CODE" ctype="x-code"/> 共有 6 个参数，分别代表不同子组件 (功能)，只有声明需要时这些子组件才会显示。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/pagination/pagination.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination-p-2" datatype="html">
+        <source> <x id="START_TAG_CODE" ctype="x-code"/>prev<x id="CLOSE_TAG_CODE" ctype="x-code"/>表示上一页， <x id="START_TAG_CODE" ctype="x-code"/>next<x id="CLOSE_TAG_CODE" ctype="x-code"/>为下一页， <x id="START_TAG_CODE" ctype="x-code"/>pager<x id="CLOSE_TAG_CODE" ctype="x-code"/>表示页码列表。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/pagination/pagination.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination-p-3" datatype="html">
+        <source>除此以外还提供了 <x id="START_TAG_CODE" ctype="x-code"/>jumper<x id="CLOSE_TAG_CODE" ctype="x-code"/>和 <x id="START_TAG_CODE" ctype="x-code"/>total<x id="CLOSE_TAG_CODE" ctype="x-code"/>， <x id="START_TAG_CODE" ctype="x-code"/>size<x id="CLOSE_TAG_CODE" ctype="x-code"/>。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/pagination/pagination.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination-p-4" datatype="html">
+        <source> <x id="START_TAG_CODE" ctype="x-code"/>jumper<x id="CLOSE_TAG_CODE" ctype="x-code"/>表示跳页元素， <x id="START_TAG_CODE" ctype="x-code"/>total<x id="CLOSE_TAG_CODE" ctype="x-code"/>表示显示页码总数， <x id="START_TAG_CODE" ctype="x-code"/>size<x id="CLOSE_TAG_CODE" ctype="x-code"/>用于设置每页显示的页码数量。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/pagination/pagination.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination-h3-2" datatype="html">
+        <source>小型分页</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/pagination/pagination.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination-p-5" datatype="html">
+        <source>在空间有限的情况下，可以使用简单的小型分页。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/pagination/pagination.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination-h3-3" datatype="html">
+        <source>附加功能</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/pagination/pagination.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination-p-6" datatype="html">
+        <source>根据场景需要，可以添加其他功能模块。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/pagination/pagination.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table-h2-1" datatype="html">
+        <source>Table 表格</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/table/table.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table-p-1" datatype="html">
+        <source>用于展示多条结构类似的数据，可对数据进行排序、筛选、对比或其他自定义操作。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/table/table.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table-h3-1" datatype="html">
+        <source>基础的表格展示用法。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/table/table.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table-h3-2" datatype="html">
+        <source>带斑马纹表格</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/table/table.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table-p-2" datatype="html">
+        <source>使用带斑马纹的表格，可以更容易区分出不同行的数据。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/table/table.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table-h3-3" datatype="html">
+        <source>带边框表格</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/table/table.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table-h3-4" datatype="html">
+        <source>带状态表格</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/table/table.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table-p-3" datatype="html">
+        <source>可将表格内容 highlight 显示，方便区分「成功、信息、警告、危险」等内容。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/table/table.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table-h3-5" datatype="html">
+        <source>固定表头</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/table/table.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table-p-4" datatype="html">
+        <source>纵向内容过多时，可选择固定表头。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/table/table.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table-h3-6" datatype="html">
+        <source>填充内容</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/table/table.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table-p-5" datatype="html">
+        <source>可以为列填充固定内容，常用于操作与删除</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/table/table.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table-h3-7" datatype="html">
+        <source>多级表头</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/table/table.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table-p-6" datatype="html">
+        <source>数据结构比较复杂的时候，可使用多级表头来展现数据的层次关系。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/data/table/table.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="checkbox-h2-1" datatype="html">
+        <source>Checkbox 多选框</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/checkbox/checkbox.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="checkbox-p-1" datatype="html">
+        <source>一组备选项中进行多选</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/checkbox/checkbox.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="checkbox-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/checkbox/checkbox.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="checkbox-p-2" datatype="html">
+        <source>单独使用可以表示两种状态之间的切换，写在标签中的内容为 checkbox 按钮后的介绍。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/checkbox/checkbox.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="checkbox-h3-2" datatype="html">
+        <source>禁用状态</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/checkbox/checkbox.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="checkbox-p-3" datatype="html">
+        <source>多选框不可用状态。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/checkbox/checkbox.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="checkbox-h3-3" datatype="html">
+        <source>多选框组</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/checkbox/checkbox.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="checkbox-p-4" datatype="html">
+        <source>适用于多个勾选框绑定到同一个数组的情景，通过是否勾选来表示这一组选项中选中的项。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/checkbox/checkbox.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="checkbox-h3-4" datatype="html">
+        <source>可选项目数量的限制</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/checkbox/checkbox.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="checkbox-p-5" datatype="html">
+        <source>使用 <x id="START_TAG_CODE" ctype="x-code"/>min<x id="CLOSE_TAG_CODE" ctype="x-code"/> 和 <x id="START_TAG_CODE" ctype="x-code"/>max<x id="CLOSE_TAG_CODE" ctype="x-code"/> 属性能够限制可以被勾选的项目的数量。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/checkbox/checkbox.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="checkbox-h3-5" datatype="html">
+        <source>按钮样式</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/checkbox/checkbox.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="checkbox-p-6" datatype="html">
+        <source>按钮样式的多选组合。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/checkbox/checkbox.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="radio-h2-1" datatype="html">
+        <source>Radio 单选框</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/radio/radio.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="radio-p-1" datatype="html">
+        <source>在一组备选项中进行单选</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/radio/radio.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="radio-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/radio/radio.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="radio-p-2" datatype="html">
+        <source>由于选项默认可见，不宜过多，若选项过多，建议使用 Select 选择器。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/radio/radio.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="radio-h3-2" datatype="html">
+        <source>禁用状态</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/radio/radio.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="radio-p-3" datatype="html">
+        <source>单选框不可用的状态。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/radio/radio.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="radio-h3-3" datatype="html">
+        <source>单选框组</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/radio/radio.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="radio-p-4" datatype="html">
+        <source>适用于在多个互斥的选项中选择的场景</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/radio/radio.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="radio-h3-4" datatype="html">
+        <source>按钮样式</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/radio/radio.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="radio-p-5" datatype="html">
+        <source>按钮样式的单选组合。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/radio/radio.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input-h2-1" datatype="html">
+        <source>Input 输入框</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input/input.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input-p-1" datatype="html">
+        <source>通过鼠标或键盘输入字符</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input/input.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input/input.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input-h3-2" datatype="html">
+        <source>禁用状态</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input/input.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input-h3-3" datatype="html">
+        <source>带 icon 的输入框</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input/input.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input-p-2" datatype="html">
+        <source>带有图标标记输入类型</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input/input.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input-h3-4" datatype="html">
+        <source>文本域</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input/input.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input-p-3" datatype="html">
+        <source>用于输入多行文本信息，通过将 <x id="START_TAG_CODE" ctype="x-code"/>type<x id="CLOSE_TAG_CODE" ctype="x-code"/> 属性的值指定为 textarea。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input/input.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input-h3-5" datatype="html">
+        <source>可自适应文本高度的文本域</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input/input.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input-p-4" datatype="html">
+        <source>通过设置 <x id="START_TAG_CODE" ctype="x-code"/>autosize<x id="CLOSE_TAG_CODE" ctype="x-code"/> 属性可以使得文本域的高度能够根据文本内容自动进行调整，并且 <x id="START_TAG_CODE" ctype="x-code"/>autosize<x id="CLOSE_TAG_CODE" ctype="x-code"/> 还可以设定为一个对象，指定最小行数和最大行数</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input/input.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input-h3-6" datatype="html">
+        <source>复合型输入框</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input/input.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input-p-5" datatype="html">
+        <source>可前置或后置元素，一般为标签或按钮</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input/input.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input-h3-7" datatype="html">
+        <source>尺寸</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input/input.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="inputnumber-h2-1" datatype="html">
+        <source>InputNumber 计数器</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input-number/input-number.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="inputnumber-p-1" datatype="html">
+        <source>仅允许输入标准的数字值，可定义范围</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input-number/input-number.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="inputnumber-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input-number/input-number.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="inputnumber-h3-2" datatype="html">
+        <source>禁用状态</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input-number/input-number.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="inputnumber-h3-3" datatype="html">
+        <source>步数</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input-number/input-number.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="inputnumber-p-2" datatype="html">
+        <source>允许定义递增递减的步数控制</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input-number/input-number.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="inputnumber-h3-4" datatype="html">
+        <source>尺寸</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input-number/input-number.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="inputnumber-p-3" datatype="html">
+        <source>额外提供了 <x id="START_TAG_CODE" ctype="x-code"/>large<x id="CLOSE_TAG_CODE" ctype="x-code"/>、<x id="START_TAG_CODE" ctype="x-code"/>small<x id="CLOSE_TAG_CODE" ctype="x-code"/> 两种尺寸的数字输入框</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/input-number/input-number.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="select-h2-1" datatype="html">
+        <source>Select 选择器</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/select/select.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="select-p-1" datatype="html">
+        <source>当选项过多时，使用下拉菜单展示并选择内容。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/select/select.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="select-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/select/select.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="select-p-2" datatype="html">
+        <source>适用广泛的基础单选</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/select/select.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="select-h3-2" datatype="html">
+        <source>有禁用选项</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/select/select.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="select-h3-3" datatype="html">
+        <source>禁用状态</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/select/select.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="select-p-3" datatype="html">
+        <source>选择器不可用状态</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/select/select.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="select-h3-4" datatype="html">
+        <source>默认选中</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/select/select.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="select-p-4" datatype="html">
+        <source>初始状态时默认选中值</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/select/select.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="select-h3-5" datatype="html">
+        <source>可清空单选</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/select/select.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="select-p-5" datatype="html">
+        <source>包含清空按钮，可将选择器清空为初始状态</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/select/select.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="switch-h2-1" datatype="html">
+        <source>Switch 开关</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/switch/switch.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="switch-p-1" datatype="html">
+        <source>表示两种相互对立的状态间的切换，多用于触发「开/关」。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/switch/switch.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="switch-h3-1" datatype="html">
+        <source>基本用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/switch/switch.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="switch-h3-2" datatype="html">
+        <source>禁用状态</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/switch/switch.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="switch-h3-3" datatype="html">
+        <source>自定义图标名</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/switch/switch.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="switch-h3-4" datatype="html">
+        <source>自定义文字</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/switch/switch.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="rate-h2-1" datatype="html">
+        <source>Rate 评分</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/rate/rate.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="rate-p-1" datatype="html">
+        <source>评分组件</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/rate/rate.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="rate-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/rate/rate.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="rate-h3-2" datatype="html">
+        <source>辅助文字</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/rate/rate.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="rate-p-2" datatype="html">
+        <source>用辅助文字直接地表达对应分数</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/rate/rate.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="rate-h3-3" datatype="html">
+        <source>其它 icon</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/rate/rate.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="rate-p-3" datatype="html">
+        <source>当有多层评价时，可以用不同类型的 icon 区分评分层级</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/rate/rate.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="rate-h3-4" datatype="html">
+        <source>只读</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/rate/rate.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="rate-p-4" datatype="html">
+        <source>只读的评分用来展示分数</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/rate/rate.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cascader-h2-1" datatype="html">
+        <source>Cascader 级联选择器</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/cascader/cascader.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cascader-p-1" datatype="html">
+        <source>当一个数据集合有清晰的层级结构时，可通过级联选择器逐级查看并选择。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/cascader/cascader.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cascader-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/cascader/cascader.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cascader-p-2" datatype="html">
+        <source>展示多个步骤。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/cascader/cascader.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cascader-h3-2" datatype="html">
+        <source>禁用选项</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/cascader/cascader.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cascader-p-3" datatype="html">
+        <source>通过在数据源中设置 <x id="START_TAG_CODE" ctype="x-code"/>disabled<x id="CLOSE_TAG_CODE" ctype="x-code"/> 字段来声明该选项是禁用的</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/cascader/cascader.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cascader-h3-3" datatype="html">
+        <source>仅显示最后一级</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/cascader/cascader.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cascader-p-4" datatype="html">
+        <source>可以仅在输入框中显示选中项最后一级的标签，而不是选中项所在的完整路径。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/cascader/cascader.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cascader-h3-4" datatype="html">
+        <source>默认值</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/cascader/cascader.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cascader-h3-5" datatype="html">
+        <source>选择即改变</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/cascader/cascader.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cascader-p-5" datatype="html">
+        <source>点击或移入选项即表示选中该项，可用于选择任意一级菜单的选项。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/cascader/cascader.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="datePicker-h2-1" datatype="html">
+        <source>DatePicker 日期选择器</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/date-picker/date-picker.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="datePicker-p-1" datatype="html">
+        <source>用于选择或输入日期</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/date-picker/date-picker.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="datePicker-h3-1" datatype="html">
+        <source>选择日</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/date-picker/date-picker.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="datePicker-p-2" datatype="html">
+        <source>以「日」为基本单位，基础的日期选择控件</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/date-picker/date-picker.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="datePicker-h3-2" datatype="html">
+        <source>日期格式</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/date-picker/date-picker.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="datePicker-p-3" datatype="html">
+        <source>预定义日期格式</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/date-picker/date-picker.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="datePicker-h3-4" datatype="html">
+        <source>以月为单位</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/date-picker/date-picker.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="datePicker-p-5" datatype="html">
+        <source>隐藏日期，以月为单位选择</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/date-picker/date-picker.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="datePicker-h3-3" datatype="html">
+        <source>禁用</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/date-picker/date-picker.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="datePicker-p-4" datatype="html">
+        <source>禁用整个日期组件</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/date-picker/date-picker.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="slider-h2-1" datatype="html">
+        <source>Slider 滑块</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/slider/slider.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="slider-p-1" datatype="html">
+        <source>通过拖动滑块在一个固定区间内进行选择</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/slider/slider.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="slider-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/slider/slider.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="slider-p-2" datatype="html">
+        <source>在拖动滑块时，显示当前值</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/slider/slider.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="slider-h3-2" datatype="html">
+        <source>自定义初始值</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/slider/slider.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="slider-h3-3" datatype="html">
+        <source>隐藏 Tooltip</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/slider/slider.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="slider-p-3" datatype="html">
+        <source>不显示数字提示</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/slider/slider.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="slider-h3-4" datatype="html">
+        <source>最小值与最大值</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/slider/slider.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="slider-p-4" datatype="html">
+        <source>手动设置最小值与最大值</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/slider/slider.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="slider-h3-5" datatype="html">
+        <source>竖向模式</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/slider/slider.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload-h2-1" datatype="html">
+        <source>Upload 上传</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/upload/upload.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload-p-1" datatype="html">
+        <source>通过点击或者拖拽上传文件</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/upload/upload.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload-h3-1" datatype="html">
+        <source>点击上传</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/upload/upload.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload-h3-2" datatype="html">
+        <source>用户头像上传</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/upload/upload.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload-h3-3" datatype="html">
+        <source>照片墙</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/upload/upload.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload-p-2" datatype="html">
+        <source>使用 <x id="START_TAG_CODE" ctype="x-code"/>list-type<x id="CLOSE_TAG_CODE" ctype="x-code"/> 属性来设置文件列表的样式。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/upload/upload.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload-h3-4" datatype="html">
+        <source>图片列表缩略图</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/upload/upload.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload-h3-5" datatype="html">
+        <source>拖拽上传</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form/upload/upload.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="navmenu-h2-1" datatype="html">
+        <source>NavMenu 导航菜单</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/menu/menu.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="navmenu-p-1" datatype="html">
+        <source>为网站提供导航功能的菜单。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/menu/menu.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="navmenu-h3-1" datatype="html">
+        <source>顶栏</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/menu/menu.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="navmenu-p-2" datatype="html">
+        <source>适用广泛的基础用法。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/menu/menu.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="navmenu-h3-2" datatype="html">
+        <source>侧栏</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/menu/menu.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="navmenu-p-3" datatype="html">
+        <source>垂直菜单，可内嵌子菜单。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/menu/menu.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="steps-h2-1" datatype="html">
+        <source>Steps 步骤条</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="steps-p-1" datatype="html">
+        <source>引导用户按照流程完成任务的分步导航条，可根据实际应用场景设定步骤，至少需要 2 步</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="steps-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="steps-p-2" datatype="html">
+        <source>简单的步骤条。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="steps-h3-2" datatype="html">
+        <source>含状态步骤条</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="steps-p-3" datatype="html">
+        <source>每一步骤显示出该步骤的状态。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="steps-h3-3" datatype="html">
+        <source>有描述的步骤条</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="steps-p-4" datatype="html">
+        <source>每个步骤有其对应的步骤状态描述。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="steps-h3-4" datatype="html">
+        <source>带图标的步骤条</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="steps-p-5" datatype="html">
+        <source>步骤条内可以启用各种自定义的图标。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="steps-h3-5" datatype="html">
+        <source>竖式步骤条</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="steps-p-6" datatype="html">
+        <source>竖直方向的步骤条。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="steps-h3-6" datatype="html">
+        <source>简洁风格的步骤条</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="steps-p-7" datatype="html">
+        <source>设置 simple 可应用简洁风格，该条件下 align-center / description / direction / space 都将失效。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/steps/steps.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dropdown-h2-1" datatype="html">
+        <source>Dropdown 下拉菜单</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/dropdown/dropdown.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dropdown-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/dropdown/dropdown.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dropdown-p-1" datatype="html">
+        <source>移动到下拉菜单上，展开更多操作。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/dropdown/dropdown.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dropdown-h3-2" datatype="html">
+        <source>触发方式</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/dropdown/dropdown.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dropdown-p-2" datatype="html">
+        <source>可以配置 click 激活或者 hover 激活。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/dropdown/dropdown.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dropdown-h3-3" datatype="html">
+        <source>禁用单项</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/dropdown/dropdown.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dropdown-p-3" datatype="html">
+        <source>禁用某一个选项</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/dropdown/dropdown.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dropdown-h3-4" datatype="html">
+        <source>显示分割线</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/dropdown/dropdown.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dropdown-p-4" datatype="html">
+        <source>为单个选项增加分割线</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/dropdown/dropdown.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dropdown-h3-5" datatype="html">
+        <source>按钮模式</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/dropdown/dropdown.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dropdown-p-5" datatype="html">
+        <source>可使用按钮触发下拉菜单。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/dropdown/dropdown.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="breadcrumb-h2-1" datatype="html">
+        <source>Breadcrumb 面包屑</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/breadcrumb/breadcrumb.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="breadcrumb-p-1" datatype="html">
+        <source>显示当前页面的路径，快速返回之前的任意页面。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/breadcrumb/breadcrumb.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="breadcrumb-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/breadcrumb/breadcrumb.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="breadcrumb-p-2" datatype="html">
+        <source>适用广泛的基础用法。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/breadcrumb/breadcrumb.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="breadcrumb-h3-2" datatype="html">
+        <source>手动跳转</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/breadcrumb/breadcrumb.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="breadcrumb-p-3" datatype="html">
+        <source>关闭组件的自动跳转从而手动设置路由，这是复杂的应用常见的需求。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/breadcrumb/breadcrumb.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="breadcrumb-h3-3" datatype="html">
+        <source>图标分隔符</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/breadcrumb/breadcrumb.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loading-h2-1" datatype="html">
+        <source>Loading 加载</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/loading/loading.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loading-p-1" datatype="html">
+        <source>这是一个 <x id="START_LINK" ctype="x-a"/>属性型指令<x id="CLOSE_LINK" ctype="x-a"/>，它可以被用在任何元素上。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/loading/loading.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loading-p-2" datatype="html">
+        <source>加载数据时显示动效。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/loading/loading.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loading-h3-1" datatype="html">
+        <source>区域加载</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/loading/loading.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loading-p-3" datatype="html">
+        <source>在容器中加载数据时显示。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/loading/loading.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loading-h3-2" datatype="html">
+        <source>加载文案</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/loading/loading.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loading-p-4" datatype="html">
+        <source>可自定义加载文案。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/loading/loading.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loading-h3-3" datatype="html">
+        <source>整页加载</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/loading/loading.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loading-p-5" datatype="html">
+        <source>页面数据加载时显示。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/loading/loading.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="message-h2-1" datatype="html">
+        <source>Message 消息提示</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/message/message.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="message-p-1" datatype="html">
+        <source>常用于主动操作后的反馈提示。与 Notification 的区别是后者更多用于系统级通知的被动提醒。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/message/message.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="message-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/message/message.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="message-p-2" datatype="html">
+        <source>从顶部出现，3 秒后自动消失。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/message/message.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="message-h3-2" datatype="html">
+        <source>不同状态</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/message/message.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="message-p-3" datatype="html">
+        <source>用来显示「成功、警告、消息、错误」类的操作反馈。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/message/message.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="message-h3-3" datatype="html">
+        <source>可关闭</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/message/message.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="message-p-4" datatype="html">
+        <source>可以添加关闭按钮。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/message/message.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="message-h3-5" datatype="html">
+        <source>居中</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/message/message.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="message-h3-4" datatype="html">
+        <source>引用说明</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/message/message.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="message-p-5" datatype="html">
+        <source>你只需要在合适的地方加上：</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/message/message.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="message-p-6" datatype="html">
+        <source>即可使用，<x id="START_BOLD_TEXT" ctype="x-b"/>无需<x id="CLOSE_BOLD_TEXT" ctype="x-b"/> 在任何地方额外声明 <x id="START_TAG_CODE" ctype="x-code"/>providers<x id="CLOSE_TAG_CODE" ctype="x-code"/>依赖。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/message/message.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="message-p-7" datatype="html">
+        <source>同时触发多个消息提示会自动往上叠加，每个消息是相互独立的，同时它们在结束时都会自动销毁。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/message/message.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notification-h2-1" datatype="html">
+        <source>Notification 通知</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/notification/notification.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notification-p-1" datatype="html">
+        <source>悬浮出现在页面右上角，显示全局的通知提醒消息。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/notification/notification.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notification-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/notification/notification.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notification-p-2" datatype="html">
+        <source>适用性广泛的通知栏</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/notification/notification.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notification-h3-2" datatype="html">
+        <source>带有标题的提示</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/notification/notification.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notification-p-3" datatype="html">
+        <source><x id="START_TAG_CODE" ctype="x-code"/>Notification<x id="CLOSE_TAG_CODE" ctype="x-code"/> 可以指定一个标题，这是一个可选参数。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/notification/notification.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notification-h3-3" datatype="html">
+        <source>带有倾向性</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/notification/notification.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notification-p-4" datatype="html">
+        <source>带有 icon，常用来显示「成功、警告、消息、错误」类的系统消息</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/notification/notification.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notification-h3-4" datatype="html">
+        <source>引用说明</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/notification/notification.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notification-p-5" datatype="html">
+        <source>你只需要在合适的地方加上：</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/notification/notification.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notification-p-6" datatype="html">
+        <source>即可使用，<x id="START_BOLD_TEXT" ctype="x-b"/>无需<x id="CLOSE_BOLD_TEXT" ctype="x-b"/> 在任何地方额外声明 <x id="START_TAG_CODE" ctype="x-code"/>providers<x id="CLOSE_TAG_CODE" ctype="x-code"/>依赖。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/notification/notification.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notification-p-7" datatype="html">
+        <source>同时触发多个通知会自动叠加，关闭任何一个通知，其他通知会自动调整高度。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/notification/notification.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notification-p-8" datatype="html">
+        <source>当然，它们也是自动销毁与移除的，你完全不必担心这点。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/notification/notification.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="alert-h2-1" datatype="html">
+        <source>Alert 警告</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/alert/alert.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="alert-p-1" datatype="html">
+        <source>用于页面中展示重要的提示信息。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/alert/alert.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="alert-h3-1" datatype="html">
+        <source>基本用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/alert/alert.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="alert-p-2" datatype="html">
+        <source>页面中的非浮层元素，不会自动消失。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/alert/alert.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="alert-h3-2" datatype="html">
+        <source>自定义关闭按钮</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/alert/alert.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="alert-p-3" datatype="html">
+        <source>自定义关闭按钮为文字或其他符号。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/alert/alert.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="alert-h3-3" datatype="html">
+        <source>带有 icon</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/alert/alert.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="alert-p-4" datatype="html">
+        <source>表示某种状态时提升可读性。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/alert/alert.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="alert-h3-4" datatype="html">
+        <source>带有辅助性文字介绍</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/alert/alert.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="alert-p-5" datatype="html">
+        <source>包含标题和内容，解释更详细的警告。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/notice/alert/alert.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tooltip-h2-1" datatype="html">
+        <source>Tooltip 文字提示</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/tooltip/tooltip.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tooltip-p-1" datatype="html">
+        <source>常用于展示鼠标 hover 时的提示信息。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/tooltip/tooltip.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tooltip-p-2" datatype="html">
+        <source>与其他组件一样，此组件未依赖任何第三方组件，这是与 <x id="START_TAG_CODE" ctype="x-code"/>element-vue<x id="CLOSE_TAG_CODE" ctype="x-code"/> 的不同之处。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/tooltip/tooltip.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tooltip-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/tooltip/tooltip.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tooltip-p-3" datatype="html">
+        <source>在这里我们提供 9 种不同方向的展示方式，可以通过以下完整示例来理解，选择你要的效果。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/tooltip/tooltip.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tooltip-h3-2" datatype="html">
+        <source>主题</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/tooltip/tooltip.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tooltip-p-4" datatype="html">
+        <source>Tooltip 组件提供了两个不同的主题：<x id="START_TAG_CODE" ctype="x-code"/>dark<x id="CLOSE_TAG_CODE" ctype="x-code"/> 和 <x id="START_TAG_CODE" ctype="x-code"/>light<x id="CLOSE_TAG_CODE" ctype="x-code"/>。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/tooltip/tooltip.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tooltip-h3-3" datatype="html">
+        <source>禁用</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/tooltip/tooltip.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tooltip-p-5" datatype="html">
+        <source>设置提示禁用</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/tooltip/tooltip.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="card-h2-1" datatype="html">
+        <source>Card 卡片</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/card/card.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="card-p-1" datatype="html">
+        <source>将信息聚合在卡片容器中展示。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/card/card.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="card-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/card/card.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="card-p-2" datatype="html">
+        <source>包含标题，内容和操作。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/card/card.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="card-h3-2" datatype="html">
+        <source>简单卡片</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/card/card.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="card-p-3" datatype="html">
+        <source>卡片可以只有内容区域。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/card/card.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="card-h3-3" datatype="html">
+        <source>带图片</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/card/card.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="card-p-4" datatype="html">
+        <source>可配置定义更丰富的内容展示。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/card/card.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dialog-h2-1" datatype="html">
+        <source>Dialog 对话框</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/dialog/dialog.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dialog-p-1" datatype="html">
+        <source>在保留当前页面状态的情况下，告知用户并承载相关操作。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/dialog/dialog.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dialog-h3-1" datatype="html">
+        <source>基本用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/dialog/dialog.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dialog-p-2" datatype="html">
+        <source>Dialog 弹出一个对话框，适合需要定制性更大的场景。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/dialog/dialog.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dialog-h3-2" datatype="html">
+        <source>自定义内容</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/dialog/dialog.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dialog-p-3" datatype="html">
+        <source>Dialog 组件的内容可以是任意的，甚至可以是表格或表单。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/dialog/dialog.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dialog-h3-3" datatype="html">
+        <source>回调函数</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/dialog/dialog.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dialog-p-4" datatype="html">
+        <source>回调函数能够帮助你更细腻的定义何时关闭对话框。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/dialog/dialog.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dialog-h3-4" datatype="html">
+        <source>居中显示</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/dialog/dialog.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dialog-p-5" datatype="html">
+        <source>居中属性不会影响内容。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/dialog/dialog.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="carousel-h2-1" datatype="html">
+        <source>Carousel 走马灯</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/carousel/carousel.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="carousel-p-1" datatype="html">
+        <source>在有限空间内，循环播放同一类型的图片、文字等内容</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/carousel/carousel.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="carousel-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/carousel/carousel.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="carousel-p-2" datatype="html">
+        <source>适用广泛的基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/carousel/carousel.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="carousel-h3-2" datatype="html">
+        <source>指示器</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/carousel/carousel.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="carousel-p-3" datatype="html">
+        <source>可以将指示器的显示位置设置在容器外部</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/carousel/carousel.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="carousel-h3-3" datatype="html">
+        <source>切换箭头</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/carousel/carousel.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="carousel-p-4" datatype="html">
+        <source>可以设置切换箭头的总是显示</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/carousel/carousel.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="carousel-h3-4" datatype="html">
+        <source>标签</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/carousel/carousel.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="carousel-p-5" datatype="html">
+        <source>为指示器增加额外文本</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/carousel/carousel.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="collapse-h2-1" datatype="html">
+        <source>Collapse 折叠面板</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/collapse/collapse.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="collapse-p-1" datatype="html">
+        <source>通过折叠面板收纳内容区域</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/collapse/collapse.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="collapse-h3-1" datatype="html">
+        <source>基础用法</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/collapse/collapse.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="collapse-p-2" datatype="html">
+        <source>可同时展开多个面板，面板之间不影响</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/collapse/collapse.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="collapse-h3-2" datatype="html">
+        <source>手风琴效果</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/collapse/collapse.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="collapse-p-3" datatype="html">
+        <source>每次只能展开一个面板</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/collapse/collapse.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="collapse-h3-3" datatype="html">
+        <source>自定义面板标题</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/collapse/collapse.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="collapse-p-4" datatype="html">
+        <source>除了可以通过 <x id="START_TAG_CODE" ctype="x-code"/>label<x id="CLOSE_TAG_CODE" ctype="x-code"/> 属性以外，
+  还可以通过 <x id="START_TAG_CODE" ctype="x-code"/>ng-template<x id="CLOSE_TAG_CODE" ctype="x-code"/> 来实现自定义面板的标签内容，以实现增加图标等效果。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/others/collapse/collapse.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
