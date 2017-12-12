@@ -3,10 +3,15 @@
 
 <h3>[el-class]</h3>
 <p i18n="@@directives-p-2">[el-class] 可以在任何 Element Angular 组件上使用，它接受一个字符串参数，帮助你在组件上增加一个自定义的样式类。</p>
+<p>[el-class] 属性是作用与 ng-template 上，如下文在 el-alert 上使用的指令，不会将 class 直接插入在组件中，而是组件的父元素 Angular 创建的
+元素上，所以下文中使用了 <code> > div </code> 来选中子级元素。</p>
 <p i18n="@@directives-p-3">下面的示例就是如何使用 [el-class] 来为组件添加自己需要的 class 类名：</p>
 <pre>
   <code class="hljs" [innerHTML]="code[0] | highlightAuto"></code>
 </pre>
+<blockquote i18n="@@directives-p-4">
+  需要注意的是，在你自己的组件内别忘了使用 <code>ViewEncapsulation.None</code> 来覆盖样式，如果缺少样式指定的打包方式，组件内部是无法覆盖继承的样式。
+</blockquote>
 
 <ex-footer-nav [page]="page"></ex-footer-nav>
 
