@@ -14,7 +14,7 @@ import { ElTableFormat } from './utils/format'
   .el-table__header-scroll::-webkit-scrollbar { visibility: hidden; }
   `],
   template: `
-    <div class="el-table" #tableRef
+    <div class="el-table"
       [ngStyle]="{ height: height | cssValue }"
       [class.el-table--enable-row-transition]="true"
       [class.el-table--striped]="stripe"
@@ -107,6 +107,9 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
   updateLayout(): void {
     const elTable: HTMLElement = this.el.nativeElement.children[0]
     this.layout.bodyWidth = this.widthCount || elTable.clientWidth
+    if (this.widthCount) {
+      this.renderer.setStyle(elTable, 'width', `${this.widthCount}px`)
+    }
   }
   
   updateColumnsWidth(widthItem: WidthItem): void {

@@ -13,6 +13,12 @@
     "enum": null,
     "default": null
   }, {
+    "name": "scroll-x",
+    "notes": "是否打开横向滚动",
+    "type": "boolean",
+    "enum": null,
+    "default": false
+  }, {
     "name": "placeholder",
     "notes": "无数据时占位符",
     "type": "string",
