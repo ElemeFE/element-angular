@@ -1,0 +1,40 @@
+{
+  "name": "Form Attributes",
+  "attrs": [
+    {
+      "name": "inline",
+      "notes": "是否行内显示",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "show-icon",
+      "notes": "是否显示辅助状态图标 (仅对 Input 有效)",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "show-message",
+      "notes": "是否显示错误提示信息",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "label-position",
+      "notes": "label 对齐方式",
+      "type": "string",
+      "enum": null,
+      "default": "right"
+    },
+    {
+      "name": "label-width",
+      "notes": "label 宽度",
+      "type": "string",
+      "enum": null,
+      "default": null
+    }
+  ]
+}
