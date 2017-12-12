@@ -10,6 +10,9 @@ import { ElTableFormat } from './utils/format'
 
 @Component({
   selector: 'el-table',
+  styles: [`
+  .el-table__header-scroll::-webkit-scrollbar { visibility: hidden; }
+  `],
   template: `
     <div class="el-table" #tableRef
       [ngStyle]="{ height: height | cssValue }"
@@ -18,12 +21,14 @@ import { ElTableFormat } from './utils/format'
       [class.el-table--border]="border"
       [class.el-table--hidden]="false">
       <div class="hidden-columns"><ng-content></ng-content></div>
-      <div class="el-table__header-wrapper" [hidden]="!showHeader" #headerRef>
+      <div class="el-table__header-wrapper el-table__header-scroll" [hidden]="!showHeader"
+        [ngStyle]="{'overflow-x': (scrollX ? 'auto' : 'hidden')}" #headerRef>
         <el-table-header [model]="columnsWithLevel" [layout]="layout" [columns-width]="columnsWidth"
           [border]="border" [height]="height">
         </el-table-header>
       </div>
-      <div class="el-table__body-wrapper" [ngStyle]="{ height: layout.bodyHeight | cssValue }">
+      <div class="el-table__body-wrapper" [ngStyle]="{ height: layout.bodyHeight | cssValue }"
+        (scroll)="bodyScroll($event)">
         <el-table-body [model]="columnsData" [stripe]="stripe"
           [layout]="layout" [row-class-name]="rowClassName"
           [ngStyle]="{ width: layout.bodyWidth + 'px' }">
@@ -53,6 +58,8 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
   private orderMap: OrderMap
   private modelStorge: any
   private differ: KeyValueDiffer<any, any>
+  // user set width
+  private widthCount: number = 0
   
   static GEN_TEMPLATE_KEY(): string {
     return Math.random().toString(16).substr(2, 8)
@@ -67,6 +74,13 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
   ) {
     super()
     this.differ = this.differs.find([]).create()
+  }
+  
+  bodyScroll(event: Event): void {
+    if (!this.scrollX) return
+    const el: Element = (<Element>event.target)
+    if (el.scrollLeft === undefined) return
+    this.headerRef.nativeElement.scrollLeft = el.scrollLeft
   }
   
   updateColumns(column: TableColumn): void {
@@ -92,7 +106,7 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
   
   updateLayout(): void {
     const elTable: HTMLElement = this.el.nativeElement.children[0]
-    this.layout.bodyWidth = elTable.clientWidth
+    this.layout.bodyWidth = this.widthCount || elTable.clientWidth
   }
   
   updateColumnsWidth(widthItem: WidthItem): void {
@@ -109,6 +123,13 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
       }
       count += item.width
     })
+    // if user has set the width, use fixed width
+    // update layout
+    if (!auto) {
+      this.widthCount = count
+      this.updateLayout()
+    }
+    
     const average: number = (this.layout.bodyWidth - count) / auto
     return columnsWidth.map((item: WidthItem) =>
       item.auto ? Object.assign(item, { width: average }) : item)
