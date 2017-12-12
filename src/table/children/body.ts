@@ -22,7 +22,7 @@ import { ElTableFormat } from '../utils/format'
           (mouseleave)="cellMouseActionHandle($event, false)"
           (click)="clickHandle($event, tdRef)"
           (dblclick)="doubleClickHandle($event, tdRef)">
-          <div class="cell">
+          <div class="cell" [ngStyle]="{ 'text-align': center ? 'center' : 'unset' }">
             <ng-container *ngIf="!isTemplateRef(td.value)">{{td.value}}</ng-container>
             <ng-container *ngIf="isTemplateRef(td.value)">
               <ng-template [ngTemplateOutlet]="td.value" [ngTemplateOutletContext]="{
@@ -39,6 +39,7 @@ export class ElTableBody implements OnChanges {
   
   @Input('model') model: TableColumnDataItem[][]
   @Input() stripe: boolean = false
+  @Input() center: boolean = false
   @Input() layout: any
   @Input('row-class-name') rowClassName: (userRow: any, index: number) => string
   @Output('cell-click') cellClick: EventEmitter<ElTableSlotEvent> = new EventEmitter<ElTableSlotEvent>()

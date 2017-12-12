@@ -1,7 +1,7 @@
 export default [
 // 基础用法
 `
-<el-table [model]="tableData" [scroll-x]="true">
+<el-table [model]="tableData" [scroll-x]="true" center="all">
   <el-table-column model-key="name" label="姓名" width="140">
   </el-table-column>
   <el-table-column model-key="date" label="日期" width="140">

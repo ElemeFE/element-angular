@@ -16,7 +16,9 @@ import { WidthItem } from '../table.interface'
         <th *ngFor="let th of tr" [class]="makeClasses(th)"
             [ngStyle]="{ width: th.width | cssValue }"
             [attr.colspan]="getColspan(th)" [attr.rowspan]="getRowspan(th)">
-          <div class="cell" [ngStyle]="{ width: th.width | cssValue }">{{th.label}}</div>
+          <div class="cell" [ngStyle]="{
+            width: th.width | cssValue,
+            'text-align': center ? 'center' : 'unset' }">{{th.label}}</div>
         </th>
       </tr>
     </table>
@@ -28,6 +30,7 @@ export class ElTableHeader {
   @Input() layout: any
   @Input() border: boolean = false
   @Input() height: string | number
+  @Input() center: boolean
   @Input('columns-width') columnsWidth: WidthItem[] = []
   
   makeClasses(th: any): string {

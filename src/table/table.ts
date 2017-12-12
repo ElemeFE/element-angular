@@ -24,13 +24,14 @@ import { ElTableFormat } from './utils/format'
       <div class="el-table__header-wrapper el-table__header-scroll" [hidden]="!showHeader"
         [ngStyle]="{'overflow-x': (scrollX ? 'auto' : 'hidden')}" #headerRef>
         <el-table-header [model]="columnsWithLevel" [layout]="layout" [columns-width]="columnsWidth"
-          [border]="border" [height]="height">
+          [border]="border" [height]="height" [center]="center === 'header' || center === 'all'">
         </el-table-header>
       </div>
       <div class="el-table__body-wrapper" [ngStyle]="{ height: layout.bodyHeight | cssValue }"
         (scroll)="bodyScroll($event)">
         <el-table-body [model]="columnsData" [stripe]="stripe"
           [layout]="layout" [row-class-name]="rowClassName"
+          [center]="center === 'all'"
           [ngStyle]="{ width: layout.bodyWidth + 'px' }">
         </el-table-body>
         <div [ngStyle]="{width: layout.bodyWidth + 'px'}" class="el-table__empty-block" *ngIf="!model || model.length === 0">
