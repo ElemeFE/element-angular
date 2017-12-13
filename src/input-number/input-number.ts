@@ -9,7 +9,10 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
     useExisting: forwardRef(() => ElInputNumber),
     multi: true
   }],
-  styles: [`.el-input-spin-button::-webkit-inner-spin-button { visibility: hidden; }`],
+  styles: [`
+    .el-input-spin-button::-webkit-inner-spin-button { visibility: hidden; -webkit-appearance: none; }
+    .el-input-spin-button { -moz-appearance: textfield; }
+  `],
   template: `
     <div [class]="'el-input-number' + (size ? ' el-input-number--' + size : '')"
       [class.is-disabled]="disabled" [class.is-without-controls]="!controls">
