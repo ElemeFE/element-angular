@@ -8,6 +8,7 @@ import { Component, Input, ChangeDetectionStrategy} from '@angular/core'
       <ng-content></ng-content>
       <sup *ngIf="!hidden && (!!makeContent() || isDot)"
         class="el-badge__content"
+        style="z-index: 1;"
         [class.is-fixed]="true" [class.is-dot]="isDot">
         {{makeContent()}}
       </sup>
