@@ -23,11 +23,11 @@
       "default": null
     },
     {
-      "name": "size",
-      "notes": "Dialog 的大小",
+      "name": "width",
+      "notes": "Dialog 的宽度",
       "type": "string",
-      "enum": "tiny / small / large / full",
-      "default": "small"
+      "enum": null,
+      "default": null
     },
     {
       "name": "top",
