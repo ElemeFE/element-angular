@@ -3,7 +3,7 @@ import { EventEmitter, Input, Output } from '@angular/core'
 export class ElDialogProps {
 
   @Input() title: string
-  @Input() size: string = 'small'             // tiny/small/large/full
+  @Input() width: string
   @Input() center: boolean = false
   
   @Input() top: string = '15%'                // css value

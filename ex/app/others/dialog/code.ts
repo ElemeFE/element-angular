@@ -53,6 +53,14 @@ export default [
   </el-dialog>
   
 </div>
+
+<script type="text">
+// in Component:
+handle(done: Function): void {
+  alert('一段同步或异步的任务')
+  done()
+}
+</script>
 `,
 
 // 居中

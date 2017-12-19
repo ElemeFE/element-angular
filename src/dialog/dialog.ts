@@ -12,7 +12,7 @@ import { dialogFadeAnimation } from '../shared/animation'
   animations: [dialogFadeAnimation],
   template: `
     <div class="el-dialog__wrapper" [@dialogFadeAnimation]="visible"
-      [ngStyle]="{'z-index': dialogZindex}"
+      [ngStyle]="{ 'z-index': dialogZindex }"
       (click)="wrapperClickHandle()">
       <div [class]="'el-dialog ' + 'el-dialog--' + size + ' ' + customClass"
         [class.el-dialog--center]="center"
@@ -62,7 +62,8 @@ export class ElDialog extends ElDialogProps implements OnInit, OnChanges, OnDest
   }
   
   makeDialogStyles(): SafeStyle {
-    const styles: string = this.size === 'full' ? '' : `top: ${this.top}`
+    const width: string = this.width ? `width: ${this.width};` : ''
+    const styles: string = `top: ${this.top};${width}`
     return this.sanitizer.bypassSecurityTrustStyle(styles)
   }
   
