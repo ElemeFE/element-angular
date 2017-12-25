@@ -1,7 +1,7 @@
 export default [
 // 基础用法
 `
-<el-menu [model]="0" class="el-menu-demo" mode="horizontal">
+<el-menu [model]="0" (modelChange)="handle($event)" class="el-menu-demo" mode="horizontal">
   <el-menu-item index="1">处理中心</el-menu-item>
   <el-submenu index="2" title="我的工作台">
     <el-menu-item index="2-1">选项1</el-menu-item>
@@ -11,7 +11,7 @@ export default [
   <el-menu-item index="3"><a href="https://github.com/eleme/element-angular" target="_blank">GITHUB</a></el-menu-item>
 </el-menu>
 
-<el-menu [model]="0" class="el-menu-demo" mode="horizontal"
+<el-menu [model]="0" (modelChange)="handle($event)" class="el-menu-demo" mode="horizontal"
   background-color="#545c64"
   active-text-color="#ffd04b"
   text-color="#fff">

@@ -17,6 +17,10 @@ export class ExMenuComponent {
   
   private exClass: any = class {
     private isCollapse: boolean = true
+  
+    handle(index: string): void {
+      console.log(index)
+    }
   }
   
 }
