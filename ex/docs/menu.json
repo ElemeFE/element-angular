@@ -10,24 +10,24 @@
     },
     {
       "name": "background-color",
-      "notes": "背景颜色",
+      "notes": "背景颜色 (仅支持 hex 格式)",
       "type": "string",
       "enum": null,
-      "default": null
+      "default": "#ffffff"
     },
     {
       "name": "text-color",
-      "notes": "文字颜色",
+      "notes": "文字颜色 (仅支持 hex 格式)",
       "type": "string",
       "enum": null,
-      "default": null
+      "default": "#303133"
     },
     {
       "name": "active-text-color",
-      "notes": "当前激活的文字颜色",
+      "notes": "当前激活的文字颜色 (仅支持 hex 格式)",
       "type": "string",
       "enum": null,
-      "default": null
+      "default": "#409eff"
     },
     {
       "name": "model",
