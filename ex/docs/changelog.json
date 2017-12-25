@@ -348,6 +348,27 @@
         "issues": [307],
         "description": "修复 Table 组件不能横向滚动的错误"
       }]
+    },
+    {
+      "version": "0.5.0-beta.3",
+      "date": "2017-12-25",
+      "link": null,
+      "events": [{
+        "pull-requests": [315],
+        "description": "修复 InputNumber 不能正确居中的样式错误"
+      }, {
+        "pull-requests": [317],
+        "description": "修复 Badge 组件 z-index 错误"
+      }, {
+        "pull-requests": [318],
+        "description": "为 Dialog 组件增加 width 属性"
+      }, {
+        "issues": [319],
+        "description": "Menu 中使用颜色配置代替原有的 theme 属性"
+      }, {
+        "issues": [321],
+        "description": "解决多级菜单父级不能正确选中的错误"
+      }]
     }
   ]
 }
