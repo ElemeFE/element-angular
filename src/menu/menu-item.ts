@@ -7,8 +7,13 @@ import { removeNgTag } from '../shared/utils'
 @Component({
   selector: 'el-menu-item',
   template: `
-    <li class="el-menu-item" (click)="clickHandle()"
-      [ngStyle]="paddingStyle()"
+    <li class="el-menu-item" (click)="clickHandle()" #list
+      [ngStyle]="{ paddingLeft: '20px',
+      backgroundColor: rootMenu.backgroundColor || '',
+      borderBottomColor: activeColor(),
+      color: rootMenu.textColor || '' }"
+      (mouseenter)="list.style.backgroundColor = rootMenu.hoverBackgroundColor()"
+      (mouseleave)="list.style.backgroundColor = rootMenu.backgroundColor || ''"
       [class.is-active]="rootMenu.model === index"
       [class.is-disabled]="disabled">
       <ng-content></ng-content>
@@ -29,13 +34,15 @@ export class ElMenuItem implements OnInit {
   ) {
   }
   
-  paddingStyle(): any {
-    return this.sanitizer.bypassSecurityTrustStyle('padding-left: 20px')
+  clickHandle(): void {
+    const comRef: any = this.subMenu || this.rootMenu
+    comRef.selectHandle(this.index)
   }
   
-  clickHandle(): void {
-    const comRef: ElMenu | ElSubmenu = this.subMenu || this.rootMenu
-    comRef.selectHandle(this.index)
+  activeColor(): string {
+    return this.rootMenu.model === this.index ?
+      (this.rootMenu.activeTextColor ? this.rootMenu.activeTextColor : '')
+      : 'transparent'
   }
   
   ngOnInit(): void {

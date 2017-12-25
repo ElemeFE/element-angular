@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   template: `
     <ul [class]="'el-menu ' + nativeClass"
       [class.el-menu--horizontal]="mode === 'horizontal'"
-      [class.el-menu--dark]="theme === 'dark'">
+      [ngStyle]="{ backgroundColor: backgroundColor || '' }">
       <ng-content></ng-content>
     </ul>
   `,
@@ -20,6 +20,9 @@ export class ElMenu {
   @Input('default-openeds') defaultOpeneds: string[]
   @Input('unique-opened') uniqueOpened: boolean = false
   @Input('menu-trigger') menuTrigger: string = 'hover'
+  @Input('background-color') backgroundColor: string
+  @Input('text-color') textColor: string
+  @Input('active-text-color') activeTextColor: string
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
   openedMenus: string[] = this.defaultOpeneds ? this.defaultOpeneds.slice(0) : []
@@ -38,6 +41,16 @@ export class ElMenu {
     const main: string = path || index
     this.model = main
     this.modelChange.emit(main)
+  }
+  
+  hoverBackgroundColor(): string {
+    return this.backgroundColor ? this.hexToRGB() : ''
+  }
+  
+  private hexToRGB(): string {
+    const hex: number = + this.backgroundColor.replace('#', '0x')
+    const rgb: number[] = [(hex & 0xff0000) >> 16, (hex & 0x00ff00) >> 8, hex & 0x0000ff]
+    return `rgb(${rgb.map(v => (1 - v) * v).join(',')})`
   }
   
 }

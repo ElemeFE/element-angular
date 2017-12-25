@@ -12,7 +12,11 @@ import { ElMenu } from './menu'
       [class.is-opened]="opened"
       (mouseenter)="mouseenterHandle()"
       (mouseleave)="mouseleaveHandle()">
-      <div class="el-submenu__title" (click)="clickHandle()" [style]="paddingStyle()">
+      <div class="el-submenu__title" (click)="clickHandle()"
+        [ngStyle]="{ paddingLeft: '20px;', color: rootMenu.textColor || '', borderBottomColor: activeColor() }"
+        #subTitle
+        (mouseenter)="subTitle.style.backgroundColor = rootMenu.hoverBackgroundColor()"
+        (mouseleave)="subTitle.style.backgroundColor = ''">
         <ng-container *ngIf="!titleTmp">
           {{title}}
         </ng-container>
@@ -23,7 +27,8 @@ import { ElMenu } from './menu'
           [class.el-icon-caret-bottom]="rootMenu.mode === 'horizontal'"
           [class.el-icon-arrow-down]="rootMenu.mode === 'vertical'"></i>
       </div>
-      <ul class="el-menu" [@dropAnimation]="opened">
+      <ul class="el-menu" [@dropAnimation]="opened"
+        [ngStyle]="{ backgroundColor: rootMenu.backgroundColor || '' }">
         <ng-content></ng-content>
       </ul>
     </li>
@@ -92,8 +97,10 @@ export class ElSubmenu implements OnInit {
     this.updateOpened()
   }
   
-  paddingStyle(): any {
-    return this.sanitizer.bypassSecurityTrustStyle(`padding-left: 20px`)
+  activeColor(): string {
+    return this.active ?
+      (this.rootMenu.activeTextColor ? this.rootMenu.activeTextColor : '')
+      : 'transparent'
   }
   
   ngOnInit(): void {

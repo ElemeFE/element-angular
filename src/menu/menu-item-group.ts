@@ -1,11 +1,14 @@
-import { Component, ContentChild, Input, OnInit, TemplateRef } from '@angular/core'
+import { Component, ContentChild, Host, Input, OnInit, TemplateRef } from '@angular/core'
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser'
+import { ElMenu } from './menu'
 
 @Component({
   selector: 'el-menu-item-group',
   template: `
     <li class="el-menu-item-group">
-      <div class="el-menu-item-group__title" [style]="paddingStyle()">
+      <div class="el-menu-item-group__title" [style]="paddingStyle()" #title
+        (mouseenter)="title.style.backgroundColor = rootMenu.hoverBackgroundColor() "
+        (mouseleave)="title.style.backgroundColor = ''">
         <ng-container *ngIf="!titleTmp">
           {{title}}
         </ng-container>
@@ -24,6 +27,7 @@ export class ElMenuItemGroup implements OnInit {
   @Input() title: string = ''
   
   constructor(
+    @Host() public rootMenu: ElMenu,
     private sanitizer: DomSanitizer,
   ) {
   }
