@@ -23,6 +23,13 @@ export default [
   </el-submenu>
   <el-menu-item index="3"><a href="https://github.com/eleme/element-angular" target="_blank">GITHUB</a></el-menu-item>
 </el-menu>
+
+<script type="text">
+// in Component
+handle(index: string): void {
+  console.log(index)
+}
+</script>
 `,
   
 `
