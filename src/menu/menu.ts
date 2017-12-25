@@ -26,6 +26,7 @@ export class ElMenu {
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
   openedMenus: string[] = this.defaultOpeneds ? this.defaultOpeneds.slice(0) : []
+  showBorderIndex: string
   
   openMenu(index: string): void {
     const openedMenus = this.openedMenus

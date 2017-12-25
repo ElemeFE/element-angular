@@ -1,5 +1,4 @@
 import { Component, ContentChild, Host, Input, OnInit, TemplateRef } from '@angular/core'
-import { DomSanitizer } from '@angular/platform-browser'
 import { dropAnimation } from '../shared/animation'
 import { ElMenu } from './menu'
 
@@ -13,7 +12,7 @@ import { ElMenu } from './menu'
       (mouseenter)="mouseenterHandle()"
       (mouseleave)="mouseleaveHandle()">
       <div class="el-submenu__title" (click)="clickHandle()"
-        [ngStyle]="{ paddingLeft: '20px;', color: rootMenu.textColor || '', borderBottomColor: activeColor() }"
+        [ngStyle]="{ paddingLeft: '20px;', color: rootMenu.textColor || '', borderBottomColor: borderColor() }"
         #subTitle
         (mouseenter)="subTitle.style.backgroundColor = rootMenu.hoverBackgroundColor()"
         (mouseleave)="subTitle.style.backgroundColor = ''">
@@ -44,11 +43,11 @@ export class ElSubmenu implements OnInit {
   timer: any
   opened: boolean = false
   active: boolean = false
+  subActive: boolean = false
   dontUserHover: boolean = false
   
   constructor(
     @Host() public rootMenu: ElMenu,
-    private sanitizer: DomSanitizer,
     ) {
   }
   
@@ -97,9 +96,9 @@ export class ElSubmenu implements OnInit {
     this.updateOpened()
   }
   
-  activeColor(): string {
-    return this.active ?
-      (this.rootMenu.activeTextColor ? this.rootMenu.activeTextColor : '')
+  borderColor(): string {
+    return this.rootMenu.showBorderIndex === this.index ?
+      (this.rootMenu.activeTextColor ? this.rootMenu.activeTextColor : '#409eff')
       : 'transparent'
   }
   
