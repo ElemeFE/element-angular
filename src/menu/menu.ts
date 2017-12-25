@@ -50,7 +50,7 @@ export class ElMenu {
   private hexToRGB(): string {
     const hex: number = + this.backgroundColor.replace('#', '0x')
     const rgb: number[] = [(hex & 0xff0000) >> 16, (hex & 0x00ff00) >> 8, hex & 0x0000ff]
-    return `rgb(${rgb.map(v => (1 - v) * v).join(',')})`
+    return `rgb(${rgb.map(v => ~~(0.8 * v)).join(',')})`
   }
   
 }

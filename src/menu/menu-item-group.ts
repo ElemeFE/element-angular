@@ -6,9 +6,9 @@ import { ElMenu } from './menu'
   selector: 'el-menu-item-group',
   template: `
     <li class="el-menu-item-group">
-      <div class="el-menu-item-group__title" [style]="paddingStyle()" #title
-        (mouseenter)="title.style.backgroundColor = rootMenu.hoverBackgroundColor() "
-        (mouseleave)="title.style.backgroundColor = ''">
+      <div class="el-menu-item-group__title" [style]="paddingStyle()" #groupTitle
+        (mouseenter)="groupTitle.style.backgroundColor = rootMenu.hoverBackgroundColor() "
+        (mouseleave)="groupTitle.style.backgroundColor = ''">
         <ng-container *ngIf="!titleTmp">
           {{title}}
         </ng-container>
