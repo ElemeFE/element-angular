@@ -369,6 +369,14 @@
         "issues": [321],
         "description": "解决多级菜单父级不能正确选中的错误"
       }]
+    },
+    {
+      "version": "0.5.0-beta.4",
+      "date": "2017-12-26",
+      "link": null,
+      "events": [{
+        "description": "修复 Table 组件的值必须是 string 类型的错误"
+      }]
     }
   ]
 }

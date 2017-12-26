@@ -59,7 +59,7 @@ export class ElTableBody implements OnChanges {
   }
   
   isTemplateRef(content: any): boolean {
-    return content && typeof content !== 'string'
+    return content && typeof content === 'object'
   }
   
   getBodyWidth(): number {
