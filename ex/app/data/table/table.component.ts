@@ -8,7 +8,7 @@ import code from './code'
 export class ExTableDemoComponent {
   private tableData: any[] = [{
     name: '火锅',
-    date: '2017-08-19',
+    date: 2017,
     address: '上海市普陀区金沙江路 1518 弄',
   }, {
     name: '重庆小面',
