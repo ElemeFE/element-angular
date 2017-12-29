@@ -73,7 +73,7 @@
     },
     {
       "name": "selected",
-      "notes": "事件，选中一项后触发",
+      "notes": "事件，选中一项后触发，参数为数据源中选中的一项",
       "type": "event",
       "enum": null,
       "default": null
