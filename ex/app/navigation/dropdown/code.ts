@@ -1,7 +1,7 @@
 export default [
 // 基础用法
 `
-<el-dropdown [model]="data">
+<el-dropdown [model]="data" (selected)="handle($event)">
   下拉菜单
 </el-dropdown>
 

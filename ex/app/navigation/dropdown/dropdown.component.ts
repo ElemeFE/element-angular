@@ -44,7 +44,8 @@ export class ExDropdownComponent {
       label: '螺蛳粉',
     }]
     
-    handle(): void {
+    handle(event: any): void {
+      console.log(event)
     }
   }
   private code: string[] = code
