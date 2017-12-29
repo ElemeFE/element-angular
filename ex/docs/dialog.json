@@ -31,7 +31,7 @@
     },
     {
       "name": "top",
-      "notes": "Dialog CSS 中的 top 值（仅在 size 不为 full 时有效）",
+      "notes": "Dialog CSS 中的 top 值",
       "type": "string",
       "enum": null,
       "default": "15%"

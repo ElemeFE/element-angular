@@ -385,6 +385,14 @@
       "events": [{
         "description": "修复 Dropdown 组件事件缺失参数的问题"
       }]
+    },
+    {
+      "version": "0.5.0-beta.5",
+      "date": "2017-12-29",
+      "link": null,
+      "events": [{
+        "description": "移除 Dialog 组件不使用的 size 属性"
+      }]
     }
   ]
 }
