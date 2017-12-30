@@ -11,6 +11,7 @@ import { ExProgressComponent } from './progress/progress.component'
 import { ExBadgeComponent } from './badge/badge.component'
 import { ExPaginationComponent } from './pagination/pagination.component'
 import { ExTableComponent, ExTableDemoComponent } from './table/table.component'
+import { ExTreeComponent } from './tree/tree.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ExTableComponent, ExTableDemoComponent } from './table/table.component'
     ExPaginationComponent,
     ExTableComponent,
     ExTableDemoComponent,
+    ExTreeComponent,
   ],
   imports: [
     CommonModule,
