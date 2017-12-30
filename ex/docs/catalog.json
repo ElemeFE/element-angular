@@ -136,6 +136,10 @@
       "name": "Table 表格",
       "name-en": "Table",
       "link": "/data/table"
+    }, {
+      "name": "Tree 树型控件",
+      "name-en": "Tree",
+      "link": "/data/tree"
     }]
   }, {
     "name": "Notice",
