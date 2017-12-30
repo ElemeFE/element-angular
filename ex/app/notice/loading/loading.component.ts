@@ -11,7 +11,7 @@ export class ExLoadingComponent {
   
   private code: string[] = code
   private page: any = {
-    previous: { name: 'Table 表格', link: '/data/table' },
+    previous: { name: 'Tree 树型控件', link: '/data/tree' },
     next: { name: 'Message 消息提示', link: '/notice/message' },
   }
   private exClass: new () => {} = class {

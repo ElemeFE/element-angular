@@ -12,8 +12,8 @@ export class ExTreeComponent {
   private code: string[] = code
   private tags: string[] = ['123', '234234', '0011']
   private page: any = {
-    previous: { name: 'Form 表单', link: '/form/form' },
-    next: { name: 'Progress 输入框', link: '/data/progress' },
+    previous: { name: 'Table 表格', link: '/data/table' },
+    next: { name: 'Loading 加载', link: '/notice/loading' },
   }
   
   handle(): void {
