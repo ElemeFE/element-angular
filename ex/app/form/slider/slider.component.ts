@@ -16,6 +16,7 @@ export class ExSliderComponent {
   }
   private exClass: any = class {
     handle(val: any): void {
+      console.log(val)
     }
   }
   

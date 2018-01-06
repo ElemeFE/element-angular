@@ -65,6 +65,7 @@ export class ElSlider extends ElSliderProps implements OnInit, AfterViewInit, Co
     const offset: number = Math.abs(val - (this.vertical ? bottom : left))
     // update value
     this.model = Math.round((offset / this.size) * (this.max - this.min)) + this.min
+    this.moveChange(this.model)
     this.makeBarStyle()
   }
   
