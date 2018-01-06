@@ -1,10 +1,11 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { ElTree } from './tree'
+import { ElTreeItem } from './tree-item'
 
 @NgModule({
-  declarations: [ElTree],
-  exports: [ElTree],
+  declarations: [ElTree, ElTreeItem],
+  exports: [ElTree, ElTreeItem],
   imports: [CommonModule],
   entryComponents: [ElTree],
 })
