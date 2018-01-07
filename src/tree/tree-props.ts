@@ -3,8 +3,10 @@ import { ModelStandard } from './utils'
 
 export type ElTreeModelData = {
   label: string,
+  checked?: boolean,
   _level?: number,
   _expanded?: boolean,
+  _indeterminate?: boolean,
   id?: number | string,
   children?: ElTreeModelData[],
 }
@@ -12,7 +14,8 @@ export type ElTreeModelData = {
 export type ElTreeModelEvent = {
   label: string,
   treeNodeID: string | number,
-  action: string,     // close, open, click
+  action: string,     // close, open, click, checkbox
+  checked: boolean,
 }
 
 export class ElTreeProps {
@@ -24,14 +27,17 @@ export class ElTreeProps {
       initDepth: 0,
       defaultExpandAll: this.defaultExpandAll,
       defaultExpandedKeys: this.defaultExpandedKeys,
+      defaultCheckedKeys: this.defaultCheckedKeys,
     })
     this.identModel = standardTool.filterModel(val)
   }
   @Output() modelChange: EventEmitter<ElTreeModelEvent> = new EventEmitter<ElTreeModelEvent>()
   
   @Input('empty-text') emptyText: string = ''
+  @Input('show-checkbox') showCheckbox: boolean = false
   @Input('default-expand-all') defaultExpandAll: boolean = false
   @Input('default-expanded-keys') defaultExpandedKeys: Array<string | number> = []
+  @Input('default-checked-keys') defaultCheckedKeys: Array<string | number> = []
   @Input() indent: number = 16
   @Input() accordion: boolean = false
 }

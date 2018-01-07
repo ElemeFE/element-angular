@@ -18,6 +18,9 @@ import { dropAnimation } from '../shared/animation'
           [class.expanded]="model._expanded"
           [class.is-leaf]="isLeaf()"
           (click)="iconClickHandle()"></span>
+        <el-checkbox *ngIf="root.showCheckbox" [model]="model.checked" [indeterminate]="model._indeterminate"
+          (modelChange)="checkHandle($event)">
+        </el-checkbox>
         <span class="el-tree-node__label">{{ model.label }}</span>
       </div>
       <div class="el-tree-node__children" *ngIf="!isLeaf()" [@dropAnimation]="model._expanded">
@@ -34,7 +37,7 @@ export class ElTreeItem {
   @Input() model: ElTreeModelData
   
   constructor(
-    @Optional() private root: ElTree,
+    @Optional() public root: ElTree,
   ) {
   }
   
@@ -46,8 +49,19 @@ export class ElTreeItem {
       label: this.model.label,
       treeNodeID: this.model.id,
       action: nextAction,
+      checked: this.model.checked,
     })
     !dontUpdateExpanded && this.root.updateExpanded(this.model.id)
+  }
+  
+  checkHandle(): void {
+    this.root.updateChecked(this.model.id)
+    this.root.emitter({
+      label: this.model.label,
+      treeNodeID: this.model.id,
+      action: 'checkbox',
+      checked: this.model.checked,
+    })
   }
   
   isLeaf(): boolean {

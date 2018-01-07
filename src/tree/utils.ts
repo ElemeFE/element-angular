@@ -11,6 +11,7 @@ export type ModelStandardInit = {
   initDepth: number,
   defaultExpandAll: boolean,
   defaultExpandedKeys: Array<string | number>,
+  defaultCheckedKeys: Array<string | number>,
 }
 
 export class ModelStandard {
@@ -25,12 +26,18 @@ export class ModelStandard {
   private updateDepthIdent(models: ElTreeModelData[], depth: number)
   : ElTreeModelData[] {
     return models.map(item => {
-      const nextID = item.id || makeRandomID()
+      const nextID: string | number = item.id || makeRandomID()
+      const nextChildren: ElTreeModelData[] = notEmptyArray(item.children)
+        ? this.updateDepthIdent(item.children, depth + 1) : []
+      const nextIndeterminate: boolean = !!nextChildren.find(item => item.checked || item._indeterminate)
+      const allChecked: boolean = nextChildren.length > 0 && !nextChildren.find(item => !item.checked)
       return Object.assign({}, item, {
-        _level: depth ? depth + 1 : 1,
         id: nextID,
+        checked: allChecked || this.isChecked(nextID, item),
+        _level: depth ? depth + 1 : 1,
         _expanded: this.isExpanded(nextID),
-        children: notEmptyArray(item.children) ? this.updateDepthIdent(item.children, depth + 1) : []
+        _indeterminate: allChecked ? false : nextIndeterminate,
+        children: nextChildren,
       })
     })
   }
@@ -39,5 +46,11 @@ export class ModelStandard {
     if (this.init.defaultExpandAll) return true
     if (!this.init.defaultExpandedKeys.length) return false
     return !!this.init.defaultExpandedKeys.find(key => key === id)
+  }
+  
+  private isChecked(id: string | number, item: ElTreeModelData): boolean {
+    if (item.checked === true) return true
+    if (!this.init.defaultCheckedKeys.length) return false
+    return !!this.init.defaultCheckedKeys.find(key => key === id)
   }
 }
