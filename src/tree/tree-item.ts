@@ -11,14 +11,17 @@ import { dropAnimation } from '../shared/animation'
   
   template: `
     <div class="el-tree-node" (click)="clickHandle($event)"
+      [class.is-focusable]="!root.disabled"
+      [class.is-checked]="!root.disabled && model.checked"
       role="treeitem">
       <div class="el-tree-node__content"
         [ngStyle]="{ 'padding-left': (model._level - 1) * indent + 'px' }">
         <span class="el-tree-node__expand-icon el-icon-caret-right"
           [class.expanded]="model.expanded"
           [class.is-leaf]="isLeaf()"
-          (click)="iconClickHandle()"></span>
+          (click)="iconClickHandle($event)"></span>
         <el-checkbox *ngIf="root.showCheckbox" [model]="model.checked" [indeterminate]="model._indeterminate"
+          [disabled]="root.disabled"
           (modelChange)="checkHandle($event)">
         </el-checkbox>
         <span class="el-tree-node__label">{{ model.label }}</span>
@@ -43,6 +46,27 @@ export class ElTreeItem {
   
   clickHandle(event: MouseEvent): void {
     event.stopPropagation()
+    if (!this.root.expandOnClickNode) return
+    this.updateExpanded()
+  }
+  
+  iconClickHandle(event: MouseEvent): void {
+    event.stopPropagation()
+    this.updateExpanded()
+  }
+  
+  checkHandle(): void {
+    if (this.root.disabled) return
+    this.root.updateChecked(this.model.id)
+    this.root.emitter({
+      label: this.model.label,
+      treeNodeID: this.model.id,
+      action: 'checkbox',
+      checked: this.model.checked,
+    })
+  }
+  
+  updateExpanded(): void {
     const dontUpdateExpanded: boolean = this.isLeaf()
     const nextAction: string = dontUpdateExpanded ? 'click' : (this.model.expanded ? 'close' : 'open')
     this.root.emitter({
@@ -52,16 +76,6 @@ export class ElTreeItem {
       checked: this.model.checked,
     })
     !dontUpdateExpanded && this.root.updateExpanded(this.model.id)
-  }
-  
-  checkHandle(): void {
-    this.root.updateChecked(this.model.id)
-    this.root.emitter({
-      label: this.model.label,
-      treeNodeID: this.model.id,
-      action: 'checkbox',
-      checked: this.model.checked,
-    })
   }
   
   isLeaf(): boolean {

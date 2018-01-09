@@ -37,12 +37,13 @@ export class ModelStandard {
     // in accordion mode, only open one.
     // dont return new object, new object will cause the component to be re rendered,
     // and the current animation may be lost.
+    const nextExpanded: boolean = !models[index].expanded
     if (accordion) {
       models = models.map(item => Object.assign(item, {
         expanded: false
       }))
     }
-    models[index].expanded = !models[index].expanded
+    models[index].expanded = nextExpanded
     return models
   }
   
