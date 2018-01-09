@@ -15,7 +15,7 @@ Hi! 首先感谢你使用 Element Angular, 它源自于 [Element UI](https://git
 
 - 请先 fork 一份到自己的项目下，不要直接在仓库下建分支。
 
-- commit 信息要以`[组件名]: 描述信息` 的形式填写，例如 `Button: fix xxx bug`。
+- commit 信息请遵循 [rules](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines)。
 
 - 提交 PR 前请 rebase，确保 commit 记录的整洁。
 

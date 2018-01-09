@@ -17,7 +17,7 @@ Hi! Thank you for choosing Element Angular, this Rep began in [Element UI](https
 
 - Fork this repository to your own account. Do not create branches here.
 
-- Commit info should be formatted as `[Component Name]: Info about commit.` (e.g. `Button: Fix xxx bug`)
+- Commit info rule follow [Angular Commit Lint](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines).
 
 - Rebase before creating a PR to keep commit history clear.
 
