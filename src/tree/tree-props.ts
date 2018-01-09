@@ -38,6 +38,8 @@ export class ElTreeProps {
   @Input('default-expand-all') defaultExpandAll: boolean = false
   @Input('default-expanded-keys') defaultExpandedKeys: Array<string | number> = []
   @Input('default-checked-keys') defaultCheckedKeys: Array<string | number> = []
+  @Input('expand-on-click-node') expandOnClickNode: boolean = true
   @Input() indent: number = 16
   @Input() accordion: boolean = false
+  @Input() disabled: boolean = false
 }
