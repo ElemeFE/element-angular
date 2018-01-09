@@ -1,18 +1,10 @@
-.el-tag + .el-tag {
-  margin-left: 10px;
-}
-.button-new-tag {
-  margin-left: 10px;
-  height: 24px;
-  line-height: 22px;
-  padding: 0 auto;
-}
-.input-new-tag {
-  width: 78px;
-  margin-left: 10px;
-  vertical-align: bottom;
+.tree-box {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  display: flex;
 
-  .el-input__inner {
-    height: 24px;
+  > div {
+    margin-right: 20px;
   }
 }

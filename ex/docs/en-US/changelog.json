@@ -333,6 +333,65 @@
         "description": "修复部分文档样式错位问题"
       }, {
         "description": "修复 Date Picker 中造成的事件失效错误"
+      }, {
+        "description": "Input 组件增加 native-type 属性"
+      }]
+    },
+    {
+      "version": "0.5.0-beta.2",
+      "date": "2017-12-12",
+      "link": null,
+      "events": [{
+        "issues": [309],
+        "description": "修复 InputNumber 中默认样式问题"
+      }, {
+        "issues": [307],
+        "description": "修复 Table 组件不能横向滚动的错误"
+      }]
+    },
+    {
+      "version": "0.5.0-beta.3",
+      "date": "2017-12-25",
+      "link": null,
+      "events": [{
+        "pull-requests": [315],
+        "description": "修复 InputNumber 不能正确居中的样式错误"
+      }, {
+        "pull-requests": [317],
+        "description": "修复 Badge 组件 z-index 错误"
+      }, {
+        "pull-requests": [318],
+        "description": "为 Dialog 组件增加 width 属性"
+      }, {
+        "issues": [319],
+        "description": "Menu 中使用颜色配置代替原有的 theme 属性"
+      }, {
+        "issues": [321],
+        "description": "解决多级菜单父级不能正确选中的错误"
+      }]
+    },
+    {
+      "version": "0.5.0-beta.4",
+      "date": "2017-12-26",
+      "link": null,
+      "events": [{
+        "description": "修复 Table 组件的值必须是 string 类型的错误"
+      }]
+    },
+    {
+      "version": "0.5.0-beta.5",
+      "date": "2017-12-29",
+      "link": null,
+      "events": [{
+        "description": "修复 Dropdown 组件事件缺失参数的问题"
+      }]
+    },
+    {
+      "version": "0.5.0-beta.5",
+      "date": "2017-12-29",
+      "link": null,
+      "events": [{
+        "description": "移除 Dialog 组件不使用的 size 属性"
       }]
     }
   ]
