@@ -1,0 +1,10 @@
+.tree-box {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  display: flex;
+
+  > div {
+    margin-right: 20px;
+  }
+}

@@ -13,6 +13,18 @@
     "enum": null,
     "default": null
   }, {
+    "name": "scroll-x",
+    "notes": "是否打开横向滚动",
+    "type": "boolean",
+    "enum": null,
+    "default": false
+  }, {
+    "name": "center",
+    "notes": "文字是否居中，所有或仅头部居中",
+    "type": "string",
+    "enum": "all / header",
+    "default": null
+  }, {
     "name": "placeholder",
     "notes": "无数据时占位符",
     "type": "string",

@@ -9,11 +9,25 @@
       "default": "vertical"
     },
     {
-      "name": "theme",
-      "notes": "主题色",
+      "name": "background-color",
+      "notes": "背景颜色 (仅支持 hex 格式)",
       "type": "string",
-      "enum": "light / dark",
-      "default": "light"
+      "enum": null,
+      "default": "#ffffff"
+    },
+    {
+      "name": "text-color",
+      "notes": "文字颜色 (仅支持 hex 格式)",
+      "type": "string",
+      "enum": null,
+      "default": "#303133"
+    },
+    {
+      "name": "active-text-color",
+      "notes": "当前激活的文字颜色 (仅支持 hex 格式)",
+      "type": "string",
+      "enum": null,
+      "default": "#409eff"
     },
     {
       "name": "model",

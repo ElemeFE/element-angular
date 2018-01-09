@@ -7,6 +7,7 @@ import { ExProgressComponent } from './progress/progress.component'
 import { ExBadgeComponent } from './badge/badge.component'
 import { ExPaginationComponent } from './pagination/pagination.component'
 import { ExTableComponent } from './table/table.component'
+import { ExTreeComponent } from './tree/tree.component'
 
 
 export const dataRoutes: Routes = [{
@@ -21,6 +22,8 @@ export const dataRoutes: Routes = [{
     path: 'pagination', component: ExPaginationComponent,
   }, {
     path: 'table', component: ExTableComponent,
+  }, {
+    path: 'tree', component: ExTreeComponent,
   }],
 }]
 

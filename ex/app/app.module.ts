@@ -9,7 +9,7 @@ import { ElModule } from '../../src/element-angular.module'
 import { ExAppComponent } from './app.component'
 import { ExSharedModule } from './shared/module'
 import { DocsService } from './shared/services/docs/docs.service'
-import { NoopAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations'
   ],
   imports: [
     BrowserModule,
-    NoopAnimationsModule,
+    BrowserAnimationsModule,
     RouterModule,
     HttpModule,
     ElModule.forRoot(),

@@ -1,0 +1,96 @@
+{
+  "name": "Tree Attributes",
+  "attrs": [
+    {
+      "name": "model",
+      "notes": "展示数据",
+      "type": "Array<{ label: string, children?: [], checked?: boolean, expanded?: boolean }>",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "modelChange",
+      "notes": "点击或改变选择后的响应事件, action 包括 close/open/click/checkbox 四种状态",
+      "type": "EventEmitter<{ label: string, treeNodeID: string | number, action: string, checked: boolean }>",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "empty-text",
+      "notes": "为空的展示文字",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "show-checkbox",
+      "notes": "节点是否可被选择",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "default-expand-all",
+      "notes": "默认展开全部",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "default-expanded-keys",
+      "notes": "默认展开的数组",
+      "type": "Array<string | number>",
+      "enum": null,
+      "default": "[]"
+    },
+    {
+      "name": "default-checked-keys",
+      "notes": "默认选中的数组，需要 show-checkbox 选项打开",
+      "type": "Array<string | number>",
+      "enum": null,
+      "default": "[]"
+    },
+    {
+      "name": "indent",
+      "notes": "左侧偏移值，px",
+      "type": "number",
+      "enum": null,
+      "default": "16"
+    },
+    {
+      "name": "accordion",
+      "notes": "手风琴模式",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "findAllChecked",
+      "notes": "获取所有选中项。实例方法，由 Tree.userSafeHooks() 返回",
+      "type": "() => string[]",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "removeAllChecked",
+      "notes": "移除所有选中项。实例方法，由 Tree.userSafeHooks() 返回",
+      "type": "() => void",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "updateItemChecked",
+      "notes": "更新指定项的选中状态。实例方法，由 Tree.userSafeHooks() 返回",
+      "type": "(id: string | number) => void",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "updateItemExpanded",
+      "notes": "更新指定项的展开状态。实例方法，由 Tree.userSafeHooks() 返回",
+      "type": "(id: string | number) => void",
+      "enum": null,
+      "default": null
+    }
+  ]
+}

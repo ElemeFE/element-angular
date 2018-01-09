@@ -64,12 +64,14 @@ export class ElCheckbox implements OnInit, AfterViewInit, OnChanges, ControlValu
     return this.model
   }
   
-  changeHandle(t: boolean): void {
+  changeHandle(t: boolean, notEmit: boolean = false): void {
     if (this.parentIsGroup) {
       return this.hostGroup.updateModelFromChildren(t, this.label)
     }
     this.model = t
     this.checked = this.isChecked()
+  
+    if (notEmit) return
     this.modelChange.emit(this.model)
     this.controlChange(this.model)
   }
@@ -94,7 +96,8 @@ export class ElCheckbox implements OnInit, AfterViewInit, OnChanges, ControlValu
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes || !changes.model) return
     if (changes.model.isFirstChange()) return
-    this.changeHandle(this.model)
+    
+    this.changeHandle(changes.model.currentValue, true)
   }
   
   ngAfterViewInit(): void {
