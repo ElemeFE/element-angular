@@ -4,8 +4,8 @@ import { ModelStandard } from './utils'
 export type ElTreeModelData = {
   label: string,
   checked?: boolean,
+  expanded?: boolean,
   _level?: number,
-  _expanded?: boolean,
   _indeterminate?: boolean,
   id?: number | string,
   children?: ElTreeModelData[],

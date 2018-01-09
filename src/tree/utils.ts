@@ -39,10 +39,10 @@ export class ModelStandard {
     // and the current animation may be lost.
     if (accordion) {
       models = models.map(item => Object.assign(item, {
-        _expanded: false
+        expanded: false
       }))
     }
-    models[index]._expanded = !models[index]._expanded
+    models[index].expanded = !models[index].expanded
     return models
   }
   
@@ -114,14 +114,15 @@ export class ModelStandard {
         id: nextID,
         checked: allChecked || this.isChecked(nextID, item),
         _level: depth ? depth + 1 : 1,
-        _expanded: this.isExpanded(nextID),
+        expanded: this.isExpanded(nextID, item),
         _indeterminate: allChecked ? false : nextIndeterminate,
         children: nextChildren,
       })
     })
   }
   
-  private isExpanded(id: string | number): boolean {
+  private isExpanded(id: string | number, item: ElTreeModelData): boolean {
+    if (item.expanded === true) return true
     if (this.init.defaultExpandAll) return true
     if (!this.init.defaultExpandedKeys.length) return false
     return !!this.init.defaultExpandedKeys.find(key => key === id)
