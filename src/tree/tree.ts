@@ -1,8 +1,13 @@
-import {
-  Component, EventEmitter,
-} from '@angular/core'
-import { ElTreeProps, ElTreeModelData, ElTreeModelEvent } from './tree-props'
+import { Component } from '@angular/core'
+import { ModelStandard } from './utils'
+import { ElTreeProps, ElTreeModelEvent } from './tree-props'
 
+export type UserSafeHooks = {
+  findAllChecked: () => string[],
+  removeAllChecked: () => void,
+  updateItemChecked: (id: string | number) => void,
+  updateItemExpanded: (id: string | number) => void,
+}
 
 @Component({
   selector: 'el-tree',
@@ -24,76 +29,33 @@ export class ElTree extends ElTreeProps {
     super()
   }
   
+  userSafeHooks: () => UserSafeHooks = () => ({
+    findAllChecked: this.findAllChecked.bind(this),
+    updateItemChecked: this.updateChecked.bind(this),
+    updateItemExpanded: this.updateExpanded.bind(this),
+    removeAllChecked: this.removeAllChecked.bind(this),
+  })
+  
+  findAllChecked(): string[] {
+    if (!this.showCheckbox) return []
+    return ModelStandard.FindAllChecked(this.identModel)
+  }
+  
+  removeAllChecked(): void {
+    ModelStandard.LoopRemoveChecked(this.identModel)
+  }
+  
   updateExpanded(id: string | number): void {
-    this.identModel = this.deepUpdateExpanded(id, this.identModel)
+    this.identModel = ModelStandard.DeepUpdateExpanded(id, this.identModel, this.accordion)
   }
   
   updateChecked(id: string | number): void {
-    this.identModel = this.deepUpdateChecked(id, this.identModel)
+    if (!this.showCheckbox) return
+    this.identModel = ModelStandard.DeepUpdateChecked(id, this.identModel)
   }
   
   emitter(next: ElTreeModelEvent): void {
     this.modelChange.emit(next)
-  }
-  
-  private deepUpdateExpanded(id: string | number, models: ElTreeModelData[]): ElTreeModelData[] {
-    if (!models || !models.length) return []
-    const index = models.findIndex(item => item.id === id)
-    
-    if (index === -1) return models.map(item =>
-    Object.assign(item, {
-      children: this.deepUpdateExpanded(id, item.children || [])
-    }))
-  
-    // in accordion mode, only open one.
-    // dont return new object, new object will cause the component to be re rendered,
-    // and the current animation may be lost.
-    if (this.accordion) {
-      models = models.map(item => Object.assign(item, {
-        _expanded: false
-      }))
-    }
-    models[index]._expanded = !models[index]._expanded
-    return models
-  }
-  
-  private deepUpdateChecked(id: string | number, models: ElTreeModelData[]): ElTreeModelData[] {
-    if (!models || !models.length) return []
-    const index = models.findIndex(item => item.id === id)
-  
-    if (index === -1) {
-      models.forEach(item => {
-        const nextChildren: ElTreeModelData[] = this.deepUpdateChecked(id, item.children || [])
-        const nextIndeterminate: boolean = !!nextChildren.find(item => item.checked || item._indeterminate)
-        const allChecked: boolean = nextChildren.length > 0 && !nextChildren.find(item => !item.checked)
-  
-        item._indeterminate = allChecked ? false : nextIndeterminate
-        item.children = nextChildren
-        
-        // leaf have have no subelements so no need to be updated。
-        // leaf element is not affected by subelements.
-        if (nextChildren.length) {
-          item.checked = allChecked
-        }
-      })
-      return models
-    }
-    
-    models[index].checked = !models[index].checked
-    models[index]._indeterminate = false
-    if (models[index].children && models[index].children.length > 0) {
-      this.setChildrenChecked(models[index].children, models[index].checked)
-    }
-    return models
-  }
-  
-  private setChildrenChecked(models: ElTreeModelData[], checked: boolean): void {
-    models.forEach(item => {
-      item.checked = checked
-      if (item.children && item.children.length) {
-        this.setChildrenChecked(item.children, checked)
-      }
-    })
   }
   
 }

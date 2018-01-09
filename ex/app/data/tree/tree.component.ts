@@ -1,7 +1,11 @@
-import { Component, ViewEncapsulation } from '@angular/core'
+import { AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core'
 import code from './code'
+import { UserSafeHooks } from '../../../../src/tree/tree'
 
-class DemoClass {
+class DemoClass implements AfterViewInit {
+  @ViewChild('tree') tree: ElementRef
+  hooks: UserSafeHooks
+  
   data: any = [{
     label: '一级 1',
     children: [{
@@ -19,6 +23,14 @@ class DemoClass {
   }, {
     label: '一级 3',
   }]
+  
+  removeHandle(): void {
+    this.hooks.removeAllChecked()
+  }
+  
+  ngAfterViewInit(): void {
+    this.hooks = (<any>this.tree).userSafeHooks()
+  }
 }
 
 @Component({
