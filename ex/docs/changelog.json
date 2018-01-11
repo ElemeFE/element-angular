@@ -393,6 +393,20 @@
       "events": [{
         "description": "移除 Dialog 组件不使用的 size 属性"
       }]
+    },
+    {
+      "version": "0.5.1-beta.1",
+      "date": "2017-01-11",
+      "link": null,
+      "events": [{
+        "description": "新增 Tree 组件"
+      }, {
+        "description": "修复 Slider 组件点击不能正确触发事件的错误",
+        "issues": [335]
+      }, {
+        "description": "修复 Dropdown 组件事件无参数的错误",
+        "issues": [328]
+      }]
     }
   ]
 }
