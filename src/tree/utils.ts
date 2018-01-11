@@ -86,14 +86,14 @@ export class ModelStandard {
     })
   }
   
-  static FindAllChecked(models: ElTreeModelData[]): any {
-    return models.reduce((labels, item) => {
+  static FindAllChecked(models: ElTreeModelData[]): string[] {
+    const checkedLabels = models.reduce((labels: string[] = [], item): any => {
       const childrenLabels = (item.children && item.children.length)
         ? ModelStandard.FindAllChecked(item.children)
         : []
-      if (item.checked) return (labels = labels.concat(...childrenLabels, item.label))
-      return (labels = labels.concat(...childrenLabels))
+      return labels.concat(...childrenLabels, item.checked ? item.label : [])
     }, [])
+    return checkedLabels
   }
 
   constructor(private init: ModelStandardInit) {
