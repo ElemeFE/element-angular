@@ -40,7 +40,7 @@ export class ElCollapseItem implements OnInit {
   }
   
   isActive(): boolean {
-    return this.root.model.some(val => val === this.value)
+    return this.root.modelValue.some(val => val === this.value)
   }
   
   clickHandle(): void {
@@ -55,5 +55,3 @@ export class ElCollapseItem implements OnInit {
   }
   
 }
-
-
