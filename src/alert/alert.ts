@@ -50,9 +50,6 @@ export class ElAlert {
   
   visible: boolean = true
   
-  constructor() {
-  }
-  
   makeIconClass(): string {
     const base: string = ICON_CLASS_MAP[this.type] || 'el-icon-info'
     const isBig: string = this.description || this.descriptionTmp ? ' is-big' : ''

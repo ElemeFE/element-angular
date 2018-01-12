@@ -27,9 +27,6 @@ export class ElCheckboxGroup implements OnChanges, ControlValueAccessor {
   // children update handle
   subscriber: Function[] = []
   
-  constructor() {
-  }
-  
   changeModel(nextValue: any): void {
     setTimeout(() => {
       this.model = nextValue
