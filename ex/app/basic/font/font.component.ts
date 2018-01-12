@@ -7,7 +7,7 @@ import { Component } from '@angular/core'
 })
 export class ExFontComponent {
   
-  private page: any = {
+  page: any = {
     previous: { name: 'Color 色彩', link: '/basic/color' },
     next: { name: 'Button 按钮', link: '/basic/button' },
   }

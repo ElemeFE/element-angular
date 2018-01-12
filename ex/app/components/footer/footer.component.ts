@@ -23,8 +23,8 @@ import { environment } from '../../../environments'
 export class ExFooterComponent implements OnInit {
   
   // todo get versions from environment
-  private version: string = environment.version
-  private showFooter: boolean = false
+  version: string = environment.version
+  showFooter: boolean = false
   
   ngOnInit(): void {
     this.showFooter = true

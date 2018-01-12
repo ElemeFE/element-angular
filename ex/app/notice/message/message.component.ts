@@ -35,11 +35,11 @@ export class ExMessageDemoComponent {
 })
 export class ExMessageComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Loading 加载', link: '/notice/loading' },
     next: { name: 'Notification 通知', link: '/notice/notification' },
   }
-  private exClass: any = ExMessageDemoComponent
+  exClass: any = ExMessageDemoComponent
   
 }

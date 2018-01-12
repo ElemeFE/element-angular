@@ -34,15 +34,11 @@ export class ExNotificationDemoComponent {
 })
 export class ExNotificationComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Message 消息', link: '/notice/message' },
     next: { name: 'Alert 警告', link: '/notice/alert' },
   }
-  private exClass: any = ExNotificationDemoComponent
-  
-  constructor(
-  ) {
-  }
+  exClass: any = ExNotificationDemoComponent
   
 }

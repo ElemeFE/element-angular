@@ -9,9 +9,9 @@ import code from './code'
 })
 export class ExBadgeComponent {
   
-  private code: string[] = code
-  private tags: string[] = ['123', '234234', '0011']
-  private page: any = {
+  code: string[] = code
+  tags: string[] = ['123', '234234', '0011']
+  page: any = {
     previous: { name: 'Progress 进度条', link: '/data/progress' },
     next: { name: 'Pagination 分页', link: '/data/pagination' },
   }

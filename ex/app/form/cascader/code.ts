@@ -7,7 +7,7 @@ export default [
 
 <script type="text">
   // in Component :
-  private options: any[] = [{
+  options: any[] = [{
     value: 'zhinan',
     label: '指南',
     children: [{
@@ -78,7 +78,7 @@ export default [
 
 <script type="text">
   // in Component :
-  private disabledOptions: any[] = [{
+  disabledOptions: any[] = [{
     value: 'disabled',
     label: 'disabled',
     disabled: true,

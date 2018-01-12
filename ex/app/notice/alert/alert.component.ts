@@ -9,12 +9,12 @@ import code from './code'
 })
 export class ExAlertComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Notification 通知', link: '/notice/notification' },
     next: { name: 'NavMenu 导航菜单', link: '/nav/menu' },
   }
-  private exClass: any = class {
+  exClass: any = class {
     handle(): void {
       console.log('close')
     }

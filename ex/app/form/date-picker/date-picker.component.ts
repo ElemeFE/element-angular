@@ -8,12 +8,12 @@ import code from './code'
 })
 export class ExDatePickerComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Switch 开关', link: '/form/switch' },
     next: { name: 'Slider 滑块', link: '/form/slider' },
   }
-  private exClass: any = class {
+  exClass: any = class {
     handle(time: string): void {
       // [time] is string
       // date style follow format props

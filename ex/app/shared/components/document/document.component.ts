@@ -12,8 +12,8 @@ export class ExDocumentComponent implements OnInit {
   
   @Input() doc: string = ''
   
-  private apis: any = {}
-  private errorMsg: string
+  apis: any = {}
+  errorMsg: string
   
   constructor(
     private docsService: DocsService

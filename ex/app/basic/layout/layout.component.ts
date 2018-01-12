@@ -9,9 +9,9 @@ import code from './code'
 })
 export class ExLayoutComponent {
   
-  private page: any = {
+  page: any = {
     previous: { name: '更新日志', link: '/guide/log' },
     next: { name: 'Color 色彩', link: '/basic/color' },
   }
-  private code: string[] = code
+  code: string[] = code
 }

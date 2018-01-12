@@ -9,8 +9,8 @@ import code from './code'
 })
 export class ExCollapseComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Carousel 走马灯', link: '/others/carousel' },
     next: { name: null, link: null },
   }

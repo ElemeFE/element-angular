@@ -8,14 +8,14 @@ import code from './code'
 })
 export class ExDialogComponent {
   
-  private code: string[] = code
-  private exClass: any = class {
+  code: string[] = code
+  exClass: any = class {
     handle(done: Function): void {
       alert('一段同步或异步的任务')
       done()
     }
   }
-  private page: any = {
+  page: any = {
     previous: { name: 'Card 卡片', link: '/others/card' },
     next: { name: 'Carousel 走马灯', link: '/others/carousel' },
   }

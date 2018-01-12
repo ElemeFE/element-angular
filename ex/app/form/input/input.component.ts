@@ -9,8 +9,8 @@ import code from './code'
 })
 export class ExInputComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Check 多选框', link: '/form/checkbox' },
     next: { name: 'InputNumber 计数器', link: '/form/input-number' },
   }

@@ -8,7 +8,7 @@ import code from './code'
 })
 export class ExSelectComponent {
   
-  private exClass: any = class {
+  exClass: any = class {
     value: any
     foods:any = [{value: '选项1',label: '黄金糕' },
       { value: '选项2', label: '双皮奶' },
@@ -25,8 +25,8 @@ export class ExSelectComponent {
       this.value = null
     }
   }
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'InputNumber 计数器', link: '/form/input-number' },
     next: {  name: 'Cascader 级联选择器', link: '/form/cascader' },
   }

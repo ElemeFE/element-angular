@@ -9,8 +9,8 @@ import code from './code'
 })
 export class ExStepsComponent {
   
-  private ExClass: new () => {} = class {
-    private active: number = 1
+  ExClass: new () => {} = class {
+    active: number = 1
     handle(): void {
       if (this.active === 3) {
         this.active = 0
@@ -19,8 +19,8 @@ export class ExStepsComponent {
       }
     }
   }
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Breadcrumb 面包屑', link: '/nav/breadcrumb' },
     next: { name: 'Dropdown 下拉菜单', link: '/nav/dropdown' },
   }

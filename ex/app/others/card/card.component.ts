@@ -9,13 +9,13 @@ import code from './code'
 })
 export class ExCardComponent {
   
-  private code: string[] = code
-  private exClass: any = class {
+  code: string[] = code
+  exClass: any = class {
     currentDate(): Date {
       return new Date()
     }
   }
-  private page: any = {
+  page: any = {
     previous: { name: 'Tooltip 文字提示', link: '/others/tooltip' },
     next: { name: 'Dialog 对话框', link: '/others/dialog' },
   }

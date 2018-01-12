@@ -7,7 +7,7 @@ import { Component } from '@angular/core'
 })
 export class ExColorComponent {
   
-  private page: any = {
+  page: any = {
     previous: { name: 'Layout 布局', link: '/basic/layout' },
     next: { name: 'Typography 字体', link: '/basic/font' },
   }

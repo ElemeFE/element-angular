@@ -9,9 +9,9 @@ import code from './code'
 })
 export class ExTagComponent {
   
-  private code: string[] = code
-  private tags: string[] = ['123', '234234', '0011']
-  private page: any = {
+  code: string[] = code
+  tags: string[] = ['123', '234234', '0011']
+  page: any = {
     previous: { name: 'Form 表单', link: '/form/form' },
     next: { name: 'Progress 输入框', link: '/data/progress' },
   }

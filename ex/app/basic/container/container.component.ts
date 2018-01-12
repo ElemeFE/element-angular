@@ -9,9 +9,9 @@ import code from './code'
 })
 export class ExContainerComponent {
   
-  private page: any = {
+  page: any = {
     previous: { name: '布局', link: '/guide/log' },
     next: { name: 'Color 色彩', link: '/basic/color' },
   }
-  private code: string[] = code
+  code: string[] = code
 }

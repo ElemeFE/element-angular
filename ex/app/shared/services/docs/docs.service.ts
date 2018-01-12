@@ -6,8 +6,8 @@ import { environment } from '../../../../environments'
 @Injectable()
 export class DocsService {
   
-  private url: string
-  private path: string
+  url: string
+  path: string
   
   constructor(
     private http:Http,

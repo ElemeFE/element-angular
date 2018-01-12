@@ -9,9 +9,8 @@ import code from './code'
 })
 export class ExDropdownComponent {
   
-  private exClass: new () => {} = class {
-    
-    private data: any[] = [{
+  exClass: new () => {} = class {
+    data: any[] = [{
       value: 'huangjingao',
       label: '黄金糕',
     }, {
@@ -21,7 +20,7 @@ export class ExDropdownComponent {
       value: 'luosifen',
       label: '螺蛳粉',
     }]
-    private data2: any[] = [{
+    data2: any[] = [{
       value: 'huangjingao',
       label: '黄金糕',
     }, {
@@ -32,7 +31,7 @@ export class ExDropdownComponent {
       value: 'luosifen',
       label: '螺蛳粉',
     }]
-    private data3: any[] = [{
+    data3: any[] = [{
       value: 'huangjingao',
       label: '黄金糕',
     }, {
@@ -48,8 +47,8 @@ export class ExDropdownComponent {
       console.log(event)
     }
   }
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Steps 步骤条', link: '/nav/steps' },
     next: { name: 'Tooltip 文字提示', link: '/others/tooltip' },
   }

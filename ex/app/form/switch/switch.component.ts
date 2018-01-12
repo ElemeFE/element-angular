@@ -9,8 +9,8 @@ import code from './code'
 })
 export class ExSwitchComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Cascader 级联选择器', link: '/form/cascader' },
     next: { name: 'DatePicker 日期选择器', link: '/form/date-picker' },
   }

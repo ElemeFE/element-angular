@@ -7,7 +7,7 @@ import code from './code'
 })
 export class ExCheckboxComponent {
   
-  private exClass: any = class {
+  exClass: any = class {
     
     val: boolean = false
   
@@ -15,8 +15,8 @@ export class ExCheckboxComponent {
       console.log('event', event)
     }
   }
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Radio 单选框', link: '/form/radio' },
     next: { name: 'Input 输入框', link: '/form/input' },
   }

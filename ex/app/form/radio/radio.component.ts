@@ -7,8 +7,8 @@ import code from './code'
 })
 export class ExRadioComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Button 按钮', link: '/form/radio' },
     next: { name: 'Checkbox 多选框', link: '/form/checkbox' },
   }

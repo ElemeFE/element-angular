@@ -9,14 +9,14 @@ import code from './code'
 })
 export class ExMenuComponent {
   
-  private code: any[] = code
-  private page: any = {
+  code: any[] = code
+  page: any = {
     previous: { name: 'Notification 通知', link: '/notice/notification' },
     next: { name: 'Breadcrumb 面包屑', link: '/nav/breadcrumb' },
   }
   
-  private exClass: any = class {
-    private isCollapse: boolean = true
+  exClass: any = class {
+    isCollapse: boolean = true
   
     handle(index: string): void {
       console.log(index)

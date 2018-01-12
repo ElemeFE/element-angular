@@ -9,13 +9,13 @@ import code from './code'
 })
 export class ExLoadingComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Tree 树型控件', link: '/data/tree' },
     next: { name: 'Message 消息提示', link: '/notice/message' },
   }
-  private exClass: new () => {} = class {
-    private loading: boolean = false
+  exClass: new () => {} = class {
+    loading: boolean = false
     
     handle(): void {
       this.loading = true

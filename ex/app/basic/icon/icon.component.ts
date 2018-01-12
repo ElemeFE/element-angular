@@ -10,9 +10,9 @@ import code from './code'
 })
 export class ExIconComponent implements OnInit {
   
-  private code: string[] = code
-  private icons: string[]
-  private page: any = {
+  code: string[] = code
+  icons: string[]
+  page: any = {
     previous: { name: 'Typography 字体', link: '/basic/font' },
     next: { name: 'Button 按钮', link: '/basic/button' },
   }

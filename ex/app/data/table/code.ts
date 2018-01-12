@@ -22,7 +22,7 @@ export default [
 
 <script type="text">
 // in component
-private tableData: any[] = [{
+tableData: any[] = [{
   name: '水爷',
   date: '2017-08-19',
   address: '上海市普陀区金沙江路 1518 弄',

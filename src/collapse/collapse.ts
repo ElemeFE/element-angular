@@ -11,26 +11,26 @@ export type ModelValue = string | number
 })
 export class ElCollapse {
   
+  modelValue: ModelValue[] = []
   @Input() accordion: boolean = false
-  @Input() model: ModelValue[] = []
+  @Input() set model(val: ModelValue[]) {
+    this.modelValue = val
+  }
   @Output() modelChange: EventEmitter<ModelValue[]> = new EventEmitter<ModelValue[]>()
   
-  constructor() {
-  }
-  
   updateModel(value: ModelValue): void {
-    const index = this.model.findIndex(val => val === value)
+    const index = this.modelValue.findIndex(val => val === value)
     if (index < 0) {
       this.accordion && (this.model = [])
-      this.model.push(value)
-      return this.modelChange.emit(this.model)
+      this.modelValue.push(value)
+      return this.modelChange.emit(this.modelValue)
     }
     if (this.accordion) {
       this.model = []
     } else {
-      this.model.splice(index, 1)
+      this.modelValue.splice(index, 1)
     }
-    this.modelChange.emit(this.model)
+    this.modelChange.emit(this.modelValue)
   }
   
 }

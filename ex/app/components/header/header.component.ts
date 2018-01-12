@@ -8,7 +8,7 @@ import { NavigationStart, Router } from '@angular/router'
 })
 export class ExHeaderComponent implements OnInit {
   
-  private isGuide: boolean = false
+  isGuide: boolean = false
   
   constructor(
     private router: Router,

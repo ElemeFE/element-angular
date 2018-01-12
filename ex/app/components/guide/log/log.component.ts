@@ -14,8 +14,8 @@ export type Logs = {
 })
 export class ExLogComponent {
   
-  private logs: Logs
-  private page: any = {
+  logs: Logs
+  page: any = {
     previous: { name: '自定义主题', link: '/guide/theme' },
     next: { name: 'Layout 布局', link: '/basic/layout' },
   }

@@ -17,7 +17,7 @@ export class ElDynamicDirective implements OnInit {
   @Input('ex-dynamic') dynamicHtml: string
   @Input('class') parentClass: new ([string]?: any) => {} = class {}
   
-  private comRef: ComponentRef<any>
+  comRef: ComponentRef<any>
   
   constructor(
     private vcRef: ViewContainerRef,

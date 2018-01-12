@@ -9,9 +9,9 @@ import code from './code'
 })
 export class ExPaginationComponent {
   
-  private code: string[] = code
-  private tags: string[] = ['123', '234234', '0011']
-  private page: any = {
+  code: string[] = code
+  tags: string[] = ['123', '234234', '0011']
+  page: any = {
     previous: { name: 'Badge 标记', link: '/data/badge' },
     next: { name: 'Table 表格', link: '/data/table' },
   }

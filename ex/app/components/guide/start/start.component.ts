@@ -8,8 +8,8 @@ import code from './code'
 })
 export class ExStartComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: '安装', link: '/guide/install' },
     next: { name: '指令与服务', link: '/guide/directives' },
   }
