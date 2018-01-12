@@ -146,11 +146,11 @@ export class ExFormComponentDemo implements OnInit {
 })
 export class ExFormComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Upload 上传', link: '/form/upload' },
     next: { name: 'Tag 标签', link: '/data/tag' },
   }
-  private exClass: any = ExFormComponentDemo
+  exClass: any = ExFormComponentDemo
   
 }

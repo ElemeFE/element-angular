@@ -9,10 +9,10 @@ import code from './code'
 })
 export class ExCarouselComponent {
   
-  private code: string[] = code
-  private exClass: any = class {
+  code: string[] = code
+  exClass: any = class {
   }
-  private page: any = {
+  page: any = {
     previous: { name: 'Dialog 对话框', link: '/others/dialog' },
     next: { name: 'Collapse 折叠面板', link: '/others/collapse' },
   }

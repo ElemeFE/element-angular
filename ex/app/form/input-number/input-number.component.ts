@@ -9,15 +9,15 @@ import code from './code'
 })
 export class ExInputNumberComponent {
   
-  private exClass: any = class {
+  exClass: any = class {
     val: number = 5
   
     changeHandle(event: number): void {
       console.log(event)
     }
   }
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Input 输入框', link: '/form/input' },
     next: { name: 'Select 选择器', link: '/form/select' },
   }

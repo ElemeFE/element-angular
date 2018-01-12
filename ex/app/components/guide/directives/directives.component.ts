@@ -8,8 +8,8 @@ import code from './code'
 })
 export class ExDirectivesComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: '快速上手', link: '/guide/start' },
     next: { name: '更新日志', link: '/guide/log' },
   }

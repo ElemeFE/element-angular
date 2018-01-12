@@ -9,8 +9,8 @@ import code from './code'
 })
 export class ExTooltipComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Steps 步骤条', link: '/nav/steps' },
     next: { name: 'Card 卡片', link: '/others/card' },
   }

@@ -9,8 +9,8 @@ import code from './code'
 })
 export class ExRateComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Slider 滑块', link: '/form/slider' },
     next: { name: 'Upload 上传', link: '/form/upload' },
   }

@@ -6,7 +6,7 @@ import code from './code'
   template: ` `,
 })
 export class ExCascaderDemoComponent {
-  private options: any[] = [{
+  options: any[] = [{
     value: 'zhinan',
     label: '指南',
     children: [{
@@ -62,7 +62,7 @@ export class ExCascaderDemoComponent {
       label: 'Cascader 级联选择器',
     }],
   }]
-  private disabledOptions: any[] = [{
+  disabledOptions: any[] = [{
     value: 'disabled',
     label: 'disabled',
     disabled: true,
@@ -83,12 +83,12 @@ export class ExCascaderDemoComponent {
 })
 export class ExCascaderComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Select 选择器', link: '/form/select' },
     next: { name: 'Switch 开关', link: '/form/switch' },
   }
   
-  private exClass: any = ExCascaderDemoComponent
+  exClass: any = ExCascaderDemoComponent
 
 }

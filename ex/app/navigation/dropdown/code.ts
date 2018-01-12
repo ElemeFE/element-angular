@@ -7,7 +7,7 @@ export default [
 
 <script type="text">
 // in component:
-private data: any[] = [{
+data: any[] = [{
   value: 'huangjingao',
   label: '黄金糕',
 }, {
@@ -47,7 +47,7 @@ private data: any[] = [{
 
 <script type="text">
 // in component:
-private data2: any[] = [{
+data2: any[] = [{
   value: 'huangjingao',
   label: '黄金糕',
 }, {
@@ -70,7 +70,7 @@ private data2: any[] = [{
 
 <script type="text">
 // in component:
-private data3: any[] = [{
+data3: any[] = [{
   value: 'huangjingao',
   label: '黄金糕',
   divided: true,

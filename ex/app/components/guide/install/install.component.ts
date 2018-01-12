@@ -8,8 +8,8 @@ import code from './code'
 })
 export class ExInstallComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: '' },
     next: { name: '快速开始', link: '/guide/start' },
   }

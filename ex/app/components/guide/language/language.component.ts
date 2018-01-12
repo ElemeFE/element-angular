@@ -7,7 +7,7 @@ import { Component } from '@angular/core'
 })
 export class ExLanguageComponent {
   
-  private page: any = {
+  page: any = {
     previous: { name: '指令与服务', link: '/guide/directives' },
     next: { name: '自定义主题', link: '/guide/theme' },
   }

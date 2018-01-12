@@ -8,12 +8,12 @@ import code from './code'
 })
 export class ExBreadcrumbComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Nav-menu 导航菜单', link: '/nav/menu' },
     next: { name: 'Steps 步骤条', link: '/nav/steps' },
   }
-  private exClass: any = class {
+  exClass: any = class {
     handle(path: string): void {
       console.log(path)
     }

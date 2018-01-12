@@ -9,8 +9,8 @@ import code from './code'
 })
 export class ExButtonComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Icon 图标', link: '/basic/icon' },
     next: { name: 'Radio 单选框', link: '/form/radio' },
   }

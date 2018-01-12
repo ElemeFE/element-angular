@@ -65,11 +65,11 @@ export class ExUploadDemoComponent {
 })
 export class ExUploadComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Rate 评分', link: '/form/rate' },
     next: { name: 'Form 表单', link: '/form/form' },
   }
-  private exClass: any = ExUploadDemoComponent
+  exClass: any = ExUploadDemoComponent
 
 }

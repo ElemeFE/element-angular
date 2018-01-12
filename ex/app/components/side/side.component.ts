@@ -10,9 +10,9 @@ import { NavigationStart, Router } from '@angular/router'
 })
 export class ExSideComponent implements OnInit {
   
-  private catalog: JSON
-  private version: string
-  private currentLink: string
+  catalog: JSON
+  version: string
+  currentLink: string
   
   constructor(
     private router: Router,

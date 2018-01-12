@@ -9,12 +9,12 @@ import code from './code'
 })
 export class ExSliderComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'DatePicker 日期选择器', link: '/form/date-picker' },
     next: { name: 'Rate 评分', link: '/form/rate' },
   }
-  private exClass: any = class {
+  exClass: any = class {
     handle(val: any): void {
       console.log(val)
     }

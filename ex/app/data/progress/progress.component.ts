@@ -9,8 +9,8 @@ import code from './code'
 })
 export class ExProgressComponent {
   
-  private code: string[] = code
-  private page: any = {
+  code: string[] = code
+  page: any = {
     previous: { name: 'Tag 标签', link: '/data/tag' },
     next: { name: 'Badge 标记', link: '/data/badge' },
   }

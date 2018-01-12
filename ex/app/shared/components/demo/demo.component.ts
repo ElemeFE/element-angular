@@ -40,10 +40,10 @@ export class ExDemoComponent implements OnInit {
   @Input() code: string
   @Input('class') parentClass: new ([string]?: any) => {} = class {}
   
-  private classes: string = 'demo-block demo-box demo-zh-CN'
-  private hovering: boolean = false
-  private isExpanded: boolean = false
-  private safeNotes: SafeHtml
+  classes: string = 'demo-block demo-box demo-zh-CN'
+  hovering: boolean = false
+  isExpanded: boolean = false
+  safeNotes: SafeHtml
   
   
   constructor(
