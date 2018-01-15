@@ -15,15 +15,18 @@ import { isParentTag, removeNgTag } from '../shared/utils'
       (mouseenter)="list.style.backgroundColor = rootMenu.hoverBackgroundColor()"
       (mouseleave)="list.style.backgroundColor = rootMenu.backgroundColor || ''"
       [class.is-active]="rootMenu.model === index"
-      [class.is-disabled]="disabled">
+      [class.is-disabled]="elDisabled">
       <ng-content></ng-content>
     </li>
   `,
 })
 export class ElMenuItem implements OnInit {
   
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input() index: string
-  @Input() disabled: boolean = false
   @Input() title: string = ''
   private inSubmenu: boolean = false
   
