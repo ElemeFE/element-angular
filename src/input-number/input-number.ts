@@ -15,7 +15,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
   `],
   template: `
     <div [class]="'el-input-number' + (size ? ' el-input-number--' + size : '')"
-      [class.is-disabled]="disabled" [class.is-without-controls]="!controls">
+      [class.is-disabled]="elDisabled" [class.is-without-controls]="!controls">
       <span *ngIf="controls" class="el-input-number__decrease" role="button"
         [class.is-disabled]="minDisabled" (click)="decreaseHandle(false)">
         <i class="el-icon-minus"></i>
@@ -25,11 +25,11 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
         <i class="el-icon-plus"></i>
       </span>
 
-      <div [class]="'el-input ' + (size ? ' el-input--' + size : '')" [class.is-disabled]="disabled">
+      <div [class]="'el-input ' + (size ? ' el-input--' + size : '')" [class.is-disabled]="elDisabled">
         <input class="el-input__inner el-input-spin-button  " autocomplete="off" role="spinbutton"
           [attr.max]="max" [attr.min]="min" [attr.aria-valuemax]="max" [attr.aria-valuemin]="min"
-          [disabled]="disabled" [value]="model" [ngModel]="model" (ngModelChange)="changeHandle($event)"
-          type="number" rows="2" aria-valuenow="1" [attr.aria-disabled]="disabled">
+          [disabled]="elDisabled" [value]="model" [ngModel]="model" (ngModelChange)="changeHandle($event)"
+          type="number" rows="2" aria-valuenow="1" [attr.aria-disabled]="elDisabled">
       </div>
     </div>
   `,
@@ -68,7 +68,7 @@ export class ElInputNumber extends ElInputNumberPoprs implements ControlValueAcc
   
   // button val is inelastic
   decreaseHandle(calcType: boolean = true): void {
-    if (this.disabled) return
+    if (this.elDisabled) return
     const step: number = calcType ? this.step : 0 - this.step
     const val: number =  Number(this.model) + step
     if (Number.isNaN(val)) return

@@ -83,8 +83,8 @@ export default [
 
 // 禁用
 `
-<el-tooltip placement="bottom" [disabled]="true">
-  <el-button>Disabled</el-button>
+<el-tooltip placement="bottom" [elDisabled]="true">
+  <el-button>elDisabled</el-button>
   <ng-template #tip>
     <span>Top center</span>
   </ng-template>

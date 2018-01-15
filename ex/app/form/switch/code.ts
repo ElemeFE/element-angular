@@ -12,10 +12,10 @@ export default [
 
 // 有禁用选项
 `
-<el-switch [(model)]="value1"[disabled]="true">
+<el-switch [(model)]="value1"[elDisabled]="true">
 </el-switch>
 <el-switch [(model)]="value2" [active-color]="'#13ce66'" [inactive-color]="'#ff4949'"
-  [disabled]="true">
+  [elDisabled]="true">
 </el-switch>
 `,
 

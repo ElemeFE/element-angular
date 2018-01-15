@@ -63,9 +63,9 @@ export class ExCascaderDemoComponent {
     }],
   }]
   disabledOptions: any[] = [{
-    value: 'disabled',
-    label: 'disabled',
-    disabled: true,
+    value: 'elDisabled',
+    label: 'elDisabled',
+    elDisabled: true,
   }, {
     value: 'normal',
     label: 'normal',

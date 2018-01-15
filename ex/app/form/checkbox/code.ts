@@ -8,8 +8,8 @@ export default [
 
 // 禁用
 `
-<el-checkbox [model]="checked1" [disabled]="true">备选项1</el-checkbox>
-<el-checkbox [model]="checked2" [disabled]="true">备选项2</el-checkbox>
+<el-checkbox [model]="checked1" [elDisabled]="true">备选项1</el-checkbox>
+<el-checkbox [model]="checked2" [elDisabled]="true">备选项2</el-checkbox>
 `,
 
 // 多选框组
@@ -19,8 +19,8 @@ export default [
   <el-checkbox label="复选框 A"></el-checkbox>
   <el-checkbox label="复选框 B">复选框 F</el-checkbox>
   <el-checkbox label="复选框 C"></el-checkbox>
-  <el-checkbox label="禁用" [disabled]="true"></el-checkbox>
-  <el-checkbox label="选中且禁用" [disabled]="true"></el-checkbox>
+  <el-checkbox label="禁用" [elDisabled]="true"></el-checkbox>
+  <el-checkbox label="选中且禁用" [elDisabled]="true"></el-checkbox>
 </el-checkbox-group>
 `,
 
@@ -31,8 +31,8 @@ export default [
   <el-checkbox label="Java"></el-checkbox>
   <el-checkbox label=".NET">复选框 F</el-checkbox>
   <el-checkbox label="C++"></el-checkbox>
-  <el-checkbox label="JavaScript" [disabled]="true"></el-checkbox>
-  <el-checkbox label="TypeScript" [disabled]="true"></el-checkbox>
+  <el-checkbox label="JavaScript" [elDisabled]="true"></el-checkbox>
+  <el-checkbox label="TypeScript" [elDisabled]="true"></el-checkbox>
 </el-checkbox-group>
 
 `,
@@ -48,7 +48,7 @@ export default [
 <div style="margin: 15px 0;"></div>
 <el-checkbox-group [model]="['Hegel', 'Aristotle', 'Dewey']" size="small">
   <el-checkbox-button *ngFor="let man of ['Hegel', 'Aristotle', 'Dewey']"
-    [label]="man" [disabled]="man === 'Aristotle'">{{man}}</el-checkbox-button>
+    [label]="man" [elDisabled]="man === 'Aristotle'">{{man}}</el-checkbox-button>
 </el-checkbox-group>
 `,
 ]

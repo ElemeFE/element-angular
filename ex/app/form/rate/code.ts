@@ -39,7 +39,7 @@ export default [
 `
 <el-rate
   [model]="3"
-  [disabled]="true"
+  [elDisabled]="true"
   [show-text]="true"
   [text-color]="'#ff9900'">
 </el-rate>

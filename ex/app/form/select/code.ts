@@ -32,11 +32,11 @@ clear(): void {
 <el-select [(model)]="value" placeholder="请选择">
   <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
       { value: '选项2', label: '双皮奶' },
-      { disabled: true, value: '选项3', label: '蚵仔煎' },
+      { elDisabled: true, value: '选项3', label: '蚵仔煎' },
       { value: '选项4', label: '龙须面' },
       { value: '选项5', label: '北京烤鸭' }]"
     [label]="item.label"
-    [disabled]="item.disabled"
+    [elDisabled]="item.elDisabled"
     [value]="item.value">
   </el-option>
 </el-select>
@@ -44,7 +44,7 @@ clear(): void {
 
 // 禁用 select
 `
-<el-select [model]="'选项2'" [disabled]="true">
+<el-select [model]="'选项2'" [elDisabled]="true">
   <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' }]"
     [label]="item.label"
     [value]="item.value">
@@ -57,7 +57,7 @@ clear(): void {
 <el-select [model]="'选项2'">
   <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
       { value: '选项2', label: '双皮奶' },
-      { disabled: true, value: '选项3', label: '蚵仔煎' },
+      { elDisabled: true, value: '选项3', label: '蚵仔煎' },
       { value: '选项4', label: '龙须面' },
       { value: '选项5', label: '北京烤鸭' }]"
     [label]="item.label"
@@ -71,7 +71,7 @@ clear(): void {
 <el-select [(model)]="value" [clearable]="true">
   <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
       { value: '选项2', label: '双皮奶' },
-      { disabled: true, value: '选项3', label: '蚵仔煎' },
+      { elDisabled: true, value: '选项3', label: '蚵仔煎' },
       { value: '选项4', label: '龙须面' },
       { value: '选项5', label: '北京烤鸭' }]"
     [label]="item.label"

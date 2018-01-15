@@ -25,7 +25,10 @@ export type Shape = { width: number, height: number }
 })
 export class ElTooltip implements AfterContentInit {
   
-  @Input() disabled: boolean = false
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input() watch: boolean = false
   @Input() placement: string = 'bottom'
   @Input() popperClass: string
@@ -71,7 +74,7 @@ export class ElTooltip implements AfterContentInit {
   
   bindEvent(host: HTMLElement): void {
     host.addEventListener('mouseenter', () => {
-      if (this.disabled) return
+      if (this.elDisabled) return
       this.setPopoerPositionAndShow()
       this.showPopper = true
     })

@@ -14,9 +14,12 @@ import { ElSelect } from './select'
 })
 export class ElOption implements OnInit {
   
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input() value: any
   @Input() label: string | number
-  @Input() elDisabled: boolean = false
   
   rootDisabled: boolean = false
   itemSelected: boolean = false
