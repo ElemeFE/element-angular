@@ -11,7 +11,7 @@ export default [
 `
 <el-input placeholder="请输入内容"
   [model]="input1"
-  [disabled]="true">
+  [elDisabled]="true">
 </el-input>
 `,
 

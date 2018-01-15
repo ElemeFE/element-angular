@@ -35,7 +35,7 @@ handle(time: number): void {
 // 禁用
 `
 <el-date-picker (modelChange)="handle($event)"
-  [disabled]="true">
+  [elDisabled]="true">
 </el-date-picker>
 `,
 ]
