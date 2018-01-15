@@ -10,13 +10,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
     multi: true
   }],
   template: `
-    <span [class]="'el-cascader ' +  (menuVisible ? 'is-opened ' : '') + (disabled ? 'is-disabled ' : '')
+    <span [class]="'el-cascader ' +  (menuVisible ? 'is-opened ' : '') + (elDisabled ? 'is-disabled ' : '')
       + (size ? 'el-cascader--' + size : '')"
       (click)="clickHandle($event)"
       (mouseenter)="inputHover = true" (mouseleave)="inputHover = false">
       <el-input [readonly]="true"
         [placeholder]="currentLabels.length ? '' : placeholder"
-        [size]="size" [disabled]="disabled"
+        [size]="size" [elDisabled]="elDisabled"
         [icon]="showClearIcon() ? 'circle-close' : 'caret-bottom'"
         [iconClass]="showClearIcon() ? 'el-cascader__clearIcon' : (menuVisible ? 'is-reverse' : '')"
         (icon-click)="clearValue($event)">
@@ -53,6 +53,8 @@ export class ElCascader extends ElCascaderPoprs implements OnInit, OnDestroy, Co
   
   clickHandle(event: MouseEvent): void {
     event.stopPropagation()
+    if (this.elDisabled) return
+    
     const element: HTMLElement = event.target as HTMLElement
     const isSelfTrigger = ['SPAN', 'I', 'INPUT'].find(v => v === element.tagName)
     if (!isSelfTrigger) return
@@ -96,7 +98,7 @@ export class ElCascader extends ElCascaderPoprs implements OnInit, OnDestroy, Co
   selectHandle(event: Event, step: number, index: number): any {
     event.stopPropagation()
     
-    if (this.steps[step][index].disabled) return
+    if (this.steps[step][index].elDisabled) return
     this.steps[step] = this.steps[step].map((item: Option, i: number) =>
       Object.assign(item, { active: i === index }))
     // reset steps

@@ -14,7 +14,7 @@ import { dropAnimation } from '../shared/animation'
           class="el-cascader-menu__item"
           [class.el-cascader-menu__item--extensible]="listItem.children"
           [class.is-active]="listItem.active"
-          [class.is-disabled]="listItem.disabled"
+          [class.is-disabled]="listItem.elDisabled"
           (click)="root.selectHandle($event, step, i)">
           {{listItem.label}}
         </li>
