@@ -12,7 +12,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
   }],
   template: `
     <div class="el-slider" [class.is-vertical]="vertical">
-      <div class="el-slider__runway" [class.disabled]="disabled"
+      <div class="el-slider__runway" [class.disabled]="elDisabled"
         [style]="makeRunwayStyle()" (click)="onSliderClick($event)" #runway>
         <div class="el-slider__bar" [style]="makeBarStyle()"></div>
         <el-slider-button [vertical]="vertical"
@@ -20,7 +20,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
           (modelChange)="moveChange($event)"
           [min]="min" [max]="max"
           [format-tooltip]="formatTooltip"
-          [disabled]="!showTooltip">
+          [elDisabled]="!showTooltip">
         </el-slider-button>
       </div>
     </div>
@@ -58,7 +58,7 @@ export class ElSlider extends ElSliderProps implements OnInit, AfterViewInit, Co
   }
   
   onSliderClick(event: MouseEvent): void {
-    if (this.disabled || this.isDragging) return
+    if (this.elDisabled || this.isDragging) return
     this.resetSize()
     const val: number = this.vertical ? event.clientY : event.clientX
     const { left, bottom } = this.runwayElement.nativeElement.getBoundingClientRect()

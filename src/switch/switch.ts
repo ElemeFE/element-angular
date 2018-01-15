@@ -11,12 +11,12 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
   }],
   template: `
     <label class="el-switch"
-      [class.is-disabled]="disabled"
+      [class.is-disabled]="elDisabled"
       [class.el-switch--wide]="hasText"
       [class.is-checked]="model">
-      <div class="el-switch__mask" *ngIf="disabled"></div>
+      <div class="el-switch__mask" *ngIf="elDisabled"></div>
       <input class="el-switch__input" type="checkbox"
-        [name]="name" [disabled]="disabled"
+        [name]="name" [disabled]="elDisabled"
         [ngModel]="model" (ngModelChange)="changeHandle($event)">
       
       <div class="el-switch__label el-switch__label--left" [class.is-active]="!model"
@@ -39,8 +39,11 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 })
 export class ElSwitch implements OnInit, ControlValueAccessor {
   
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input() name: string
-  @Input() disabled: boolean = false
   @Input() width: number
   @Input('active-icon-class') activeIconClass: string
   @Input('inactive-icon-class') inactiveIconClass: string

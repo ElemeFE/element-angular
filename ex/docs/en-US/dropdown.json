@@ -9,7 +9,7 @@
       "default": null
     },
     {
-      "name": "disabled",
+      "name": "elDisabled",
       "notes": "禁用，在数据源 <code>model</code> 中设置",
       "type": "boolean",
       "enum": null,

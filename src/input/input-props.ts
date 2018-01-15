@@ -8,7 +8,6 @@ export class ElInputPoprs {
   @Input() maxlength: number
   @Input() minlength: number
   @Input() placeholder: string = ''
-  @Input() disabled: boolean = false
   @Input() size: string               // only type === 'textarea'. enum: large, small, mini
   @Input() rows: number = 2           // only type === 'textarea'
   @Input() resize: string             // only type === 'textarea' enum: none, both, horizontal, vertical
@@ -36,4 +35,10 @@ export class ElInputPoprs {
   @Output() blur: EventEmitter<any> = new EventEmitter<any>()
   @Output('icon-mouseenter') iconMouseEnter: EventEmitter<any> = new EventEmitter<any>()
   @Output('icon-mouseleave') iconMouseLeave: EventEmitter<any> = new EventEmitter<any>()
+  
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
+  
 }

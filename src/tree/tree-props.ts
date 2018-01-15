@@ -41,5 +41,9 @@ export class ElTreeProps {
   @Input('expand-on-click-node') expandOnClickNode: boolean = true
   @Input() indent: number = 16
   @Input() accordion: boolean = false
-  @Input() disabled: boolean = false
+  
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
 }

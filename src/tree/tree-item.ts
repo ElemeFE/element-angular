@@ -11,8 +11,8 @@ import { dropAnimation } from '../shared/animation'
   
   template: `
     <div class="el-tree-node" (click)="clickHandle($event)"
-      [class.is-focusable]="!root.disabled"
-      [class.is-checked]="!root.disabled && model.checked"
+      [class.is-focusable]="!root.elDisabled"
+      [class.is-checked]="!root.elDisabled && model.checked"
       role="treeitem">
       <div class="el-tree-node__content"
         [ngStyle]="{ 'padding-left': (model._level - 1) * indent + 'px' }">
@@ -21,7 +21,7 @@ import { dropAnimation } from '../shared/animation'
           [class.is-leaf]="isLeaf()"
           (click)="iconClickHandle($event)"></span>
         <el-checkbox *ngIf="root.showCheckbox" [model]="model.checked" [indeterminate]="model._indeterminate"
-          [disabled]="root.disabled"
+          [elDisabled]="root.elDisabled"
           (modelChange)="checkHandle($event)">
         </el-checkbox>
         <span class="el-tree-node__label">{{ model.label }}</span>
@@ -56,7 +56,7 @@ export class ElTreeItem {
   }
   
   checkHandle(): void {
-    if (this.root.disabled) return
+    if (this.root.elDisabled) return
     this.root.updateChecked(this.model.id)
     this.root.emitter({
       label: this.model.label,

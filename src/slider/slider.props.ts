@@ -2,9 +2,12 @@ import { EventEmitter, Input, Output } from '@angular/core'
 
 export class ElSliderProps {
   
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input() min: number = 0
   @Input() max: number = 100
-  @Input() disabled: boolean = false
   
   // @Input('show-input') showInput: boolean = false
   // @Input('show-input-controls') showInputControls: boolean = true

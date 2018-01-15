@@ -11,10 +11,10 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
   template: `
     <label [class]="'el-checkbox-button' + (size ? ' el-checkbox-button--' + size : '') "
       role="checkbox"
-      [class.is-disabled]="disabled" [class.is-focus]="isFocus"
+      [class.is-disabled]="elDisabled" [class.is-focus]="isFocus"
       [class.is-indeterminate]="indeterminate" [class.is-checked]="checked">
       <input class="el-checkbox-button__original" type="checkbox"
-        [disabled]="disabled" [value]="label" [name]="name"
+        [disabled]="elDisabled" [value]="label" [name]="name"
         [ngModel]="model" (ngModelChange)="changeHandle($event)"
         (focus)="isFocus = true" (blur)="isFocus = false">
       <span class="el-checkbox-button__inner"
@@ -32,9 +32,12 @@ export class ElCheckboxButton implements OnInit, AfterViewInit {
   
   @ViewChild('content') content: any
   
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input() label: string
   @Input() model: any
-  @Input() disabled: boolean = false
   @Input() indeterminate: boolean = false
   @Input() checked: boolean = false
   @Input() name: string
@@ -60,7 +63,7 @@ export class ElCheckboxButton implements OnInit, AfterViewInit {
     const styles: string = `backgroundColor: ${this.hostGroup.fill};` +
       `borderColor: ${this.hostGroup.fill};color: ${this.hostGroup.textColor};` +
       `box-shadow: -1px 0 0 0 ${this.hostGroup.fill};`
-    return this.domSanitizer.bypassSecurityTrustStyle(this.checked && !this.disabled ? styles : '')
+    return this.domSanitizer.bypassSecurityTrustStyle(this.checked && !this.elDisabled ? styles : '')
   }
   
   isChecked(): boolean {

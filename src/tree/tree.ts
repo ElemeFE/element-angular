@@ -12,7 +12,7 @@ export type UserSafeHooks = {
 @Component({
   selector: 'el-tree',
   template: `
-    <div class="el-tree" [class.el-tree--highlight-current]="highlightCurrent" role="tree">
+    <div class="el-tree" role="tree">
       <el-tree-item *ngFor="let item of identModel"
         [model]="item" [indent]="indent">
       </el-tree-item>

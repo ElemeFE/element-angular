@@ -23,7 +23,7 @@
       "default": 100
     },
     {
-      "name": "disabled",
+      "name": "elDisabled",
       "notes": "禁用整个滑块组件",
       "type": "boolean",
       "enum": null,

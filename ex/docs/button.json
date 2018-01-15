@@ -37,7 +37,7 @@
       "default": false
     },
     {
-      "name": "disabled",
+      "name": "elDisabled",
       "notes": "是否禁用状态",
       "type": "boolean",
       "enum": null,

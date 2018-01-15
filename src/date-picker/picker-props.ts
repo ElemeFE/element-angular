@@ -5,7 +5,6 @@ import { EventEmitter, Input, Output } from '@angular/core'
 export class ElDatePickerProps {
   
   @Input() readonly: boolean = false
-  @Input() disabled: boolean = false
   @Input() editable: boolean = true
   @Input() clearable: boolean = true
   @Input('change-on-blur') changeOnBlur: boolean = false
@@ -28,4 +27,8 @@ export class ElDatePickerProps {
   @Output('clear-click') clearClick: EventEmitter<Event> = new EventEmitter<Event>()
   @Output('icon-click') iconClick: EventEmitter<Event> = new EventEmitter<Event>()
   
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
 }

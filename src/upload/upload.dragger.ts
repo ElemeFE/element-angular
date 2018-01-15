@@ -14,14 +14,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
 })
 export class ElUploadDragger {
   
-  @Input() disabled: boolean = false
+  @Input() elDisabled: boolean = false
   @Output() change: EventEmitter<any> = new EventEmitter<any>()
   
   dragger: boolean = false
   
   dragoverHandle(event: Event): void {
     event.preventDefault()
-    if (this.disabled) return
+    if (this.elDisabled) return
     this.dragger = true
   }
   
@@ -32,7 +32,7 @@ export class ElUploadDragger {
   
   dropHandle(event: DragEvent): void {
     event.preventDefault()
-    if (this.disabled) return
+    if (this.elDisabled) return
     this.change.emit({ target: { files: event.dataTransfer.files }})
   }
 }

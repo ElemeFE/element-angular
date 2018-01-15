@@ -15,9 +15,9 @@ export default [
 <!--你可以拆分 model 达到不同的用途：-->
 <!--单独使用 '[]' 来标记输入组件的值，甚至可以不声明变量-->
 <!--单独使用 '(modelChange)' 来获取组件返回的变化-->
-<el-radio [disabled]="true" [model]="'element'" label="element">备选项</el-radio>
+<el-radio [elDisabled]="true" [model]="'element'" label="element">备选项</el-radio>
 
-<el-radio [disabled]="true" [(model)]="element2" label="element">备选项</el-radio>
+<el-radio [elDisabled]="true" [(model)]="element2" label="element">备选项</el-radio>
 
 `,
 
@@ -43,12 +43,12 @@ export default [
 <el-radio-group [model]="'Angular'">
   <el-radio-button label="Angular">Angular</el-radio-button>
   <el-radio-button label="React">React</el-radio-button>
-  <el-radio-button label="Bootstrap" :disabled="true">Bootstrap</el-radio-button>
+  <el-radio-button label="Bootstrap" [elDisabled]="true">Bootstrap</el-radio-button>
   <el-radio-button label="Vue">Vue</el-radio-button>
 </el-radio-group>
 <div style="margin: 15px 0;"></div>
 
-<el-radio-group [model]="'黄山'" :disabled="true">
+<el-radio-group [model]="'黄山'" [elDisabled]="true">
   <el-radio-button label="华山">华山</el-radio-button>
   <el-radio-button label="武夷山">武夷山</el-radio-button>
   <el-radio-button label="长白山">长白山</el-radio-button>

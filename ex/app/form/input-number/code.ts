@@ -7,7 +7,7 @@ export default [
 
 // 禁用
 `
-<el-input-number [model]="1" [disabled]="true"></el-input-number>
+<el-input-number [model]="1" [elDisabled]="true"></el-input-number>
 `,
 
 // 步数

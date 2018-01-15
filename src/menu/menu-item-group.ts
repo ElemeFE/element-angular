@@ -23,7 +23,6 @@ import { ElMenu } from './menu'
 export class ElMenuItemGroup implements OnInit {
   
   @ContentChild('title') titleTmp: TemplateRef<any>
-  
   @Input() title: string = ''
   
   constructor(

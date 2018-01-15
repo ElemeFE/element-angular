@@ -23,7 +23,7 @@
       "default": "请选择"
     },
     {
-      "name": "disabled",
+      "name": "elDisabled",
       "notes": "是否禁用，在数据源 options 中设置",
       "type": "boolean",
       "enum": null,

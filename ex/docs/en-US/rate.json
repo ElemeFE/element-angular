@@ -9,7 +9,7 @@
       "default": 5
     },
     {
-      "name": "disabled",
+      "name": "elDisabled",
       "notes": "是否为只读",
       "type": "boolean",
       "enum": null,

@@ -2,8 +2,11 @@ import { EventEmitter, Input, Output } from '@angular/core'
 
 export class ElRateProps {
   
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input() max: number = 5
-  @Input() disabled: boolean = false
   
   // color and class
   @Input() colors: string[] = ['#F7BA2A', '#F7BA2A', '#F7BA2A']

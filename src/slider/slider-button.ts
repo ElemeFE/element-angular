@@ -39,7 +39,10 @@ import { ElSlider } from './slider'
 })
 export class ElSliderButton implements OnInit, OnChanges {
   
-  @Input() disabled: boolean = false
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input() model: number = 0
   @Input() vertical: boolean = false
   @Input('format-tooltip') formatTooltip: Function
@@ -72,7 +75,7 @@ export class ElSliderButton implements OnInit, OnChanges {
     if (!this.dragging && !t) {
       this.showPopper = false
     }
-    if (t && !this.disabled) {
+    if (t && !this.elDisabled) {
       this.showPopper = true
     }
   }
