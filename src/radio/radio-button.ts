@@ -8,10 +8,10 @@ import { isParentTag, removeNgTag } from '../shared/utils'
   selector: 'el-radio-button',
   template: `
     <label [class]="'el-radio-button' + (size ? ' el-radio-button--' + size : '')"
-      [class.is-disabled]="disabled"
+      [class.is-disabled]="elDisabled"
       [class.is-active]="model === label">
       <input class="el-radio-button__orig-radio" type="radio"
-        [value]="label" [name]="nativeName" [disabled]="disabled"
+        [value]="label" [name]="nativeName" [disabled]="elDisabled"
         [ngModel]="model" (ngModelChange)="changeHandle()">
       <span class="el-radio-button__inner" [ngStyle]="model === label && activeStyles">
         <ng-content></ng-content>
@@ -21,7 +21,10 @@ import { isParentTag, removeNgTag } from '../shared/utils'
 })
 export class ElRadioButton {
   
-  @Input() disabled: boolean = false
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input() label: string | number
   @Input('name') nativeName: string = ''
   @Input() model: any
@@ -48,7 +51,7 @@ export class ElRadioButton {
   ngOnInit(): void {
     const nativeElement = this.el.nativeElement
     const update = () => {
-      this.disabled = this.rootGroup.disabled
+      this.elDisabled = this.rootGroup.elDisabled
       this.model = this.rootGroup.model
       this.size = this.rootGroup.buttonSize
       this.activeStyles =  {
