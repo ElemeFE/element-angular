@@ -20,7 +20,7 @@ import { ElFormItem } from '../form/form-item'
   template: `
     <div [class]="(type === 'text' ? 'el-input' : 'el-textarea') +
     (size ? ' el-input--' + size : '') + ' ' + parentClass"
-      [class.is-disabled]="disabled"
+      [class.is-disabled]="elDisabled"
       [class.el-input-group]="prepend || append"
       [class.el-input-group--append]="append"
       [class.el-input-group--prepend]="prepend">
@@ -35,8 +35,8 @@ import { ElFormItem } from '../form/form-item'
           <span class="el-input__suffix-inner">
             <i [class]="'el-input__icon ' + ('el-icon-' + icon) + (iconClick ? ' is-clickable ' : ' ')
               + (iconClass ? iconClass : '')"
-               [attr.disabled]="disabled"
-               [class.icon-disabled]="disabled"
+               [attr.disabled]="elDisabled"
+               [class.icon-disabled]="elDisabled"
                *ngIf="icon" (click)="iconClick.emit($event)"
                (mouseenter)="iconMouseEnter.emit($event)" (mouseleave)="iconMouseLeave.emit($event)"></i>
           </span>
@@ -44,7 +44,7 @@ import { ElFormItem } from '../form/form-item'
         <input class="el-input__inner"
           [autocomplete]="autoComplete" [value]="value" [name]="name" [type]="nativeType"
           [placeholder]="placeholder" [autofocus]="autofocus"
-          [disabled]="disabled" [readonly]="readonly"
+          [disabled]="elDisabled" [readonly]="readonly"
           [maxlength]="maxlength" [minlength]="minlength"
           [ngModel]="model" (ngModelChange)="handleInput($event)"
           (focus)="focus.emit($event)" (blur)="blur.emit($event)">
@@ -61,7 +61,7 @@ import { ElFormItem } from '../form/form-item'
           [style]="textareaStyles"
           [value]="value" [name]="name"
           [placeholder]="placeholder" [autofocus]="autofocus"
-          [disabled]="disabled" [readonly]="readonly"
+          [disabled]="elDisabled" [readonly]="readonly"
           [maxlength]="maxlength" [minlength]="minlength"
           [ngModel]="model" (input)="handleInput($event.target.value)"
           (focus)="focus.emit($event)" (blur)="blur.emit($event)"></textarea>
