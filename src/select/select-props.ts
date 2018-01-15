@@ -2,7 +2,10 @@ import { EventEmitter, Input, Output } from '@angular/core'
 
 export class ElSelectPoprs {
   
-  @Input() disabled: boolean = false
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input() clearable: boolean = false
   @Input() name: string
   @Input() size: string               // enum: large, small, mini

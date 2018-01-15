@@ -16,7 +16,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
     <div class="el-select" (click)="toggleHandle($event)">
       <el-input [model]="selectedLabel" [placeholder]="placeholder" [icon]="iconClass"
         iconClass="el-select__caret"
-        [name]="name" [size]="size" [disabled]="disabled"
+        [name]="name" [size]="size" [elDisabled]="elDisabled"
         (mouseenter)="mouseHandle(true)" (mouseleave)="mouseHandle(false)"
         (icon-click)="clearSelected($event)">
       </el-input>
@@ -54,7 +54,7 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   }
   
   toggleHandle(event?: Event): void {
-    if (this.disabled) return
+    if (this.elDisabled) return
     event && event.stopPropagation()
     this.dropdownActive = !this.dropdownActive
     const nextClass = 'arrow-up' + (this.dropdownActive ? ' is-reverse' : '')
