@@ -53,7 +53,7 @@ data2: any[] = [{
 }, {
   value: 'shizitou',
   label: '狮子头',
-  disabled: true,
+  elDisabled: true,
 }, {
   value: 'luosifen',
   label: '螺蛳粉',
