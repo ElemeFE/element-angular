@@ -415,6 +415,17 @@
       "events": [{
         "description": "解决 Collapse 组件 model 不能追踪变化的问题"
       }]
+    },
+    {
+      "version": "0.5.2",
+      "date": "2018-01-15",
+      "link": null,
+      "events": [{
+        "description": "解决 Form 组件的 disabled 属性被禁用问题",
+        "issues": [343]
+      }, {
+        "description": "同步所有组件的禁用属性为 elDisabled, 更新文档"
+      }]
     }
   ]
 }
