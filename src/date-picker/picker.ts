@@ -14,7 +14,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
     <div (click)="propagationHandle($event)">
       <el-input [class]="'el-date-editor ' + 'el-date-editor--' + type"
         [readonly]="!editable || readonly"
-        [disabled]="disabled"
+        [elDisabled]="elDisabled"
         [size]="size" [placeholder]="placeholder"
         [icon]="iconShowClose ? 'close' : 'date'"
         [model]="model"
@@ -54,7 +54,7 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
   
   iconClickHandle(e: Event): void {
     this.iconClick.emit(e)
-    if (this.disabled) return
+    if (this.elDisabled) return
     // use close action
     if (this.iconShowClose) {
       this.clearClick.emit(e)
