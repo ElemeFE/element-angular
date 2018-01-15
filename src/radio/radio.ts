@@ -16,12 +16,12 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
     <label class="el-radio" role="radio" tabindex="0">
       <span class="el-radio__input"
         style="float: left;"
-        [class.is-disabled]="disabled"
+        [class.is-disabled]="elDisabled"
         [class.is-checked]="model === label"
         [class.is-focus]="isFocus">
         <span class="el-radio__inner"></span>
         <input class="el-radio__original" type="radio"
-          [value]="label" [name]="nativeName" [disabled]="disabled"
+          [value]="label" [name]="nativeName" [disabled]="elDisabled"
           (focus)="isFocus = true" (blur)="isFocus = false"
           [ngModel]="model" (ngModelChange)="changeHandle()">
       </span>
@@ -31,7 +31,10 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 })
 export class ElRadio implements OnInit, ControlValueAccessor {
   
-  @Input() disabled: boolean = false
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input() label: string | number = ''
   @Input('name') nativeName: string = ''
   @Input() model: any
@@ -58,7 +61,7 @@ export class ElRadio implements OnInit, ControlValueAccessor {
   ngOnInit(): void {
     const nativeElement = this.el.nativeElement
     const update = () => {
-      this.disabled = this.rootGroup.disabled
+      this.elDisabled = this.rootGroup.elDisabled
       this.model = this.rootGroup.model
     }
     this.parentIsGroup = isParentTag(nativeElement, 'el-radio-group')

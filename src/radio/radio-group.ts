@@ -16,10 +16,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 })
 export class ElRadioGroup implements ControlValueAccessor {
   
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input('size') buttonSize: string
   @Input('fill') fillColor: string = '#20a0ff'
   @Input() textColor: string = '#ffffff'
-  @Input() disabled: boolean = false
   @Input() model: any
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
