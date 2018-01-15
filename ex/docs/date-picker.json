@@ -9,7 +9,7 @@
       "default": null
     },
     {
-      "name": "disabled",
+      "name": "elDisabled",
       "notes": "禁用组件",
       "type": "boolean",
       "enum": null,

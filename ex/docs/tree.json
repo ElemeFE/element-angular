@@ -65,7 +65,7 @@
       "default": false
     },
     {
-      "name": "disabled",
+      "name": "elDisabled",
       "notes": "禁用",
       "type": "boolean",
       "enum": null,

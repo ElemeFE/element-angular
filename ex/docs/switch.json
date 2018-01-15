@@ -1,7 +1,7 @@
 {
   "name": "Switch Attributes",
   "attrs": [{
-    "name": "disabled",
+    "name": "elDisabled",
     "notes": "是否禁用",
     "type": "boolean",
     "enum": null,

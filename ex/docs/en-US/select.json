@@ -16,7 +16,7 @@
       "default": null
     },
     {
-      "name": "disabled",
+      "name": "elDisabled",
       "notes": "禁用所有选择与选项框",
       "type": "boolean",
       "enum": "true, false",

@@ -37,7 +37,7 @@
       "default": null
     },
     {
-      "name": "disabled",
+      "name": "elDisabled",
       "notes": "是否禁用计数器",
       "type": "boolean",
       "enum": null,

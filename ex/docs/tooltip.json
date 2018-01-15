@@ -30,7 +30,7 @@
       "default": "bottom"
     },
     {
-      "name": "disabled",
+      "name": "elDisabled",
       "notes": "Tooltip 是否可用",
       "type": "boolean",
       "enum": null,

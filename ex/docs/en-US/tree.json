@@ -65,6 +65,20 @@
       "default": false
     },
     {
+      "name": "elDisabled",
+      "notes": "禁用",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
+      "name": "expand-on-click-node",
+      "notes": "允许点击非图标区域触发展开收起动作",
+      "type": "boolean",
+      "enum": null,
+      "default": true
+    },
+    {
       "name": "findAllChecked",
       "notes": "获取所有选中项。实例方法，由 Tree.userSafeHooks() 返回",
       "type": "() => string[]",

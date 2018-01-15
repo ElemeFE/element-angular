@@ -16,7 +16,7 @@
       "default": null
     },
     {
-      "name": "disabled",
+      "name": "elDisabled",
       "notes": "按钮禁用",
       "type": "boolean",
       "enum": null,
