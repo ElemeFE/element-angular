@@ -16,11 +16,11 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
   template: `
     <label class="el-checkbox">
     <span class="el-checkbox__input"
-      [class.is-disabled]="disabled" [class.is-focus]="isFocus"
+      [class.is-disabled]="elDisabled" [class.is-focus]="isFocus"
       [class.is-indeterminate]="indeterminate" [class.is-checked]="checked">
       <span class="el-checkbox__inner"></span>
       <input class="el-checkbox__original" type="checkbox"
-        [disabled]="disabled" [value]="label" [name]="name"
+        [disabled]="elDisabled" [value]="label" [name]="name"
         [ngModel]="model" (ngModelChange)="changeHandle($event)"
         (focus)="isFocus = true" (blur)="isFocus = false">
     </span>
@@ -37,9 +37,12 @@ export class ElCheckbox implements OnInit, AfterViewInit, OnChanges, ControlValu
   
   @ViewChild('content') content: any
   
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input() label: string
   @Input() model: any
-  @Input() disabled: boolean = false
   @Input() indeterminate: boolean = false
   @Input() checked: boolean = false
   @Input() name: string
