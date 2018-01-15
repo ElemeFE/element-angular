@@ -9,9 +9,9 @@ export default [
 `,
 // 按钮不可用状态
 `
-<el-button [plain]="true" [disabled]="true">主要按钮</el-button>
-<el-button type="primary" [disabled]="true">主要按钮</el-button>
-<el-button type="text" [disabled]="true">文字按钮</el-button>
+<el-button [plain]="true" [elDisabled]="true">主要按钮</el-button>
+<el-button type="primary" [elDisabled]="true">主要按钮</el-button>
+<el-button type="text" [elDisabled]="true">文字按钮</el-button>
 `,
 
 // 颜色倾向

@@ -12,11 +12,11 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
   <button (click)="clickHandle($event)"
     [class]="'el-button ' + (themeType ? ' el-button--' + themeType : '')
       + (size ? ' el-button--' + size : '') + ' ' + nativeClass"
-    [class.is-disabled]="disabled"
+    [class.is-disabled]="elDisabled"
     [class.is-loading]="loading"
     [class.is-plain]="plain"
     [class.is-round]="round"
-    [disabled]="disabled"
+    [disabled]="elDisabled"
     [type]="nativeType"
     [style]="extendStyles()"
     [autofocus]="autofocus">
@@ -28,11 +28,14 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
 })
 export class ElButton implements OnInit {
   
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input('type') themeType: string = ''
   @Input('native-type') nativeType: string = 'button'
   @Input() size: string = ''
   @Input() icon: string = ''
-  @Input() disabled: boolean = false
   @Input() loading: boolean = false
   @Input() plain: boolean = false
   @Input() round: boolean = false

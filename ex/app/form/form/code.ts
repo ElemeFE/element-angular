@@ -1,6 +1,3 @@
-import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms'
-import { forwardRef, Inject } from '@angular/core'
-
 export default [
 `
 <el-form [formGroup]="validateForm" label-width="100px"
@@ -116,7 +113,7 @@ private passwordValidator = (control: FormControl): validateResult => {
       <el-checkbox label="discount1">折扣1</el-checkbox>
       <el-checkbox label="discount2">折扣2</el-checkbox>
       <el-checkbox label="discount3">折扣3</el-checkbox>
-      <el-checkbox label="禁用" [disabled]="true">vip 折扣</el-checkbox>
+      <el-checkbox label="禁用" [elDisabled]="true">vip 折扣</el-checkbox>
     </el-checkbox-group>
   </el-form-item>
   
