@@ -4,13 +4,16 @@ import { UploadFile, Lifecycle, CommonFile, UploadResponse } from './upload.inte
 
 export class ElUploadProps {
   
+  @Input() set disabled(val: boolean) {   // todo, is discarded.
+    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
+  }
+  @Input() elDisabled: boolean = false
   @Input() data: any = {}
   @Input() name: string = 'file'
   @Input() action: string
   @Input() accept: string
   @Input() drag: boolean = false
   @Input() multiple: boolean = false
-  @Input() disabled: boolean = false
   @Input() headers?: any = {}
   
   @Input('with-credentials') withCredentials: boolean = false

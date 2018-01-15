@@ -13,7 +13,7 @@ import { CommonFile, UploadFile } from './upload.interface'
   template: `
     <ng-template #uploadList>
       <el-upload-list [files]="files"  *ngIf="showFileList"
-        [list-type]="listType" [disabled]="disabled"
+        [list-type]="listType" [elDisabled]="elDisabled"
         (remove)="removeHandle($event)" (preview)="lifecycle.preview($event)">
       </el-upload-list>
     </ng-template>
@@ -30,7 +30,7 @@ import { CommonFile, UploadFile } from './upload.interface'
       </div>
     </ng-template>
     
-    <el-upload-dragger *ngIf="drag" [disabled]="disabled" (change)="changeHandle($event)">
+    <el-upload-dragger *ngIf="drag" [elDisabled]="elDisabled" (change)="changeHandle($event)">
       <ng-template [ngTemplateOutlet]="triggerBlock"></ng-template>
     </el-upload-dragger>
     
@@ -75,7 +75,7 @@ export class ElUpload extends ElUploadProps implements OnInit {
   }
   
   clickHandle(): void {
-    if (this.disabled) return
+    if (this.elDisabled) return
     this.input.nativeElement.click()
   }
   

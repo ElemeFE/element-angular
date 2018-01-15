@@ -5,7 +5,7 @@ import { CommonFile } from './upload.interface'
   selector: 'el-upload-list',
   template: `
     <ul [class]="'el-upload-list el-upload-list--' + listType"
-      [class.is-disabled]="disabled">
+      [class.is-disabled]="elDisabled">
       <li *ngFor="let file of files; let i = index"
         [class]="'el-upload-list__item is-' + file.status">
         <img class="el-upload-list__item-thumbnail"
@@ -20,7 +20,7 @@ import { CommonFile } from './upload.interface'
             [class.el-icon-circle-check]="listType === 'text'"
             [class.el-icon-upload-success]="true"></i>
         </label>
-        <i class="el-icon-close" *ngIf="!disabled" (click)="removeHandle(file)"></i>
+        <i class="el-icon-close" *ngIf="!elDisabled" (click)="removeHandle(file)"></i>
         <el-progress *ngIf="file.status === 'uploading'"
           [type]="listType === 'picture-card' ? 'circle' : 'line'"
           [stroke-width]="listType === 'picture-card' ? 6 : 2"
@@ -33,7 +33,7 @@ import { CommonFile } from './upload.interface'
           <i class="el-icon-view"></i>
         </span>
         <span class="el-upload-list__item-delete"
-          *ngIf="!disabled"
+          *ngIf="!elDisabled"
           (click)="removeHandle(file)">
           <i class="el-icon-delete2"></i>
         </span>
@@ -45,7 +45,7 @@ import { CommonFile } from './upload.interface'
 export class ElUploadList {
   
   @Input() files: CommonFile[] = []
-  @Input() disabled: boolean = false
+  @Input() elDisabled: boolean = false
   @Input('list-type') listType: string
   @Output() remove: EventEmitter<CommonFile> = new EventEmitter<CommonFile>()
   @Output() preview: EventEmitter<CommonFile> = new EventEmitter<CommonFile>()
