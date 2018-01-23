@@ -56,6 +56,13 @@
       "type": "string",
       "enum": "large / small / mini",
       "default": null
+    },
+    {
+      "name": "close",
+      "notes": "主动关闭 cascader，非属性，实例方法",
+      "type": "() => void",
+      "enum": null,
+      "default": null
     }
   ]
 }

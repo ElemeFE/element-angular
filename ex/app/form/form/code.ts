@@ -93,8 +93,8 @@ private passwordValidator = (control: FormControl): validateResult => {
     <el-cascader [options]="options" [change-on-select]="true" formControlName="spec"></el-cascader>
   </el-form-item>
   
-  <el-form-item label="配送日期" [status]="statusCtrl('date')" [error]="messageCtrl('date')">
-    <el-date-picker formControlName="date"></el-date-picker>
+  <el-form-item label="配送日期" [status]="statusCtrl('date')" [error]="messageCtrl('date')" >
+    <el-date-picker formControlName="date" [format]="'yyyy-MM-dd'"></el-date-picker>
   </el-form-item>
   
   <el-form-item label="配送方式">

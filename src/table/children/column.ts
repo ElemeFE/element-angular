@@ -12,6 +12,7 @@ export class ElTableColumn implements OnInit {
   
   @ContentChild('slot') slot: TemplateRef<any>
   @Input('model-key') modelKey: string
+  @Input('render-html') renderHTML: boolean = false
   @Input() label: string
   @Input() width: string | number = 'auto'
   
@@ -86,6 +87,7 @@ export class ElTableColumn implements OnInit {
       label: this.label ? this.label : this.modelKey,
       width: this.width,
       slot: this.slot,
+      _renderHTML: this.renderHTML,
       deep, level, childCount,
     }
     this.root.updateColumns(tableColumn)

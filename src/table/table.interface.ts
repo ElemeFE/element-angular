@@ -15,6 +15,7 @@ export interface TableColumn {
   childCount: number,
   index?: number,
   slot?: TemplateRef<any>,
+  _renderHTML?: boolean,
 }
 
 export type TableColumnDataItem = {

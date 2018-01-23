@@ -16,13 +16,13 @@
           {{event.description}}
           <ng-container *ngIf="event.issues && event.issues.length > 0">
             <a target="_blank" *ngFor="let issue of event.issues"
-              [href]="makeSafeUrl('https://github.com/eleme/element-angular/issues/' + issue)">
+              [href]="makeSafeUrl(genRepoHost(release.date) + '/element-angular/issues/' + issue)">
               [issue-{{issue}}]
             </a>
           </ng-container>
           <ng-container *ngIf="event['pull-requests'] && event['pull-requests'].length > 0">
             <a target="_blank" *ngFor="let pr of event['pull-requests']"
-               [href]="makeSafeUrl('https://github.com/eleme/element-angular/pull/' + pr)">
+               [href]="makeSafeUrl(genRepoHost(release.date) + '/element-angular/pull/' + pr)">
               [pr-{{pr}}]
             </a>
           </ng-container>

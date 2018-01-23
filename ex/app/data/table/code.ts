@@ -6,7 +6,7 @@ export default [
   </el-table-column>
   <el-table-column model-key="date" label="日期" width="140">
   </el-table-column>
-  <el-table-column model-key="address" label="地址" width="140">
+  <el-table-column model-key="address" label="地址" width="140" [render-html]="true">
   </el-table-column>
    <el-table-column label="操作" width="120">
     <ng-template #slot let-scope="scope">
@@ -152,6 +152,41 @@ handle(ref: any): void {
   </el-table-column>
   
 </el-table>
+
+`,
+
+// 多级表头
+`
+<el-table [model]="tableWithHTML" [scroll-x]="true">
+  <el-table-column model-key="name" label="姓名">
+  </el-table-column>
+  <el-table-column model-key="date" label="日期">
+  </el-table-column>
+  <el-table-column model-key="address" label="地址" [render-html]="true">
+  </el-table-column>
+</el-table>
+
+<script type="text">
+// in Component
+
+tableData: any[] = [{
+  name: '火锅',
+  date: 2017,
+  address: '<span style="color: red;">上海市普陀区金沙江路 1518 弄</span>',
+}, {
+  name: '重庆小面',
+  date: '2017-08-20',
+  address: '<span style="color: red;">上海市普陀区金沙江路 1518 弄</span>',
+}, {
+  name: '海蛎煎',
+  date: '2017-08-21',
+  address: '<span style="color: red;">上海市普陀区金沙江路 1518 弄</span>',
+}, {
+  name: '榴莲酥',
+  date: '2017-08-22',
+  address: '<span style="color: red;">上海市普陀区金沙江路 1518 弄</span>',
+}]
+</script>
 
 `,
 
