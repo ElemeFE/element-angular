@@ -428,6 +428,19 @@
       }, {
         "description": "同步所有组件的禁用属性为 elDisabled, 更新文档"
       }]
+    },
+    {
+      "version": "0.5.3",
+      "date": "2018-01-23",
+      "link": null,
+      "events": [{
+        "description": "Table 增加渲染 HTML 选项"
+      },{
+        "description": "解决 DatePicker 组件的月份出错的问题",
+        "issues": [1]
+      }, {
+        "description": "Cascader 组件增加手动关闭方法"
+      }]
     }
   ]
 }

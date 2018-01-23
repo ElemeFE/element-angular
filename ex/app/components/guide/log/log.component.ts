@@ -26,6 +26,12 @@ export class ExLogComponent {
   ) {
   }
   
+  // migrate to elemefe
+  genRepoHost(date: string): string {
+    const migrateDate = 1516492800000
+    return +new Date(date) > migrateDate ? '//github.com/ElemeFE' : '//github.com/eleme'
+  }
+  
   makeSafeUrl(link: string | null): SafeUrl {
     const url: string = link || 'javascript:;'
     return this.sanitizer.bypassSecurityTrustUrl(url)
