@@ -51,6 +51,11 @@ export class ElCascader extends ElCascaderPoprs implements OnInit, OnDestroy, Co
     super()
   }
   
+  close(): void {
+    this.menuVisible = false
+    this.globalListenFunc && this.globalListenFunc()
+  }
+  
   clickHandle(event: MouseEvent): void {
     event.stopPropagation()
     if (this.elDisabled) return

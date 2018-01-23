@@ -4,6 +4,7 @@ export default [
 <!--你可以通过绑定 (modelChange)=handle 来获得每次值改变的触发-->
 <el-cascader [options]="options" (modelChange)="changeHandle($event)">
 </el-cascader>
+<button (click)="closeHandle()">close</button>
 
 <script type="text">
   // in Component :
