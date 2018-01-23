@@ -73,14 +73,14 @@ export class ElDateTable implements OnInit, OnChanges {
   
   clickHandle(item: DateRowItem): void {
     const date = this.date
-    const currentMonth = date.getMonth()
+    const currentMonth = date.getMonth() + 1
     const targetMonth = currentMonth + item.monthOffset
     // update target and update view
     this.targetDay = item.day
     this.targetMonthOffset = item.monthOffset
     
     // get time and emit a number
-    date.setMonth(targetMonth)
+    date.setMonth(targetMonth - 1)
     date.setDate(item.day)
     this.modelChange.emit(date.getTime())
   }

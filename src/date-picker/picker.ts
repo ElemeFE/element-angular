@@ -51,7 +51,6 @@ export class ElDataPicker extends ElDatePickerProps implements OnInit, OnDestroy
     this.iconShowClose = this.model && t
   }
   
-  
   iconClickHandle(e: Event): void {
     this.iconClick.emit(e)
     if (this.elDisabled) return
