@@ -6,7 +6,8 @@ import code from './code'
   template: ` `,
 })
 export class ExTableDemoComponent {
-  private tableData: any[] = [{
+  
+  tableData: any[] = [{
     name: '火锅',
     date: 2017,
     address: '上海市普陀区金沙江路 1518 弄',
@@ -23,10 +24,17 @@ export class ExTableDemoComponent {
     date: '2017-08-22',
     address: '上海市普陀区金沙江路 1510 弄',
   }]
-  private tableDataMore: any[] = []
+  tableDataMore: any[] = []
+  tableWithHTML: any[] = []
   
   constructor() {
     this.tableDataMore = this.tableData.concat(this.tableData)
+    this.tableWithHTML = this.tableData.map(item => {
+      return Object.assign({}, item, {
+        address: `<span style="color: red;">${item.address}</span>`
+      })
+    })
+    
   }
   
   rowClassNameFilter(row: any, index: number): string {
