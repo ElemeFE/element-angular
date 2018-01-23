@@ -3,6 +3,7 @@ import {
 } from '@angular/core'
 import { ElTableSlotEvent, TableColumnDataItem } from '../table.interface'
 import { ElTableFormat } from '../utils/format'
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser'
 
 @Component({
   selector: 'el-table-body',
@@ -23,7 +24,8 @@ import { ElTableFormat } from '../utils/format'
           (click)="clickHandle($event, tdRef)"
           (dblclick)="doubleClickHandle($event, tdRef)">
           <div class="cell" [ngStyle]="{ 'text-align': center ? 'center' : 'unset' }">
-            <ng-container *ngIf="!isTemplateRef(td.value)">{{td.value}}</ng-container>
+            <ng-container *ngIf="!isTemplateRef(td.value) && !td._renderHTML">{{ td.value }}</ng-container>
+            <div *ngIf="!isTemplateRef(td.value) && td._renderHTML" [innerHtml]="renderHtml(td.value)"></div>
             <ng-container *ngIf="isTemplateRef(td.value)">
               <ng-template [ngTemplateOutlet]="td.value" [ngTemplateOutletContext]="{
                 scope: merge(tdRef, {rowData: getFormatModel(k), index: k})
@@ -51,7 +53,12 @@ export class ElTableBody implements OnChanges {
   
   constructor(
     public tableFormat: ElTableFormat,
+    private sanitizer: DomSanitizer,
   ) {
+  }
+  
+  renderHtml(str: string): string | SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(str)
   }
   
   merge(domHandle: any, next: any): any {

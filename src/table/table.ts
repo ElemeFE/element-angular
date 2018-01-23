@@ -179,6 +179,7 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
             value: row[v], [v]: row[v],
             index: orderMap[v].index,
             width: orderMap[v].width,
+            _renderHTML: orderMap[v]._renderHTML
           }
         })
         .filter((r: any) => !!r)
