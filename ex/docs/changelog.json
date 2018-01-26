@@ -441,10 +441,15 @@
       }, {
         "description": "Cascader 组件增加手动关闭方法"
       }]
+    },
+    {
+      "version": "0.5.4",
+      "date": "2018-01-26",
+      "link": null,
+      "events": [{
+        "description": "优化 Loading 组件并增加 el-loading-top 属性"
+      }]
     }
   ]
 }
-
-
-
 
