@@ -21,6 +21,20 @@
       "type": "boolean",
       "enum": null,
       "default": false
+    },
+    {
+      "name": "to",
+      "notes": "跳转地址，整个 url",
+      "type": "string",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "extras",
+      "notes": "额外的路由参数",
+      "type": "NavigationExtras",
+      "enum": null,
+      "default": null
     }
   ]
 }

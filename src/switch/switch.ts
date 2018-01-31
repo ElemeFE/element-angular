@@ -13,13 +13,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
     <label class="el-switch"
       [class.is-disabled]="elDisabled"
       [class.el-switch--wide]="hasText"
-      [class.is-checked]="model">
+      [class.is-checked]="_model">
       <div class="el-switch__mask" *ngIf="elDisabled"></div>
       <input class="el-switch__input" type="checkbox"
         [name]="name" [disabled]="elDisabled"
-        [ngModel]="model" (ngModelChange)="changeHandle($event)">
+        [ngModel]="_model" (ngModelChange)="changeHandle($event)">
       
-      <div class="el-switch__label el-switch__label--left" [class.is-active]="!model"
+      <div class="el-switch__label el-switch__label--left" [class.is-active]="!_model"
         *ngIf="inactiveText || inactiveIconClass">
         <i [class]="inactiveIconClass" *ngIf="inactiveIconClass"></i>
         <span *ngIf="!inactiveIconClass">{{ inactiveText }}</span>
@@ -29,7 +29,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
         <span class="el-switch__button" [style]="iconTransform"></span>
       </span>
 
-      <div class="el-switch__label el-switch__label--right" [class.is-active]="model"
+      <div class="el-switch__label el-switch__label--right" [class.is-active]="_model"
            *ngIf="activeText || activeIconClass">
         <i [class]="activeIconClass" *ngIf="activeIconClass"></i>
         <span *ngIf="!activeIconClass">{{ activeText }}</span>
@@ -53,13 +53,18 @@ export class ElSwitch implements OnInit, ControlValueAccessor {
   @Input('inactive-color') inactiveColor: string = '#C0CCDA'
   
   // bind value
-  @Input() model: boolean = false
+  @Input() set model(val: boolean) {
+    this._model = val
+    this.updateStyles()
+  }
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
   hasText: boolean = false
   realWidth: number
   coreStyles: SafeStyle
   iconTransform: SafeStyle
+  
+  private _model: boolean = false
   
   constructor(
     private sanitizer: DomSanitizer,
@@ -70,13 +75,12 @@ export class ElSwitch implements OnInit, ControlValueAccessor {
     this.model = nextValue
     this.modelChange.emit(nextValue)
     this.controlChange(nextValue)
-    this.updateStyles()
   }
   
   updateStyles(): void {
     let baseStyle = `width: ${this.realWidth}px;`
-    const translate = this.model ? `translate3d(${this.realWidth - 20}px, 0, 0)` : ''
-    const color = this.model ? this.activeColor : this.inactiveColor;
+    const translate = this._model ? `translate3d(${this.realWidth - 20}px, 0, 0)` : ''
+    const color = this._model ? this.activeColor : this.inactiveColor;
     const colorStyles = `border-color: ${color}; background-color: ${color};`
     
     this.iconTransform = this.sanitizer.bypassSecurityTrustStyle(`transform: ${translate}`)

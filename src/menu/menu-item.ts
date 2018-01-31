@@ -3,6 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser'
 import { ElMenu } from './menu'
 import { ElSubmenu } from './submenu'
 import { isParentTag, removeNgTag } from '../shared/utils'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'el-menu-item',
@@ -28,6 +29,8 @@ export class ElMenuItem implements OnInit {
   @Input() elDisabled: boolean = false
   @Input() index: string
   @Input() title: string = ''
+  @Input() to: string
+  @Input() extras?: any = {}
   private inSubmenu: boolean = false
   
   constructor(
@@ -35,6 +38,7 @@ export class ElMenuItem implements OnInit {
     @Optional() private subMenu: ElSubmenu,
     private sanitizer: DomSanitizer,
     private el: ElementRef,
+    private router: Router,
   ) {
   }
   
@@ -43,6 +47,7 @@ export class ElMenuItem implements OnInit {
     comRef.selectHandle(this.index)
     const nextBorderIndex: string = (this.inSubmenu && this.subMenu) ? this.subMenu.index : this.index
     this.rootMenu.showBorderIndex = nextBorderIndex
+    this.to && this.router.navigateByUrl(this.to, this.extras)
   }
   
   borderColor(): string {

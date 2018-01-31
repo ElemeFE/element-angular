@@ -449,6 +449,18 @@
       "events": [{
         "description": "优化 Loading 组件并增加 el-loading-top 属性"
       }]
+    },
+    {
+      "version": "0.5.5",
+      "date": "2018-01-31",
+      "link": null,
+      "events": [{
+        "description": "修复 Switch 组件在 Form 模式下不能正确初始化问题",
+        "issues": [6]
+      },{
+        "description": "为 el-menu-item 新增路由跳转的属性",
+        "issues": [4]
+      }]
     }
   ]
 }
