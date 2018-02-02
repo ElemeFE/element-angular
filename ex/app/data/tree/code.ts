@@ -1,6 +1,3 @@
-import { UserSafeHooks } from '../../../../src/tree/tree'
-import { ElementRef, ViewChild } from '@angular/core'
-
 export default [
 // 基础用法
 `

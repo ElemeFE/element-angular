@@ -22,15 +22,7 @@ export class ElTreeProps {
   
   identModel: ElTreeModelData[]
   
-  @Input() set model(val: ElTreeModelData[]) {
-    const standardTool = new ModelStandard({
-      initDepth: 0,
-      defaultExpandAll: this.defaultExpandAll,
-      defaultExpandedKeys: this.defaultExpandedKeys,
-      defaultCheckedKeys: this.defaultCheckedKeys,
-    })
-    this.identModel = standardTool.filterModel(val)
-  }
+  
   @Output() modelChange: EventEmitter<ElTreeModelEvent> = new EventEmitter<ElTreeModelEvent>()
   
   @Input('empty-text') emptyText: string = ''
