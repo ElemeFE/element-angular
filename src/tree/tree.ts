@@ -1,6 +1,6 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { ModelStandard } from './utils'
-import { ElTreeProps, ElTreeModelEvent } from './tree-props'
+import { ElTreeProps, ElTreeModelEvent, ElTreeModelData } from './tree-props'
 
 export type UserSafeHooks = {
   findAllChecked: () => string[],
@@ -23,6 +23,16 @@ export type UserSafeHooks = {
   `,
 })
 export class ElTree extends ElTreeProps {
+  
+  @Input() set model(val: ElTreeModelData[]) {
+    const standardTool = new ModelStandard({
+      initDepth: 0,
+      defaultExpandAll: this.defaultExpandAll,
+      defaultExpandedKeys: this.defaultExpandedKeys,
+      defaultCheckedKeys: this.defaultCheckedKeys,
+    })
+    this.identModel = standardTool.filterModel(val)
+  }
   
   constructor(
   ) {

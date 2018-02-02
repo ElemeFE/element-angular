@@ -461,6 +461,15 @@
         "description": "为 el-menu-item 新增路由跳转的属性",
         "issues": [4]
       }]
+    },
+    {
+      "version": "0.5.6",
+      "date": "2018-02-02",
+      "link": null,
+      "events": [{
+        "description": "修复 Tree 组件的部分属性不能正确覆盖的错误",
+        "issues": [9]
+      }]
     }
   ]
 }
