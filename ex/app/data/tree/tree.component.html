@@ -11,6 +11,8 @@
 
 <h3 i18n="@@tree-h3-3">默认展开和默认选中</h3>
 <p i18n="@@tree-p-4">可将 Tree 的某些节点设置为默认展开或默认选中。</p>
+<p i18n="@@tree-p-7">使用 <code>default-expanded-keys</code> 或 <code>default-checked-keys</code> 属性来设置默认展开和选中时，需要注意的是这这两个设置项表示
+源数据中的 id，如果 model data 没有 id 属性，你需要为每一项数据手动增加唯一的 id。</p>
 <ex-demo [code]="code[2]" [class]="exClass"></ex-demo>
 
 <h3 i18n="@@tree-h3-4">钩子函数</h3>
@@ -18,7 +20,7 @@
 <ex-demo [code]="code[3]" [class]="exClass"></ex-demo>
 
 <h3 i18n="@@tree-h3-4">手风琴模式</h3>
-<p i18n="@@tree-p-5">对于同一级的节点，每次只能展开一个</p>
+<p i18n="@@tree-p-6">对于同一级的节点，每次只能展开一个</p>
 <ex-demo [code]="code[4]" [class]="exClass"></ex-demo>
 
 <ex-document doc="tree"></ex-document>
