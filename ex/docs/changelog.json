@@ -470,6 +470,16 @@
         "description": "修复 Tree 组件的部分属性不能正确覆盖的错误",
         "issues": [9]
       }]
+    },
+    {
+      "version": "0.5.7",
+      "date": "2018-02-08",
+      "link": null,
+      "events": [{
+        "description": "除 bundle 外，release 现在也提供 ES5 版本(原为 ES6)"
+      }, {
+        "description": "解决 Switch 模板在 Aot 模式下的警告"
+      }]
     }
   ]
 }
