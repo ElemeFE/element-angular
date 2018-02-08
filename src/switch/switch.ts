@@ -59,12 +59,11 @@ export class ElSwitch implements OnInit, ControlValueAccessor {
   }
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
+  _model: boolean = false
   hasText: boolean = false
   realWidth: number
   coreStyles: SafeStyle
   iconTransform: SafeStyle
-  
-  private _model: boolean = false
   
   constructor(
     private sanitizer: DomSanitizer,
