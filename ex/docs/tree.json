@@ -38,14 +38,14 @@
     },
     {
       "name": "default-expanded-keys",
-      "notes": "默认展开的数组",
+      "notes": "默认展开的数组。数组中的每项为 model 数据中的 id 属性",
       "type": "Array<string | number>",
       "enum": null,
       "default": "[]"
     },
     {
       "name": "default-checked-keys",
-      "notes": "默认选中的数组，需要 show-checkbox 选项打开",
+      "notes": "默认选中的数组，需要 show-checkbox 选项打开，数组中的每项为 model 数据中的 id 属性",
       "type": "Array<string | number>",
       "enum": null,
       "default": "[]"
