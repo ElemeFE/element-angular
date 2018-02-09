@@ -1,13 +1,13 @@
-import { Component, ContentChild, ElementRef, Input, OnInit, Optional, TemplateRef } from '@angular/core'
+import { Component, ContentChild, Input, Optional, TemplateRef } from '@angular/core'
 import { ElCollapse, ModelValue } from './collapse'
 import { dropAnimation } from '../shared/animation'
-import { removeNgTag } from '../shared/utils'
 
 @Component({
   selector: 'el-collapse-item',
   animations: [dropAnimation],
+  styles: [`.el-collapse-item-fix-border:last-child { margin-bottom: 0; }`],
   template: `
-    <div class="el-collapse-item" [class.is-active]="isActive()">
+    <div class="el-collapse-item el-collapse-item-fix-border" [class.is-active]="isActive()">
       <div role="tab" [attr.aria-expanded]="isActive">
         <div class="el-collapse-item__header" (click)="clickHandle()" role="button">
           <i class="el-collapse-item__arrow el-icon-arrow-right"></i>
@@ -27,7 +27,7 @@ import { removeNgTag } from '../shared/utils'
     </div>
   `,
 })
-export class ElCollapseItem implements OnInit {
+export class ElCollapseItem {
   
   @ContentChild('label') labelTmp: TemplateRef<any>
   @Input() label: string
@@ -35,7 +35,6 @@ export class ElCollapseItem implements OnInit {
   
   constructor(
     @Optional() private root: ElCollapse,
-    private el: ElementRef,
   ) {
   }
   
@@ -48,10 +47,6 @@ export class ElCollapseItem implements OnInit {
       this.value = Math.random().toString(16).substr(2, 8)
     }
     this.root.updateModel(this.value)
-  }
-  
-  ngOnInit(): void {
-    removeNgTag(this.el.nativeElement)
   }
   
 }
