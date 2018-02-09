@@ -3,8 +3,9 @@ export type ModelValue = string | number
 
 @Component({
   selector: 'el-collapse',
+  styles: [`.el-collapse-fix-border { border-bottom: 0; }`],
   template: `
-    <div class="el-collapse" role="tablist" aria-multiselectable="true">
+    <div class="el-collapse el-collapse-fix-border" role="tablist" aria-multiselectable="true">
       <ng-content></ng-content>
     </div>
   `,
