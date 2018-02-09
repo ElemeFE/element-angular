@@ -24,5 +24,11 @@
     "type": "number",
     "enum": null,
     "default": null
+  }, {
+    "name": "render-html",
+    "notes": "当前列渲染 HTML 内容",
+    "type": "boolean",
+    "enum": null,
+    "default": false
   }]
 }

@@ -35,6 +35,13 @@
       "type": "string",
       "enum": null,
       "default": null
+    },
+    {
+      "name": "el-loading-top",
+      "notes": "loading 图标与顶部的距离",
+      "type": "string",
+      "enum": null,
+      "default": null
     }
   ]
 }

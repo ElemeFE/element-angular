@@ -415,10 +415,81 @@
       "events": [{
         "description": "解决 Collapse 组件 model 不能追踪变化的问题"
       }]
+    },
+    {
+      "version": "0.5.2",
+      "date": "2018-01-15",
+      "link": null,
+      "events": [{
+        "description": "修复 Aot 编译模式 Tree 组件引起的类型错误"
+      },{
+        "description": "解决 Form 组件的 disabled 属性被禁用问题",
+        "issues": [343]
+      }, {
+        "description": "同步所有组件的禁用属性为 elDisabled, 更新文档"
+      }]
+    },
+    {
+      "version": "0.5.3",
+      "date": "2018-01-23",
+      "link": null,
+      "events": [{
+        "description": "Table 增加渲染 HTML 选项"
+      },{
+        "description": "解决 DatePicker 组件的月份出错的问题",
+        "issues": [1]
+      }, {
+        "description": "Cascader 组件增加手动关闭方法"
+      }]
+    },
+    {
+      "version": "0.5.4",
+      "date": "2018-01-26",
+      "link": null,
+      "events": [{
+        "description": "优化 Loading 组件并增加 el-loading-top 属性"
+      }]
+    },
+    {
+      "version": "0.5.5",
+      "date": "2018-01-31",
+      "link": null,
+      "events": [{
+        "description": "修复 Switch 组件在 Form 模式下不能正确初始化问题",
+        "issues": [6]
+      },{
+        "description": "为 el-menu-item 新增路由跳转的属性",
+        "issues": [4]
+      }]
+    },
+    {
+      "version": "0.5.6",
+      "date": "2018-02-02",
+      "link": null,
+      "events": [{
+        "description": "修复 Tree 组件的部分属性不能正确覆盖的错误",
+        "issues": [9]
+      }]
+    },
+    {
+      "version": "0.5.7",
+      "date": "2018-02-08",
+      "link": null,
+      "events": [{
+        "description": "除 bundle 外，release 现在也提供 ES5 版本(原为 ES6)"
+      }, {
+        "description": "解决 Switch 模板在 Aot 模式下的警告"
+      }]
+    },
+    {
+      "version": "0.5.8",
+      "date": "2018-02-09",
+      "link": null,
+      "events": [{
+        "description": "修复 Collapse 组件不能正确的处理 binding 问题",
+        "issues": [21]
+      }]
     }
   ]
 }
-
-
-
 
