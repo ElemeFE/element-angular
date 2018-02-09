@@ -36,7 +36,7 @@ export default [
   <div el-aside width="200px">Aside</div>
   <div el-container direction="vertical">
     <div el-header>Header</div>
-    <div el-main>Main</div>pm
+    <div el-main>Main</div>
   </div>
 </div>
 
