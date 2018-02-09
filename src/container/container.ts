@@ -27,6 +27,7 @@ export class ElContainer implements OnInit {
   }
   
   ngOnInit(): void {
+    console.log('Element Angular: Container Component is discarded, use [Container directive] replace it.')
     this.isVertical = this.direction === 'vertical'
     removeNgTag(this.el.nativeElement)
   }
