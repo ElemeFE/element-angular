@@ -22,6 +22,7 @@ export class ElHeader implements OnInit {
   }
   
   ngOnInit(): void {
+    console.log('Element Angular: Container Component is discarded, use [Container directive] replace it.')
     this.root.setVertical(true)
     removeNgTag(this.el.nativeElement)
   }

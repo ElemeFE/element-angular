@@ -1,52 +1,52 @@
 export default [
 // 基础的栅格布局
 `
-<el-container class="demo-box">
-  <el-header>Header</el-header>
-  <el-main>Main</el-main>
-</el-container>
+<div el-container direction="vertical" class="demo-box">
+  <div el-header>Header</div>
+  <div el-main>Main</div>
+</div>
 
-<el-container class="demo-box">
-  <el-header>Header</el-header>
-  <el-main>Main</el-main>
-  <el-footer>Footer</el-footer>
-</el-container>
+<div el-container direction="vertical" class="demo-box">
+  <div el-header>Header</div>
+  <div el-main>Main</div>
+  <div el-footer>Footer</div>
+</div>
 
 
-<el-container class="demo-box">
-  <el-header>Header</el-header>
-  <el-container>
-    <el-aside width="200px">Aside</el-aside>
-    <el-main>Main</el-main>
-  </el-container>
-</el-container>
+<div el-container direction="vertical" class="demo-box">
+  <div el-header>Header</div>
+  <div el-container>
+    <div el-aside width="200px">Aside</div>
+    <div el-main>Main</div>
+  </div>
+</div>
 
-<el-container class="demo-box">
-  <el-header>Header</el-header>
-  <el-container>
-    <el-aside width="200px">Aside</el-aside>
-    <el-container>
-      <el-main>Main</el-main>
-      <el-footer>Footer</el-footer>
-    </el-container>
-  </el-container>
-</el-container>
+<div el-container direction="vertical" class="demo-box">
+  <div el-header>Header</div>
+  <div el-container>
+    <div el-aside width="200px">Aside</div>
+    <div el-container direction="vertical">
+      <div el-main>Main</div>
+      <div el-footer>Footer</div>
+    </div>
+  </div>
+</div>
 
-<el-container class="demo-box">
-  <el-aside width="200px">Aside</el-aside>
-  <el-container>
-    <el-header>Header</el-header>
-    <el-main>Main</el-main>
-  </el-container>
-</el-container>
+<div el-container class="demo-box">
+  <div el-aside width="200px">Aside</div>
+  <div el-container direction="vertical">
+    <div el-header>Header</div>
+    <div el-main>Main</div>pm
+  </div>
+</div>
 
-<el-container class="demo-box">
-  <el-aside width="200px">Aside</el-aside>
-  <el-container>
-    <el-header>Header</el-header>
-    <el-main>Main</el-main>
-    <el-footer>Footer</el-footer>
-  </el-container>
-</el-container>
+<div el-container class="demo-box">
+  <div el-aside width="200px">Aside</div>
+  <div el-container direction="vertical">
+    <div el-header>Header</div>
+    <div el-main>Main</div>
+    <div el-footer>Footer</div>
+  </div>
+</div>
 `,
 ]

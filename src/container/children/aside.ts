@@ -20,6 +20,7 @@ export class ElAside implements OnInit {
   }
   
   ngOnInit(): void {
+    console.log('Element Angular: Container Component is discarded, use [Container directive] replace it.')
     removeNgTag(this.el.nativeElement)
   }
 }

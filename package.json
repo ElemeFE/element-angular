@@ -1,6 +1,6 @@
 {
   "name": "element-angular",
-  "version": "0.5.8",
+  "version": "0.6.0",
   "description": "element ui for angular",
   "main": "./release/element-angular.module.js",
   "unpkg": "bundle/element-angular.js",
@@ -84,7 +84,7 @@
     "css-loader": "^0.28.4",
     "cz-conventional-changelog": "^2.1.0",
     "del": "^3.0.0",
-    "element-ui": "^2.0.7",
+    "element-ui": "2.0.7",
     "extract-text-webpack-plugin": "^3.0.0",
     "gh-pages": "^1.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
