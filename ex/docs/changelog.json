@@ -480,6 +480,15 @@
       }, {
         "description": "解决 Switch 模板在 Aot 模式下的警告"
       }]
+    },
+    {
+      "version": "0.5.8",
+      "date": "2018-02-09",
+      "link": null,
+      "events": [{
+        "description": "修复 Collapse 组件不能正确的处理 binding 问题",
+        "issues": [21]
+      }]
     }
   ]
 }
