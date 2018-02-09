@@ -489,6 +489,14 @@
         "description": "修复 Collapse 组件不能正确的处理 binding 问题",
         "issues": [21]
       }]
+    },
+    {
+      "version": "0.6.0",
+      "date": "2018-02-10",
+      "link": null,
+      "events": [{
+        "description": "Container 从组件迁移为指令"
+      }]
     }
   ]
 }
