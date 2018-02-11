@@ -497,6 +497,18 @@
       "events": [{
         "description": "Container 从组件迁移为指令"
       }]
+    },
+    {
+      "version": "0.6.1",
+      "date": "2018-02-11",
+      "link": null,
+      "events": [{
+        "description": "修复 Input 组件在 Form 模式下图标事件不能正常触发",
+        "issues": [28]
+      },{
+        "description": "为 Input 组件尾部图标增加 mousedown / mouseup 事件",
+        "issues": [27]
+      }]
     }
   ]
 }
