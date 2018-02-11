@@ -35,6 +35,7 @@ import { ElFormItem } from '../form/form-item'
         
         <span class="el-input__suffix" *ngIf="icon" (click)="iconClick.emit($event)"
           (mouseenter)="iconMouseEnter.emit($event)" (mouseleave)="iconMouseLeave.emit($event)"
+          (mousedown)="iconMousedown.emit($event)" (mouseup)="iconMouseup.emit($event)"
           [class.icon-pointer]="showPointer()"
           [class.icon-disabled]="elDisabled">
           <span class="el-input__suffix-inner">
@@ -106,7 +107,10 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit, Cont
   }
   
   showPointer(): boolean {
-    return !!(this.iconClick.observers && this.iconClick.observers.length)
+    const clickEvent: boolean = !!(this.iconClick.observers && this.iconClick.observers.length)
+    const mouseEvent: boolean = !!(this.iconMousedown.observers && this.iconMousedown.observers.length)
+    
+    return clickEvent || mouseEvent
   }
   
   ngOnInit(): void {
