@@ -11,7 +11,9 @@ import { ElFormItem } from '../form/form-item'
 
 @Component({
   selector: 'el-input',
-  styles: ['.icon-disabled {cursor: not-allowed;} .icon-disabled:before {cursor: not-allowed;}'],
+  styles: [`
+    .icon-disabled { cursor: not-allowed; } .icon-disabled:before { cursor: not-allowed; }
+    .icon-pointer { cursor: pointer; }`],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => ElInput),
@@ -31,14 +33,16 @@ import { ElFormItem } from '../form/form-item'
           </ng-template>
         </div>
         
-        <span class="el-input__suffix" *ngIf="icon">
+        <span class="el-input__suffix" *ngIf="icon" (click)="iconClick.emit($event)"
+          (mouseenter)="iconMouseEnter.emit($event)" (mouseleave)="iconMouseLeave.emit($event)"
+          [class.icon-pointer]="showPointer()"
+          [class.icon-disabled]="elDisabled">
           <span class="el-input__suffix-inner">
             <i [class]="'el-input__icon ' + ('el-icon-' + icon) + (iconClick ? ' is-clickable ' : ' ')
               + (iconClass ? iconClass : '')"
-               [attr.disabled]="elDisabled"
-               [class.icon-disabled]="elDisabled"
-               *ngIf="icon" (click)="iconClick.emit($event)"
-               (mouseenter)="iconMouseEnter.emit($event)" (mouseleave)="iconMouseLeave.emit($event)"></i>
+              [attr.disabled]="elDisabled"
+              [class.icon-disabled]="elDisabled"
+              *ngIf="icon"></i>
           </span>
         </span>
         <input class="el-input__inner"
@@ -99,6 +103,10 @@ export class ElInput extends ElInputPoprs implements OnInit, AfterViewInit, Cont
       this.makeTextareaStyles()
       clearTimeout(timer)
     }, 0)
+  }
+  
+  showPointer(): boolean {
+    return !!(this.iconClick.observers && this.iconClick.observers.length)
   }
   
   ngOnInit(): void {
