@@ -86,6 +86,20 @@
       "default": null
     },
     {
+      "name": "icon-mousedown",
+      "notes": "输入框尾部图标 <code>mousedown</code> 事件",
+      "type": "EventEmitter",
+      "enum": null,
+      "default": null
+    },
+    {
+      "name": "icon-mouseup",
+      "notes": "输入框尾部图标 <code>mouseup</code> 事件",
+      "type": "EventEmitter",
+      "enum": null,
+      "default": null
+    },
+    {
       "name": "rows",
       "notes": "输入框行数，只对 <code>type=textarea</code> 有效 ",
       "type": "number",

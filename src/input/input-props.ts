@@ -35,6 +35,8 @@ export class ElInputPoprs {
   @Output() blur: EventEmitter<any> = new EventEmitter<any>()
   @Output('icon-mouseenter') iconMouseEnter: EventEmitter<any> = new EventEmitter<any>()
   @Output('icon-mouseleave') iconMouseLeave: EventEmitter<any> = new EventEmitter<any>()
+  @Output('icon-mousedown') iconMousedown: EventEmitter<any> = new EventEmitter<any>()
+  @Output('icon-mouseup') iconMouseup: EventEmitter<any> = new EventEmitter<any>()
   
   @Input() set disabled(val: boolean) {   // todo, is discarded.
     console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.')
