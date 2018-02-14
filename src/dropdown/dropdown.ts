@@ -93,7 +93,6 @@ export class ElDropdown extends ElDropdownProps implements OnDestroy, AfterViewI
   }
   
   selectHandle(model: Value): void {
-    console.log(model)
     this.selected.emit(model)
     
     // select and hide menu (props)
