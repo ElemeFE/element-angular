@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core'
 import { ElPaginationProps } from './pagination.props'
 
 @Component({
@@ -33,7 +33,7 @@ import { ElPaginationProps } from './pagination.props'
     </div>
   `,
 })
-export class ElPagination extends ElPaginationProps implements OnInit {
+export class ElPagination extends ElPaginationProps implements OnInit, OnChanges {
   
   showPager: boolean = true
   showPrev: boolean = true
@@ -62,25 +62,29 @@ export class ElPagination extends ElPaginationProps implements OnInit {
     this.model = 1
   }
   
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes || !changes.total) return
+    if (changes.total.isFirstChange()) return
+    this.updateLayout()
+  }
+  
   ngOnInit(): void {
     if (!this.pageCount && !this.total) {
       return console.warn('el-pagination required [total]')
     }
-    if (!this.pageCount) {
-      this.pageCount = Math.ceil(this.total / this.pageSize)
-    }
+    this.updateLayout()
+  }
+  
+  private updateLayout(): void {
     if (!this.total) {
       this.total = Math.round(this.pageCount * this.pageSize)
     }
-    
-    
+    this.pageCount = Math.ceil(this.total / this.pageSize)
     this.showPager = ElPagination.showLayout('pager', this.layout)
     this.showPrev = ElPagination.showLayout('prev', this.layout)
     this.showNext = ElPagination.showLayout('next', this.layout)
     this.showTotal = ElPagination.showLayout('total', this.layout)
     this.showSize = ElPagination.showLayout('size', this.layout)
     this.showJumper = ElPagination.showLayout('jumper', this.layout)
-  
   }
-  
 }

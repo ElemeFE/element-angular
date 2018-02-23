@@ -51,6 +51,13 @@
       "default": "end"
     },
     {
+      "name": "menu-no-wrap",
+      "notes": "是否阻止对东亚字符分行",
+      "type": "boolean",
+      "enum": null,
+      "default": false
+    },
+    {
       "name": "trigger",
       "notes": "触发下拉的行为",
       "type": "string",

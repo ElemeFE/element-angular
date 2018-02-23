@@ -489,6 +489,38 @@
         "description": "修复 Collapse 组件不能正确的处理 binding 问题",
         "issues": [21]
       }]
+    },
+    {
+      "version": "0.6.0",
+      "date": "2018-02-10",
+      "link": null,
+      "events": [{
+        "description": "Container 从组件迁移为指令"
+      }]
+    },
+    {
+      "version": "0.6.1",
+      "date": "2018-02-11",
+      "link": null,
+      "events": [{
+        "description": "修复 Input 组件在 Form 模式下图标事件不能正常触发",
+        "issues": [28]
+      },{
+        "description": "为 Input 组件尾部图标增加 mousedown / mouseup 事件",
+        "issues": [27]
+      }]
+    },
+    {
+      "version": "0.6.2",
+      "date": "2018-02-23",
+      "link": null,
+      "events": [{
+        "description": "Dropmenu 组件增加字符强制换行属性",
+        "pull-requests": [32]
+      },{
+        "description": "修复 Pagination 组件不能正确同步 total 属性问题",
+        "issues": [35]
+      }]
     }
   ]
 }
