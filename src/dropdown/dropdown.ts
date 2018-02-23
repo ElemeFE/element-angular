@@ -101,8 +101,8 @@ export class ElDropdown extends ElDropdownProps implements OnDestroy, AfterViewI
   
   makeListStyles(): SafeStyle {
     const styles = `top: ${this.slideToBottom ? '100%' : (0 - this.listHeight) + 'px' };` +
-      `${this.menuAlign === 'end' ? 'right' : 'left'}: 0; position: absolute; min-width: 100px;`+
-      ` white-space: ${this.menuNoWrap ? 'nowrap' : 'normal'}`
+      `${this.menuAlign === 'end' ? 'right' : 'left'}: 0; position: absolute; min-width: 100px;` +
+      `white-space: ${this.menuNoWrap ? 'nowrap' : 'normal'}`
     return this.sanitizer.bypassSecurityTrustStyle(styles)
   }
   
