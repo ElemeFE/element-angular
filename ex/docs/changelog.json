@@ -509,6 +509,18 @@
         "description": "为 Input 组件尾部图标增加 mousedown / mouseup 事件",
         "issues": [27]
       }]
+    },
+    {
+      "version": "0.6.2",
+      "date": "2018-02-23",
+      "link": null,
+      "events": [{
+        "description": "Dropmenu 组件增加字符强制换行属性",
+        "pull-requests": [32]
+      },{
+        "description": "修复 Pagination 组件不能正确同步 total 属性问题",
+        "issues": [35]
+      }]
     }
   ]
 }
