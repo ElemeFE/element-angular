@@ -1,8 +1,6 @@
 import {
-  ChangeDetectionStrategy, Component, ElementRef,
-  EventEmitter, Input, OnInit, Output,
+  ChangeDetectionStrategy, Component, EventEmitter, Input, Output,
 } from '@angular/core'
-import { removeNgTag } from '../../shared/utils'
 
 @Component({
   selector: 'el-pagination-btn',
@@ -22,24 +20,16 @@ import { removeNgTag } from '../../shared/utils'
     </button>
   `,
 })
-export class ElPaginationButton implements OnInit {
+export class ElPaginationButton {
   
   // left or right
   @Input() dir: string
   @Input() disabled: boolean = false
   @Output() next: EventEmitter<number> = new EventEmitter<number>()
   
-  constructor(
-    private el: ElementRef,
-  ) {
-  }
-  
   clickHandle(step: number): void {
     if (this.disabled) return
     this.next.emit(step)
   }
   
-  ngOnInit(): void {
-    removeNgTag(this.el.nativeElement)
-  }
 }

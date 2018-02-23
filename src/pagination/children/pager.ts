@@ -1,5 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core'
-import { removeNgTag } from '../../shared/utils'
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core'
 
 @Component({
   selector: 'el-pagination-pager',
@@ -41,15 +40,9 @@ export class ElPaginationPager implements OnInit, OnChanges {
   quicknextIconClass: string = 'el-icon-more'
   quickprevIconClass: string = 'el-icon-more'
   
-  
   static pagerGenerator(minValue: number): number[] {
     const target: number[] = new Array(5).fill('').map((v, i) => i + minValue)
     return target
-  }
-  
-  constructor(
-    private el: ElementRef,
-  ) {
   }
   
   /**
@@ -100,7 +93,6 @@ export class ElPaginationPager implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.pagers = this.makePagers(this.current, this.count)
-    removeNgTag(this.el.nativeElement)
   }
   
   // manual diff and update
