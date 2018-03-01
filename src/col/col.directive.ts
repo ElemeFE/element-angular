@@ -19,6 +19,7 @@ export class ElColDirective implements OnInit {
   @Input() sm: any
   @Input() md: any
   @Input() lg: any
+  @Input() xl: any
   
   parentIsRow: any = null
   gutterFromParent: number = 0
@@ -48,11 +49,11 @@ export class ElColDirective implements OnInit {
         ? `el-col-${key}-${prop}-${props[prop]}`
         : `el-col-${key}-${props[prop]}`).join(' ')
     }
-    const classStr: string = ['xs', 'sm', 'md', 'lg'].reduce((pre, next) => !this[next] ?
+    const classStr: string = ['xs', 'sm', 'md', 'lg', 'xl'].reduce((pre, next) => !this[next] ?
       pre : typeof this[next] === 'object'
-        ? makeClass(next)
-        : ` el-col-${next}-${this[next]}`, '')
-    
+        ? `${pre} ${makeClass(next)}`
+        : `${pre} el-col-${next}-${this[next]}`, '')
+  
     return classStr
   }
  

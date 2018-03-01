@@ -56,6 +56,13 @@
       "type": "number",
       "enum": null,
       "default": null
+    },
+    {
+      "name": "xl",
+      "notes": "<code>≥1920ox</code> 响应式栅格数或者栅格属性对象",
+      "type": "number",
+      "enum": null,
+      "default": null
     }
   ]
 }

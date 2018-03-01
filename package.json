@@ -1,6 +1,6 @@
 {
   "name": "element-angular",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "element ui for angular",
   "main": "./release/element-angular.module.js",
   "unpkg": "bundle/element-angular.js",

@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output, forwardRef } from '@angular/core'
+import { Component, Input, EventEmitter, Output, forwardRef, OnChanges, SimpleChanges } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
@@ -39,6 +39,7 @@ export class ElRadioGroup implements ControlValueAccessor {
   
   writeValue(value: any): void {
     this.model = value
+    this.changeHandle(this.model)
   }
   
   registerOnChange(fn: Function): void {
