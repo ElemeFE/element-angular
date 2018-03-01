@@ -521,6 +521,21 @@
         "description": "修复 Pagination 组件不能正确同步 total 属性问题",
         "issues": [35]
       }]
+    },
+    {
+      "version": "0.6.3",
+      "date": "2018-03-01",
+      "link": null,
+      "events": [{
+        "description": "修复 Col 组件自适应的错误",
+        "issues": [41]
+      },{
+        "description": "为 Col 组件增加 xl 属性",
+        "pull-requests": [42]
+      },{
+        "description": "解决 Radio 组件不能响应 Form 的变化问题",
+        "issues": [40]
+      }]
     }
   ]
 }
