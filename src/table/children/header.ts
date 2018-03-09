@@ -18,6 +18,7 @@ import { WidthItem } from '../table.interface'
             [attr.colspan]="getColspan(th)" [attr.rowspan]="getRowspan(th)">
           <div class="cell" [ngStyle]="{
             width: th.width | cssValue,
+            'display': center ? 'block' : 'inline-block',
             'text-align': center ? 'center' : 'unset' }">{{th.label}}</div>
         </th>
       </tr>
