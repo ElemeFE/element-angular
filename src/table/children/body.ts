@@ -16,23 +16,24 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser'
         [class.hover-row]="tableRow.hover"
         [class.el-table__row--striped]="stripe && k % 2 === 1"
         (mouseenter)="tableRow.hover = true" (mouseleave)="tableRow.hover = false">
-        <td *ngFor="let td of tr; let i = index;"
-          [ngStyle]="{ width: td.width | cssValue }" #tdRef
-          [class]="'el-table_1_column_' + (i + 1)"
-          (mouseenter)="cellMouseActionHandle($event, true);tdRef.destroy = destroyRowFunc(k);"
-          (mouseleave)="cellMouseActionHandle($event, false)"
-          (click)="clickHandle($event, tdRef)"
-          (dblclick)="doubleClickHandle($event, tdRef)">
-          <div class="cell" [ngStyle]="{ 'text-align': center ? 'center' : 'unset' }">
-            <ng-container *ngIf="!isTemplateRef(td.value) && !td._renderHTML">{{ td.value }}</ng-container>
-            <div *ngIf="!isTemplateRef(td.value) && td._renderHTML" [innerHtml]="renderHtml(td.value)"></div>
-            <ng-container *ngIf="isTemplateRef(td.value)">
-              <ng-template [ngTemplateOutlet]="td.value" [ngTemplateOutletContext]="{
-                scope: merge(tdRef, {rowData: getFormatModel(k), index: k})
-              }"></ng-template>
-            </ng-container>
-          </div>
-        </td>
+        <ng-container *ngFor="let td of tr; let i = index;">
+          <td *ngIf="!td.hidden" #tdRef
+            [ngStyle]="{ width: td.width | cssValue }"
+            [class]="'el-table_1_column_' + (i + 1)"
+            (mouseenter)="cellMouseActionHandle($event, true);tdRef.destroy = destroyRowFunc(k);"
+            (mouseleave)="cellMouseActionHandle($event, false)"
+            (click)="clickHandle($event, tdRef)"
+            (dblclick)="doubleClickHandle($event, tdRef)">
+            <div class="cell" [ngStyle]="{ 'text-align': center ? 'center' : 'unset' }">
+              <ng-container *ngIf="!isTemplateRef(td.value) && !td._renderHTML">{{ td.value }}</ng-container>
+              <div *ngIf="!isTemplateRef(td.value) && td._renderHTML" [innerHtml]="renderHtml(td.value)"></div>
+              <ng-container *ngIf="isTemplateRef(td.value)">
+                <ng-template [ngTemplateOutlet]="td.value" [ngTemplateOutletContext]="{
+                scope: merge(tdRef, {rowData: getFormatModel(k), index: k})}"></ng-template>
+              </ng-container>
+            </div>
+          </td>
+        </ng-container>
       </tr>
     </table>
   `,
