@@ -172,17 +172,17 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
       this.modelStorge = this.model
     }
     const modelWithIndex: ModelWithIndexDataItem[][] = this.modelStorge.map((row: any) =>
-      Object.keys(row || {})
-        .map((v: string | number) => {
-          if (!orderMap[v]) return null           // only template column
-          return {
-            value: row[v], [v]: row[v],
-            index: orderMap[v].index,
-            width: orderMap[v].width,
-            _renderHTML: orderMap[v]._renderHTML
-          }
-        })
-        .filter((r: any) => !!r)
+      Object.keys(row || {}).map((v: string | number) => {
+        const item: any = orderMap[v] || {}
+        return {
+          hidden: !item.width,
+          value: row[v], [v]: row[v],
+          index: item.index,
+          width: item.width,
+          _renderHTML: item._renderHTML
+        }
+      })
+      .filter((r: any) => !!r)
     )
     // column sort
     this.columnsData = modelWithIndex.map((row: TableColumnDataItem[]) =>

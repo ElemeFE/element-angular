@@ -536,6 +536,18 @@
         "description": "解决 Radio 组件不能响应 Form 的变化问题",
         "issues": [40]
       }]
+    },
+    {
+      "version": "0.6.4",
+      "date": "2018-03-12",
+      "link": null,
+      "events": [{
+        "description": "调整 Table 组件的居中样式",
+        "issues": [51]
+      },{
+        "description": "修复 Table 组件不能绑定未显示属性的问题",
+        "issues": [52]
+      }]
     }
   ]
 }
