@@ -76,10 +76,10 @@ export class ElPagination extends ElPaginationProps implements OnInit, OnChanges
   }
   
   private updateLayout(): void {
-    if (!this.total) {
+    if (this.total === undefined || this.total === null) {
       this.total = Math.round(this.pageCount * this.pageSize)
     }
-    this.pageCount = Math.ceil(this.total / this.pageSize)
+    this.pageCount = Math.ceil(this.total / this.pageSize) || 1
     this.showPager = ElPagination.showLayout('pager', this.layout)
     this.showPrev = ElPagination.showLayout('prev', this.layout)
     this.showNext = ElPagination.showLayout('next', this.layout)
@@ -87,4 +87,5 @@ export class ElPagination extends ElPaginationProps implements OnInit, OnChanges
     this.showSize = ElPagination.showLayout('size', this.layout)
     this.showJumper = ElPagination.showLayout('jumper', this.layout)
   }
+  
 }

@@ -548,6 +548,17 @@
         "description": "修复 Table 组件不能绑定未显示属性的问题",
         "issues": [52]
       }]
+    },
+    {
+      "version": "0.6.5",
+      "date": "2018-03-15",
+      "link": null,
+      "events": [{
+        "description": "解决 Pagination 组件在总数为 0 时无法显示的问题"
+      }, {
+        "description": "解决 Table 组件的索引缺失时引起的排序错误",
+        "pull-requests": [55]
+      }]
     }
   ]
 }
