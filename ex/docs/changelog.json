@@ -559,6 +559,18 @@
         "description": "解决 Table 组件的索引缺失时引起的排序错误",
         "pull-requests": [55]
       }]
+    },
+    {
+      "version": "0.6.6",
+      "date": "2018-03-19",
+      "link": null,
+      "events": [{
+        "description": "修复 Message 组件动画在 Safari 上的偏移问题",
+        "issues": [58]
+      }, {
+        "description": "Select 组件的 readonly 属性被设置为 true",
+        "issues": [61]
+      }]
     }
   ]
 }
