@@ -1,17 +1,18 @@
 import { Component } from '@angular/core'
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
 import * as Icons from './images'
-import { slideAnimation } from '../shared/animation'
+import { MessageAnimation } from './message.animation'
 
 @Component({
   selector: 'el-message-container',
+  styles: [``],
   template: `
     <div [class]="'el-message ' + customClass + (type && !iconClass ? ' el-message--' + type : '')"
       [class.is-center]="center"
-      style="visibility: hidden;" role="alertdialog"
+      style="visibility: hidden; transition: all .25s" role="alertdialog"
       [ngStyle]="{ 'z-index': zIndex }"
       (mouseenter)="clearTimer()" (mouseleave)="startTimer()"
-      [@slideAnimation]="showBox">
+      [@messageAnimation]="showBox">
       <i [class]="iconClass" *ngIf="iconClass"></i>
       <i [class]="makeTypeClass()" *ngIf="!iconClass"></i>
       
@@ -19,7 +20,7 @@ import { slideAnimation } from '../shared/animation'
       <div *ngIf="showClose" class="el-message__closeBtn el-icon-close" (click)="close()" role="button"></div>
     </div>
   `,
-  animations: [slideAnimation]
+  animations: [MessageAnimation]
 })
 export class ElMessageContainer {
   
