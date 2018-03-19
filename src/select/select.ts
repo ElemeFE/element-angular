@@ -16,7 +16,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
     <div class="el-select" (click)="toggleHandle($event)">
       <el-input [model]="selectedLabel" [placeholder]="placeholder" [icon]="iconClass"
         iconClass="el-select__caret"
-        [name]="name" [size]="size" [elDisabled]="elDisabled"
+        [name]="name" [size]="size" [elDisabled]="elDisabled" [readonly]="true"
         (mouseenter)="mouseHandle(true)" (mouseleave)="mouseHandle(false)"
         (icon-click)="clearSelected($event)">
       </el-input>
