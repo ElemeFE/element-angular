@@ -214,12 +214,15 @@ export class ElTable extends ElTableProps implements OnInit, OnDestroy, OnChange
     if (!change || !this.orderMap) return
   
     // distribution template
+    this.modelStorge = this.model
     const nextColumns: TableColumn[] = this.columns.map((column: TableColumn) => {
       if (!column.slot) return column
       const TEMPLATE_KEY: string = ElTable.GEN_TEMPLATE_KEY()
+      
       this.modelStorge = this.model.map((v: any) => Object.assign(v, { [TEMPLATE_KEY]: column.slot }))
       return Object.assign(column, { modelKey: TEMPLATE_KEY })
     })
+    
     this.orderMap = nextColumns.reduce((pre, next: TableColumn) =>
       Object.assign(pre, { [next.modelKey]: next }), {})
     this.transformModelData()
