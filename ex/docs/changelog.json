@@ -571,6 +571,15 @@
         "description": "Select 组件的 readonly 属性被设置为 true",
         "issues": [61]
       }]
+    },
+    {
+      "version": "0.6.6",
+      "date": "2018-03-21",
+      "link": null,
+      "events": [{
+        "description": "修复 Table 组件缺失 slot 时不能正确响应变化的错误",
+        "issues": [65]
+      }]
     }
   ]
 }
