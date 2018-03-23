@@ -31,10 +31,10 @@ clear(): void {
 `
 <el-select [(model)]="value" placeholder="请选择">
   <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
-      { value: '选项2', label: '双皮奶' },
-      { elDisabled: true, value: '选项3', label: '蚵仔煎' },
-      { value: '选项4', label: '龙须面' },
-      { value: '选项5', label: '北京烤鸭' }]"
+    { value: '选项2', label: '双皮奶' },
+    { elDisabled: true, value: '选项3', label: '蚵仔煎' },
+    { value: '选项4', label: '龙须面' },
+    { value: '选项5', label: '北京烤鸭' }]"
     [label]="item.label"
     [elDisabled]="item.elDisabled"
     [value]="item.value">
@@ -56,10 +56,10 @@ clear(): void {
 `
 <el-select [model]="'选项2'">
   <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
-      { value: '选项2', label: '双皮奶' },
-      { elDisabled: true, value: '选项3', label: '蚵仔煎' },
-      { value: '选项4', label: '龙须面' },
-      { value: '选项5', label: '北京烤鸭' }]"
+    { value: '选项2', label: '双皮奶' },
+    { elDisabled: true, value: '选项3', label: '蚵仔煎' },
+    { value: '选项4', label: '龙须面' },
+    { value: '选项5', label: '北京烤鸭' }]"
     [label]="item.label"
     [value]="item.value">
   </el-option>
@@ -70,10 +70,24 @@ clear(): void {
 `
 <el-select [(model)]="value" [clearable]="true">
   <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
-      { value: '选项2', label: '双皮奶' },
-      { elDisabled: true, value: '选项3', label: '蚵仔煎' },
-      { value: '选项4', label: '龙须面' },
-      { value: '选项5', label: '北京烤鸭' }]"
+    { value: '选项2', label: '双皮奶' },
+    { elDisabled: true, value: '选项3', label: '蚵仔煎' },
+    { value: '选项4', label: '龙须面' },
+    { value: '选项5', label: '北京烤鸭' }]"
+    [label]="item.label"
+    [value]="item.value">
+  </el-option>
+</el-select>
+`,
+
+// 多选
+`
+<el-select [model]="value" (modelChange)="handle($event)" [clearable]="true" [multiple]="true" size="large">
+  <el-option *ngFor="let item of [{value: 'hello',label: 'hello' },
+    { value: 'ruby', label: 'ruby' },
+    { elDisabled: true, value: 'scala', label: 'scala' },
+    { value: 'javascript', label: 'javascript' },
+    { value: 'java', label: 'java' }]"
     [label]="item.label"
     [value]="item.value">
   </el-option>

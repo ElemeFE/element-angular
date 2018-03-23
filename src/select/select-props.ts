@@ -10,10 +10,11 @@ export class ElSelectPoprs {
   @Input() name: string
   @Input() size: string               // enum: large, small, mini
   @Input() placeholder: string = '请选择'
+  @Input() multiple: boolean = false
   @Input('popper-class') popperClass: string
   
   // bind value
-  @Input() model: any = ''
+  @Input() model: any
   @Output() modelChange: EventEmitter<any> = new EventEmitter<any>()
   
 }

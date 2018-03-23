@@ -5,10 +5,10 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser'
   selector: 'el-tag',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <span [class]="'el-tag' + (type ? ' el-tag--' + type : '')"
+    <span [class]="'el-tag' + (type ? ' el-tag--' + type : '') + (size ? ' el-tag--' + size : '')"
       [class.is-hit]="hit">
       <ng-content></ng-content>
-      <i class="el-tag__close el-icon-close" *ngIf="closable" (click)="closeEmitter.emit()"></i>
+      <i class="el-tag__close el-icon-close" *ngIf="closable" (click)="closeEmitter.emit($event)"></i>
     </span>
   `,
 })
@@ -18,6 +18,7 @@ export class ElTag implements OnInit {
   @Input() closable: boolean = false
   @Input() hit: boolean = false
   @Input() color: string
+  @Input() size: string
   @Input('close-transition') closeTransition: boolean = false
   @Output('close') closeEmitter: EventEmitter<any> = new EventEmitter<any>()
   

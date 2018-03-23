@@ -18,7 +18,7 @@ export class ExSelectComponent {
     
     handle(event: any):void {
       this.value = event
-      console.log(event, this.value)
+      console.log(event)
     }
   
     clear(): void {
