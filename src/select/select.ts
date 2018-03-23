@@ -27,7 +27,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
       
       <el-input iconClass="el-select__caret" #input
         [model]="selectedLabel"
-        [placeholder]="placeholder"
+        [placeholder]="multiplePlaceholder"
         [icon]="iconClass"
         [name]="name"
         [size]="size"
@@ -52,6 +52,7 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   selfWidth: string
   subscriber: Function[] = []
   multipleLabels: Array<string | number> = []
+  multiplePlaceholder: string = this.placeholder
   
   dropdownActive: boolean = false
   selectedLabel: string | number
@@ -193,6 +194,8 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
     this.multipleLabels = !nextLabel || this.multipleLabels.indexOf(nextLabel) > -1
     ? this.multipleLabels.filter(v => v !== nextLabel)
     : this.multipleLabels.concat(nextLabel)
+  
+    this.multiplePlaceholder = this.model.length ? '' : this.placeholder
   }
   
 }
