@@ -580,6 +580,17 @@
         "description": "修复 Table 组件缺失 slot 时不能正确响应变化的错误",
         "issues": [65]
       }]
+    },
+    {
+      "version": "0.7.0",
+      "date": "2018-03-23",
+      "link": null,
+      "events": [{
+        "description": "Select 组件增加多选",
+        "issues": [69]
+      }, {
+        "description": "Tag 组件增加 size 属性支持"
+      }]
     }
   ]
 }
