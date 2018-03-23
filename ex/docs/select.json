@@ -56,6 +56,13 @@
       "type": "string",
       "enum": null,
       "default": null
+    },
+    {
+      "name": "multiple",
+      "notes": "是否开启多选",
+      "type": "boolean",
+      "enum": null,
+      "default": false
     }
   ]
 }
