@@ -37,7 +37,11 @@ export class ElOption implements OnInit {
   
   ngOnInit(): void {
     const updateHandle = () => {
-      this.itemSelected = this.value === this.rootSelect.model
+      if (this.rootSelect.multiple) {
+        this.itemSelected = Array.isArray(this.rootSelect.model) && this.rootSelect.model.indexOf(this.value) > -1
+      } else {
+        this.itemSelected = this.value === this.rootSelect.model
+      }
       this.itemSelected && this.rootSelect.changeLabel(this.label)
     }
     this.rootDisabled = this.rootSelect.elDisabled

@@ -1,5 +1,5 @@
 import {
-  Component, OnInit, ElementRef, Renderer2, OnDestroy, OnChanges, SimpleChanges, forwardRef,
+  Component, OnInit, ElementRef, Renderer2, OnDestroy, OnChanges, SimpleChanges, forwardRef, ViewChild,
 } from '@angular/core'
 import { ElSelectPoprs } from './select-props'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
@@ -11,12 +11,27 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
     useExisting: forwardRef(() => ElSelect),
     multi: true
   }],
-  styles: ['.el-select-dropdown__list { overflow: hidden; }'],
+  styles: [`
+    .el-select-dropdown__list { overflow: hidden; }
+    .el-select__tags__padding { padding-right: 30px; }
+  `],
   template: `
     <div class="el-select" (click)="toggleHandle($event)">
-      <el-input [model]="selectedLabel" [placeholder]="placeholder" [icon]="iconClass"
-        iconClass="el-select__caret"
-        [name]="name" [size]="size" [elDisabled]="elDisabled" [readonly]="true"
+      <div class="el-select__tags el-select__tags__padding" *ngIf="multiple && model && model.length" #tags>
+        <el-tag *ngFor="let tag of multipleLabels; let i = index"
+          [closable]="!elDisabled"
+          [size]="size"
+          (close)="$event.stopPropagation();changeLabel(tag, model[i])"
+          type="info">{{tag}}</el-tag>
+      </div>
+      
+      <el-input iconClass="el-select__caret" #input
+        [model]="selectedLabel"
+        [placeholder]="placeholder"
+        [icon]="iconClass"
+        [name]="name"
+        [size]="size"
+        [elDisabled]="elDisabled" [readonly]="true"
         (mouseenter)="mouseHandle(true)" (mouseleave)="mouseHandle(false)"
         (icon-click)="clearSelected($event)">
       </el-input>
@@ -32,9 +47,11 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 })
 export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChanges, ControlValueAccessor {
   
-  
+  @ViewChild('tags') tags: any
+  @ViewChild('input') input: any
   selfWidth: string
   subscriber: Function[] = []
+  multipleLabels: Array<string | number> = []
   
   dropdownActive: boolean = false
   selectedLabel: string | number
@@ -49,11 +66,13 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   }
   
   mouseHandle(isEnter: boolean = false): void {
+    this.clearable = this.clearable && !this.multiple
     if (!this.clearable || !this.model) return
     this.iconClass = `${isEnter ? 'circle-close is-reverse' : 'arrow-up'}`
   }
   
   toggleHandle(event?: Event): void {
+    this.clearable = this.clearable && !this.multiple
     if (this.elDisabled) return
     event && event.stopPropagation()
     this.dropdownActive = !this.dropdownActive
@@ -62,6 +81,7 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   }
   
   clearSelected(event: Event): void {
+    this.clearable = this.clearable && !this.multiple
     if (!this.clearable) return
     event.stopPropagation()
     // reset icon
@@ -80,12 +100,17 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   changeLabel(nextLabel: string | number, nextValue?: any): void {
     this.dropdownActive && this.toggleHandle()
     // only update label
-    this.selectedLabel = nextLabel
+    this.selectedLabel = this.multiple ? '' : nextLabel
     if (!nextValue || this.model === nextValue) return
-    
-    this.model = nextValue
-    this.modelChange.emit(nextValue)
-    this.controlChange(nextValue)
+  
+    if (this.multiple) {
+      this.updateValueWithMultipleMode(nextLabel, nextValue)
+      this.updateLayoutWithMultipleMode()
+    } else {
+      this.model = nextValue
+    }
+    this.modelChange.emit(this.model)
+    this.controlChange(this.model)
     this.subscriber.forEach(sub => sub())
   }
   
@@ -131,6 +156,43 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   }
   
   private controlChange: Function = () => {}
+  
   private controlTouch: Function = () => {}
+  
+  private updateLayoutWithMultipleMode(): void {
+    const updateHandle = () => {
+      if (!this.tags) return
+      const children = this.tags.nativeElement && this.tags.nativeElement.children
+      const inputEl: Element = this.input.el.nativeElement
+      if (!children || !children.length || !inputEl) return
+      const inputWidth: number = inputEl.getBoundingClientRect().width
+  
+      const unit: number = inputWidth - 34
+      let row = 1
+      Array.from(children).reduce((count: number, el: any) => {
+        const currentWidth: number = el.getBoundingClientRect().width || 80
+          if (count + currentWidth < unit) return count + currentWidth
+          // add a row
+          row ++
+          return currentWidth
+        }, 0)
+      const el = inputEl.querySelector('.el-input__inner')
+      this.renderer.setStyle(el, 'height', `${Math.ceil(row) * 40}px`)
+    }
+    const timer: number = window.setTimeout(() => {
+      updateHandle()
+      clearTimeout(timer)
+    }, 0)
+  }
+  
+  private updateValueWithMultipleMode(nextLabel: string | number, nextValue?: any): void {
+    this.model = Array.isArray(this.model)
+      ? (this.model.indexOf(nextValue) > -1 ? this.model.filter(v => v !== nextValue) : this.model.concat(nextValue))
+      : [nextValue]
+    
+    this.multipleLabels = !nextLabel || this.multipleLabels.indexOf(nextLabel) > -1
+    ? this.multipleLabels.filter(v => v !== nextLabel)
+    : this.multipleLabels.concat(nextLabel)
+  }
   
 }
