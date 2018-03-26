@@ -46,7 +46,7 @@ export class ElTreeItem {
   
   clickHandle(event: MouseEvent): void {
     event.stopPropagation()
-    if (!this.root.expandOnClickNode) return
+    if (!this.root.expandOnClickNode) return this.itemEmitter('click')
     this.updateExpanded()
   }
   
@@ -69,17 +69,21 @@ export class ElTreeItem {
   updateExpanded(): void {
     const dontUpdateExpanded: boolean = this.isLeaf()
     const nextAction: string = dontUpdateExpanded ? 'click' : (this.model.expanded ? 'close' : 'open')
-    this.root.emitter({
-      label: this.model.label,
-      treeNodeID: this.model.id,
-      action: nextAction,
-      checked: this.model.checked,
-    })
+    this.itemEmitter(nextAction)
     !dontUpdateExpanded && this.root.updateExpanded(this.model.id)
   }
   
   isLeaf(): boolean {
     return !this.model.children || !this.model.children.length
+  }
+  
+  itemEmitter(action: string): void {
+    this.root.emitter({
+      label: this.model.label,
+      treeNodeID: this.model.id,
+      action: action,
+      checked: this.model.checked,
+    })
   }
   
 }
