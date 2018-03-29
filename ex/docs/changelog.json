@@ -591,6 +591,18 @@
       }, {
         "description": "Tag 组件增加 size 属性支持"
       }]
+    },
+    {
+      "version": "0.7.1",
+      "date": "2018-03-29",
+      "link": null,
+      "events": [{
+        "description": "修复 Tree 组件触发事件的错误",
+        "issues": [71]
+      }, {
+        "description": "修复 Select 组件在开启多选时不能正确更新占位文字的问题",
+        "issues": [73]
+      }]
     }
   ]
 }
