@@ -123,6 +123,8 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
     this.globalListener = this.renderer.listen('document', 'click', () => {
       this.dropdownActive && this.toggleHandle()
     })
+  
+    this.updatePlaceholderWithMultipleMode()
   }
   
   ngOnChanges(changes: SimpleChanges): void {
@@ -195,7 +197,12 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
     ? this.multipleLabels.filter(v => v !== nextLabel)
     : this.multipleLabels.concat(nextLabel)
   
-    this.multiplePlaceholder = this.model.length ? '' : this.placeholder
+    this.updatePlaceholderWithMultipleMode()
+  }
+  
+  private updatePlaceholderWithMultipleMode(): void {
+    if (!this.multiple) return
+    this.multiplePlaceholder = this.model && this.model.length ? '' : this.placeholder
   }
   
 }
