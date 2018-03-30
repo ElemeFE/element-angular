@@ -603,6 +603,14 @@
         "description": "修复 Select 组件在开启多选时不能正确更新占位文字的问题",
         "issues": [73]
       }]
+    },
+    {
+      "version": "0.7.2",
+      "date": "2018-03-30",
+      "link": null,
+      "events": [{
+        "description": "修复 Select 组件占位文字的错误"
+      }]
     }
   ]
 }
