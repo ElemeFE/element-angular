@@ -27,7 +27,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
       
       <el-input iconClass="el-select__caret" #input
         [model]="selectedLabel"
-        [placeholder]="multiplePlaceholder"
+        [placeholder]="multiple ? multiplePlaceholder : placeholder"
         [icon]="iconClass"
         [name]="name"
         [size]="size"
