@@ -47,5 +47,9 @@ export class ElOption implements OnInit {
     this.rootDisabled = this.rootSelect.elDisabled
     updateHandle()
     this.rootSelect.subscriber.push(updateHandle)
+    this.rootSelect.appendOptions({
+      value: this.value,
+      label: this.label,
+    })
   }
 }
