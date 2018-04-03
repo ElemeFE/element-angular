@@ -87,7 +87,7 @@ export class ExFormComponentDemo implements OnInit {
       express: [ '' ],
       invoice: [ '' ],
       discount: [ [] ],
-      time: [ '', [this.timeValidator] ],
+      time: [ ['now'], [this.timeValidator] ],
       num: [ 1 ],
       spec: [ '' ],
       date: [ '', [this.dateValidator] ],

@@ -1,9 +1,14 @@
 import {
-  Component, OnInit, ElementRef, Renderer2, OnDestroy, OnChanges, SimpleChanges, forwardRef, ViewChild,
+  Component, OnInit, ElementRef, Renderer2, OnDestroy, OnChanges, SimpleChanges, forwardRef, ViewChild, AfterViewInit,
 } from '@angular/core'
 import { ElSelectPoprs } from './select-props'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 import { WindowWrapper } from '../shared/services'
+
+export type SelectOption = {
+  label?: string | number,
+  value: any,
+}
 
 @Component({
   selector: 'el-select',
@@ -46,7 +51,7 @@ import { WindowWrapper } from '../shared/services'
     </div>
   `,
 })
-export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChanges, ControlValueAccessor {
+export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChanges, AfterViewInit, ControlValueAccessor {
   
   @ViewChild('tags') tags: any
   @ViewChild('input') input: any
@@ -59,6 +64,8 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   selectedLabel: string | number
   iconClass: string = 'arrow-up'
   globalListener: Function
+  
+  private selectOptions: SelectOption[] = []
   
   constructor(
     private el: ElementRef,
@@ -91,11 +98,13 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
     this.mouseHandle(false)
     // reset selected label
     this.changeLabel(null, null)
+    
     // reset model
     this.model = null
     this.modelChange.emit(this.model)
     this.controlChange(this.model)
     this.subscriber.forEach(sub => sub())
+    
     // close dropdown menu
     this.dropdownActive = false
   }
@@ -117,6 +126,10 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
     this.subscriber.forEach(sub => sub())
   }
   
+  appendOptions(item: SelectOption): void {
+    this.selectOptions.push(item)
+  }
+  
   ngOnInit(): void {
     const timer: number = window.setTimeout(() => {
       this.selfWidth = this.el.nativeElement.getBoundingClientRect().width
@@ -127,11 +140,6 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
     })
     
     this.updatePlaceholderWithMultipleMode()
-  
-    if (this.model && this.multiple) {
-      this.updateValueWithMultipleMode(this.model)
-      this.updateLayoutWithMultipleMode()
-    }
   }
   
   ngOnChanges(changes: SimpleChanges): void {
@@ -153,8 +161,16 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
     this.globalListener && this.globalListener()
   }
   
+  ngAfterViewInit(): void {
+    const timer: number = this.window.setTimeout(() => {
+      this.initModelWithMultipleMode()
+      this.window.clearTimeout(timer)
+    }, 0)
+  }
+  
   writeValue(value: any): void {
     this.model = value
+    this.initModelWithMultipleMode()
   }
   
   registerOnChange(fn: Function): void {
@@ -191,7 +207,7 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
     }
     const timer: number = this.window.setTimeout(() => {
       updateHandle()
-      clearTimeout(timer)
+      this.window.clearTimeout(timer)
     }, 0)
   }
   
@@ -211,6 +227,20 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   private updatePlaceholderWithMultipleMode(): void {
     if (!this.multiple) return
     this.multiplePlaceholder = this.model && this.model.length ? '' : this.placeholder
+  }
+  
+  private initModelWithMultipleMode(): void {
+    if (!this.model || !this.multiple || !this.selectOptions.length) return
+    if (!Array.isArray(this.model)) this.model = [this.model]
+    
+    this.multipleLabels = this.model
+    .map((item: any) => {
+      const option: SelectOption = this.selectOptions.find(option => option.value === item)
+      if (option && option.label) return option.label
+      return null
+    })
+    .filter((r: any) => !!r)
+    this.updateLayoutWithMultipleMode()
   }
   
 }

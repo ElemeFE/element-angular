@@ -619,6 +619,15 @@
       "events": [{
         "description": "解决多选状态下的 Select 组件初始值错误的问题"
       }]
+    },
+    {
+      "version": "0.7.4",
+      "date": "2018-04-03",
+      "link": null,
+      "events": [{
+        "issues": [83],
+        "description": "解决 Select 组件初始值在 FormGroup 中的问题"
+      }]
     }
   ]
 }
