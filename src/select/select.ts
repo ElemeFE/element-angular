@@ -3,6 +3,7 @@ import {
 } from '@angular/core'
 import { ElSelectPoprs } from './select-props'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
+import { WindowWrapper } from '../shared/services'
 
 @Component({
   selector: 'el-select',
@@ -62,6 +63,7 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
+    private window: WindowWrapper,
   ) {
     super()
   }
@@ -116,15 +118,20 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   }
   
   ngOnInit(): void {
-    const timer: any = setTimeout(() => {
+    const timer: number = window.setTimeout(() => {
       this.selfWidth = this.el.nativeElement.getBoundingClientRect().width
       clearTimeout(timer)
     }, 0)
     this.globalListener = this.renderer.listen('document', 'click', () => {
       this.dropdownActive && this.toggleHandle()
     })
-  
+    
     this.updatePlaceholderWithMultipleMode()
+  
+    if (this.model && this.multiple) {
+      this.updateValueWithMultipleMode(this.model)
+      this.updateLayoutWithMultipleMode()
+    }
   }
   
   ngOnChanges(changes: SimpleChanges): void {
@@ -182,16 +189,17 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
       const el = inputEl.querySelector('.el-input__inner')
       this.renderer.setStyle(el, 'height', `${Math.ceil(row) * 40}px`)
     }
-    const timer: number = window.setTimeout(() => {
+    const timer: number = this.window.setTimeout(() => {
       updateHandle()
       clearTimeout(timer)
     }, 0)
   }
   
   private updateValueWithMultipleMode(nextLabel: string | number, nextValue?: any): void {
-    this.model = Array.isArray(this.model)
+    const model: any[] = Array.isArray(this.model)
       ? (this.model.indexOf(nextValue) > -1 ? this.model.filter(v => v !== nextValue) : this.model.concat(nextValue))
       : [nextValue]
+    this.model = model.filter(r => r !== undefined)
     
     this.multipleLabels = !nextLabel || this.multipleLabels.indexOf(nextLabel) > -1
     ? this.multipleLabels.filter(v => v !== nextLabel)
