@@ -611,6 +611,14 @@
       "events": [{
         "description": "修复 Select 组件占位文字的错误"
       }]
+    },
+    {
+      "version": "0.7.3",
+      "date": "2018-04-03",
+      "link": null,
+      "events": [{
+        "description": "解决多选状态下的 Select 组件初始值错误的问题"
+      }]
     }
   ]
 }
