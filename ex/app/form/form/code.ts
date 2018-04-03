@@ -118,7 +118,7 @@ private passwordValidator = (control: FormControl): validateResult => {
   </el-form-item>
   
   <el-form-item label="配送时间" [status]="statusCtrl('time')" [error]="messageCtrl('time')">
-    <el-select placeholder="请选择" formControlName="time" [clearable]="true">
+    <el-select placeholder="请选择" formControlName="time" [clearable]="true" [multiple]="true">
       <el-option label="尽快配送" value="now"></el-option>
       <el-option label="夜间配送" value="night"></el-option>
     </el-select>
