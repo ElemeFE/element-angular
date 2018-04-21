@@ -2,7 +2,7 @@ export default [
 // 基础用法
 `
 <!-- 可以指定 [(model)] 或 (modelChange) 来获取每次改变的值-->
-<el-collapse [model]="[1]">
+<el-collapse [model]="['1']">
   <el-collapse-item label="一致性 Consistency" value="1">
     <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
     <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
@@ -27,7 +27,7 @@ export default [
 
 // 手风琴
 `
-<el-collapse [model]="[1]" [accordion]="true">
+<el-collapse [accordion]="true">
   <el-collapse-item label="一致性 Consistency" value="1">
     <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
     <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
@@ -50,7 +50,7 @@ export default [
 
 // 基础用法
 `
-<el-collapse [model]="[1]">
+<el-collapse>
   <el-collapse-item label="一致性 Consistency" value="1">
   
     <ng-template #label>
