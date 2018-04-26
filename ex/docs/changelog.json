@@ -628,6 +628,17 @@
         "issues": [83],
         "description": "解决 Select 组件初始值在 FormGroup 中的问题"
       }]
+    },
+    {
+      "version": "0.7.5",
+      "date": "2018-04-26",
+      "link": null,
+      "events": [{
+        "issues": [91],
+        "description": "为 Collapse 组件 model 属性增加自动追踪"
+      }, {
+        "description": "修复 Radio 组件禁用状态在 group 模式下不可用的错误"
+      }]
     }
   ]
 }
