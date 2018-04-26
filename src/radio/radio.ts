@@ -10,7 +10,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => ElRadio),
-    multi: true
+    multi: true,
   }],
   template: `
     <label class="el-radio" role="radio" tabindex="0">
@@ -47,6 +47,7 @@ export class ElRadio implements OnInit, ControlValueAccessor {
     @Optional() private rootGroup: ElRadioGroup,
     private el: ElementRef,
   ) {
+    console.log(this.elDisabled)
   }
   
   changeHandle(): void {
@@ -61,7 +62,9 @@ export class ElRadio implements OnInit, ControlValueAccessor {
   ngOnInit(): void {
     const nativeElement = this.el.nativeElement
     const update = () => {
-      this.elDisabled = this.rootGroup.elDisabled
+      if (this.rootGroup.elDisabled) {
+        this.elDisabled = this.rootGroup.elDisabled
+      }
       this.model = this.rootGroup.model
     }
     this.parentIsGroup = isParentTag(nativeElement, 'el-radio-group')
