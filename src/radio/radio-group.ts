@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output, forwardRef, OnChanges, SimpleChanges } from '@angular/core'
+import { Component, Input, EventEmitter, Output, forwardRef } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
@@ -6,7 +6,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => ElRadioGroup),
-    multi: true
+    multi: true,
   }],
   template: `
     <div class="el-radio-group" role="radiogroup">
