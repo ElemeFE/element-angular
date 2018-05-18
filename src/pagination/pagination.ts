@@ -69,7 +69,7 @@ export class ElPagination extends ElPaginationProps implements OnInit, OnChanges
   }
   
   ngOnInit(): void {
-    if (!this.pageCount && !this.total) {
+    if (!this.pageCount && this.total === undefined) {
       return console.warn('el-pagination required [total]')
     }
     this.updateLayout()
