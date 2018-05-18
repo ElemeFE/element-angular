@@ -639,6 +639,23 @@
       }, {
         "description": "修复 Radio 组件禁用状态在 group 模式下不可用的错误"
       }]
+    },
+    {
+      "version": "0.7.6",
+      "date": "2018-05-18",
+      "link": null,
+      "events": [{
+        "issues": [110],
+        "description": "修复 Pagiantion 组件属性初始化的错误"
+      }, {
+        "issues": [112],
+        "description": "修复 Pagiantion 组件属性变化未跟踪的问题"
+      }, {
+        "issues": [113],
+        "description": "修复 carousel 组件属性变化未跟踪的问题"
+      }, {
+        "description": "移除未使用的 HttpModule"
+      }]
     }
   ]
 }
