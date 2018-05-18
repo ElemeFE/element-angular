@@ -2,7 +2,6 @@ import { NgModule, ModuleWithProviders } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { CommonModule } from '@angular/common'
-import { HttpModule } from '@angular/http'
 import { ElProgressModule } from '../progress/module'
 import { ElButtonsModule } from '../button/module'
 import { ElUploadRequest } from './upload.request'
@@ -17,7 +16,6 @@ import { ElUploadDragger } from './upload.dragger'
   imports: [
     CommonModule,
     FormsModule,
-    HttpModule,
     HttpClientModule,
     ElButtonsModule,
     ElProgressModule,
