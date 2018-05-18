@@ -1,5 +1,5 @@
 import {
-  AfterViewInit, Component, ContentChildren, forwardRef,
+  AfterContentChecked, Component, ContentChildren, forwardRef,
   OnChanges, OnDestroy, QueryList, SimpleChanges,
 } from '@angular/core'
 import { ElCarouselItem } from './carousel-item'
@@ -50,7 +50,7 @@ import { carouselBtnLeftAnimation, carouselBtnRightAnimation } from './animation
     </div>
   `,
 })
-export class ElCarousel extends ElCarouselProps implements AfterViewInit, OnChanges, OnDestroy {
+export class ElCarousel extends ElCarouselProps implements AfterContentChecked, OnChanges, OnDestroy {
   
   @ContentChildren(forwardRef(() => ElCarouselItem)) children: QueryList<ElCarouselItem>
   subscriber: Function[] = []
@@ -76,6 +76,8 @@ export class ElCarousel extends ElCarouselProps implements AfterViewInit, OnChan
   }
   
   setActiveItem(index: number): void {
+    if (!this.children) return
+    
     const len = this.children.length
     const nextValue = index >= len ? 0 : index < 0 ? len - 1 : index
     this.model = nextValue
@@ -90,7 +92,7 @@ export class ElCarousel extends ElCarouselProps implements AfterViewInit, OnChan
     }, this.interval)
   }
   
-  ngAfterViewInit(): void {
+  ngAfterContentChecked(): void {
     const timer = setTimeout(() => {
       this.children.forEach((item, index) => {
         item.index = index
