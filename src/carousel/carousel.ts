@@ -1,6 +1,5 @@
 import {
-  AfterContentChecked,
-  AfterViewInit, Component, ContentChildren, forwardRef,
+  AfterContentChecked, Component, ContentChildren, forwardRef,
   OnChanges, OnDestroy, QueryList, SimpleChanges,
 } from '@angular/core'
 import { ElCarouselItem } from './carousel-item'
