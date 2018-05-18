@@ -63,8 +63,8 @@ export class ElPagination extends ElPaginationProps implements OnInit, OnChanges
   }
   
   ngOnChanges(changes: SimpleChanges): void {
-    if (!changes || !changes.total) return
-    if (changes.total.isFirstChange()) return
+    if (!changes) return
+    if (changes.total && changes.total.isFirstChange()) return
     this.updateLayout()
   }
   
