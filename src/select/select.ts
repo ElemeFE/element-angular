@@ -171,6 +171,7 @@ export class ElSelect extends ElSelectPoprs implements OnInit, OnDestroy, OnChan
   writeValue(value: any): void {
     this.model = value
     this.initModelWithMultipleMode()
+    this.subscriber.forEach(sub => sub())
   }
   
   registerOnChange(fn: Function): void {
