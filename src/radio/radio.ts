@@ -47,7 +47,6 @@ export class ElRadio implements OnInit, ControlValueAccessor {
     @Optional() private rootGroup: ElRadioGroup,
     private el: ElementRef,
   ) {
-    console.log(this.elDisabled)
   }
   
   changeHandle(): void {
