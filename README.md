@@ -60,9 +60,9 @@ More: [Doc](https://element-angular.faas.ele.me)
 
 ## Contribution
 
-- [Contribution Guide](https://github.com/eleme/element-angular/blob/master/.github/CONTRIBUTING.en-US.md)
+- [Contribution Guide](https://github.com/ElemeFE/element-angular/blob/master/.github/CONTRIBUTING.en-US.md)
 
-- [贡献指南](https://github.com/eleme/element-angular/blob/master/.github/CONTRIBUTING.zh-CN.md)
+- [贡献指南](https://github.com/ElemeFE/element-angular/blob/master/.github/CONTRIBUTING.zh-CN.md)
 
 
 
