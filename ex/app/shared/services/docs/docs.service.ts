@@ -1,6 +1,7 @@
 import { forwardRef, Inject, Injectable, LOCALE_ID } from '@angular/core'
-import { Http } from '@angular/http'
-import { Observable } from 'rxjs/Observable'
+import {Http, Response} from '@angular/http';
+import {Observable, throwError as observableThrowError, of} from 'rxjs';
+import {map, catchError} from 'rxjs/operators';
 import { environment } from '../../../../environments'
 
 @Injectable()
@@ -19,22 +20,37 @@ export class DocsService {
   }
   
   getCatalog(): Observable<any> {
-    return this.http.get(`${this.url}/catalog.json`)
-      .map(res => res.json())
+    return this.http.get(`${this.url}/catalog.json`).pipe(
+      catchError(err => this.handleResponseError(err)),
+      map((res: Response) => {
+        if (!res.text()) { return null; }
+        return res.json();
+      }));
   }
   
   getDocuments(documentType: string): Observable<any> {
-    return this.http.get(`${this.url}/${documentType}.json`)
-      .map(res => res.json())
+    return this.http.get(`${this.url}/${documentType}.json`).pipe(
+      catchError(err => this.handleResponseError(err)),
+      map((res: Response) => {
+        if (!res.text()) { return null; }
+        return res.json();
+      }));
   }
   
   getVersion(): Observable<any> {
-    return Observable.of(environment.version || '1.0.0')
+    return of(environment.version || '1.0.0')
   }
   
   getChangeLogs(): Observable<any> {
-    return this.http.get(`${this.url}/changelog.json`)
-      .map(res => res.json())
+    return this.http.get(`${this.url}/changelog.json`).pipe(
+      catchError(err => this.handleResponseError(err)),
+      map((res: Response) => {
+        if (!res.text()) { return null; }
+        return res.json();
+      }));
   }
-  
+
+  private handleResponseError(error: Response): Observable<never> {
+    return observableThrowError(error.json());
+  }
 }
