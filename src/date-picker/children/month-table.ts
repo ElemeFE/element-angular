@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core'
+import { ElLocalesService } from '../../locales';
 
 @Component({
   selector: 'el-month-table',
@@ -32,6 +33,11 @@ export class EMonthTable implements OnInit, OnChanges {
     ['五月', '六月', '七月', '八月'],
     ['九月', '十月', '十一月', '十二月'],
   ]
+    
+  constructor(
+    private elLocales: ElLocalesService
+  ) {
+  }
   
   clickHandle(i: number, k: number): void {
     const monthID = 4 * i + k
@@ -44,6 +50,15 @@ export class EMonthTable implements OnInit, OnChanges {
   }
   
   ngOnInit(): void {
+    this.elLocales.resources$.subscribe(locales => {
+      const months = locales.el.datepicker.months;
+      this.monthRows = [
+        [ months.jan, months.feb, months.mar, months.apr ],
+        [ months.may, months.jun, months.jul, months.aug ],
+        [ months.sep, months.oct, months.nov, months.dec ]
+      ]
+    })
+
     this.date = new Date(this.model)
     this.currentMonth = this.date.getMonth()
   }
