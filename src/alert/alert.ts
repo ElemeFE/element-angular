@@ -16,7 +16,7 @@ export const ICON_CLASS_MAP: { [key: string]: string } = {
   animations: [fadeAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div [class]="'el-alert el-alert--' + type" [@fadeAnimation]="!visible"
+    <div [class]="'el-alert el-alert--' + type + ' is-' + effect" [@fadeAnimation]="!visible"
       [class.is-center]="center" role="alert">
       <i [class]="'el-alert__icon ' + makeIconClass()" *ngIf="showIcon"></i>
       <div class="el-alert__content">
@@ -41,6 +41,7 @@ export class ElAlert {
   @ContentChild('description') descriptionTmp: TemplateRef<any>
   
   @Input() type: string = 'info'
+  @Input() effect: string = 'light'
   @Input() center: boolean = false
   @Input() description: string
   @Input() closable: boolean = true

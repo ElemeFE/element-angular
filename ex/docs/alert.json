@@ -42,6 +42,13 @@
       "type": "EventEmitter",
       "enum": null,
       "default": null
+    },
+    {
+      "name": "effect",
+      "notes": "Choose theme",
+      "type": "string",
+      "enum": "light / dark",
+      "default": "light"
     }
   ]
 }
