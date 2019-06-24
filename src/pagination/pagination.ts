@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core'
 import { ElPaginationProps } from './pagination.props'
+import { ElLocalesService, ElPaginationLocales } from '../locales';
 
 @Component({
   selector: 'el-pagination',
@@ -7,7 +8,7 @@ import { ElPaginationProps } from './pagination.props'
     <div class="el-pagination"
       [class.el-pagination--small]="small"
       style="display: inline-table;">
-      <span class="el-pagination__total" *ngIf="showTotal">共 {{total}} 条</span>
+      <span class="el-pagination__total" *ngIf="showTotal">{{ totalText }}</span>
       <el-pagination-size *ngIf="showSize"
         [model]="pageSize" [sizes]="pageSizes"
         (modelChange)="updatePageSize($event)">
@@ -41,13 +42,21 @@ export class ElPagination extends ElPaginationProps implements OnInit, OnChanges
   showTotal: boolean = true
   showSize: boolean = true
   showJumper: boolean = true
+
+  locales: ElPaginationLocales;
+  
+  get totalText(): string {
+    return this.elLocales.format(this.locales.total, {
+      total: this.total
+    })
+  }
   
   static showLayout(ElName: string, layout: string[]): boolean {
     const member: string = layout.find(name => name === ElName)
     return !!member
   }
   
-  constructor() {
+  constructor(private readonly elLocales: ElLocalesService) {
     super()
   }
   
@@ -69,6 +78,9 @@ export class ElPagination extends ElPaginationProps implements OnInit, OnChanges
   }
   
   ngOnInit(): void {
+    this.elLocales.resources$.subscribe(locales => {
+      this.locales = locales.el.pagination;
+    })
     if (!this.pageCount && this.total === undefined) {
       return console.warn('el-pagination required [total]')
     }

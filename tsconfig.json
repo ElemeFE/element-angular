@@ -13,8 +13,9 @@
     "inlineSources": true,
     "skipLibCheck": true
   },
-  "files": [
-    "src/element-angular.module.ts"
+  "include": [
+    "src/element-angular.module.ts",
+    "src/locales/lang/*.ts"
   ],
   "compileOnSave": false,
   "angularCompilerOptions": {

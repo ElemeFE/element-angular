@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { ElPaginationLocales, ElLocalesService } from '../../locales';
 export type Option = {
   value: number,
   label: string
@@ -23,11 +24,17 @@ export class ElPaginationSize implements OnInit {
   
   options: Option[]
   
+  constructor(private readonly elLocales: ElLocalesService) {
+  }
+
   ngOnInit(): void {
-    this.options = this.sizes.map(size => ({
-      value: size,
-      label: size + '条/页',
-    }))
+    this.elLocales.resources$.subscribe(locales => {
+      const pagination = locales.el.pagination;
+      this.options = this.sizes.map(size => ({
+        value: size,
+        label: size + pagination.pagesize,
+      }))
+    })
   }
   
 }

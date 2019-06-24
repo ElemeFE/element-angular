@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core'
 import { DateFormat } from '../utils/format'
+import { ElLocalesService } from '../../locales';
 
 export type DateRowItem = {
   day: number,                  // day value
@@ -61,6 +62,11 @@ export class ElDateTable implements OnInit, OnChanges {
       return { day: lastCount, monthOffset: -1 }
     }).reverse()
   }
+
+  constructor(
+    private elLocales: ElLocalesService
+  ) {
+  }
   
   isToday(item: DateRowItem): boolean {
     if (this.currentMonthOffset === null) return false
@@ -113,6 +119,20 @@ export class ElDateTable implements OnInit, OnChanges {
   }
   
   ngOnInit(): void {
+    this.elLocales.resources$.subscribe(locales => {
+      const weeks = locales.el.datepicker.weeks;
+      this.weeks = [
+        weeks.sun,
+        weeks.mon,
+        weeks.tue,
+        weeks.wed,
+        weeks.thu,
+        weeks.fri,
+        weeks.sat
+      ]
+    })
+
+
     this.date = new Date(this.model)
     this.getRows()
   }
